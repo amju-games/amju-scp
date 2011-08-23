@@ -1,0 +1,32 @@
+/*
+Amju Games source code (c) Copyright Jason Colman 2004
+$Log: ControlStyleMouseBase.h,v $
+Revision 1.1  2004/09/08 15:42:35  jay
+Added to repository
+  
+*/
+
+#if !defined(CONTROL_STYLE_MOUSE_BASE_H_INCLUDED)
+#define CONTROL_STYLE_MOUSE_BASE_H_INCLUDED
+
+#include "ControlStyle.h"
+
+namespace Amju
+{
+// Base class for all Control Styles which use the Mouse.
+class ControlStyleMouseBase : public ControlStyle
+{
+public:
+  ControlStyleMouseBase();
+
+protected:
+  // true if mouse cursor pos has changed since last time
+  bool m_newMousePos;
+
+  // Set to true when mouse button is down.
+  bool m_drag;
+};
+}
+
+#endif
+
