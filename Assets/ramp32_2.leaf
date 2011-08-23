@@ -1,0 +1,71 @@
+// ramp32_2.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+t.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0
+0
+1
+0
+0
+1
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+2
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-8
+16
+0
+
+// Vertex 1 follows.
+// x, y, z
+-8
+0
+0
+
+// Vertex 2 follows.
+// x, y, z
+-8
+0
+32
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+8
+0
+32
+
+// Vertex 1 follows.
+// x, y, z
+8
+0
+0
+
+// Vertex 2 follows.
+// x, y, z
+8
+16
+0
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

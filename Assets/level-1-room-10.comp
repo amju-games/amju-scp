@@ -1,0 +1,73 @@
+// level-1-room-10.comp
+// File version follows on next line.
+11
+
+// Number of components
+6
+
+// Component 0 follows.
+block32_4_32.comp
+// Translation x, y, z
+-48
+5
+-16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+block32_4_32.comp
+// Translation x, y, z
+47
+17
+112
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+level-1-room-10-curve.comp
+// Translation x, y, z
+0
+7
+0
+// Rotation x, y, z
+0
+0
+5
+
+// Component 3 follows.
+level-1-room-10-curve.comp
+// Translation x, y, z
+159
+21
+66
+// Rotation x, y, z
+0
+-90
+-7
+
+// Component 4 follows.
+block32_4_32.comp
+// Translation x, y, z
+175
+33
+19
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+eighth64.comp
+// Translation x, y, z
+63
+29
+66
+// Rotation x, y, z
+7
+45
+0
+

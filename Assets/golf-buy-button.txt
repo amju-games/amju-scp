@@ -1,0 +1,17 @@
+// golf go button
+// ver
+11
+// no of textures
+1
+pool-buy.bmp
+1
+pool-start-a.bmp
+2
+Visit the Amju Store and 
+buy a registration key!
+// bg tq
+tool-1.bmp
+1
+gui-button-1.bmp
+
+

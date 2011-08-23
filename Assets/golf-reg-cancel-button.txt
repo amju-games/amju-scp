@@ -1,0 +1,15 @@
+// golf go button
+// ver
+11
+// no of textures
+1
+pool-back.bmp
+1
+pool-exit-a.bmp
+1
+Cancel
+// bg tq
+tool-2.bmp
+1
+slot-a.bmp
+

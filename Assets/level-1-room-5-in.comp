@@ -1,0 +1,117 @@
+// level-1-room-5-in.comp
+// File version follows on next line.
+11
+
+// Number of components
+10
+
+// Component 0 follows.
+cube32.comp
+// Translation x, y, z
+34
+-64
+64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cube32.comp
+// Translation x, y, z
+-62
+-48
+64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+ramp32_64-2.comp
+// Translation x, y, z
+-46
+16
+-64
+// Rotation x, y, z
+0
+90
+0
+
+// Component 3 follows.
+cube32.comp
+// Translation x, y, z
+-62
+-32
+-32
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+cube32.comp
+// Translation x, y, z
+34
+-16
+-32
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+cube32.comp
+// Translation x, y, z
+-62
+0
+-64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+cube32.comp
+// Translation x, y, z
+34
+-16
+-64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+ramp32_64-2.comp
+// Translation x, y, z
+-62
+-16
+-16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 8 follows.
+ramp32_64-2.comp
+// Translation x, y, z
+18
+0
+-32
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 9 follows.
+ramp32_64-2.comp
+// Translation x, y, z
+-46
+-32
+64
+// Rotation x, y, z
+0
+90
+0
+

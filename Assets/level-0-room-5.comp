@@ -1,0 +1,95 @@
+// level-0-room-5.comp
+// File version follows on next line.
+11
+
+// Number of components
+8
+
+// Component 0 follows.
+cube32.comp
+// Translation x, y, z
+0
+-16
+-16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+brid32_16_16.comp
+// Translation x, y, z
+0
+16
+-8
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+brid32_16_16.comp
+// Translation x, y, z
+0
+16
+-24
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+brid32_16_16.comp
+// Translation x, y, z
+0
+16
+40
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+brid32_16_16.comp
+// Translation x, y, z
+0
+16
+56
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+cube32.comp
+// Translation x, y, z
+0
+-16
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+cube32.comp
+// Translation x, y, z
+64
+-16
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+cube32.comp
+// Translation x, y, z
+64
+-16
+-16
+// Rotation x, y, z
+0
+0
+0
+

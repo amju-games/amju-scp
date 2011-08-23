@@ -1,0 +1,549 @@
+// File version
+11
+
+// TextureMethod
+3
+// Texture file name
+cue2.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+28
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+-0.176761
+
+// Vertex 1 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 2 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+-0.176761
+
+// Vertex 1 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Vertex 2 follows.
+0.17676
+20.05
+-0.176761
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+-0.176761
+
+// Vertex 1 follows.
+0.17676
+20.05
+-0.176761
+
+// Vertex 2 follows.
+0
+20.05
+-0.249976
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+-0.176761
+
+// Vertex 1 follows.
+0
+20.05
+-0.249976
+
+// Vertex 2 follows.
+0
+20.15
+-0.249976
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.15
+-0.249976
+
+// Vertex 1 follows.
+0
+20.05
+-0.249976
+
+// Vertex 2 follows.
+-0.17676
+20.05
+-0.176761
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.15
+-0.249976
+
+// Vertex 1 follows.
+-0.17676
+20.05
+-0.176761
+
+// Vertex 2 follows.
+-0.17676
+20.15
+-0.176761
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+-0.17676
+20.15
+-0.176761
+
+// Vertex 2 follows.
+-0.17676
+20.05
+-0.176761
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+-0.17676
+20.05
+-0.176761
+
+// Vertex 2 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.17676
+20.15
+0.176759
+
+// Vertex 1 follows.
+-0.249975
+20.15
+-9.78552e-007
+
+// Vertex 2 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.17676
+20.15
+0.176759
+
+// Vertex 1 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Vertex 2 follows.
+-0.17676
+20.05
+0.176759
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.05
+0.249974
+
+// Vertex 1 follows.
+0
+20.15
+0.249974
+
+// Vertex 2 follows.
+-0.17676
+20.15
+0.176759
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.05
+0.249974
+
+// Vertex 1 follows.
+-0.17676
+20.15
+0.176759
+
+// Vertex 2 follows.
+-0.17676
+20.05
+0.176759
+
+// Polygon 12 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.05
+0.176759
+
+// Vertex 1 follows.
+0.17676
+20.15
+0.176759
+
+// Vertex 2 follows.
+0
+20.15
+0.249974
+
+// Polygon 13 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.05
+0.176759
+
+// Vertex 1 follows.
+0
+20.15
+0.249974
+
+// Vertex 2 follows.
+0
+20.05
+0.249974
+
+// Polygon 14 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+0.17676
+20.15
+0.176759
+
+// Vertex 2 follows.
+0.17676
+20.05
+0.176759
+
+// Polygon 15 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+0.17676
+20.05
+0.176759
+
+// Vertex 2 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Polygon 16 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.15
+-0.249976
+
+// Vertex 1 follows.
+-0.17676
+20.15
+-0.176761
+
+// Vertex 2 follows.
+0.17676
+20.15
+-0.176761
+
+// Polygon 17 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+-0.176761
+
+// Vertex 1 follows.
+-0.17676
+20.15
+-0.176761
+
+// Vertex 2 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Polygon 18 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+-0.17676
+20.15
+-0.176761
+
+// Vertex 2 follows.
+-0.249975
+20.15
+-9.78552e-007
+
+// Polygon 19 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+-0.249975
+20.15
+-9.78552e-007
+
+// Vertex 2 follows.
+-0.17676
+20.15
+0.176759
+
+// Polygon 20 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.249975
+20.15
+-9.78552e-007
+
+// Vertex 1 follows.
+-0.17676
+20.15
+0.176759
+
+// Vertex 2 follows.
+0.17676
+20.15
+0.176759
+
+// Polygon 21 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0.17676
+20.15
+0.176759
+
+// Vertex 1 follows.
+-0.17676
+20.15
+0.176759
+
+// Vertex 2 follows.
+0
+20.15
+0.249974
+
+// Polygon 22 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+20.05
+-0.249976
+
+// Vertex 1 follows.
+0.17676
+20.05
+-0.176761
+
+// Vertex 2 follows.
+-0.17676
+20.05
+-0.176761
+
+// Polygon 23 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.17676
+20.05
+-0.176761
+
+// Vertex 1 follows.
+0.17676
+20.05
+-0.176761
+
+// Vertex 2 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Polygon 24 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.17676
+20.05
+-0.176761
+
+// Vertex 1 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Vertex 2 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Polygon 25 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Vertex 1 follows.
+0.249975
+20.05
+-9.73695e-007
+
+// Vertex 2 follows.
+0.17676
+20.05
+0.176759
+
+// Polygon 26 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.249975
+20.05
+-9.73695e-007
+
+// Vertex 1 follows.
+0.17676
+20.05
+0.176759
+
+// Vertex 2 follows.
+-0.17676
+20.05
+0.176759
+
+// Polygon 27 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-0.17676
+20.05
+0.176759
+
+// Vertex 1 follows.
+0.17676
+20.05
+0.176759
+
+// Vertex 2 follows.
+0
+20.05
+0.249974
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

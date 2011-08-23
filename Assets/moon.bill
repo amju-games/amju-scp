@@ -1,0 +1,13 @@
+// moon.bill
+// File version follows on next line.
+7
+//----------------------------------------------------------------------------
+// Texture file name
+moon5.bmp
+// Use alpha layer (1) or no alpha layer (0)
+1
+moon_a.bmp
+// Size
+20
+// Vertical (y=1,2=n)
+2

@@ -1,0 +1,278 @@
+// arch11.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+4
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+12
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+1.2
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+0
+0.5
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+0
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+0
+0.5
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+1.2
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+0
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+0.5
+0
+-0.5
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+1.2
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Vertex 2 follows.
+// x, y, z
+0.5
+1.2
+0.5
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+0.5
+0
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.5
+1.2
+-0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+1.2
+-0.5
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+1.2
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.5
+1.2
+0.5
+
+// Vertex 1 follows.
+// x, y, z
+-0.5
+0
+-0.5
+
+// Vertex 2 follows.
+// x, y, z
+-0.5
+0
+0.5
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

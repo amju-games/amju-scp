@@ -1,0 +1,117 @@
+// level-1-room-1-trees-2-in.comp
+// File version follows on next line.
+11
+
+// Number of components
+10
+
+// Component 0 follows.
+tree4_red.comp
+// Translation x, y, z
+-47
+0
+-52
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+tree4_red.comp
+// Translation x, y, z
+-45
+0
+68
+// Rotation x, y, z
+0
+7
+0
+
+// Component 2 follows.
+tree4_red.comp
+// Translation x, y, z
+2
+0
+-53
+// Rotation x, y, z
+0
+14
+0
+
+// Component 3 follows.
+tree4_red.comp
+// Translation x, y, z
+-64
+0
+25
+// Rotation x, y, z
+0
+28
+0
+
+// Component 4 follows.
+tree_yellow.comp
+// Translation x, y, z
+56
+0
+-28
+// Rotation x, y, z
+0
+35
+0
+
+// Component 5 follows.
+tree_yellow.comp
+// Translation x, y, z
+55
+0
+2
+// Rotation x, y, z
+0
+42
+0
+
+// Component 6 follows.
+tree_yellow.comp
+// Translation x, y, z
+-66
+0
+-29
+// Rotation x, y, z
+0
+49
+0
+
+// Component 7 follows.
+tree_yellow.comp
+// Translation x, y, z
+57
+0
+51
+// Rotation x, y, z
+0
+56
+0
+
+// Component 8 follows.
+tree_yellow.comp
+// Translation x, y, z
+19
+0
+-52
+// Rotation x, y, z
+0
+63
+0
+
+// Component 9 follows.
+tree4_red.comp
+// Translation x, y, z
+1
+0
+67
+// Rotation x, y, z
+0
+21
+0
+

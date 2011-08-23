@@ -1,0 +1,15 @@
+// help button
+// ver
+11
+// no of textures
+1
+pool-show-path.bmp
+1
+pool-start-a.bmp
+1
+Show or hide the balls' path
+// bg tq
+tool-2.bmp
+1
+slot-a.bmp
+

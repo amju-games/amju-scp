@@ -1,0 +1,10 @@
+// version
+1
+// Solid name for particles (expect billboard)
+spark3.bill
+// Number of particles
+100
+// max vel
+50
+// max time
+30

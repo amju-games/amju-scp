@@ -1,0 +1,29 @@
+// shed3.comp
+// File version follows on next line.
+11
+
+// Number of components
+2
+
+// Component 0 follows.
+shed2.comp
+// Translation x, y, z
+-0.0119107
+0.801602
+0.206788
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+ramp1_1_2.comp
+// Translation x, y, z
+0
+0
+-3.97046
+// Rotation x, y, z
+0
+180
+0
+

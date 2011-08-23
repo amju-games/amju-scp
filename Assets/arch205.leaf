@@ -1,0 +1,203 @@
+// arch205.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+tile7.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+1
+0
+0
+0
+0
+1
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+8
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.41738e-007
+0.245564
+
+// Vertex 1 follows.
+// x, y, z
+0.252474
+1.92
+0.245564
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+1.92
+0.245564
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.41738e-007
+0.245564
+
+// Vertex 1 follows.
+// x, y, z
+-0.247526
+1.92
+0.245564
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+1.41738e-007
+0.245564
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.92
+-0.254436
+
+// Vertex 1 follows.
+// x, y, z
+0.252474
+1.92
+0.245564
+
+// Vertex 2 follows.
+// x, y, z
+0.252474
+1.41738e-007
+0.245564
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.92
+-0.254436
+
+// Vertex 1 follows.
+// x, y, z
+0.252474
+1.41738e-007
+0.245564
+
+// Vertex 2 follows.
+// x, y, z
+0.252474
+3.51552e-007
+-0.254436
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.92
+-0.254436
+
+// Vertex 1 follows.
+// x, y, z
+0.252474
+3.51552e-007
+-0.254436
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+3.51552e-007
+-0.254436
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.252474
+1.92
+-0.254436
+
+// Vertex 1 follows.
+// x, y, z
+-0.247526
+3.51552e-007
+-0.254436
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+1.92
+-0.254436
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.247526
+1.92
+0.245564
+
+// Vertex 1 follows.
+// x, y, z
+-0.247526
+1.92
+-0.254436
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+3.51552e-007
+-0.254436
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.247526
+1.92
+0.245564
+
+// Vertex 1 follows.
+// x, y, z
+-0.247526
+3.51552e-007
+-0.254436
+
+// Vertex 2 follows.
+// x, y, z
+-0.247526
+1.41738e-007
+0.245564
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

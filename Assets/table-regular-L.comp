@@ -1,0 +1,215 @@
+// File version
+11
+
+// Number of components
+19
+
+// Component 0 follows.
+table2-regular-long.comp
+// Translation x, y, z
+14.2928
+0
+-6.88337
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table3-reg-short.comp
+// Translation x, y, z
+21.8846
+0
+2.52254
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table6-regular.comp
+// Translation x, y, z
+20.7623
+-0.543891
+-8.50814
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+table9.leaf
+// Translation x, y, z
+0.0696694
+-4.77471
+-13.4204
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+table9.leaf
+// Translation x, y, z
+0.284014
+-4.83534
+13.2519
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+table9.leaf
+// Translation x, y, z
+28.9487
+-5
+13.1923
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+table-r2-reg-short.leaf
+// Translation x, y, z
+42.1414
+0
+8.50574
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+table2-regular.comp
+// Translation x, y, z
+-0.0996537
+0
+6.95412
+// Rotation x, y, z
+0
+180
+0
+
+// Component 8 follows.
+table3-regular.comp
+// Translation x, y, z
+6.75917
+0
+-1.41447
+// Rotation x, y, z
+0
+180
+0
+
+// Component 9 follows.
+table3-regular.comp
+// Translation x, y, z
+6.74113
+0
+26
+// Rotation x, y, z
+0
+180
+0
+
+// Component 10 follows.
+table6-regular.comp
+// Translation x, y, z
+7.8953
+-0.49262
+8.71179
+// Rotation x, y, z
+0
+180
+0
+
+// Component 11 follows.
+table6-regular.comp
+// Translation x, y, z
+22.2234
+-0.49262
+5.38374
+// Rotation x, y, z
+0
+270
+0
+
+// Component 12 follows.
+table7-regular.comp
+// Translation x, y, z
+7.99156
+-0.49262
+-0.0192516
+// Rotation x, y, z
+0
+180
+0
+
+// Component 13 follows.
+table-r1-regular.leaf
+// Translation x, y, z
+-6.30112
+0
+-26.8758
+// Rotation x, y, z
+0
+180
+0
+
+// Component 14 follows.
+table-r2-regular.leaf
+// Translation x, y, z
+-13.3867
+0
+-7.05524
+// Rotation x, y, z
+0
+180
+0
+
+// Component 15 follows.
+table-r2-regular.leaf
+// Translation x, y, z
+-13.5899
+0
+19.4672
+// Rotation x, y, z
+0
+180
+0
+
+// Component 16 follows.
+table-rail-long.leaf
+// Translation x, y, z
+5.1848
+12.9114
+47.8573
+// Rotation x, y, z
+0
+180
+0
+
+// Component 17 follows.
+table-X-quarter.comp
+// Translation x, y, z
+14.5003
+0
+15.0334
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 18 follows.
+baize-L.leaf
+// Translation x, y, z
+25
+3.46248
+-23
+// Rotation x, y, z
+0
+180
+0
+

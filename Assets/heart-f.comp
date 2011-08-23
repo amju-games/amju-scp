@@ -1,0 +1,40 @@
+// heart-f.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+heart-f1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+heart-f2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+heart-f3.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

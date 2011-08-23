@@ -1,0 +1,16 @@
+// golf go button
+// ver
+11
+// no of textures
+1
+yellow-gui-button-2.bmp
+1
+gui-button-2_a.bmp
+
+// Final texture, which is rotated around centre
+angle-dot.bmp
+1
+angle-dot_a.bmp
+
+
+

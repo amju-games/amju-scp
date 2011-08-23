@@ -1,0 +1,51 @@
+// r10_fl2.leaf
+// File version follows on next line.
+7
+//
+// TextureMethod
+2
+// Texture file name
+st41.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0.26
+0
+0
+0
+0
+0
+0.26
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+1
+//
+// Polygon 0 follows.
+// Number of vertices
+4
+//
+// Vertex 0 follows.
+// x, y, z
+12
+0
+-12
+//
+// Vertex 1 follows.
+// x, y, z
+-12
+0
+-12
+//
+// Vertex 2 follows.
+// x, y, z
+-12
+-8
+12
+//
+// Vertex 3 follows.
+// x, y, z
+12
+-8
+12

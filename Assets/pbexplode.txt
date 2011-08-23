@@ -1,0 +1,12 @@
+// melonexplode.txt
+// Defines explosion effect when a heart bonus is collected.
+// version
+1
+// Solid name for particles (expect billboard)
+spark4.bill
+// Number of particles
+10
+// max vel
+10
+// max time
+4

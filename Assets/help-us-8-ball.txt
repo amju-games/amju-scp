@@ -1,0 +1,16 @@
+// ver
+6
+// number of lines
+11
+US 8 Ball Pool Rules
+***
+To win this game you must legally pot the 8 ball.
+At first you may hit and pot any ball except the 8 ball.
+Once a ball is potted, colours are decided. One player is 'spots', 
+the other 'stripes'.
+Once decided, you must always hit your colour with the cue ball first.
+In this version it's ok to pot a spot or a stripe.
+When all your colours have been potted, go for the 8 ball!
+If you pot the cue ball, or hit a ball off the table, that's a foul.
+If you pot the 8 ball on a foul you lose the game!
+

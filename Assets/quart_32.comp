@@ -1,0 +1,62 @@
+// quart_32.comp
+// File version follows on next line.
+11
+
+// Number of components
+5
+
+// Component 0 follows.
+quart_32-1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+quart_32-2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+quart_32-3.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+quart_32-4.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+quart_32-5.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

@@ -1,0 +1,66 @@
+// redskyt.leaf
+// The file version number
+7
+
+// Type
+1
+// ----------------------------------------------------------------------------
+// Polygon 0
+// ----------------------------------------------------------------------------
+
+// The texture file for this polygon
+redskyt.bmp
+
+// v.3: 1 to specify a transparency bitmap
+0
+
+
+// normal 
+1
+
+// ----------------------------------------------------------------------------
+// The number of polygons
+1
+// ----------------------------------------------------------------------------
+
+// The number of vertices
+4
+
+// Each vertex, giving x,y,z coords for polygon and x, y coords for texture.
+
+// Polygon vertex 3
+500 
+200
+500
+
+// Texture vertex for polygon vertex 3
+0.0 
+1.0
+
+// Polygon vertex 2
+-500 
+200
+500
+
+// Texture vertex for polygon vertex 2
+1.0 
+1.0
+
+// Polygon vertex 1
+-500
+200
+-500
+
+// Texture vertex for polygon vertex 1
+1.0 
+0.0
+
+// Polygon vertex 0
+500
+200
+-500
+
+// Texture vertex for polygon vertex 0
+0.0 
+0.0
+

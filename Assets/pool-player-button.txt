@@ -1,0 +1,15 @@
+// ver
+11
+// no of textures
+1
+gui-button-blank.bmp
+1
+gui-button-1.bmp
+0
+// font
+cheri-1.0
+// size
+1.0
+
+
+

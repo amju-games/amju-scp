@@ -1,0 +1,128 @@
+// r17-extra.comp
+// File version follows on next line.
+11
+
+// Number of components
+11
+
+// Component 0 follows.
+step32.comp
+// Translation x, y, z
+0
+-32
+48
+// Rotation x, y, z
+0
+180
+0
+
+// Component 1 follows.
+step32.comp
+// Translation x, y, z
+-48
+64
+0
+// Rotation x, y, z
+0
+90
+0
+
+// Component 2 follows.
+step32.comp
+// Translation x, y, z
+48
+0
+0
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 3 follows.
+cube32.comp
+// Translation x, y, z
+48
+0
+-48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+cube32.comp
+// Translation x, y, z
+48
+64
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+cube32.comp
+// Translation x, y, z
+-48
+64
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+cube32.comp
+// Translation x, y, z
+-48
+-64
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+step32.comp
+// Translation x, y, z
+-48
+-64
+0
+// Rotation x, y, z
+0
+90
+0
+
+// Component 8 follows.
+cube32.comp
+// Translation x, y, z
+48
+-32
+48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 9 follows.
+block32_4_32.comp
+// Translation x, y, z
+-48
+64
+-48
+// Rotation x, y, z
+0
+0
+0
+
+// Component 10 follows.
+step32.comp
+// Translation x, y, z
+0
+32
+-48
+// Rotation x, y, z
+0
+0
+0
+

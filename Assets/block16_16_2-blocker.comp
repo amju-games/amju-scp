@@ -1,0 +1,40 @@
+// block16_16_2-blocker.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+block16_16_2_1-blocker.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+block16_16_2_2-blocker.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+block16_16_2_3-blocker.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

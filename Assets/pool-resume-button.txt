@@ -1,0 +1,14 @@
+// ver
+11
+// no of textures
+1
+pool-play.bmp
+1
+pool-start-a.bmp
+1
+Resume playing
+tool-2.bmp
+1
+slot-a.bmp
+
+

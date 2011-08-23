@@ -1,0 +1,16 @@
+// ver
+6
+// number of lines
+11
+UK Pool Rules
+***
+To win this game you must legally pot the 8 (black) ball.
+At first you may hit and pot any ball except the 8 ball.
+Once a ball is potted, colours are decided. Once decided, 
+you must always hit your colour with the cue ball first.
+Pot all your coloured balls, then pot the 8 ball to win.
+If you pot the cue ball or hit a ball off the table, that's a foul.
+If you pot the 8 ball on a foul you lose the game!
+After a foul, the other player gets a free shot. This means the player 
+can hit and pot either colour - but not the 8 ball.
+

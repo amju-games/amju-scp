@@ -1,0 +1,49 @@
+// File version
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+table7-1-bigpockets.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table7-2-bigpockets.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+table7-3-bigpockets.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table10-bigpockets.leaf
+// Translation x, y, z
+28.3945
+10.1615
+-0.253369
+// Rotation x, y, z
+0
+0
+0
+

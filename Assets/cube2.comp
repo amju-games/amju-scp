@@ -1,0 +1,95 @@
+// cube2.comp
+// File version follows on next line.
+11
+
+// Number of components
+8
+
+// Component 0 follows.
+cube2_1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cube2_2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+cube2_3.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+New_visibility_point.visb
+// Translation x, y, z
+2
+1
+-2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+New_visibility_point.visb
+// Translation x, y, z
+-2
+1
+-2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+New_visibility_point.visb
+// Translation x, y, z
+2
+1
+2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+New_visibility_point.visb
+// Translation x, y, z
+-2
+1
+2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+New_visibility_point.visb
+// Translation x, y, z
+0
+3
+0
+// Rotation x, y, z
+0
+0
+0
+

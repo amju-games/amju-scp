@@ -1,0 +1,67 @@
+// File version
+11
+
+// TextureMethod
+1
+// Texture file name
+black8.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+2
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+4.84
+0
+-4.84
+0
+0
+
+// Vertex 1 follows.
+-4.84
+0
+-4.84
+0
+20
+
+// Vertex 2 follows.
+-4.84
+0
+4.84
+20
+20
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+4.84
+0
+-4.84
+0
+0
+
+// Vertex 1 follows.
+-4.84
+0
+4.84
+20
+20
+
+// Vertex 2 follows.
+4.84
+0
+4.84
+20
+0
+// Solidity flag: 1 == solid
+0
+// Visible ?
+1

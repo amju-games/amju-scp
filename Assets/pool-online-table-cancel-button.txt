@@ -1,0 +1,15 @@
+// online table cancel button
+// ver
+11
+// no of textures
+1
+pool-back2.bmp
+1
+pool-start-a.bmp
+1
+Cancel
+// bg tq
+tool-2.bmp
+1
+slot-a.bmp
+

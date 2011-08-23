@@ -1,0 +1,28 @@
+// File version
+11
+
+// Number of components
+2
+
+// Component 0 follows.
+head2_coll_1.leaf
+// Translation x, y, z
+0.284405
+1.94971
+0.355506
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+head2_coll_2.leaf
+// Translation x, y, z
+0.308106
+1.94971
+0.331806
+// Rotation x, y, z
+0
+0
+0
+

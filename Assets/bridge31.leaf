@@ -1,0 +1,366 @@
+// bridge31.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+4
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+16
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+3.69552
+4.5922
+2
+
+// Vertex 1 follows.
+// x, y, z
+3.69552
+4.5922
+-2
+
+// Vertex 2 follows.
+// x, y, z
+4
+0
+-2
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+3.69552
+4.5922
+2
+
+// Vertex 1 follows.
+// x, y, z
+4
+0
+-2
+
+// Vertex 2 follows.
+// x, y, z
+4
+6.99384e-007
+2
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+2.82842
+8.48528
+2
+
+// Vertex 1 follows.
+// x, y, z
+2.82842
+8.48528
+-2
+
+// Vertex 2 follows.
+// x, y, z
+3.69552
+4.5922
+-2
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+2.82842
+8.48528
+2
+
+// Vertex 1 follows.
+// x, y, z
+3.69552
+4.5922
+-2
+
+// Vertex 2 follows.
+// x, y, z
+3.69552
+4.5922
+2
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.53073
+11.0866
+2
+
+// Vertex 1 follows.
+// x, y, z
+1.53073
+11.0866
+-2
+
+// Vertex 2 follows.
+// x, y, z
+2.82842
+8.48528
+-2
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.53073
+11.0866
+2
+
+// Vertex 1 follows.
+// x, y, z
+2.82842
+8.48528
+-2
+
+// Vertex 2 follows.
+// x, y, z
+2.82842
+8.48528
+2
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.53073
+11.0866
+2
+
+// Vertex 1 follows.
+// x, y, z
+-1.04907e-006
+12
+2
+
+// Vertex 2 follows.
+// x, y, z
+-1.04907e-006
+12
+-2
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.53073
+11.0866
+2
+
+// Vertex 1 follows.
+// x, y, z
+-1.04907e-006
+12
+-2
+
+// Vertex 2 follows.
+// x, y, z
+1.53073
+11.0866
+-2
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.04907e-006
+12
+2
+
+// Vertex 1 follows.
+// x, y, z
+-1.53073
+11.0866
+2
+
+// Vertex 2 follows.
+// x, y, z
+-1.53073
+11.0866
+-2
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.04907e-006
+12
+2
+
+// Vertex 1 follows.
+// x, y, z
+-1.53073
+11.0866
+-2
+
+// Vertex 2 follows.
+// x, y, z
+-1.04907e-006
+12
+-2
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.53073
+11.0866
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-1.53073
+11.0866
+2
+
+// Vertex 2 follows.
+// x, y, z
+-2.82842
+8.48528
+2
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.53073
+11.0866
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-2.82842
+8.48528
+2
+
+// Vertex 2 follows.
+// x, y, z
+-2.82842
+8.48528
+-2
+
+// Polygon 12 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-2.82842
+8.48528
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-2.82842
+8.48528
+2
+
+// Vertex 2 follows.
+// x, y, z
+-3.69552
+4.5922
+2
+
+// Polygon 13 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-2.82842
+8.48528
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-3.69552
+4.5922
+2
+
+// Vertex 2 follows.
+// x, y, z
+-3.69552
+4.5922
+-2
+
+// Polygon 14 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-3.69552
+4.5922
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-3.69552
+4.5922
+2
+
+// Vertex 2 follows.
+// x, y, z
+-4
+0
+2
+
+// Polygon 15 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-3.69552
+4.5922
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-4
+0
+2
+
+// Vertex 2 follows.
+// x, y, z
+-4
+-6.99384e-007
+-2
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1
