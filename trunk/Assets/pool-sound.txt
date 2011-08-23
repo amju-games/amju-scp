@@ -1,0 +1,13 @@
+// ver
+11
+// no of textures
+1
+pool-sound.bmp
+1
+pool-start-a.bmp
+1
+Click to turn sound effects on and off
+tool-2.bmp
+1
+slot-a.bmp
+

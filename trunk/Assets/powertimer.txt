@@ -1,0 +1,21 @@
+// powertimer.txt
+// ver
+1
+// background textured quad
+power-guage-vert.bmp
+1
+power-guage-vert-a.bmp
+// foreground textured quad
+wh64.bmp
+0
+// Position (t, l, b, r)
+5
+1.8
+12
+4
+// For this class, we also define the foreground position.
+5.7
+2.65
+11.2
+3.4
+

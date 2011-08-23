@@ -1,0 +1,14 @@
+// ver
+6
+// number of lines
+8
+9 Ball Pool Rules
+***
+To win this game you must legally pot the 9 ball.
+The cue ball must first hit the lowest numbered ball each shot.
+It's ok to pot a ball out of order as long as you hit the 
+lowest numbered ball first.
+If you pot the cue ball, or hit a ball off the table, you foul.
+If you pot the 9 ball on a foul shot you lose the game!
+
+

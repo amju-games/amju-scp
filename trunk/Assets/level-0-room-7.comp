@@ -1,0 +1,84 @@
+// level-0-room-7.comp
+// File version follows on next line.
+11
+
+// Number of components
+7
+
+// Component 0 follows.
+threeq.comp
+// Translation x, y, z
+-32
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+threeq.comp
+// Translation x, y, z
+16
+-4
+48
+// Rotation x, y, z
+0
+-180
+0
+
+// Component 2 follows.
+cross.comp
+// Translation x, y, z
+-8
+-4
+8
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+rock1.leaf
+// Translation x, y, z
+-57
+0
+15
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+rock1.leaf
+// Translation x, y, z
+32
+0
+38
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+rock2.leaf
+// Translation x, y, z
+-3
+0
+52
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+rock2.leaf
+// Translation x, y, z
+-22
+0
+-20
+// Rotation x, y, z
+0
+0
+0
+

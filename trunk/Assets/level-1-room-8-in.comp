@@ -1,0 +1,150 @@
+// level-1-room-8-in.comp
+// File version follows on next line.
+11
+
+// Number of components
+13
+
+// Component 0 follows.
+block16_4_16.comp
+// Translation x, y, z
+27
+1
+-24
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+block16_4_16.comp
+// Translation x, y, z
+9
+-3
+-20
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+block16_4_16.comp
+// Translation x, y, z
+-8
+-6
+2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+block16_4_16.comp
+// Translation x, y, z
+-4
+-10
+25
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+block16_4_16.comp
+// Translation x, y, z
+13
+-13
+24
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+block16_4_16.comp
+// Translation x, y, z
+30
+-16
+6
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+block16_4_16.comp
+// Translation x, y, z
+13
+-19
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+block16_4_16.comp
+// Translation x, y, z
+-4
+-22
+-2
+// Rotation x, y, z
+0
+0
+0
+
+// Component 8 follows.
+block16_4_16.comp
+// Translation x, y, z
+-21
+-26
+7
+// Rotation x, y, z
+0
+0
+0
+
+// Component 9 follows.
+block16_4_16.comp
+// Translation x, y, z
+-2
+-28
+20
+// Rotation x, y, z
+0
+0
+0
+
+// Component 10 follows.
+block16_4_16.comp
+// Translation x, y, z
+16
+-32
+16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 11 follows.
+block32_4_32.comp
+// Translation x, y, z
+1
+-36
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 12 follows.
+cube32.comp
+// Translation x, y, z
+-62
+-36
+0
+// Rotation x, y, z
+0
+0
+0
+

@@ -1,0 +1,15 @@
+// golf go button
+// ver
+11
+// no of textures
+1
+pool-back2.bmp
+1
+pool-start-a.bmp
+1
+Click to start playing!
+// bg tq
+tool-1.bmp
+1
+gui-button-1.bmp
+

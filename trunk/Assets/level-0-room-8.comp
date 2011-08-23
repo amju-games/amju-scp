@@ -1,0 +1,40 @@
+// level-0-room-8.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+cube32.comp
+// Translation x, y, z
+0
+-32
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cube32.comp
+// Translation x, y, z
+0
+-32
+-128
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+cube32.comp
+// Translation x, y, z
+0
+-32
+-64
+// Rotation x, y, z
+0
+0
+0
+

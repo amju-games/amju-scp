@@ -1,0 +1,13 @@
+// ver
+11
+// no of textures
+1
+pool-ok.bmp
+1
+pool-ok-a.bmp
+1
+Click to switch between full screen and windowed mode
+tool-2.bmp
+1
+slot-a.bmp
+

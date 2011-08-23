@@ -1,0 +1,10 @@
+// golf go button
+// ver
+11
+// no of textures
+1
+wh32.bmp
+1
+next-arrow.bmp
+
+

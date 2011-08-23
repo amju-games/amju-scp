@@ -1,0 +1,72 @@
+// File version
+11
+
+// Number of components
+6
+
+// Component 0 follows.
+table9.leaf
+// Translation x, y, z
+-29.3717
+-5
+-27.5549
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table9.leaf
+// Translation x, y, z
+-1.36655
+-5
+-12.0994
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table9.leaf
+// Translation x, y, z
+27.9319
+-5
+0.984318
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+table-S-half.comp
+// Translation x, y, z
+-2.37734
+0
+-12.448
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+table-S-half.comp
+// Translation x, y, z
+-1.16266
+0
+-12.9148
+// Rotation x, y, z
+0
+180
+0
+
+// Component 5 follows.
+baize-S.leaf
+// Translation x, y, z
+-13.9434
+3.56999
+10
+// Rotation x, y, z
+0
+180
+0
+

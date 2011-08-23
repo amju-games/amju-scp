@@ -1,0 +1,1412 @@
+// File version
+11
+
+87
+characters
+2
+amju
+marin
+add_room
+1
+level-8-room-0.room
+game_objects
+1010
+pool_ball
+0
+// Solid name
+ball2.comp
+// Orientation
+// Translation x, y, z
+-1
+2
+-9.699
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball2.bmp
+1
+moon_a.bmp
+end
+game_objects
+10000
+sortscene
+0
+// Sort Scene: number of solids
+1
+pool-room-trees.comp
+end
+game_objects
+10001
+sortscene
+1
+// Sort Scene: number of solids
+1
+pool-room-trees.comp
+end
+game_objects
+10002
+sortscene
+2
+// Sort Scene: number of solids
+1
+pool-room-trees.comp
+end
+game_objects
+10003
+sortscene
+3
+// Sort Scene: number of solids
+1
+pool-room-trees.comp
+end
+game_objects
+10
+cue_ball
+0
+// Solid name
+cueball.comp
+// Orientation
+// Translation x, y, z
+0
+4
+9
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+0
+// Textured Quad
+wh64.bmp
+1
+moon_a.bmp
+end
+game_objects
+1002
+golf_tee
+0
+// Tee box position
+0
+0
+14.1
+end
+game_objects
+1003
+golf_hole
+0
+// Hole vertex
+42.3727
+-3
+27.0925
+2.5
+// Num hearts
+2
+end
+game_objects
+1004
+golf_hole
+0
+// Hole vertex
+-13.509
+-3
+27.2591
+2.5
+// Num hearts
+2
+end
+game_objects
+1011
+pool_ball
+0
+// Solid name
+ball1.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-8
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball1.bmp
+1
+moon_a.bmp
+end
+game_objects
+1012
+pool_ball
+0
+// Solid name
+ball3.comp
+// Orientation
+// Translation x, y, z
+-1.97264
+2
+-11.4527
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+3
+// Textured Quad
+ball3.bmp
+1
+moon_a.bmp
+end
+game_objects
+2000
+rules-n-ball
+0
+// Num balls for rules
+6
+end
+game_objects
+1013
+pool_ball
+0
+// Solid name
+ball4.comp
+// Orientation
+// Translation x, y, z
+2
+2
+-11.4801
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+4
+// Textured Quad
+ball4.bmp
+1
+moon_a.bmp
+end
+game_objects
+1014
+pool_ball
+0
+// Solid name
+ball5.comp
+// Orientation
+// Translation x, y, z
+1.02736
+2
+-9.72636
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+5
+// Textured Quad
+ball5.bmp
+1
+moon_a.bmp
+end
+game_objects
+1015
+pool_ball
+0
+// Solid name
+ball6.comp
+// Orientation
+// Translation x, y, z
+0.0273641
+2
+-11.4801
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+6
+// Textured Quad
+ball6.bmp
+1
+moon_a.bmp
+end
+game_objects
+1005
+golf_hole
+0
+// Hole vertex
+-13.9679
+-3
+0.0316033
+2.5
+// Num hearts
+2
+end
+game_objects
+1006
+golf_hole
+0
+// Hole vertex
+-13.8107
+-3
+-27.1088
+2.5
+// Num hearts
+2
+end
+game_objects
+1007
+golf_hole
+0
+// Hole vertex
+13.849
+-3
+-27.1103
+2.5
+// Num hearts
+2
+end
+game_objects
+1008
+golf_hole
+0
+// Hole vertex
+41.8713
+-3
+1.60444
+2.5
+// Num hearts
+2
+end
+add_room
+1
+level-8-room-1.room
+game_objects
+2001
+golf_hole
+1
+// Hole vertex
+42.0415
+-3
+1.80187
+2.5
+// Num hearts
+2
+end
+game_objects
+2002
+golf_tee
+1
+// Tee box position
+0
+1
+14.1
+end
+add_room
+1
+level-8-room-2.room
+game_objects
+2003
+golf_hole
+2
+// Hole vertex
+13.8517
+-3
+-27.3731
+2.5
+// Num hearts
+2
+end
+game_objects
+2004
+golf_tee
+2
+// Tee box position
+0.275663
+1
+14.1969
+end
+add_room
+1
+level-8-room-3.room
+game_objects
+2005
+golf_hole
+3
+// Hole vertex
+13.944
+-3
+-27.2955
+2.5
+// Num hearts
+2
+end
+game_objects
+2006
+golf_tee
+3
+// Tee box position
+-0.1
+0
+14.1
+end
+game_objects
+1201
+pool_ball
+1
+// Solid name
+ball1.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-7
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball1.bmp
+1
+moon_a.bmp
+end
+game_objects
+1202
+pool_ball
+1
+// Solid name
+ball2.comp
+// Orientation
+// Translation x, y, z
+-1
+2
+-8.71698
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball2.bmp
+1
+moon_a.bmp
+end
+game_objects
+1203
+pool_ball
+1
+// Solid name
+ball3.comp
+// Orientation
+// Translation x, y, z
+1.0283
+2
+-8.71698
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+3
+// Textured Quad
+ball3.bmp
+1
+moon_a.bmp
+end
+game_objects
+1204
+pool_ball
+1
+// Solid name
+ball4.comp
+// Orientation
+// Translation x, y, z
+-2
+2
+-10.434
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+4
+// Textured Quad
+ball4.bmp
+1
+moon_a.bmp
+end
+game_objects
+1205
+pool_ball
+1
+// Solid name
+ball5.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-10.434
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+5
+// Textured Quad
+ball5.bmp
+1
+moon_a.bmp
+end
+game_objects
+1206
+pool_ball
+1
+// Solid name
+ball6.comp
+// Orientation
+// Translation x, y, z
+2.0283
+2
+-10.4623
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+6
+// Textured Quad
+ball6.bmp
+1
+moon_a.bmp
+end
+game_objects
+1207
+pool_ball
+1
+// Solid name
+ball7.comp
+// Orientation
+// Translation x, y, z
+-1
+2
+-12.2075
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+7
+// Textured Quad
+ball7.bmp
+1
+moon_a.bmp
+end
+game_objects
+1208
+pool_ball
+1
+// Solid name
+ball8.comp
+// Orientation
+// Translation x, y, z
+1
+2
+-12.2075
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+8
+// Textured Quad
+ball8.bmp
+1
+moon_a.bmp
+end
+game_objects
+1209
+pool_ball
+1
+// Solid name
+ball9.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-13.9245
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+9
+// Textured Quad
+ball9.bmp
+1
+moon_a.bmp
+end
+game_objects
+1220
+rules-n-ball
+1
+// Num balls for rules
+9
+end
+game_objects
+2010
+pool_ball
+2
+// Solid name
+ball1.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-6.00184
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball1.bmp
+1
+moon_a.bmp
+end
+game_objects
+2011
+pool_ball
+2
+// Solid name
+ball2.comp
+// Orientation
+// Translation x, y, z
+0.0537746
+2
+-12.9943
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball2.bmp
+1
+moon_a.bmp
+end
+game_objects
+2012
+pool_ball
+2
+// Solid name
+ball3.comp
+// Orientation
+// Translation x, y, z
+-0.988199
+2
+-7.7686
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+3
+// Textured Quad
+ball3.bmp
+1
+moon_a.bmp
+end
+game_objects
+2013
+pool_ball
+2
+// Solid name
+ball4.comp
+// Orientation
+// Translation x, y, z
+4.04451
+2
+-12.9791
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+4
+// Textured Quad
+ball4.bmp
+1
+moon_a.bmp
+end
+game_objects
+2014
+pool_ball
+2
+// Solid name
+ball5.comp
+// Orientation
+// Translation x, y, z
+2.04236
+2
+-9.49598
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+5
+// Textured Quad
+ball5.bmp
+1
+moon_a.bmp
+end
+game_objects
+2015
+pool_ball
+2
+// Solid name
+ball6.comp
+// Orientation
+// Translation x, y, z
+-3.00052
+2
+-11.2514
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+6
+// Textured Quad
+ball6.bmp
+1
+moon_a.bmp
+end
+game_objects
+2016
+pool_ball
+2
+// Solid name
+ball7.comp
+// Orientation
+// Translation x, y, z
+1.05506
+2
+-11.2535
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+7
+// Textured Quad
+ball7.bmp
+1
+moon_a.bmp
+end
+game_objects
+2017
+pool_ball
+2
+// Solid name
+ball8.comp
+// Orientation
+// Translation x, y, z
+0.0367748
+2
+-9.51619
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+8
+// Textured Quad
+ball8.bmp
+1
+moon_a.bmp
+end
+game_objects
+2018
+pool_ball
+2
+// Solid name
+ball9.comp
+// Orientation
+// Translation x, y, z
+-2.01875
+2
+-9.49972
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+9
+// Textured Quad
+ball9.bmp
+1
+moon_a.bmp
+end
+game_objects
+2019
+pool_ball
+2
+// Solid name
+ball10.comp
+// Orientation
+// Translation x, y, z
+3.01445
+2
+-11.2701
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+10
+// Textured Quad
+ball10.bmp
+1
+moon_a.bmp
+end
+game_objects
+2020
+pool_ball
+2
+// Solid name
+ball11.comp
+// Orientation
+// Translation x, y, z
+-1.01096
+2
+-11.2572
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+11
+// Textured Quad
+ball11.bmp
+1
+moon_a.bmp
+end
+game_objects
+2021
+pool_ball
+2
+// Solid name
+ball12.comp
+// Orientation
+// Translation x, y, z
+1.0528
+2
+-7.743
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+12
+// Textured Quad
+ball12.bmp
+1
+moon_a.bmp
+end
+game_objects
+2022
+pool_ball
+2
+// Solid name
+ball13.comp
+// Orientation
+// Translation x, y, z
+2.02668
+2
+-13.0276
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+13
+// Textured Quad
+ball13.bmp
+1
+moon_a.bmp
+end
+game_objects
+2023
+pool_ball
+2
+// Solid name
+ball14.comp
+// Orientation
+// Translation x, y, z
+-4.01538
+2
+-12.9905
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+14
+// Textured Quad
+ball14.bmp
+1
+moon_a.bmp
+end
+game_objects
+2024
+pool_ball
+2
+// Solid name
+ball15.comp
+// Orientation
+// Translation x, y, z
+-1.95857
+2
+-13.0222
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+15
+// Textured Quad
+ball15.bmp
+1
+moon_a.bmp
+end
+game_objects
+2030
+rules-us-8-ball
+2
+end
+game_objects
+1230
+golf_hole
+1
+// Hole vertex
+42.4583
+-3
+27.3112
+2.5
+// Num hearts
+2
+end
+game_objects
+1231
+golf_hole
+1
+// Hole vertex
+-13.4026
+-3
+27.247
+2.5
+// Num hearts
+2
+end
+game_objects
+1232
+golf_hole
+1
+// Hole vertex
+-13.8465
+-3
+0.11045
+2.5
+// Num hearts
+2
+end
+game_objects
+1233
+golf_hole
+1
+// Hole vertex
+-13.7833
+-3
+-27.1866
+2.5
+// Num hearts
+2
+end
+game_objects
+1234
+golf_hole
+1
+// Hole vertex
+13.8168
+-3
+-27.2097
+2.5
+// Num hearts
+2
+end
+game_objects
+2040
+golf_hole
+2
+// Hole vertex
+41.9431
+-3
+1.56251
+2.5
+// Num hearts
+2
+end
+game_objects
+2041
+golf_hole
+2
+// Hole vertex
+42.4235
+-3
+27.2564
+2.5
+// Num hearts
+2
+end
+game_objects
+2042
+golf_hole
+2
+// Hole vertex
+-13.6001
+-3
+27.0462
+2.5
+// Num hearts
+2
+end
+game_objects
+2043
+golf_hole
+2
+// Hole vertex
+-13.8994
+-3
+-0.015487
+2.5
+// Num hearts
+2
+end
+game_objects
+2044
+golf_hole
+2
+// Hole vertex
+-13.8023
+-3
+-27.2513
+2.5
+// Num hearts
+2
+end
+game_objects
+2060
+golf_hole
+3
+// Hole vertex
+42.0328
+-3
+1.49129
+2.5
+// Num hearts
+2
+end
+game_objects
+2061
+golf_hole
+3
+// Hole vertex
+42.3007
+-3
+27.1481
+2.5
+// Num hearts
+2
+end
+game_objects
+2062
+golf_hole
+3
+// Hole vertex
+-13.5668
+-3
+27.1808
+2.5
+// Num hearts
+2
+end
+game_objects
+2064
+golf_hole
+3
+// Hole vertex
+-13.826
+-3
+-27.2916
+2.5
+// Num hearts
+2
+end
+game_objects
+2063
+golf_hole
+3
+// Hole vertex
+-13.9487
+-3
+-0.0850416
+2.5
+// Num hearts
+2
+end
+game_objects
+2065
+rules-uk
+3
+end
+game_objects
+2067
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+1.02788
+2
+-7.74907
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2068
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-6
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2069
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+-2
+2
+-9.52602
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2070
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+-1.02788
+2
+-7.74907
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2071
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+-1
+2
+-11.2472
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2072
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+2.02788
+2
+-9.52602
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2073
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+3.05576
+2
+-11.303
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2074
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+4.08364
+2
+-13.1078
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2075
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+2.05576
+2
+-13.0799
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2076
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+-3
+2
+-11.303
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2077
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+-4
+2
+-13.0799
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2078
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+-2
+2
+-13.0799
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end
+game_objects
+2079
+pool_ball
+3
+// Solid name
+ball8.comp
+// Orientation
+// Translation x, y, z
+0
+2
+-9.49814
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+3
+// Textured Quad
+ball8.bmp
+1
+moon_a.bmp
+end
+game_objects
+2080
+pool_ball
+3
+// Solid name
+ball-yell.comp
+// Orientation
+// Translation x, y, z
+0.0557624
+2
+-13.0799
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+1
+// Textured Quad
+ball-yell.bmp
+1
+moon_a.bmp
+end
+game_objects
+2081
+pool_ball
+3
+// Solid name
+ball-red.comp
+// Orientation
+// Translation x, y, z
+1.05576
+2
+-11.2751
+// Rotation x, y, z
+0
+0
+0
+// Ball no.
+2
+// Textured Quad
+ball-red.bmp
+1
+moon_a.bmp
+end

@@ -1,0 +1,38 @@
+// supergolf.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+spin-ball.comp
+8.75
+0
+-1.0
+0
+0
+45
+
+
+
+// Component 0 follows.
+heart-super3.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+heart-golf3.comp
+// Translation x, y, z
+9
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

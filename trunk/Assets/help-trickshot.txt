@@ -1,0 +1,11 @@
+// ver
+6
+// number of lines
+6
+Trick Shot Rules
+***
+The aim of these games is to pot all the balls within a
+certain number of shots, with no foul.
+A shot is foul if you pot the cue ball, fail to hit a ball, 
+or hit a ball off the table.
+

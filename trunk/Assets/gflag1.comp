@@ -1,0 +1,30 @@
+// gflag1.comp
+// File version follows on next line.
+11
+
+// Number of components
+1
+
+// Component 1 follows.
+golf-flag-arrow.move
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 0 follows.
+gflag1.leaf
+// Translation x, y, z
+-0.0621756
+2.48705
+0
+// Rotation x, y, z
+0
+0
+0
+
+

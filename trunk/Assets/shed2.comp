@@ -1,0 +1,116 @@
+// File version
+11
+
+// Number of components
+10
+
+// Component 0 follows.
+Shed2_1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+Shed2_2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+shed2_21.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+shedbase2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+shed2_2bk.leaf
+// Translation x, y, z
+0
+0
+37
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+shed2_21bk.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+shed2legs.comp
+// Translation x, y, z
+-5
+-8
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+Shed2_5.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 8 follows.
+Shed2_6.leaf
+// Translation x, y, z
+-0.0169052
+0
+-0.0169052
+// Rotation x, y, z
+0
+0
+0
+
+// Component 9 follows.
+shadow-rect.leaf
+// Translation x, y, z
+0
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+

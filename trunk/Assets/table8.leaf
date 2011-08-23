@@ -1,0 +1,178 @@
+// File version
+11
+
+// TextureMethod
+2
+// Texture file name
+table3.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+1
+0
+0
+0
+0
+1
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+8
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+12.511
+2.7222
+21.5373
+
+// Vertex 1 follows.
+12.511
+2.72221
+-20.4963
+
+// Vertex 2 follows.
+13.9011
+8.72221
+-22.8315
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+12.511
+2.7222
+21.5373
+
+// Vertex 1 follows.
+13.9011
+8.72221
+-22.8315
+
+// Vertex 2 follows.
+13.9011
+8.7222
+23.8725
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-12.511
+2.7222
+21.5373
+
+// Vertex 1 follows.
+12.511
+2.7222
+21.5373
+
+// Vertex 2 follows.
+13.9011
+8.7222
+23.8725
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-12.511
+2.7222
+21.5373
+
+// Vertex 1 follows.
+13.9011
+8.7222
+23.8725
+
+// Vertex 2 follows.
+-13.9011
+8.7222
+23.8725
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-12.511
+2.72221
+-20.4963
+
+// Vertex 1 follows.
+-12.511
+2.7222
+21.5373
+
+// Vertex 2 follows.
+-13.9011
+8.7222
+23.8725
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-12.511
+2.72221
+-20.4963
+
+// Vertex 1 follows.
+-13.9011
+8.7222
+23.8725
+
+// Vertex 2 follows.
+-13.9011
+8.72221
+-22.8315
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+12.511
+2.72221
+-20.4963
+
+// Vertex 1 follows.
+-12.511
+2.72221
+-20.4963
+
+// Vertex 2 follows.
+-13.9011
+8.72221
+-22.8315
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+12.511
+2.72221
+-20.4963
+
+// Vertex 1 follows.
+-13.9011
+8.72221
+-22.8315
+
+// Vertex 2 follows.
+13.9011
+8.72221
+-22.8315
+// Solidity flag: 1 == solid
+0
+// Visible ?
+1

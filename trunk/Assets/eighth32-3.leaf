@@ -1,0 +1,103 @@
+// eighth32-3.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+red.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+1
+0
+0
+0
+0
+0
+1
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+4
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+2
+30
+
+// Vertex 1 follows.
+0
+2
+32
+
+// Vertex 2 follows.
+0
+4.37114e-008
+32
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+0
+2
+30
+
+// Vertex 1 follows.
+0
+4.37114e-008
+32
+
+// Vertex 2 follows.
+0
+4.09794e-008
+30
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-22.6274
+2
+22.6274
+
+// Vertex 1 follows.
+-21.2132
+2
+21.2132
+
+// Vertex 2 follows.
+-21.2132
+2.89768e-008
+21.2132
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-22.6274
+2
+22.6274
+
+// Vertex 1 follows.
+-21.2132
+2.89768e-008
+21.2132
+
+// Vertex 2 follows.
+-22.6274
+3.09086e-008
+22.6274
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

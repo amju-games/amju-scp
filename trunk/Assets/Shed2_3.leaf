@@ -1,0 +1,379 @@
+// Shed2_3.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+shed2_3.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0.25
+0
+0
+0.5
+0
+0.18
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+16
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+2
+3.32778
+-2
+
+// Vertex 1 follows.
+// x, y, z
+1.87538
+-0.00586608
+-1.87683
+
+// Vertex 2 follows.
+// x, y, z
+1.28144
+4.86873
+-2
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28144
+4.86873
+-2
+
+// Vertex 1 follows.
+// x, y, z
+1.87538
+-0.00586608
+-1.87683
+
+// Vertex 2 follows.
+// x, y, z
+1
+0.0134019
+-1.89499
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+0.0134019
+-1.89499
+
+// Vertex 1 follows.
+// x, y, z
+1.87538
+-0.00586608
+-1.87683
+
+// Vertex 2 follows.
+// x, y, z
+-1
+0.0134019
+-1.89905
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.19751
+5.03935
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-1
+0.0134019
+-1.89905
+
+// Vertex 2 follows.
+// x, y, z
+-1.88132
+-0.00593408
+-1.90029
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.19751
+5.03935
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-1.88132
+-0.00593408
+-1.90029
+
+// Vertex 2 follows.
+// x, y, z
+-2
+3.31841
+-2
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28144
+4.86873
+-2
+
+// Vertex 1 follows.
+// x, y, z
+1
+0.0134019
+-1.89499
+
+// Vertex 2 follows.
+// x, y, z
+0.961264
+2.9641
+-1.96055
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28144
+4.86873
+-2
+
+// Vertex 1 follows.
+// x, y, z
+0.961264
+2.9641
+-1.96055
+
+// Vertex 2 follows.
+// x, y, z
+-0.059702
+5.99408
+-2
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.059702
+5.99408
+-2
+
+// Vertex 1 follows.
+// x, y, z
+0.961264
+2.9641
+-1.96055
+
+// Vertex 2 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.059702
+5.99408
+-2
+
+// Vertex 1 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 2 follows.
+// x, y, z
+-1.19751
+5.03935
+-2
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 1 follows.
+// x, y, z
+-1
+0.0134019
+-1.89905
+
+// Vertex 2 follows.
+// x, y, z
+-1.19751
+5.03935
+-2
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 1 follows.
+// x, y, z
+-1
+3.0134
+-1.6
+
+// Vertex 2 follows.
+// x, y, z
+-1
+0.0134021
+-1.6
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 1 follows.
+// x, y, z
+-1
+0.0134021
+-1.6
+
+// Vertex 2 follows.
+// x, y, z
+-1
+0.0134019
+-1.89905
+
+// Polygon 12 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 1 follows.
+// x, y, z
+0.961264
+2.9641
+-1.96055
+
+// Vertex 2 follows.
+// x, y, z
+1
+3.0134
+-1.6
+
+// Polygon 13 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-0.989428
+2.90768
+-1.96326
+
+// Vertex 1 follows.
+// x, y, z
+1
+3.0134
+-1.6
+
+// Vertex 2 follows.
+// x, y, z
+-1
+3.0134
+-1.6
+
+// Polygon 14 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+3.0134
+-1.6
+
+// Vertex 1 follows.
+// x, y, z
+0.961264
+2.9641
+-1.96055
+
+// Vertex 2 follows.
+// x, y, z
+1
+0.0134019
+-1.89499
+
+// Polygon 15 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+3.0134
+-1.6
+
+// Vertex 1 follows.
+// x, y, z
+1
+0.0134019
+-1.89499
+
+// Vertex 2 follows.
+// x, y, z
+1
+0.0134021
+-1.6
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

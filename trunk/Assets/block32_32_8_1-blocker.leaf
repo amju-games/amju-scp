@@ -1,0 +1,115 @@
+// block32_32_8_1-blocker.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+bw.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0.125
+0
+0
+0.5
+0
+0
+0.125
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+4
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-16
+0
+-4
+
+// Vertex 1 follows.
+// x, y, z
+16
+0
+-4
+
+// Vertex 2 follows.
+// x, y, z
+16
+0
+4
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-16
+0
+-4
+
+// Vertex 1 follows.
+// x, y, z
+16
+0
+4
+
+// Vertex 2 follows.
+// x, y, z
+-16
+0
+4
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+16
+32
+-4
+
+// Vertex 1 follows.
+// x, y, z
+-16
+32
+-4
+
+// Vertex 2 follows.
+// x, y, z
+-16
+32
+4
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+16
+32
+-4
+
+// Vertex 1 follows.
+// x, y, z
+-16
+32
+4
+
+// Vertex 2 follows.
+// x, y, z
+16
+32
+4
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

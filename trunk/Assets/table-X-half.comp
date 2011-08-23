@@ -1,0 +1,50 @@
+// File version
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+table2-regular.comp
+// Translation x, y, z
+0.191804
+0
+6.3712
+// Rotation x, y, z
+0
+180
+0
+
+// Component 1 follows.
+table-r1-regular.leaf
+// Translation x, y, z
+-6.00308
+0
+-27.5464
+// Rotation x, y, z
+0
+180
+0
+
+// Component 2 follows.
+table-X-quarter.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+table-X-quarter.comp
+// Translation x, y, z
+14.702
+0
+14.4784
+// Rotation x, y, z
+0
+-90
+0
+

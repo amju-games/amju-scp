@@ -1,0 +1,254 @@
+// File version
+11
+
+// TextureMethod
+2
+// Texture file name
+black.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+1
+0
+0
+0
+0
+1
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+12
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+18.05
+-8.30516e-007
+-9.5
+
+// Vertex 1 follows.
+18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+9.60496
+-8.30516e-007
+-9.5
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+9.60496
+-8.30516e-007
+-9.5
+
+// Vertex 1 follows.
+18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+8.77456
+8.17954
+-9.5
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+8.77456
+8.17954
+-9.5
+
+// Vertex 1 follows.
+18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+6.42696
+14.9448
+-9.5
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+6.42696
+14.9448
+-9.5
+
+// Vertex 1 follows.
+18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+2.96808
+19.1259
+-9.5
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+2.96808
+19.1259
+-9.5
+
+// Vertex 1 follows.
+18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+0
+34.641
+-9.5
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+2.96808
+19.1259
+-9.5
+
+// Vertex 1 follows.
+0
+34.641
+-9.5
+
+// Vertex 2 follows.
+-1.004
+20
+-9.5
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-1.004
+20
+-9.5
+
+// Vertex 1 follows.
+0
+34.641
+-9.5
+
+// Vertex 2 follows.
+-4.80248
+17.4159
+-9.5
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-4.80248
+17.4159
+-9.5
+
+// Vertex 1 follows.
+0
+34.641
+-9.5
+
+// Vertex 2 follows.
+-7.77056
+11.8205
+-9.5
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-7.77056
+11.8205
+-9.5
+
+// Vertex 1 follows.
+0
+34.641
+-9.5
+
+// Vertex 2 follows.
+-18.05
+23.6714
+-9.5
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-9.39506
+4.18114
+-9.5
+
+// Vertex 1 follows.
+-7.77056
+11.8205
+-9.5
+
+// Vertex 2 follows.
+-18.05
+23.6714
+-9.5
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-9.39506
+-8.30516e-007
+-9.5
+
+// Vertex 1 follows.
+-9.39506
+4.18114
+-9.5
+
+// Vertex 2 follows.
+-18.05
+23.6714
+-9.5
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+-9.39506
+-8.30516e-007
+-9.5
+
+// Vertex 1 follows.
+-18.05
+23.6714
+-9.5
+
+// Vertex 2 follows.
+-18.05
+-8.30516e-007
+-9.5
+// Solidity flag: 1 == solid
+0
+// Visible ?
+1

@@ -1,0 +1,55 @@
+// pathfloor.leaf
+// Automatically generated file. File version follows on next line.
+7
+//----------------------------------------------------------------------------
+// Leaf type flag follows (1 = normal, 2 = AutoTexture)
+1
+//----------------------------------------------------------------------------
+// Polygon 0 follows.
+// Texture file name
+tile5.bmp
+0
+// Specify normal (1) or use default perpendicular (0)
+1
+// Number of polygons follows on next line.
+1
+
+// Number of vertices
+4
+//----------------------------------------------------------------------------
+// Vertex 0 follows.
+// x, y, z
+6
+0
+-8
+// Texture (s, t)
+0
+0
+//----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// Vertex 2 follows.
+// x, y, z
+-5.8
+0
+-8
+// Texture (s, t)
+1
+0
+//----------------------------------------------------------------------------
+// Vertex 3 follows.
+// x, y, z
+-6
+0
+8
+// Texture (s, t)
+1
+1
+//----------------------------------------------------------------------------
+// Vertex 4 follows.
+// x, y, z
+6
+0
+8
+// Texture (s, t)
+0
+1

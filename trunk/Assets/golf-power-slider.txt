@@ -1,0 +1,15 @@
+// golf go button
+// ver
+11
+// no of textures
+2
+blue-gui-button-2.bmp
+1
+gui-button-2_a.bmp
+
+wh32.bmp
+1
+power-slider.bmp
+
+
+

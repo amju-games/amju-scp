@@ -1,0 +1,63 @@
+// fonts 
+// version
+1
+
+// no of fonts
+3
+
+// Font 1
+// name
+arial-1.0
+// size
+1.0
+// bitmap
+wh512.bmp
+arial_512_16pt.bmp
+// no of chars in x
+16
+// no of chars in Y
+16
+// start char
+0
+// widths
+arial_512_16pt_widths.ini
+
+
+// Font 2
+// name
+cheri-1.0
+// size
+1.5
+// bitmap
+wh512-256.bmp
+cheri_512_17pt.bmp
+// no of chars in x
+16
+// no of chars in y
+8
+// start char
+0
+// widths
+cheri_17pt_widths.ini
+
+
+// Font3 
+// name
+tooltip
+// size
+0.825
+// bitmap
+wh512.bmp
+arial_512_16pt.bmp
+// no of chars in x
+16
+// no of chars in Y
+16
+// start char
+0
+// widths
+arial_512_16pt_widths.ini
+
+
+
+

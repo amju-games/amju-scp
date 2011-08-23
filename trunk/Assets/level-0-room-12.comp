@@ -1,0 +1,128 @@
+// level-0-room-12.comp
+// File version follows on next line.
+11
+
+// Number of components
+11
+
+// Component 0 follows.
+cube32.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cube32.comp
+// Translation x, y, z
+0
+-8
+32
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+cube32.comp
+// Translation x, y, z
+0
+-16
+64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+cube32.comp
+// Translation x, y, z
+0
+-24
+96
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+cube32.comp
+// Translation x, y, z
+0
+-32
+128
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+brid32_16_16.comp
+// Translation x, y, z
+0
+32
+8
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+quarter64_4_64.comp
+// Translation x, y, z
+-48
+-4
+144
+// Rotation x, y, z
+0
+90
+0
+
+// Component 7 follows.
+quarter64_4_64.comp
+// Translation x, y, z
+-48
+-4
+144
+// Rotation x, y, z
+0
+0
+0
+
+// Component 8 follows.
+quarter64_4_64.comp
+// Translation x, y, z
+-48
+28
+-16
+// Rotation x, y, z
+0
+180
+0
+
+// Component 9 follows.
+quarter64_4_64.comp
+// Translation x, y, z
+-48
+28
+-16
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 10 follows.
+step32.comp
+// Translation x, y, z
+-96
+0
+80
+// Rotation x, y, z
+0
+-90
+0
+

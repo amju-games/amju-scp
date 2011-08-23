@@ -1,0 +1,354 @@
+// cubet3_Cube.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+1
+// Texture file name
+.\blding1.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+12
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Vertex 1 follows.
+// x, y, z
+1
+-1
+2
+0.582031
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Vertex 1 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+-1
+-1
+0
+1
+0.460938
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Vertex 1 follows.
+// x, y, z
+1
+1
+0
+0.585938
+0.003906
+
+// Vertex 2 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Vertex 1 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+-1
+-1
+0
+1
+0.460938
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+1
+-1
+2
+0.582031
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+1
+-1
+0
+0.582031
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+1
+1
+0
+0.585938
+0.003906
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+-1
+1
+2
+1
+0
+
+// Vertex 2 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Vertex 2 follows.
+// x, y, z
+1
+-1
+2
+0.582031
+0.460938
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+1
+1
+0
+0.585938
+0.003906
+
+// Vertex 2 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1
+1
+2
+0.585938
+0.003906
+
+// Vertex 1 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Vertex 2 follows.
+// x, y, z
+-1
+1
+2
+1
+0
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Vertex 1 follows.
+// x, y, z
+-1
+1
+2
+1
+0
+
+// Vertex 2 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1
+-1
+2
+1
+0.460938
+
+// Vertex 1 follows.
+// x, y, z
+-1
+1
+0
+1
+0
+
+// Vertex 2 follows.
+// x, y, z
+-1
+-1
+0
+1
+0.460938
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

@@ -1,0 +1,47 @@
+// Version
+1
+// Number of meshes - currently always 1
+0
+// Distance from cue tip to body
+12.0
+
+
+
+
+// NPC character ID
+bird
+// NPC initial orientation
+// Translation x, y, z
+0
+1
+12
+// Rotation x, y, z
+0
+0
+0
+// NPC initial state
+0
+// NPC player damage
+0
+// NPC collision vol
+// collision vol name
+//block1.comp
+coll_hex.leaf
+// NPC bounding spheres
+// No of bounding spheres
+1
+// Sphere radius, y offset, x/z offset
+0.45
+1
+0.2
+// NPC shadow size
+0.5
+// Stupid initial direction
+0
+// Stupid turn dir
+90
+// Stupid appearance delay
+2
+end
+
+

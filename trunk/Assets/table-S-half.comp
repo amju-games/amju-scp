@@ -1,0 +1,72 @@
+// File version
+11
+
+// Number of components
+6
+
+// Component 0 follows.
+table6-regular.comp
+// Translation x, y, z
+21.6312
+-0.543891
+-8.99949
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table3-reg-short.comp
+// Translation x, y, z
+22.7041
+0
+2.03292
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table-r2-reg-short.leaf
+// Translation x, y, z
+42.9673
+0
+8.0756
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+table-X-quarter.comp
+// Translation x, y, z
+15.1952
+0
+14.662
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 4 follows.
+table-rail-long.leaf
+// Translation x, y, z
+6.0493
+12.9116
+47.4452
+// Rotation x, y, z
+0
+180
+0
+
+// Component 5 follows.
+table2-regular-long.comp
+// Translation x, y, z
+15.1479
+0
+-7.07511
+// Rotation x, y, z
+0
+0
+0
+

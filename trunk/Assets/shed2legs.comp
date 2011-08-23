@@ -1,0 +1,50 @@
+// File version
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+shedleg2.leaf
+// Translation x, y, z
+22
+0
+14
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+shedleg2.leaf
+// Translation x, y, z
+22
+0
+-14
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+shedleg2.leaf
+// Translation x, y, z
+-12
+0
+15
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+shedleg2.leaf
+// Translation x, y, z
+-11
+0
+-14
+// Rotation x, y, z
+0
+0
+0
+

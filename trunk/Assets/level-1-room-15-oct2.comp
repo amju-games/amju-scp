@@ -1,0 +1,106 @@
+// level-1-room-15-oct2.comp
+// File version follows on next line.
+11
+
+// Number of components
+9
+
+// Component 0 follows.
+oct64_64.comp
+// Translation x, y, z
+0
+0
+-128
+// Rotation x, y, z
+0
+22.5
+0
+
+// Component 1 follows.
+block32_4_32.comp
+// Translation x, y, z
+0
+27
+-99
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+block32_4_32.comp
+// Translation x, y, z
+0
+-1
+-158
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+block32_4_32.comp
+// Translation x, y, z
+30
+-21
+-129
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+block32_4_32.comp
+// Translation x, y, z
+-31
+14
+-129
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+block32_4_32.comp
+// Translation x, y, z
+-19
+7
+-149
+// Rotation x, y, z
+0
+45
+0
+
+// Component 6 follows.
+block32_4_32.comp
+// Translation x, y, z
+-19
+21
+-107
+// Rotation x, y, z
+0
+45
+0
+
+// Component 7 follows.
+block32_4_32.comp
+// Translation x, y, z
+25
+-11
+-149
+// Rotation x, y, z
+0
+45
+0
+
+// Component 8 follows.
+block32_4_32.comp
+// Translation x, y, z
+21
+-31
+-106
+// Rotation x, y, z
+0
+45
+0
+

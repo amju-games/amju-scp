@@ -1,0 +1,3283 @@
+// k.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+texture1.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+1
+0
+0
+0
+0
+1
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+148
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.66825
+0.5
+-1.49175
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.17788
+0.5
+-0.842625
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Vertex 2 follows.
+// x, y, z
+0.63675
+0.5
+-2.18557e-008
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+0.981
+0.5
+-1.3995
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+0.5
+-1.287
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-1.287
+
+// Vertex 2 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Vertex 2 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Vertex 2 follows.
+// x, y, z
+0.966657
+0.5
+-1.11994
+
+// Polygon 12 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+0.966657
+0.5
+-1.11994
+
+// Vertex 2 follows.
+// x, y, z
+0.940289
+0.5
+-1.0537
+
+// Polygon 13 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+0.940289
+0.5
+-1.0537
+
+// Vertex 2 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Polygon 14 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Vertex 2 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Polygon 15 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Vertex 2 follows.
+// x, y, z
+0.855914
+0.5
+-0.955828
+
+// Polygon 16 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+0.855914
+0.5
+-0.955828
+
+// Vertex 2 follows.
+// x, y, z
+0.797907
+0.5
+-0.924188
+
+// Polygon 17 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+0.797907
+0.5
+-0.924188
+
+// Vertex 2 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Polygon 18 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Vertex 2 follows.
+// x, y, z
+1.17788
+0.5
+-0.842625
+
+// Polygon 19 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+1.17788
+0.5
+-0.842625
+
+// Polygon 20 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Vertex 1 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Vertex 2 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Polygon 21 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Vertex 2 follows.
+// x, y, z
+0.797343
+0.5
+-0.596953
+
+// Polygon 22 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+0.797343
+0.5
+-0.596953
+
+// Vertex 2 follows.
+// x, y, z
+0.847859
+0.5
+-0.572063
+
+// Polygon 23 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+0.847859
+0.5
+-0.572063
+
+// Vertex 2 follows.
+// x, y, z
+0.890604
+0.5
+-0.530578
+
+// Polygon 24 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+0.890604
+0.5
+-0.530578
+
+// Vertex 2 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Polygon 25 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Vertex 1 follows.
+// x, y, z
+0.890604
+0.5
+-0.530578
+
+// Vertex 2 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Polygon 26 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Vertex 1 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Vertex 2 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Polygon 27 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 1 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Vertex 2 follows.
+// x, y, z
+0.952778
+0.5
+-0.397828
+
+// Polygon 28 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 1 follows.
+// x, y, z
+0.952778
+0.5
+-0.397828
+
+// Vertex 2 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Polygon 29 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 1 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Vertex 2 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Polygon 30 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Vertex 1 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Polygon 31 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 2 follows.
+// x, y, z
+1.42797
+0.5
+-0.061312
+
+// Polygon 32 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.42797
+0.5
+-0.061312
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 2 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Polygon 33 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 2 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Polygon 34 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Vertex 1 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Vertex 2 follows.
+// x, y, z
+1.45125
+0.5
+0.45
+
+// Polygon 35 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.45125
+0.5
+0.45
+
+// Vertex 1 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Vertex 2 follows.
+// x, y, z
+0.93825
+0.5
+0.486
+
+// Polygon 36 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Vertex 1 follows.
+// x, y, z
+1.17788
+0.5
+-0.842625
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Polygon 37 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Vertex 1 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+-3.23574e-008
+-0.74025
+
+// Polygon 38 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+1.17788
+0.5
+-0.842625
+
+// Vertex 2 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Polygon 39 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 1 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Vertex 2 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Polygon 40 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+0.5
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Polygon 41 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Polygon 42 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+0.5
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Polygon 43 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Polygon 44 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.34325
+0.5
+-1.29825
+
+// Vertex 1 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Vertex 2 follows.
+// x, y, z
+0.981
+0.5
+-1.3995
+
+// Polygon 45 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.981
+0.5
+-1.3995
+
+// Vertex 1 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Vertex 2 follows.
+// x, y, z
+0.981
+-6.11741e-008
+-1.3995
+
+// Polygon 46 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+0.5
+-1.287
+
+// Vertex 1 follows.
+// x, y, z
+0.981
+0.5
+-1.3995
+
+// Vertex 2 follows.
+// x, y, z
+0.981
+-6.11741e-008
+-1.3995
+
+// Polygon 47 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+0.5
+-1.287
+
+// Vertex 1 follows.
+// x, y, z
+0.981
+-6.11741e-008
+-1.3995
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-5.62566e-008
+-1.287
+
+// Polygon 48 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-1.287
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-5.62566e-008
+-1.287
+
+// Polygon 49 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+-5.62566e-008
+-1.287
+
+// Vertex 2 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Polygon 50 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.966657
+0.5
+-1.11994
+
+// Vertex 1 follows.
+// x, y, z
+0.982477
+0.5
+-1.1977
+
+// Vertex 2 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Polygon 51 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.966657
+0.5
+-1.11994
+
+// Vertex 1 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Vertex 2 follows.
+// x, y, z
+0.966656
+-4.8954e-008
+-1.11994
+
+// Polygon 52 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.940289
+0.5
+-1.0537
+
+// Vertex 1 follows.
+// x, y, z
+0.966657
+0.5
+-1.11994
+
+// Vertex 2 follows.
+// x, y, z
+0.966656
+-4.8954e-008
+-1.11994
+
+// Polygon 53 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.940289
+0.5
+-1.0537
+
+// Vertex 1 follows.
+// x, y, z
+0.966656
+-4.8954e-008
+-1.11994
+
+// Vertex 2 follows.
+// x, y, z
+0.940289
+-4.60588e-008
+-1.0537
+
+// Polygon 54 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Vertex 1 follows.
+// x, y, z
+0.940289
+0.5
+-1.0537
+
+// Vertex 2 follows.
+// x, y, z
+0.940289
+-4.60588e-008
+-1.0537
+
+// Polygon 55 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Vertex 1 follows.
+// x, y, z
+0.940289
+-4.60588e-008
+-1.0537
+
+// Vertex 2 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Polygon 56 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.903375
+0.5
+-0.999
+
+// Vertex 1 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Vertex 2 follows.
+// x, y, z
+0.855914
+0.5
+-0.955828
+
+// Polygon 57 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.855914
+0.5
+-0.955828
+
+// Vertex 1 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Vertex 2 follows.
+// x, y, z
+0.855914
+-4.17806e-008
+-0.955828
+
+// Polygon 58 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.855914
+0.5
+-0.955828
+
+// Vertex 1 follows.
+// x, y, z
+0.855914
+-4.17806e-008
+-0.955828
+
+// Vertex 2 follows.
+// x, y, z
+0.797907
+0.5
+-0.924188
+
+// Polygon 59 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797907
+0.5
+-0.924188
+
+// Vertex 1 follows.
+// x, y, z
+0.855914
+-4.17806e-008
+-0.955828
+
+// Vertex 2 follows.
+// x, y, z
+0.797906
+-4.03975e-008
+-0.924188
+
+// Polygon 60 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797907
+0.5
+-0.924188
+
+// Vertex 1 follows.
+// x, y, z
+0.797906
+-4.03975e-008
+-0.924188
+
+// Vertex 2 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Polygon 61 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Vertex 1 follows.
+// x, y, z
+0.797906
+-4.03975e-008
+-0.924188
+
+// Vertex 2 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Polygon 62 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.729352
+0.5
+-0.904078
+
+// Vertex 1 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Polygon 63 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Polygon 64 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.66825
+0.5
+-1.49175
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Polygon 65 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.66825
+0.5
+-1.49175
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+0.66825
+-6.52065e-008
+-1.49175
+
+// Polygon 66 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.66825
+0.5
+-1.49175
+
+// Vertex 1 follows.
+// x, y, z
+0.66825
+-6.52065e-008
+-1.49175
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Polygon 67 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.66825
+-6.52065e-008
+-1.49175
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Polygon 68 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Polygon 69 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0
+0
+
+// Polygon 70 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Vertex 1 follows.
+// x, y, z
+0.63675
+0.5
+-2.18557e-008
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Polygon 71 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Vertex 1 follows.
+// x, y, z
+0.25425
+0.5
+-2.18557e-008
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0
+0
+
+// Polygon 72 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Vertex 1 follows.
+// x, y, z
+0.63675
+0.5
+-2.18557e-008
+
+// Vertex 2 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Polygon 73 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Vertex 1 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-2.57679e-008
+-0.5895
+
+// Polygon 74 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Vertex 1 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Polygon 75 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+0.5
+-0.5895
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-2.57679e-008
+-0.5895
+
+// Polygon 76 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797343
+-2.60936e-008
+-0.596953
+
+// Vertex 1 follows.
+// x, y, z
+0.797343
+0.5
+-0.596953
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Polygon 77 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797343
+-2.60936e-008
+-0.596953
+
+// Vertex 1 follows.
+// x, y, z
+0.739055
+0.5
+-0.60525
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Polygon 78 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.847859
+-2.50057e-008
+-0.572063
+
+// Vertex 1 follows.
+// x, y, z
+0.847859
+0.5
+-0.572063
+
+// Vertex 2 follows.
+// x, y, z
+0.797343
+0.5
+-0.596953
+
+// Polygon 79 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.847859
+-2.50057e-008
+-0.572063
+
+// Vertex 1 follows.
+// x, y, z
+0.797343
+0.5
+-0.596953
+
+// Vertex 2 follows.
+// x, y, z
+0.797343
+-2.60936e-008
+-0.596953
+
+// Polygon 80 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Vertex 1 follows.
+// x, y, z
+0.890604
+0.5
+-0.530578
+
+// Vertex 2 follows.
+// x, y, z
+0.847859
+0.5
+-0.572063
+
+// Polygon 81 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Vertex 1 follows.
+// x, y, z
+0.847859
+0.5
+-0.572063
+
+// Vertex 2 follows.
+// x, y, z
+0.847859
+-2.50057e-008
+-0.572063
+
+// Polygon 82 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Vertex 1 follows.
+// x, y, z
+0.890604
+0.5
+-0.530578
+
+// Vertex 2 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Polygon 83 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Vertex 1 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Vertex 2 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Polygon 84 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.952778
+0.5
+-0.397828
+
+// Vertex 1 follows.
+// x, y, z
+0.925577
+0.5
+-0.4725
+
+// Vertex 2 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Polygon 85 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.952778
+0.5
+-0.397828
+
+// Vertex 1 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Vertex 2 follows.
+// x, y, z
+0.952777
+-1.73896e-008
+-0.397828
+
+// Polygon 86 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Vertex 1 follows.
+// x, y, z
+0.952778
+0.5
+-0.397828
+
+// Vertex 2 follows.
+// x, y, z
+0.952777
+-1.73896e-008
+-0.397828
+
+// Polygon 87 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Vertex 1 follows.
+// x, y, z
+0.952777
+-1.73896e-008
+-0.397828
+
+// Vertex 2 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Polygon 88 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 1 follows.
+// x, y, z
+0.972207
+0.5
+-0.306563
+
+// Vertex 2 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Polygon 89 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 1 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Polygon 90 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+0.5
+-0.07425
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Polygon 91 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Vertex 1 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Vertex 2 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Polygon 92 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.93825
+0.5
+0.486
+
+// Vertex 1 follows.
+// x, y, z
+0.975375
+0.5
+0.195188
+
+// Vertex 2 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Polygon 93 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.93825
+0.5
+0.486
+
+// Vertex 1 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Vertex 2 follows.
+// x, y, z
+0.93825
+2.12437e-008
+0.486
+
+// Polygon 94 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Vertex 1 follows.
+// x, y, z
+1.45125
+0.5
+0.45
+
+// Vertex 2 follows.
+// x, y, z
+0.93825
+0.5
+0.486
+
+// Polygon 95 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Vertex 1 follows.
+// x, y, z
+0.93825
+0.5
+0.486
+
+// Vertex 2 follows.
+// x, y, z
+0.93825
+2.12437e-008
+0.486
+
+// Polygon 96 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Vertex 1 follows.
+// x, y, z
+1.45125
+0.5
+0.45
+
+// Vertex 2 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Polygon 97 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Vertex 1 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Vertex 2 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Polygon 98 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.42797
+0.5
+-0.061312
+
+// Vertex 1 follows.
+// x, y, z
+1.44824
+0.5
+0.176484
+
+// Vertex 2 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Polygon 99 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.42797
+0.5
+-0.061312
+
+// Vertex 1 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Vertex 2 follows.
+// x, y, z
+1.42797
+-2.68003e-009
+-0.061312
+
+// Polygon 100 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Vertex 1 follows.
+// x, y, z
+1.42797
+0.5
+-0.061312
+
+// Vertex 2 follows.
+// x, y, z
+1.42797
+-2.68003e-009
+-0.061312
+
+// Polygon 101 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Vertex 1 follows.
+// x, y, z
+1.42797
+-2.68003e-009
+-0.061312
+
+// Vertex 2 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Polygon 102 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 1 follows.
+// x, y, z
+1.39043
+0.5
+-0.263391
+
+// Vertex 2 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Polygon 103 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 1 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Vertex 2 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Polygon 104 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Vertex 1 follows.
+// x, y, z
+1.33562
+0.5
+-0.42975
+
+// Vertex 2 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Polygon 105 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Vertex 1 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Vertex 2 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Polygon 106 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+1.28754
+0.5
+-0.521719
+
+// Vertex 2 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Polygon 107 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 1 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Vertex 2 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Polygon 108 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+0.5
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Polygon 109 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Polygon 110 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.15636
+0.5
+-0.676969
+
+// Vertex 1 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Polygon 111 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.07325
+0.5
+-0.74025
+
+// Vertex 1 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+-3.23574e-008
+-0.74025
+
+// Polygon 112 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.66825
+-6.52065e-008
+-1.49175
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Polygon 113 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Vertex 2 follows.
+// x, y, z
+1.07325
+-3.23574e-008
+-0.74025
+
+// Polygon 114 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+1.07325
+-3.23574e-008
+-0.74025
+
+// Vertex 2 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Polygon 115 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Polygon 116 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 2 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Polygon 117 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Vertex 2 follows.
+// x, y, z
+0.65025
+-2.57679e-008
+-0.5895
+
+// Polygon 118 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.65025
+-2.57679e-008
+-0.5895
+
+// Vertex 2 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Polygon 119 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.25425
+-6.40263e-008
+-1.46475
+
+// Vertex 1 follows.
+// x, y, z
+0.63675
+0
+0
+
+// Vertex 2 follows.
+// x, y, z
+0.25425
+0
+0
+
+// Polygon 120 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Vertex 1 follows.
+// x, y, z
+1.15636
+-2.95913e-008
+-0.676969
+
+// Vertex 2 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Polygon 121 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.739055
+-2.64563e-008
+-0.60525
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+0.797343
+-2.60936e-008
+-0.596953
+
+// Polygon 122 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797343
+-2.60936e-008
+-0.596953
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+0.847859
+-2.50057e-008
+-0.572063
+
+// Polygon 123 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.847859
+-2.50057e-008
+-0.572063
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Polygon 124 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Vertex 1 follows.
+// x, y, z
+1.22779
+-2.64071e-008
+-0.604125
+
+// Vertex 2 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Polygon 125 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.890604
+-2.31923e-008
+-0.530578
+
+// Vertex 1 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Vertex 2 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Polygon 126 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Vertex 1 follows.
+// x, y, z
+1.28754
+-2.28051e-008
+-0.521719
+
+// Vertex 2 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Polygon 127 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.925576
+-2.06536e-008
+-0.4725
+
+// Vertex 1 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Vertex 2 follows.
+// x, y, z
+0.952777
+-1.73896e-008
+-0.397828
+
+// Polygon 128 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.952777
+-1.73896e-008
+-0.397828
+
+// Vertex 1 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Vertex 2 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Polygon 129 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Vertex 1 follows.
+// x, y, z
+1.33562
+-1.8785e-008
+-0.42975
+
+// Vertex 2 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Polygon 130 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.972207
+-1.34003e-008
+-0.306563
+
+// Vertex 1 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Polygon 131 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Vertex 1 follows.
+// x, y, z
+1.39043
+-1.15132e-008
+-0.263391
+
+// Vertex 2 follows.
+// x, y, z
+1.42797
+-2.68003e-009
+-0.061312
+
+// Polygon 132 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Vertex 1 follows.
+// x, y, z
+1.42797
+-2.68003e-009
+-0.061312
+
+// Vertex 2 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Polygon 133 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+-3.24557e-009
+-0.07425
+
+// Vertex 1 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Vertex 2 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Polygon 134 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Vertex 1 follows.
+// x, y, z
+1.44824
+7.71436e-009
+0.176484
+
+// Vertex 2 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Polygon 135 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.975375
+8.53194e-009
+0.195188
+
+// Vertex 1 follows.
+// x, y, z
+1.45125
+1.96701e-008
+0.45
+
+// Vertex 2 follows.
+// x, y, z
+0.93825
+2.12437e-008
+0.486
+
+// Polygon 136 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.981
+-6.11741e-008
+-1.3995
+
+// Vertex 1 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Vertex 2 follows.
+// x, y, z
+0.98775
+-5.62566e-008
+-1.287
+
+// Polygon 137 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.98775
+-5.62566e-008
+-1.287
+
+// Vertex 1 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Vertex 2 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Polygon 138 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Vertex 1 follows.
+// x, y, z
+1.34325
+-5.67483e-008
+-1.29825
+
+// Vertex 2 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Polygon 139 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.982477
+-5.23533e-008
+-1.1977
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+0.966656
+-4.8954e-008
+-1.11994
+
+// Polygon 140 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.966656
+-4.8954e-008
+-1.11994
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+0.940289
+-4.60588e-008
+-1.0537
+
+// Polygon 141 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.940289
+-4.60588e-008
+-1.0537
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Polygon 142 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Vertex 1 follows.
+// x, y, z
+1.31288
+-4.90278e-008
+-1.12162
+
+// Vertex 2 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Polygon 143 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.903375
+-4.36677e-008
+-0.999
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+0.855914
+-4.17806e-008
+-0.955828
+
+// Polygon 144 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.855914
+-4.17806e-008
+-0.955828
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+0.797906
+-4.03975e-008
+-0.924188
+
+// Polygon 145 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.797906
+-4.03975e-008
+-0.924188
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Polygon 146 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Vertex 1 follows.
+// x, y, z
+1.25775
+-4.23891e-008
+-0.96975
+
+// Vertex 2 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+
+// Polygon 147 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+0.65025
+-3.91435e-008
+-0.8955
+
+// Vertex 1 follows.
+// x, y, z
+0.729352
+-3.95185e-008
+-0.904078
+
+// Vertex 2 follows.
+// x, y, z
+1.17788
+-3.68323e-008
+-0.842625
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

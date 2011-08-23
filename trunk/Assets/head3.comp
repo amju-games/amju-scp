@@ -1,0 +1,39 @@
+// File version
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+head3.leaf
+// Translation x, y, z
+0
+0
+4
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+oct2_.comp
+// Translation x, y, z
+-2
+2
+0
+// Rotation x, y, z
+90
+0
+0
+
+// Component 2 follows.
+oct2_.comp
+// Translation x, y, z
+2
+2
+0
+// Rotation x, y, z
+90
+0
+0
+

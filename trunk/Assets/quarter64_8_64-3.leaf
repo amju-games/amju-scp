@@ -1,0 +1,71 @@
+// quarter64_8_64-3.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+yw.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0.25
+0
+0
+0
+0
+0.25
+0
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+2
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-32
+8
+-2.09814e-006
+
+// Vertex 1 follows.
+// x, y, z
+-32
+0
+-6.99382e-007
+
+// Vertex 2 follows.
+// x, y, z
+-64
+0
+-6.99382e-007
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-32
+8
+-2.09814e-006
+
+// Vertex 1 follows.
+// x, y, z
+-64
+0
+-6.99382e-007
+
+// Vertex 2 follows.
+// x, y, z
+-64
+8
+-2.09814e-006
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

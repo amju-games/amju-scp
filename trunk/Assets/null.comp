@@ -1,0 +1,8 @@
+// null.comp
+// File version 
+7
+//
+// Number of components
+0
+// This "null" composite can be used as the child of a decorator which
+// has side-effects.

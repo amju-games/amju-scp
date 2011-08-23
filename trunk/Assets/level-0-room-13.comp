@@ -1,0 +1,40 @@
+// level-0-room-13.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+level-0-room-13-well.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+135
+0
+
+// Component 1 follows.
+oct16_16.comp
+// Translation x, y, z
+0
+-8
+-168
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+oct64_8.comp
+// Translation x, y, z
+0
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+

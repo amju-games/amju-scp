@@ -1,0 +1,106 @@
+// level-0-room-16.comp
+// File version follows on next line.
+11
+
+// Number of components
+9
+
+// Component 0 follows.
+oct8_2.comp
+// Translation x, y, z
+20
+-1
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+quarter64_8_64.comp
+// Translation x, y, z
+0
+-8
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+quarter64_8_64.comp
+// Translation x, y, z
+0
+-8
+0
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 3 follows.
+quarter64_8_64.comp
+// Translation x, y, z
+0
+-8
+0
+// Rotation x, y, z
+0
+-180
+0
+
+// Component 4 follows.
+quarter64_8_64.comp
+// Translation x, y, z
+0
+-8
+0
+// Rotation x, y, z
+0
+90
+0
+
+// Component 5 follows.
+quarter16_4_16.comp
+// Translation x, y, z
+-16
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+quarter16_4_16.comp
+// Translation x, y, z
+-16
+-4
+0
+// Rotation x, y, z
+0
+90
+0
+
+// Component 7 follows.
+quarter16_4_16.comp
+// Translation x, y, z
+-16
+-4
+0
+// Rotation x, y, z
+0
+-90
+0
+
+// Component 8 follows.
+quarter16_4_16.comp
+// Translation x, y, z
+-16
+-4
+0
+// Rotation x, y, z
+0
+180
+0
+

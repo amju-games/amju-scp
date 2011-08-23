@@ -1,0 +1,281 @@
+// File version
+11
+
+// Number of components
+25
+
+// Component 0 follows.
+table2-small.comp
+// Translation x, y, z
+0.053476
+0.49515
+-9.35563
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table3-small.comp
+// Translation x, y, z
+-7.01181
+0.523499
+1.07819
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table6.comp
+// Translation x, y, z
+-7.91109
+0
+-10.6223
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+table6.comp
+// Translation x, y, z
+8.04527
+-0.000593185
+10.3712
+// Rotation x, y, z
+0
+180
+0
+
+// Component 4 follows.
+table6.comp
+// Translation x, y, z
+-17.3871
+0
+0.821681
+// Rotation x, y, z
+0
+90
+0
+
+// Component 5 follows.
+table6.comp
+// Translation x, y, z
+17.489
+0
+-1.04445
+// Rotation x, y, z
+0
+270
+0
+
+// Component 6 follows.
+table7.comp
+// Translation x, y, z
+-7.83834
+-0.000592709
+-0.177814
+// Rotation x, y, z
+0
+0
+0
+
+// Component 7 follows.
+table7.comp
+// Translation x, y, z
+8.04759
+-0.000593185
+0
+// Rotation x, y, z
+0
+180
+0
+
+// Component 8 follows.
+table8-small.leaf
+// Translation x, y, z
+0
+1
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 9 follows.
+table9.leaf
+// Translation x, y, z
+-3
+-5
+-7
+// Rotation x, y, z
+0
+0
+0
+
+// Component 10 follows.
+table9.leaf
+// Translation x, y, z
+-3
+-5
+8
+// Rotation x, y, z
+0
+0
+0
+
+// Component 11 follows.
+table9.leaf
+// Translation x, y, z
+3
+-5
+8
+// Rotation x, y, z
+0
+0
+0
+
+// Component 12 follows.
+table9.leaf
+// Translation x, y, z
+3
+-5
+-7
+// Rotation x, y, z
+0
+0
+0
+
+// Component 13 follows.
+table11-small.leaf
+// Translation x, y, z
+-0.284892
+10.9707
+8.99911
+// Rotation x, y, z
+0
+0
+0
+
+// Component 14 follows.
+table-r1-small.leaf
+// Translation x, y, z
+2.68401
+0.558556
+13.3303
+// Rotation x, y, z
+0
+0
+0
+
+// Component 15 follows.
+table-r2-small.leaf
+// Translation x, y, z
+6.37163
+0.488948
+3.48889
+// Rotation x, y, z
+0
+0
+0
+
+// Component 16 follows.
+SMBAIZE.leaf
+// Translation x, y, z
+-0.104249
+9.89088
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 17 follows.
+table2-small.comp
+// Translation x, y, z
+0.0951192
+0.523499
+9.1861
+// Rotation x, y, z
+0
+180
+0
+
+// Component 18 follows.
+table3-small.comp
+// Translation x, y, z
+-7.05345
+0.523499
+-12.5734
+// Rotation x, y, z
+0
+0
+0
+
+// Component 19 follows.
+table3-small.comp
+// Translation x, y, z
+7.29768
+0.57109
+-1.29554
+// Rotation x, y, z
+0
+180
+0
+
+// Component 20 follows.
+table3-small.comp
+// Translation x, y, z
+7.27388
+0.57109
+12.3795
+// Rotation x, y, z
+0
+180
+0
+
+// Component 21 follows.
+table-r1-small.leaf
+// Translation x, y, z
+-2.55358
+0.543276
+-13.4726
+// Rotation x, y, z
+0
+180
+0
+
+// Component 22 follows.
+table-r2-small.leaf
+// Translation x, y, z
+6.35904
+0.528437
+-9.65399
+// Rotation x, y, z
+0
+0
+0
+
+// Component 23 follows.
+table-r2-small.leaf
+// Translation x, y, z
+-6.0993
+0.557794
+-3.71292
+// Rotation x, y, z
+0
+180
+0
+
+// Component 24 follows.
+table-r2-small.leaf
+// Translation x, y, z
+-6.29136
+0.557794
+9.43704
+// Rotation x, y, z
+0
+180
+0
+

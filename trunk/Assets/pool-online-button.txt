@@ -1,0 +1,14 @@
+// ver
+11
+// no of textures
+1
+gui-button-2p-online.bmp
+1
+gui-button-1.bmp
+1
+Start an online game
+// tq bg
+tool-1.bmp
+1
+gui-button-1.bmp
+

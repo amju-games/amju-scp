@@ -1,0 +1,53 @@
+// fireball.leaf
+// version
+7
+// Texture Method
+1
+// The texture file for this polygon
+flare1.bmp
+// alpha file specified ? (1 for yes, 0 for no)
+0
+// Alpha filename
+//flare1_a.bmp
+// Normal flag
+2
+// The number of polygons
+1
+// The number of vertices
+4
+
+// Each vertex, giving x,y,z coords for polygon and x, y coords for texture.
+// Polygon vertex 0
+-0.75
+0.75
+0
+// Texture vertex
+0.0 
+1.0 
+
+// Polygon vertex 1
+-0.75
+-0.75
+0
+// Texture vertex 
+0.0 
+0.0 
+
+// Polygon vertex 2
+0.75
+-0.75
+0
+// Texture vertex 
+1.0 
+0.0 
+
+
+// Polygon vertex 3
+0.75
+0.75
+0
+// Texture vertex 
+1.0
+1.0
+
+

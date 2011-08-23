@@ -1,0 +1,29 @@
+// heart-u.comp
+// File version follows on next line.
+11
+
+// Number of components
+2
+
+// Component 0 follows.
+heart-u1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+heart-u2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

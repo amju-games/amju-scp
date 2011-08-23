@@ -1,0 +1,51 @@
+// level-0-room-15.comp
+// File version follows on next line.
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+block32_4_32.comp
+// Translation x, y, z
+0
+-4
+-64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+block32_4_32.comp
+// Translation x, y, z
+64
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+block32_4_32.comp
+// Translation x, y, z
+0
+-4
+64
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+block32_4_32.comp
+// Translation x, y, z
+-64
+-4
+0
+// Rotation x, y, z
+0
+0
+0
+

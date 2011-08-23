@@ -1,0 +1,291 @@
+// c_up.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+2
+// Texture file name
+c2.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Coeffs. for texture coord generation follow.
+0.35
+0
+0
+0.5
+0
+0.35
+0
+1
+// Normals flag 1 = smooth, 2 = perpendicular.
+2
+// Number of polygons follows on next line.
+12
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+16.0512
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+1.18493e-006
+1.47338
+
+// Polygon 2 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+2.93898e-006
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Polygon 3 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+1.18493e-006
+1.47338
+
+// Polygon 4 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+16.0512
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Polygon 5 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+1.18493e-006
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+1.51485
+2.93898e-006
+-1.52661
+
+// Polygon 6 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+16.0512
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Polygon 7 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Vertex 2 follows.
+// x, y, z
+1.51485
+16.0512
+1.47338
+
+// Polygon 8 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+1.51485
+2.93898e-006
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Polygon 9 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+1.51485
+16.0512
+-1.52661
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+16.0512
+-1.52661
+
+// Polygon 10 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+16.0512
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Polygon 11 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+-1.48516
+16.0512
+1.47338
+
+// Vertex 1 follows.
+// x, y, z
+-1.48516
+2.93898e-006
+-1.52661
+
+// Vertex 2 follows.
+// x, y, z
+-1.48516
+1.18493e-006
+1.47338
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

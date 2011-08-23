@@ -1,0 +1,83 @@
+// File version
+11
+
+// Number of components
+7
+
+// Component 0 follows.
+tree_yellow_white.comp
+// Translation x, y, z
+140
+-10
+13
+// Rotation x, y, z
+0
+-45
+0
+
+// Component 1 follows.
+tree4_red.comp
+// Translation x, y, z
+-145
+-10
+49
+// Rotation x, y, z
+0
+45
+0
+
+// Component 2 follows.
+tree_blue.comp
+// Translation x, y, z
+-42
+-11
+-134
+// Rotation x, y, z
+0
+45
+0
+
+// Component 3 follows.
+tree_red_white.comp
+// Translation x, y, z
+89
+-10
+-112
+// Rotation x, y, z
+0
+77
+0
+
+// Component 4 follows.
+tree_red_white.comp
+// Translation x, y, z
+73.797
+-10
+140.956
+// Rotation x, y, z
+0
+6
+0
+
+// Component 5 follows.
+tree_yellow_white.comp
+// Translation x, y, z
+-43
+-10
+134
+// Rotation x, y, z
+0
+33
+0
+
+// Component 6 follows.
+tree_blue.comp
+// Translation x, y, z
+-148.402
+-10
+-57.9697
+// Rotation x, y, z
+0
+97
+0
+

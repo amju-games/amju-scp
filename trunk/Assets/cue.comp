@@ -1,0 +1,39 @@
+// File version
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+cue1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cue2.leaf
+// Translation x, y, z
+0
+-0.0838661
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+cue3.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+

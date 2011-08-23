@@ -1,0 +1,10 @@
+// ver
+1
+// num bonuses
+3
+// list of bonus solids
+pool-heart-1.move
+pool-heart-2.move
+pool-heart-3.move
+
+

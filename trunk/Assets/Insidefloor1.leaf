@@ -1,0 +1,55 @@
+// Insidefloor1.leaf
+// Automatically generated file. File version follows on next line.
+7
+//----------------------------------------------------------------------------
+// Leaf type flag follows (1 = normal, 2 = AutoTexture)
+1
+//----------------------------------------------------------------------------
+// Texture file name
+tile4.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Normals flag follows - (1 = smooth, 2 = perpendicular).
+2
+
+// Number of polygons follows on next line.
+1
+
+// Number of vertices
+4
+//----------------------------------------------------------------------------
+// Vertex 0 follows.
+// x, y, z
+12
+0
+-12
+// Texture (s, t)
+0
+0
+//----------------------------------------------------------------------------
+// Vertex 1 follows.
+// x, y, z
+-12
+0
+-12
+// Texture (s, t)
+24
+0
+//----------------------------------------------------------------------------
+// Vertex 2 follows.
+// x, y, z
+-12
+0
+-4
+// Texture (s, t)
+24
+8
+//----------------------------------------------------------------------------
+// Vertex 3 follows.
+// x, y, z
+12
+0
+-4
+// Texture (s, t)
+0
+8

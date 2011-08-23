@@ -1,0 +1,74 @@
+// b_fl_5.leaf
+// File version follows on next line.
+11
+
+// TextureMethod
+1
+// Texture file name
+gr1.bmp
+// Use alpha layer (1) or no alpha layer (0)
+0
+// Normals flag 1 = smooth, 2 = perpendicular.
+1
+// Number of polygons follows on next line.
+2
+
+// Polygon 0 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+32
+0
+-33
+0
+0
+
+// Vertex 1 follows.
+// x, y, z
+-32
+0
+-33
+0
+1
+
+// Vertex 2 follows.
+// x, y, z
+-32
+0
+33
+1
+1
+
+// Polygon 1 follows.
+// Number of vertices
+3
+
+// Vertex 0 follows.
+// x, y, z
+32
+0
+-33
+0
+0
+
+// Vertex 1 follows.
+// x, y, z
+-32
+0
+33
+1
+1
+
+// Vertex 2 follows.
+// x, y, z
+32
+0
+33
+1
+0
+// Solidity flag: 1 == solid
+1
+// Visible ?
+1

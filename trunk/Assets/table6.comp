@@ -1,0 +1,49 @@
+// File version
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+table6-1.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+table6-2.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+table6-3.leaf
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+table10.leaf
+// Translation x, y, z
+13.4714
+10.2063
+22.6521
+// Rotation x, y, z
+0
+45
+0
+

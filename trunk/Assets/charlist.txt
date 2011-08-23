@@ -1,0 +1,145 @@
+// charlist.txt
+// list of available characters.
+// file version
+6
+
+// Md2 models
+// number of models
+6
+
+
+sgshed.md2
+// extra ?
+1
+// rpt
+1
+stand
+// freeze
+1
+deatha
+
+
+bird1.md2
+// extra info ? (1)
+0
+
+cat2.md2
+// extra info ? (1)
+0
+
+fox2.md2
+// extra info ? (1)
+0
+
+per.md2
+// extra info ? (1)
+1
+// number of repeat flags
+1
+stand
+// number of freeze flags
+2
+setupshot
+tableleftshot
+
+marin1.md2
+// extra info ? (1)
+1
+// number of repeat flags
+1
+stand
+// number of freeze flags
+2
+setupshot
+tableleftshot
+
+
+
+
+// number of characters
+6
+
+// name
+shed
+// type
+md2
+sgshed.md2
+//skins
+1
+sgshed.bmp
+0
+
+
+// name
+marin
+// type
+md2blinkeyes
+// mesh file name
+marin1.md2
+// skins
+2
+marin1-2.bmp
+0
+marin1.bmp
+0
+
+
+// name
+amju
+// type
+md2blinkeyes
+// mesh file name
+per.md2
+// skins
+2
+pera.bmp
+0
+per.bmp
+0
+
+
+// name
+bird
+// type
+md2blinkeyes
+// mesh file name
+bird1.md2
+// skins
+2
+bird1a.bmp
+0
+bird1.bmp
+0
+
+
+
+
+// name
+cat
+// type
+md2blinkeyes
+// mesh file name
+cat2.md2
+// Num skins
+2
+// Skins 
+cat4a.bmp
+0
+cat4.bmp
+0
+
+
+
+// name
+fox
+// type
+md2blinkeyes
+// mesh
+fox2.md2
+// skins
+2
+fox3a.bmp
+0
+fox3.bmp
+0
+

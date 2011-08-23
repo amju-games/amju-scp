@@ -1,0 +1,29 @@
+// level-1-room-1-q4.comp
+// File version follows on next line.
+11
+
+// Number of components
+2
+
+// Component 0 follows.
+block16_4_16.comp
+// Translation x, y, z
+-16
+1
+16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+block16_4_16.comp
+// Translation x, y, z
+-32
+3
+32
+// Rotation x, y, z
+0
+0
+0
+

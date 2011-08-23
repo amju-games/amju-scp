@@ -1,0 +1,40 @@
+// _!_.comp
+// File version follows on next line.
+11
+
+// Number of components
+3
+
+// Component 0 follows.
+i2.leaf
+// Translation x, y, z
+1
+0
+-2
+// Rotation x, y, z
+0
+180
+0
+
+// Component 1 follows.
+i11.leaf
+// Translation x, y, z
+0
+0
+1.5
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+i12.leaf
+// Translation x, y, z
+0
+0
+1.5
+// Rotation x, y, z
+0
+0
+0
+

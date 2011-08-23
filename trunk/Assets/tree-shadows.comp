@@ -1,0 +1,83 @@
+// File version
+11
+
+// Number of components
+7
+
+// Component 0 follows.
+shadow-round.leaf
+// Translation x, y, z
+89
+0
+-113
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+shadow-round.leaf
+// Translation x, y, z
+141
+0.5
+16
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+shadow-round.leaf
+// Translation x, y, z
+-43.8467
+1.15998
+-132
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+shadow-round.leaf
+// Translation x, y, z
+-148
+-0.306657
+-61
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+shadow-round.leaf
+// Translation x, y, z
+-144
+0.5
+46
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+shadow-round.leaf
+// Translation x, y, z
+-40.8467
+0.240016
+131
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+shadow-round.leaf
+// Translation x, y, z
+73
+1
+139
+// Rotation x, y, z
+0
+0
+0
+

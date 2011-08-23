@@ -1,0 +1,55 @@
+// _amju_.comp
+// File version follows on next line.
+11
+
+// Number of components
+4
+
+// Component 0 follows.
+_u_chrome.comp
+//_amju_u_.move
+// Translation x, y, z
+0.441345
+0
+0.158246
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+_j_chrome.comp
+//_amju_j_.move
+// Translation x, y, z
+-0.218331
+0
+0.405473
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+_m_chrome.comp
+//_amju_m_.move
+// Translation x, y, z
+-1
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+_a_chrome.comp
+//_amju_a_.move
+// Translation x, y, z
+-1.64484
+0
+0.134
+// Rotation x, y, z
+0
+0
+0
+
