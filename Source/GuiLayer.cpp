@@ -52,7 +52,7 @@ void GuiLayerColourList::Draw(float top, float left, float bottom, float right)
   if (m_time > m_colourTime)
   {
     ++m_index;
-    if (m_index == m_colours.size())
+    if (m_index == (int)m_colours.size())
     {
       m_index = 0;
     }

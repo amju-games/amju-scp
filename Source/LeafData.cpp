@@ -352,7 +352,7 @@ void LeafData::CreateSmoothNormals()
   // Where a vertex already exists in the map, the normals will be added, so we 
   // point in the average direction.
   int i;
-  for (i = 0; i< m_polygons.size(); i++)
+  for (i = 0; i < (int)m_polygons.size(); i++)
   {
     const Polygon* pPoly = m_polygons[i];
     for (int j = 0; j < pPoly->Vertices(); j++)
@@ -372,7 +372,7 @@ void LeafData::CreateSmoothNormals()
   // Iterate through all the vertices again, replacing the exisiting
   // perpendicular normal with one from the map.
   // VertexBase objects make sure each normal has unit length.
-  for (i = 0; i< m_polygons.size(); i++)
+  for (i = 0; i < (int)m_polygons.size(); i++)
   {
     const Polygon* pPoly = m_polygons[i];
     for (int j = 0; j < m_polygons[i]->Vertices(); j++)
@@ -390,7 +390,7 @@ void LeafData::CreateSmoothNormals()
 
 void LeafData::CreateNormals()
 {
-  for (int i = 0; i < m_polygons.size(); i++)
+  for (unsigned int i = 0; i < m_polygons.size(); i++)
   {
     m_polygons[i]->SetPerpendicularNormals();
   }

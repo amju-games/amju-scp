@@ -326,7 +326,6 @@ void Npc::CheckCharacterCollisions()
     
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     State s = pGo->GetState();

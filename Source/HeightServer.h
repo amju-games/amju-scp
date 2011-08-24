@@ -34,7 +34,7 @@ Added to repository
 #include <vector>
 
 #ifdef _DEBUG
-#define HS_DEBUG
+//#define HS_DEBUG
 #endif
 
 namespace Amju

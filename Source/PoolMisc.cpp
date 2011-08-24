@@ -228,7 +228,6 @@ PoolTeeBox* GetTeeBox(Level* pLevel)
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     PoolTeeBox* pTee = dynamic_cast<PoolTeeBox*>(pGo.GetPtr());
@@ -254,7 +253,6 @@ PoolHole* GetPoolHole(Level* pLevel)
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     PoolHole* pHole = dynamic_cast<PoolHole*>(pGo.GetPtr());
@@ -572,7 +570,6 @@ SolidGameObject* GetNonHeadArea(Level* pLevel)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     NonHeadArea* p = dynamic_cast<NonHeadArea*>(pGo.GetPtr());
@@ -595,7 +592,6 @@ Rules* GetRules(Level* pLevel)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     Rules* p = dynamic_cast<Rules*>(pGo.GetPtr());

@@ -20,7 +20,7 @@ Added to repository
 
 namespace Amju
 {
-GuiDragButton::GuiDragButton() : m_minx(0), m_miny(0), m_maxx(10.0f), m_maxy(10.0f)
+GuiDragButton::GuiDragButton() : m_minx(0), m_maxx(10.0f), m_miny(0), m_maxy(10.0f)
 {
   m_canDrag = true;
 }

@@ -29,10 +29,10 @@ ostream& operator<<(ostream& os, const Message& m)
 Message::Message() : 
   m_name("NULL MESSAGE"),
   m_interval(0),
+  m_realTime(0),
   m_sendId(0),
   m_recId(0),
-  m_code(0),
-  m_realTime(0)
+  m_code(0)
 {
   m_id = s_id++;
 }
@@ -44,10 +44,10 @@ Message::Message(const std::string& name, // name for debugging
         int code) : // the message code.
   m_name(name),
   m_interval(timeDelay),
+  m_realTime(0),
   m_sendId(senderId),
   m_recId(recId),
-  m_code(code),
-  m_realTime(0)
+  m_code(code)
 {
   m_id = s_id++;
 }

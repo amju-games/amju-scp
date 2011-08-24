@@ -54,14 +54,14 @@ void EngineStatePlayerStats::ClearStats()
 
 void EngineStatePlayerStats::StoreStats(int player, const std::vector<float>& stats)
 {
-  Assert(player < m_prevStats.size());
+  Assert(player < (int)m_prevStats.size());
   m_prevStats[player] = stats;
 }
 
 const std::vector<float>& EngineStatePlayerStats::GetStats(int player)
 {
-  Assert(player <= m_prevStats.size());
-  if (player == m_prevStats.size())
+  Assert(player <= (int)m_prevStats.size());
+  if (player == (int)m_prevStats.size())
   {
     // Requesting old stats which don't exist.
     // Assume this is ok, and just create an empty vector of stats.
@@ -172,8 +172,6 @@ void EngineStatePlayerStats::DrawOverlays()
   m_pOkText->Draw();
   AmjuGL::PopMatrix();
 
-  float dt = Engine::Instance()->GetDeltaTime();
-
   // Get playerinfo so we can compare current stat value with previous.
   GameState::PlayerInfo* pInfo = 
     GetEngine()->GetGameState()->GetPlayerInfo(m_currentPlayer);
@@ -189,8 +187,8 @@ void EngineStatePlayerStats::DrawOverlays()
 
     float newval = pInfo->m_stats[i];
 
-    Assert(oldStats.size() > i);
-if (oldStats.size() <= i)
+    Assert((int)oldStats.size() > i);
+if ((int)oldStats.size() <= i)
 {
 std::cout << "Bad array size!!\n";
 }
@@ -375,7 +373,7 @@ void EngineStatePlayerStats::InitPlayer()
 
   // For each stat in player info, set the guage.
   int sz = m_nameGuages.size();
-  Assert(pInfo->m_stats.size() == sz);
+  Assert((int)pInfo->m_stats.size() == sz);
 
   // Have any stats changed since last time ?
   // If so, play a wav
@@ -390,8 +388,8 @@ void EngineStatePlayerStats::InitPlayer()
   {
     float newval = pInfo->m_stats[i];
 
-    Assert(oldStats.size() >= i);
-    if (oldStats.size() == i)
+    Assert((int)oldStats.size() >= i);
+    if ((int)oldStats.size() == i)
     {
       oldStats.push_back(newval);
     }
@@ -418,8 +416,7 @@ void EngineStatePlayerStats::SetActive(bool b)
   {
     m_currentPlayer = 0;
 
-    int numPlayers = GetEngine()->GetGameState()->GetNumberOfPlayers();
-    Assert(m_currentPlayer <= numPlayers);
+    Assert(m_currentPlayer <= GetEngine()->GetGameState()->GetNumberOfPlayers());
 
     InitPlayer();
   }

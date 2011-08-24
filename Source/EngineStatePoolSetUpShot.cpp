@@ -322,8 +322,6 @@ Added to repository
   
 */
 
-#define POOL_ONLINE
-
 #if defined(WIN32)
 #pragma warning(disable: 4786)
 #endif
@@ -986,7 +984,7 @@ void EngineStatePoolSetUpShot::OnNewRoom()
   // Go to the next song - wrap if there are no more songs.
   m_currentSong = (roomId + 1) % m_songs.size();
   Assert(m_currentSong >= 0);
-  Assert(m_currentSong < m_songs.size());
+  Assert(m_currentSong < (int)m_songs.size());
   Engine::Instance()->PlaySong(m_songs[m_currentSong]);
 
   EngineStatePoolBase::OnNewRoom();
@@ -1277,9 +1275,10 @@ void EngineStatePoolSetUpShot::Draw()
     {
       GetBall()->Draw();
     }
-    int x = Mouse::s_mousex;
-    int y = Mouse::s_mousey;
 /*
+    TODO Get 3D position from 2D cursor pos
+
+
     GLint viewport[4]; 
     glGetIntegerv(GL_VIEWPORT,viewport);
     y=viewport[3]-y;   
@@ -1612,7 +1611,7 @@ void EngineStatePoolSetUpShot::DrawOverlays()
       {
         m_helpTimer = 0;
         m_helpId++;
-        if (m_helpId >= m_helpText.size())
+        if (m_helpId >= (int)m_helpText.size())
         {
           m_helpId = 0;
         }
@@ -1736,11 +1735,10 @@ std::cout << "SET ACTIVE: Room ID: " << roomId << "\n";
     // Avoidance: Restore players to their original positions 
     int numPlayers = GetEngine()->GetGameState()->GetNumberOfPlayers();
 
-    Assert(s_avoidVec.size() >= numPlayers);
+    Assert((int)s_avoidVec.size() >= numPlayers);
     for (int i = 0; i < numPlayers; i++)
     {  
       int id = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_id;
-      bool isAlive = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_isPlaying;
       PGameObject pGo = GetEngine()->GetGameObject(id);
 
       // While we are here, make sure Engine list of objects has this
@@ -2454,8 +2452,8 @@ std::cout << "CheckForInvite: No games\n";
     const PoolOnline::OnlineGame& g = *it;
     std::string s;
 
-    const PoolOnline::OnlinePlayer& p1 =
-      const_cast<PoolOnline::Players&>(players)[g.m_playerId[0]];
+    //const PoolOnline::OnlinePlayer& p1 =
+    //  const_cast<PoolOnline::Players&>(players)[g.m_playerId[0]];
 
     const PoolOnline::OnlinePlayer& p2 =
       const_cast<PoolOnline::Players&>(players)[g.m_playerId[1]];
@@ -2802,7 +2800,6 @@ void EngineStatePoolSetUpShot::SetShotParams()
   // If the cue contact pos is above or below some threshold, the cue ball
   // will jump.
   // Draw/roll is -1 for bottom, 0 for centre, +1 for top.
-  static const float radius = GetBall()->GetBoundingSphere()->GetRadius();
 
   float drawRoll = 0;
   float english = 0;

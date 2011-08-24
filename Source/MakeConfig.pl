@@ -21,7 +21,6 @@ open (CONFIGFILE, "../../Data/game.cfg") or die "I couldn't open Game.cfg";
 # (We simply use print, so redirect this to a .cpp file.)
 
 print "\/\/ Automatically generated from config file.\n\n";
-print "#pragma warning(disable: 4786)\n";
 print "#include \"Engine.h\"\n\n";
 print "namespace Amju\n{\nvoid ConfigHack()\n{\n";
 

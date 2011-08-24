@@ -132,7 +132,7 @@ std::cout << "** Setting up buttons: m_currentPlayer = " << m_currentPlayer << "
     Assert("Too many players!" && 0);
     numNames = MAX_PLAYERS;
   }
-  Assert(m_buttons.size() == MAX_PLAYERS);
+  Assert((int)m_buttons.size() == MAX_PLAYERS);
   int i;
   // Reset names on each button, so if a name was deleted it will
   // no longer appear.

@@ -65,8 +65,8 @@ protected:
   public:
     static bool Init();
 #ifdef _DEBUG
-    BlockShadowImpl() :  m_polyIndex(-1), 
-      m_plane("blockShadowImpl")
+    BlockShadowImpl() :  
+      m_plane("blockShadowImpl"), m_polyIndex(-1)
 #else
     BlockShadowImpl() :  m_polyIndex(-1)
 #endif

@@ -194,7 +194,7 @@ std::cout << "NOT CHUNKED\n";
   // Find the first blank line, so we know we have found the start
   // of the message body.
   int i = 0;
-  while (i < v.size())
+  while (i < (int)v.size())
   {
     std::string s = v[i];
     Trim(&s);
@@ -207,7 +207,7 @@ std::cout << "NOT CHUNKED\n";
     i++;
   }
   
-  while (i < v.size())
+  while (i < (int)v.size())
   {
     // Read the chunk:
     // Read the first line: this is of the form
@@ -244,7 +244,7 @@ std::cout << "Chunk length (base 10): " << chunkLength << "\n";
     // Skip lines until we have skipped <chunkLength> characters
     int charsSkipped = 0;
     ++i;
-    while (charsSkipped < chunkLength && i < v.size())
+    while (charsSkipped < chunkLength && i < (int)v.size())
     {
       std::string line = v[i];
       charsSkipped += line.size(); 

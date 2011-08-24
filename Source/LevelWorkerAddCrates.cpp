@@ -34,7 +34,7 @@ bool LevelWorkerAddCrates::AddFeature(Level* pLevel, CubeMap* pCubeMap)
   // TODO could use Buildings as lists of crates and their orientations.
 
   // For each crate type
-  for (int i = 0; i < m_solidNames.size(); i++)
+  for (unsigned int i = 0; i < m_solidNames.size(); i++)
   {
     const std::string& crateName = m_solidNames[i]; 
 

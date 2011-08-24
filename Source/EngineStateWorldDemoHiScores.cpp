@@ -48,7 +48,7 @@ void EngineStateWorldDemoHiScores::DrawOverlays()
   m_or.Draw();
   AmjuGL::Translate(0, m_hiScoreTop, 0);
   AmjuGL::Translate(0, 0, z);
-  for (int i = 0; i < m_strs.size(); i++)
+  for (int i = 0; i < (int)m_strs.size(); i++)
   {
     PSolidComponent pComp = m_strs[i];
     if (pComp.GetPtr())

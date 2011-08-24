@@ -333,7 +333,6 @@ GameObject* Croc::GetHome()
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     CrocHome* pHome = dynamic_cast<CrocHome*>(pGo.GetPtr());
     if (pHome)

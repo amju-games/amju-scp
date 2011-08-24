@@ -113,8 +113,6 @@ void ControlStyleJoystick::Update()
     // Stick North is the direction the camera is facing.
     m_joyTheta += camRot;
 
-    const Orientation* pO = Engine::Instance()->GetPlayer()->GetOrientation();
-
     // If the radius is less than some limit, we shuffle around on the spot. 
     // In this case we just need to know which direction to shuffle in.
 

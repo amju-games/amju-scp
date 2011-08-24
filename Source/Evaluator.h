@@ -59,7 +59,7 @@ public:
 
 #if defined(_DEBUG)
 public:
-  const std::string& Evaluator::GetName() const;
+  const std::string& GetName() const;
   void SetName(const std::string& name);
 protected:
   std::string m_name;

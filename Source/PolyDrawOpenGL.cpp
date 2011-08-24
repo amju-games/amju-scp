@@ -26,7 +26,6 @@ void PolyDrawOpenGL::Draw(Polygon* poly)
   int sides = poly->m_theVertices.size();
   if (sides == 3)
   {
-    int numUVs = poly->m_textureVerts.size();
     
     AmjuGL::Vert verts[3] =
     {
@@ -40,6 +39,17 @@ void PolyDrawOpenGL::Draw(Polygon* poly)
         0, 0, //poly->m_textureVerts[2].s(), poly->m_textureVerts[2].t(),  
         poly->m_theVertices[2].GetNormalX(), poly->m_theVertices[2].GetNormalY(), poly->m_theVertices[2].GetNormalZ()), 
     };
+    int numUVs = poly->m_textureVerts.size();
+    if (numUVs > 2)
+    {
+        verts[0].m_u = poly->m_textureVerts[0].s();
+        verts[0].m_v = poly->m_textureVerts[0].t();
+        verts[1].m_u = poly->m_textureVerts[1].s();
+        verts[1].m_v = poly->m_textureVerts[1].t();
+        verts[2].m_u = poly->m_textureVerts[2].s();
+        verts[2].m_v = poly->m_textureVerts[2].t();
+    }
+
     //glBegin(GL_TRIANGLES);
     AmjuGL::Tris tris;
     AmjuGL::Tri t;

@@ -154,7 +154,7 @@ void PlayerNames::EraseAll()
   Load();
 
   // Erase all stats
-  for (int i = 0; i < m_names.size(); i++)
+  for (unsigned int i = 0; i < m_names.size(); i++)
   {
     PoolPlayerStats ps(m_names[i].m_name);
     ps.Erase();
@@ -198,13 +198,13 @@ int PlayerNames::GetNumNames() const
 
 std::string PlayerNames::GetName(int i) const
 {
-  Assert(i < m_names.size());
+  Assert(i < (int)m_names.size());
   return m_names[i].m_name;
 }
 
 int PlayerNames::GetId(int i) const
 {
-  Assert(i < m_names.size());
+  Assert(i < (int)m_names.size());
   return m_names[i].m_id;
 }
 

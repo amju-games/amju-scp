@@ -110,7 +110,7 @@ bool GameState::Load()
     Init();
     return false;
   }
-  float cs = GetFloat(CHECKSUM);
+  //float cs = GetFloat(CHECKSUM);
   m_cf.Erase(CHECKSUM);
 /*
   // Don't check 
@@ -176,7 +176,7 @@ GameState::PlayerInfo* GameState::GetCurrentPlayerInfo()
 {
   Assert(!m_playersInfo.empty());
   Assert(m_currentPlayerId >= 0);
-  Assert(m_currentPlayerId < m_playersInfo.size());
+  Assert(m_currentPlayerId < (int)m_playersInfo.size());
   return &(m_playersInfo[m_currentPlayerId]);
 }
 
@@ -184,7 +184,7 @@ GameState::PlayerInfo* GameState::GetPlayerInfo(int index)
 {
   Assert(!m_playersInfo.empty());
   Assert(index >= 0);
-  Assert(index < m_playersInfo.size());
+  Assert(index < (int)m_playersInfo.size());
   return &(m_playersInfo[index]);
 }
 
@@ -192,14 +192,14 @@ void GameState::SetPlayerInfo(int index, const GameState::PlayerInfo& info)
 {
   Assert(!m_playersInfo.empty());
   Assert(index >= 0);
-  Assert(index < m_playersInfo.size());
+  Assert(index < (int)m_playersInfo.size());
   m_playersInfo[index] = info;
 }
 
 int GameState::RotateToNextPlayer()
 {
   m_currentPlayerId++;
-  if (m_currentPlayerId == m_playersInfo.size())
+  if (m_currentPlayerId == (int)m_playersInfo.size())
   {
     m_currentPlayerId = 0;
   }

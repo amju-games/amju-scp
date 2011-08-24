@@ -194,14 +194,14 @@ bool Ai::LoadGoalList(File* pf)
 PGameObject Ai::GetCurrentGoal()
 {
   Assert(!m_goals.empty());
-  Assert(m_goalIndex < m_goals.size());
+  Assert(m_goalIndex < (int)m_goals.size());
   return m_goals[m_goalIndex];
 }
 
 PGameObject Ai::GetPrevGoal()
 {
   Assert(!m_goals.empty());
-  Assert(m_goalIndex < m_goals.size());
+  Assert(m_goalIndex < (int)m_goals.size());
 
   if (m_goalIndex == 0)
   {
@@ -220,7 +220,6 @@ void Ai::PlayerLoseTest()
     
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     Ai* pAi = dynamic_cast<Ai*>(pGo.GetPtr());
@@ -241,9 +240,6 @@ void Ai::PlayerLoseTest()
 
 void Ai::ReachedHomeEffect()
 {
-  float severity = atof(Engine::Instance()->GetConfigValue("ai_home_quake_severity").c_str());
-  //Engine::Instance()->GetEarthquake().SetActive(2.0f, severity); // time, severity 
-
   // TODO sadly not this easy, as the AI is set to OUT_OF_PLAY.
   // So this explosion effect is not drawn :-(
   m_explosion[0].Reset(GetPosition());
@@ -259,7 +255,7 @@ void Ai::CurrentGoalReached()
   // If there are no more targets, set the AI to OUT_OF_PLAY.
   // If there are no active AIs left, then the player loses.
   m_goalIndex++;
-  if (m_goalIndex >= m_goals.size())
+  if (m_goalIndex >= (int)m_goals.size())
   {
     ReachedHomeEffect();
 

@@ -177,7 +177,7 @@ void Menu::Draw()
 
   for (int i = 0; i < Size(); i++)
   {
-    bool selected = (i == m_selected);
+    //bool selected = (i == m_selected);
     bool enabled = IsEnabled(i);
     float a = 1.0f;
     if (!enabled)
@@ -260,19 +260,19 @@ void Menu::SetMenuTop(float f)
 
 SolidComponent* Menu::GetItem(int index)
 {
-  Assert(index < m_items.size());
+  Assert(index < (int)m_items.size());
   return m_items[index].GetPtr();
 }
 
 bool Menu::IsEnabled(int i)
 {
-  Assert(i < m_enabled.size());
+  Assert(i < (int)m_enabled.size());
   return m_enabled[i];
 }
 
 void Menu::SetEnabled(int i, bool b)
 {
-  Assert(i < m_enabled.size());
+  Assert(i < (int)m_enabled.size());
   m_enabled[i] = b;
 }
 

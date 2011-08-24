@@ -228,7 +228,7 @@ void EngineRunningBase::DrawForeground()
     GetEngine()->PushColour(0.5f, 0.5f, 1.0f, 1.0f);
   }
 
-#if defined(_DEBUG)
+#if defined(HS_DEBUG)
   if (GetEngine()->GetDrawHeights())
   {
     // Draw the Heights/walls around the player.
@@ -306,7 +306,6 @@ void EngineRunningBase::UpdateGameObjects()
   // platform they are on.
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     if (!dynamic_cast<Platform*>(pGo.GetPtr()))
     {
@@ -335,7 +334,6 @@ void EngineRunningBase::UpdateGameObjects()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     if (dynamic_cast<Platform*>(pGo.GetPtr()))
     {
@@ -379,8 +377,6 @@ void EngineRunningBase::DrawGameObjectShadows()
 {
   Assert(m_pLevel.GetPtr());
 
-  Frustum* pFrustum = Frustum::Instance();
-
   // Iterate over the game objects which are in the current level/room.
   int levelId = m_pLevel->GetId();
   int roomId = m_pLevel->GetRoomId();
@@ -392,7 +388,6 @@ void EngineRunningBase::DrawGameObjectShadows()
   // to see if it has been collected/killed/whatever.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     if (pGo->IsVisible())
     {
@@ -429,7 +424,6 @@ void EngineRunningBase::DrawGameObjects(bool translucent)
   // to see if it has been collected/killed/whatever.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     if (pGo->IsVisible() && pGo->IsTranslucent() == translucent)
     {
@@ -492,16 +486,11 @@ void EngineRunningBase::PlayerCollisionTest()
   int levelId = m_pLevel->GetId();
   int roomId = m_pLevel->GetRoomId();
 
-  bool collision = false; // if set later, we test the Level Objective.
-  // If this is set, we have collided with something bad.
-  bool badcollision = false;
-
   // Get the game objects which are in the same room as the player.
   GameObjectMap& objs = GetEngine()->GetGameObjects(levelId, roomId);
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
  
     State s = pGo->GetState();
@@ -642,7 +631,6 @@ void EngineRunningBase::SetUpPlatforms()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId id = it->first;
     PGameObject pGo = it->second;
     VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
     if (pVis)
@@ -656,12 +644,10 @@ void EngineRunningBase::SetUpPlatforms()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     for (GameObjectMap::iterator jt = objs.begin(); jt != objs.end(); ++jt)
     {
-      GameObjectId id2 = jt->first;
       PGameObject pGo2 = jt->second;
 
       VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
@@ -690,12 +676,10 @@ void EngineRunningBase::SetPlayerRoom(int roomId)
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     pGo->SetLevel(m_pLevel.GetPtr());
 
-    State s = pGo->GetState();
     //GetEngine()->GetGameState()->GetState(gameObjId, &s);
     //if (s != OUT_OF_PLAY)
     //{

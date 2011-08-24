@@ -182,11 +182,10 @@ void EngineStatePoolBase::SetBirdsEye(bool b)
     SolidComponent* pTable = dynamic_cast<SolidComposite*>(pScene)->GetChild(0).GetPtr();
     Assert(pTable); 
     float r = pTable->GetBoundingSphere()->GetRadius();
-    float h = Engine::Instance()->GetConfigFloat("pool_becamheight");
 #ifdef _DEBUG
 std::cout << "Birds Eye View: Table: " << pTable->GetName() 
   << ":  b.sphere radius: " << r 
-  << " h: " << h << "\n";
+  << "\n";
 #endif
 
     // Use r as height 

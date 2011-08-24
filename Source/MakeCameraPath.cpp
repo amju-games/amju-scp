@@ -174,7 +174,6 @@ void MakeCameraPath(FunctionCtrlPoints* pFunc, Level* pLevel)
   // Extra waypoints can be added to steer the camera path better.
 
   // Radius of circle around hole and tee
-  const float RADIUS = 8.0f; // TODO CONFIG
 
   Assert(GetPoolHole(pLevel));
   Assert(GetPoolHole(pLevel)->GetOrientation());
@@ -211,7 +210,6 @@ void MakeCameraPath(FunctionCtrlPoints* pFunc, Level* pLevel)
   bool firstwp = true;
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId id = it->first;
     PGameObject pGo = it->second;
 
     Waypoint* pW = dynamic_cast<Waypoint*>(pGo.GetPtr());

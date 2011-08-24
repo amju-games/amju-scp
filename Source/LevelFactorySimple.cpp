@@ -59,7 +59,6 @@ PLevel LevelFactorySimple::Create(int levelId)
     pLevel->SetId(levelId);
 
     // All Game Objects with IDs lower than this should be deleted.
-    int uniqueId = LevelWorker::GetUniqueId();
 
     pLevel->SetPlayAreaSize(playAreaSize); 
 
@@ -120,7 +119,6 @@ LoadResult LevelFactorySimple::Load(File* pf)
   }
   
   //for (int i = 0; i < numWorkers; i++)
-  int i = m_loadCounter;
   if (m_loadCounter == m_numWorkers)
   {
     return true; // finished loading.

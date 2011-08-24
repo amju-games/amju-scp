@@ -39,8 +39,6 @@ void FightBehaviour::Update()
 {
   // Point in direction of target. We don't change the angle directly, but change
   // the rotate vel.
-  float yrot = m_pCharacter->GetOrientation()->GetYRot(); // NPC angle
-
   float xdiff = m_pCharacter->GetOrientation()->GetX() - 
       m_pTarget->GetBoundingSphere()->GetCentre().x;
 

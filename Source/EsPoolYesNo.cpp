@@ -16,8 +16,8 @@ namespace Amju
 {
 static float TOP = 2.3f;
 static float LEFT = 8.0f;
-static float WIDTH = 8.0f;
-static float HEIGHT = 2.0f;
+//static float WIDTH = 8.0f;
+//static float HEIGHT = 2.0f;
 static float HSPACE = 2.25f; 
 
 void ReportError(const std::string&);
@@ -111,7 +111,7 @@ void EsPoolYesNo::DrawOverlays()
   m_pNoButton->Draw();
 
   static const float LINE_SPACING = 1.0f;
-  for (int i = 0; i < m_question.size(); i++)
+  for (unsigned int i = 0; i < m_question.size(); i++)
   {
     float y = m_firstLineY + LINE_SPACING * (float)i;
     Engine::Instance()->GetTextWriter()->PrintCentre(y, m_question[i].c_str());

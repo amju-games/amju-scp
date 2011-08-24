@@ -307,7 +307,6 @@ void EngineStatePoolCourseSelect::DrawOverlays()
       float t = 5.5 + i * 4.6f;
       float b = t + h;
       float l = 3.0f + j * 4.6f;
-      float r = l + w;
 
       m_thumbnails[hole]->SetSize(w, h);     
       m_thumbnails[hole]->SetRelPos(t, l);
@@ -349,14 +348,13 @@ void EngineStatePoolCourseSelect::DrawOverlays()
       if (cost > 0)
       {
         Assert(type > 0);
-        Assert(type <= m_costTqs.size());
+        Assert(type <= (int)m_costTqs.size());
 
         TexturedQuad& tq = m_costTqs[type - 1];
 
         tq.Draw(t - 1.5f, l + 1.5f, t, l + w - 1.5f);
         static Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
         std::string coststr = ToString(cost);
-        float textw = pFont->GetTextWidth(coststr.c_str()); 
         pFont->PrintNoBlend(l + w * 0.5f - 0.25f * coststr.length(), 
           t - 1.0f, coststr.c_str());
       }
@@ -615,9 +613,9 @@ void EngineStatePoolCourseSelect::SetActive(bool active)
     // Kill any Earthquake still active
     Engine::Instance()->GetEarthquake().Reset();
 
+#ifdef _DEBUG
     int numCourses = PoolCourseManager::Instance()->GetNumCourses();
     Assert(numCourses > 0);
-#ifdef _DEBUG
     std::cout << "There are " << numCourses << " courses, apparently.\n";
 #endif
 

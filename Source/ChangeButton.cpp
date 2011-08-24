@@ -182,7 +182,7 @@ bool ChangeButton::Load(File* pf)
 void ChangeButton::SetOrientation(const Orientation& o)
 {
   ButtonBase::SetOrientation(o);
-  for (int i = 0; i < m_solids.size(); i++)
+  for (unsigned int i = 0; i < m_solids.size(); i++)
   {
     m_solids[i]->SetOrientation(o);
   }
@@ -277,7 +277,7 @@ void ChangeButton::HandleObjectCollision(GameObject* pGo)
   }
 */
   // Go to next state. Wrap if final state has been reached.
-  if (m_buttonState == (m_solids.size() - 1))
+  if (m_buttonState == ((int)m_solids.size() - 1))
   {
     // This is for buttons which can only be turned on once.
     return;

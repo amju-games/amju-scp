@@ -99,9 +99,6 @@ void AiCollectBehaviour::ContinueActivating()
 {
   Assert(m_pInnerTarget.GetPtr());
 
-  PieceMover* pPm = dynamic_cast<PieceMover*>(m_pCharacter);
-  Assert(pPm);
-
   PGameObject pTemp = m_pTarget; // The piece we want
   State tempState = pTemp->GetState();
   // Temporarily disable the piece, so it won't obstruct the path to its

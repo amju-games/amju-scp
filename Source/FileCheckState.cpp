@@ -159,8 +159,6 @@ void FileCheckState::DrawOverlays()
 
     }      
 
-    static const float s = 10.0f;
-
     m_frames++;
 
     Engine* e = GetEngine();

@@ -349,7 +349,9 @@ void VisibilityGraphWithObjects::Draw()
 
 void VisibilityGraphWithObjects::DrawCubeMap()
 {
+#ifdef CUBEMAP_DEBUG
   m_cubemap.Draw();
+#endif
 }
 #endif
 

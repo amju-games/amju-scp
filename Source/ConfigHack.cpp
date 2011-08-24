@@ -1,6 +1,5 @@
 // Automatically generated from config file.
 
-#pragma warning(disable: 4786)
 #include "Engine.h"
 
 namespace Amju

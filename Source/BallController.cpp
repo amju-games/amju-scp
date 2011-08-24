@@ -165,8 +165,6 @@ void BallController::RollDownSlope(FreeMovingGameObject* p)
   float yrot = o.GetYRot();
 
   float degDiff = AngleCompare::DegDiff(yrot, adegs);
-  float radDiff = DegToRad(degDiff);
-
 
 #ifdef NEW_SLOPE_CODE
   // Get component of velocity in direction of slope

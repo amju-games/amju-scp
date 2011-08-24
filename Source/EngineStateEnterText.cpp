@@ -162,7 +162,7 @@ void EngineStateEnterText::Draw()
 
 void EngineStateEnterText::Insert(char c)
 {
-  if (m_text.size() > m_maxTextSize)
+  if ((int)m_text.size() > m_maxTextSize)
   {
     AlertMaxTextSize();
     return;
@@ -196,7 +196,7 @@ void EngineStateEnterText::PlusRight(bool down)
   {
     return;
   }
-  if (m_pos < m_text.size())
+  if (m_pos < (int)m_text.size())
   {
     m_pos++;
     MakeText();
@@ -225,7 +225,7 @@ std::cout << "Enter text: got a paste event: " << pSep->GetText().c_str() << "\n
 
     std::string s = pSep->GetText();
     // Add each character
-    for (int i = 0; i < s.size(); i++)
+    for (int i = 0; i < (int)s.size(); i++)
     {
       char c = s[i];
       Insert(c); // may fail if m_text too long etc.
@@ -296,8 +296,8 @@ void EngineStateEnterText::MouseButton(bool down, bool ctrl, bool shift)
   if (m_mouseDown && !down)
   {
     std::cout << "Selecting menu item.\n";
-    int c = m_pMenu->Choose();
 /*
+    int c = m_pMenu->Choose();
     if (c == 0)
     {
       // Ok

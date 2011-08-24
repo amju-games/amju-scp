@@ -213,9 +213,6 @@ void EngineStateRegister::DrawOverlays()
   GetEngine()->GetTextWriter()->PrintCentre(2,
     "online Amju Store and buy one by clicking Buy Now!");
 
-  static float left = atof(Engine::Instance()->GetConfigValue("name_left").c_str());
-  static float top = atof(Engine::Instance()->GetConfigValue("name_top").c_str());
-  static float z = atof(Engine::Instance()->GetConfigValue("name_z").c_str());
 /*
   AmjuGL::PushMatrix();
   AmjuGL::Translate(left, top, z);

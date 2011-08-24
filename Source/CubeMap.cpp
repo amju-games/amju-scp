@@ -56,7 +56,7 @@ bool CubeMap::Coord::operator<(const CubeMap::Coord& rhs) const
   return m_z < rhs.m_z;
 }
 
-#if defined(_DEBUG)
+#if defined(CUBEMAP_DEBUG)
 void CubeMap::Draw()
 {
   for (Cubes::iterator it = m_cubes.begin(); it != m_cubes.end(); ++it)
@@ -113,7 +113,7 @@ void CubeMap::Draw()
     }
   }
 }
-#endif
+#endif // CUBEMAP_DEBUG
 
 CubeMap::CubeMap() 
 {
@@ -323,7 +323,7 @@ void CubeMap::SetUnset(const HeightServer& hs, bool set)
 
   int xmax = int(Snap(box.m_xmax, 1.0f)); 
   int xmin = int(Snap(box.m_xmin, 1.0f)); 
-  int ymax = int(Snap(box.m_ymax, 1.0f)); 
+  //int ymax = int(Snap(box.m_ymax, 1.0f)); 
   int ymin = int(Snap(box.m_ymin, 1.0f)); 
   int zmax = int(Snap(box.m_zmax, 1.0f)); 
   int zmin = int(Snap(box.m_zmin, 1.0f));

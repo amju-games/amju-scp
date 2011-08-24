@@ -119,7 +119,6 @@ void ChickBehaviour::Update()
   // between us if it is less than some limit.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     Chick* pChick = dynamic_cast<Chick*>(pGo.GetPtr()); // is it a Chick ?
     if (pChick)

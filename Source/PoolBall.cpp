@@ -412,8 +412,8 @@ std::cout << "POOL BALL: ON BOUNCE OFF WALL\n";
   static const float wallBounceDamp = 
     Engine::Instance()->GetConfigFloat("pool_wallbouncedamp");  
 
-  float fv = GetForwardVel();
-  float newfv = fv * wallBounceDamp;
+  //float fv = GetForwardVel();
+  //float newfv = fv * wallBounceDamp;
   
 #ifdef BALL_DEBUG
 std::cout << " Damp: " << wallBounceDamp << " old: " << fv << " new: " << newfv << "\n";
@@ -1236,8 +1236,8 @@ void PoolBall::Update()
   // Move away from intersect ball using intersect vel. This is to try to 
   // extract from intersecting balls if regular vel has decelerated to 
   // close to zero.
-  static const float EXTRACT_VEL = Engine::Instance()->GetConfigFloat(
-    "pool_extract_vel");
+  //static const float EXTRACT_VEL = Engine::Instance()->GetConfigFloat(
+  //  "pool_extract_vel");
 
   if (!m_intersectBalls.empty())
   {
@@ -1250,7 +1250,7 @@ std::cout << "Ball " << GetId()
     // Move away from all intersecting balls 
     float dx = 0;
     float dz = 0;
-    for (int i = 0; i < m_intersectBalls.size(); i++)
+    for (unsigned int i = 0; i < m_intersectBalls.size(); i++)
     {
       float x1 = m_intersectBalls[i]->GetBoundingSphere()->GetCentre().x; 
       float x2 = this->GetBoundingSphere()->GetCentre().x;

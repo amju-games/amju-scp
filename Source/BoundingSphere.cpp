@@ -86,7 +86,7 @@ void BoundingSphere::Draw()
     // Save current colour
     Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, 1.0f);
     //glColor3f(1.0f, 1.0f, 1.0f);
-    glColor3f(0, 0, 0);
+    //glColor3f(0, 0, 0);
 
     AmjuGL::PushMatrix();
     AmjuGL::Translate(m_v.x, m_v.y, m_v.z);

@@ -166,7 +166,6 @@ void EngineStatePoolHelp::Draw()
   static const float accel = Engine::Instance()->GetConfigFloat(
     "help_scroll_accel");
   float dt = Engine::Instance()->GetDeltaTime();
-  float topLimit = 50; // TODO TEMP TEST
   // Don't allow scrolling at limits
   bool allowScroll = true;
   if (m_y < 0)

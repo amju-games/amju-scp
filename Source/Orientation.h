@@ -16,12 +16,12 @@ Added to repository
 #define ORIENTATION_H_INCLUDED
 
 #include <string>
+#include "Vertex.h"
 
 namespace Amju
 {
 class File;
 class Matrix;
-class VertexBase;
 
 class Orientation
 {

@@ -29,14 +29,14 @@ void PickHelper::DebugDraw()
   int size = m_selectedCubes.size();
   AmjuGL::Disable(AmjuGL::AMJU_TEXTURE_2D);
   Engine::Instance()->PushColour(0, 0, 0, 1.0f);
-  glLineWidth(2);
+  //glLineWidth(2);
   for (int i = 0; i < size; i++)
   {
     const VertexBase& v = m_selectedCubes[i];
     BoundingBox bb(v.x, v.x + 1.0f, v.y, v.y + 1.0f, v.z, v.z + 1.0f);
     bb.Draw();
   }
-  glLineWidth(1);
+  //glLineWidth(1);
   Engine::Instance()->PopColour();
   AmjuGL::Enable(AmjuGL::AMJU_TEXTURE_2D);
 #endif
@@ -195,16 +195,7 @@ bool PickHelper::PickSpaceDraw()
 
 Colour PickHelper::ReadCursorColour() 
 {
-  const int& x = Mouse::s_mousex;
-  const int& y = Mouse::s_mousey;
-
-  // Read 1-pixel-square rectangle.
-  float buf[3];
-  int windowY = Engine::Instance()->GetWindowY();
-  ////glReadPixels(x, windowY - y, 1, 1, GL_RGB, GL_FLOAT, (GLvoid*)buf);
-
-  Colour c(buf[0], buf[1], buf[2], 1.0f);
-  return c;
+  return Colour();
 }
 
 int PickHelper::PickDrawGameObjects(Level* pLevel)
@@ -227,7 +218,6 @@ int PickHelper::PickDrawGameObjects(Level* pLevel)
   // to see if it has been collected/killed/whatever.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     if (pGo->IsVisible())
     {

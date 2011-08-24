@@ -68,12 +68,6 @@ Added to repository
 
 namespace Amju
 {
-static bool HighPower()
-{
-  return false;
-//  return Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_isHighPower;
-}
-
 PoolCharacter::PoolCharacter()
 {
   m_swish = false;
@@ -232,8 +226,7 @@ std::cout << "SET ACTION GO\n";
   float yRotate = GetOrientation()->GetYRot(); 
   float dx = sin(DegToRad(yRotate));
   float dz = cos(DegToRad(yRotate));
-  static const float DIST_MULT = Engine::Instance()->GetConfigFloat(
-    "pool_char_dist_mult");
+    
   v1.x -= dx * m_distCueBody; //DIST_MULT;
   v1.z -= dz * m_distCueBody; //DIST_MULT;
 

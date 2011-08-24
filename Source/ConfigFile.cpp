@@ -148,7 +148,7 @@ int ConfigFile::GetChecksum() const
   for (ConfigMap::const_iterator it = m_values.begin(); it != m_values.end(); ++it)
   {
     const std::string& s = it->second;
-    for (int i = 0; i < s.size(); i++)
+    for (unsigned int i = 0; i < s.size(); i++)
     {
       t += (i + 1) * (int)s[i];
     }

@@ -125,7 +125,7 @@ std::cout << "CONTROLLER: EXTRACTING obj " << pCharacter->GetId() << " from wall
   // Do this in 2D, i.e. in the x-z plane.
   VertexBase n;
   // Get avg normal for all walls, not just the 0th wall
-  for (int i = 0; i < walls.size(); i++)
+  for (unsigned int i = 0; i < walls.size(); i++)
   {
     n += walls[i].GetNormal();
   }
@@ -564,16 +564,14 @@ void Controller::HandleWallCollision(
     return;
   }
 
-  unsigned int i;
-
   // Remove repeated wall normals.
   // This is to solve some problems where the player is pushed back by more 
   // than one wall, when visually it's the same wall.
-  unsigned int wallsNonUnique = walls.size();
+  //unsigned int wallsNonUnique = walls.size();
 
   std::sort(walls.begin(), walls.end(), PlaneLessThan());
   walls.erase(std::unique(walls.begin(), walls.end()), walls.end());
-  unsigned int wallsUnique = walls.size();
+  //unsigned int wallsUnique = walls.size();
 
 /*
   POOL - don't need to do this.
@@ -615,9 +613,9 @@ void Controller::HandleWallCollision(
   }
 #endif
 
-#if defined(_DEBUG)
+#if defined(HS_DEBUG)
   Engine::Instance()->PushColour(0, 0, 0, 1);
-  for (i = 0; i < walls.size(); i++)
+  for (int i = 0; i < (int)walls.size(); i++)
   {
     WallPoly* pWp = &walls[i]; 
     pWp->Draw();
@@ -662,7 +660,7 @@ std::cout << "WALL COLLISION: 1 wall\n";
     {
       std::sort(wallsAfter.begin(), wallsAfter.end(), PlaneLessThan());
       wallsAfter.erase(std::unique(wallsAfter.begin(), wallsAfter.end()), wallsAfter.end());
-      unsigned int wallsUnique = wallsAfter.size();
+      //unsigned int wallsUnique = wallsAfter.size();
 /*
       cout << "COLLISION: still intersecting " << wallsUnique << " walls!" << endl;
 */
