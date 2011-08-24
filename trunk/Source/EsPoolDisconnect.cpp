@@ -38,6 +38,7 @@ static const bool registered= Engine::Instance()->
 
 EsPoolDisconnect::EsPoolDisconnect()
 {
+#ifdef POOL_ONLINE
   std::string op = ThePoolOnlineManager::Instance()->GetOpponentName(); 
   Assert(!op.empty());
   op[0] = toupper(op[0]);
@@ -46,6 +47,7 @@ EsPoolDisconnect::EsPoolDisconnect()
   s += " seems to have disconnected.";
   AddQ(s);
   AddQ("Would you like to quit ?");
+#endif
 
   m_yesFilename = "quit-yes-button.txt";
   m_noFilename = "quit-no-button.txt";
@@ -53,8 +55,10 @@ EsPoolDisconnect::EsPoolDisconnect()
 
 void EsPoolDisconnect::OnYes()
 {
+#ifdef POOL_ONLINE
   // Quit back to main menu - send game finished message to server
   ThePoolOnlineManager::Instance()->SendGameFinished();
+#endif
 
   Engine::Instance()->ChangeState(EngineStatePoolGameSelect::Name, 
     Engine::IMMEDIATE);
@@ -62,7 +66,9 @@ void EsPoolDisconnect::OnYes()
 
 void EsPoolDisconnect::OnNo()
 {
+#ifdef POOL_ONLINE
   ThePoolOnlineManager::Instance()->ResetOpponentDisconnectTime();
+#endif
 
   // Back to previous state -- assuming EsPoolSetupShot ??
   Engine::Instance()->ChangeState(EngineStatePoolSetUpShot::Name, 
@@ -73,12 +79,14 @@ void EsPoolDisconnect::Update()
 {
   EsPoolYesNo::Update();
 
+#ifdef POOL_ONLINE
   // Keep polling: updates our connect time on the server.
   // If opponent has re-connected, go back to the game.
   if (!ThePoolOnlineManager::Instance()->OpponentHasDisconnected())
   {
     OnNo();
   }
+#endif
 }
 }
 

@@ -22,6 +22,7 @@ static const bool registered = Engine::Instance()->
 
 void EsPoolOnlineAccept2::OnYes()
 {
+#ifdef POOL_ONLINE
   // Accept join request
 
   // TODO Clean up current one-player game
@@ -34,14 +35,17 @@ void EsPoolOnlineAccept2::OnYes()
    );
 
   EngineStatePoolOnlineTable::StartOnlineGame(m_playerId, m_opponentId, true /* we choose game */);
+#endif
 }
 
 void EsPoolOnlineAccept2::OnNo()
 {
+#ifdef POOL_ONLINE
   // Send request to server to update the game between us and opponent.
   // The opponent should be removed from the game row. This will tell the opponent 
   //  that his join request was declined (could also be that another player joined)
   ThePoolOnlineManager::Instance()->SendGameJoinDeclined();
+#endif
 
   // Return to one-player game  
   Engine::Instance()->ChangeState(EngineStatePoolSetUpShot::Name,
