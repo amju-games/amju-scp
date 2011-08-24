@@ -64,7 +64,6 @@ bool HelpText::Load(const std::string& filename)
 
 void HelpText::Draw(float y)
 {
-  static const float x = 0;
   static const float line_spacing = Engine::Instance()->GetConfigFloat(
     "help_line_spacing");
 

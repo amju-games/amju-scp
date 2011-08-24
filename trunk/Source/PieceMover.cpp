@@ -589,7 +589,6 @@ Takeable* PieceMover::DecideTakeablePiece()
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Take the piece if it's a Takeable and intersects the player.
     Takeable* pTakeable = dynamic_cast<Takeable*>(pGo.GetPtr());
@@ -636,7 +635,6 @@ bool PieceMover::ActionTakePiece()
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Take the piece if it's a Takeable and intersects the player.
     Takeable* pTakeable = dynamic_cast<Takeable*>(pGo.GetPtr());

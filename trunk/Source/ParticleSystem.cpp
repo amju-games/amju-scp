@@ -32,7 +32,7 @@ ParticleSystem::~ParticleSystem()
 
 void ParticleSystem::Draw()
 {
-  for (int i = 0; i< m_particles.size(); i++)
+  for (unsigned int i = 0; i< m_particles.size(); i++)
   {
     Particle* pParticle = m_particles[i].GetPtr();
 

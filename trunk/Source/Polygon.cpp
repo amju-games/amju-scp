@@ -124,7 +124,7 @@ void Polygon::SetPerpendicularNormals()
 
   Geometry::MakeNormal(a, b, c, n);
 
-  for (int i = 0; i < m_theVertices.size(); i++)
+  for (unsigned int i = 0; i < m_theVertices.size(); i++)
   {
     m_theVertices[i].SetNormal(n[0], n[1], n[2]);
   }
@@ -164,7 +164,7 @@ void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
   Plane poly;
 #endif
 
-  for (int i = 0; i < m_theVertices.size(); i++)
+  for (unsigned int i = 0; i < m_theVertices.size(); i++)
   {
     SceneVertex& sv = m_theVertices[i];
     sv.CalcAbsoluteCoord(m);
@@ -179,7 +179,7 @@ void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
 
 void Polygon::RecalculateAbsoluteCoords(const Matrix& cm)
 {
-  for (int i = 0; i < m_theVertices.size(); i++)
+  for (unsigned int i = 0; i < m_theVertices.size(); i++)
   {
     SceneVertex& sv = m_theVertices[i];
     sv.CalcAbsoluteCoord(cm);

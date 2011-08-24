@@ -101,7 +101,7 @@ bool GuiTextButton::Load(File* pf)
 void GuiTextButton::DrawImpl()
 {
   GuiButton::DrawImpl();
-  float c = 1.0f;
+  
   if (!IsSelected())
   {
     //c = 0.5f; // TODO CONFIG

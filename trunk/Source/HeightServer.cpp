@@ -338,7 +338,7 @@ bool HeightServer::IntersectsCeiling(
   }
 
   int numWallPolys = m_wallPolys.size();
-  for (unsigned int i  = 0; i < numWallPolys; i++)
+  for (int i  = 0; i < numWallPolys; i++)
   {
     const WallPoly& w = m_wallPolys[i];
     if (w.IsCeiling() && w.IntersectsCeiling(bsBefore, bsAfter))

@@ -101,7 +101,6 @@ void EngineStateDemo::SetActive(bool active)
     //demoLevel++;
 
     m_pLevel = LevelServer::Instance()->GetCurrentLevel();
-    int levelId = m_pLevel->GetId(); 
 
     Assert(m_pLevel.GetPtr());
     // TODO Should be set to room of current Clip.

@@ -66,7 +66,7 @@ void FallDownController::UpdateCharacterYPos(
   {
     hrange = 1.0f;
   }
-  float ymin = playery - hrange;
+  //float ymin = playery - hrange;
   float ymax = playery + hrange;
   const HeightPoly* pHp = pCharHs->GetHeightPoly(
     playerx,

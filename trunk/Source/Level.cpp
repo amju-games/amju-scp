@@ -492,7 +492,7 @@ void Level::SetRoomId(int roomId)
 #endif
 
   // Make sure the room ID is valid. If not, no effect.
-  if (roomId >= m_rooms.size())
+  if (roomId >= (int)m_rooms.size())
   {
     return;
   }

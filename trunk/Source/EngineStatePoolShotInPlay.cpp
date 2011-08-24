@@ -146,8 +146,6 @@ Added to repository
   
 */
 
-#define POOL_ONLINE
-
 #if defined(WIN32)
 #pragma warning(disable: 4786)
 #endif
@@ -375,7 +373,6 @@ void EngineStatePoolShotInPlay::NonBallPairTest()
   {
     PGameObject pGo1 = it->second;
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
-    State s = pGo1->GetState();
 
     if (InPlay(pGo1))
     {
@@ -421,7 +418,6 @@ bool EngineStatePoolShotInPlay::BallCollisionTest(
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     PGameObject pGo1 = it->second;
-    State s = pGo1->GetState();
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
 
     if (pBall1 && InPlay(pBall1))
@@ -468,7 +464,6 @@ bool EngineStatePoolShotInPlay::BallCollisions()
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     PGameObject pGo1 = it->second;
-    State s = pGo1->GetState();
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
 
     if (pBall1 && InPlay(pBall1))
@@ -524,7 +519,7 @@ if (pairs.size() > 1)
       // Find the closest ball to pBall1.
       float bestDist = 99999.9f;
       PoolBall* pBest = 0;
-      for (int i = 0; i < pairs.size(); i++)
+      for (unsigned int i = 0; i < pairs.size(); i++)
       {
         VertexBase v1 = pairs[i].first->GetPrevOrientation().GetVertex();
         VertexBase v2 = pairs[i].second->GetPrevOrientation().GetVertex();
@@ -633,7 +628,7 @@ std::cout << " Earliest t: " << earliest << "\n";
   {
     return false;
   }
-  for (int i = 0; i < pairs.size(); i++)
+  for (unsigned int i = 0; i < pairs.size(); i++)
   {
     PoolBall* p1 = pairs[i].first;
     PoolBall* p2 = pairs[i].second;
@@ -656,7 +651,6 @@ bool EngineStatePoolShotInPlay::IsUnderwater()
 bool EngineStatePoolShotInPlay::IsOutOfBounds()
 {
   const Orientation* pO = GetBall()->GetOrientation();
-  float absMax = GetLevel()->GetPlayAreaSize();
 
   if (pO->GetY() < -2.0f) // TODO CONFIG
   {
@@ -761,9 +755,6 @@ void EngineStatePoolShotInPlay::Update()
   {
     return;
   }
-
-  static const float maxIdleTime = Engine::Instance()->
-    GetConfigFloat("golf_max_idle_time");
 
   // Notify Rules if all balls have stopped moving
   // Rules may switch player or not.

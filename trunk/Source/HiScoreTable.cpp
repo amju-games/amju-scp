@@ -160,7 +160,7 @@ void SingleHiScoreTable::AddHiScore(int score, const char* name)
   m_hiScores.insert(std::make_pair(score, name));
   // Remove lowest item if there are more than 10 elements (or max size of table)
 
-  while  (m_hiScores.size() > TABLE_SIZE)
+  while  ((int)m_hiScores.size() > TABLE_SIZE)
   {
     m_hiScores.erase(m_hiScores.begin());
   }

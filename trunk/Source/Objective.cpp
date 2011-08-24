@@ -82,7 +82,7 @@ bool Objective::Save(File* pf)
   }
   pf->WriteComment("// Objective: no of pairs, then (game id, state) pairs");
   pf->WriteInteger(size());
-  for (int i = 0; i < size(); i++)
+  for (unsigned int i = 0; i < size(); i++)
   {
     ObjectivePair& p = (*this)[i];
     pf->WriteInteger(p.first);
@@ -93,7 +93,6 @@ bool Objective::Save(File* pf)
 
 bool Objective::IsSatisfied() const
 {
-  GameState* pGs = Engine::Instance()->GetGameState();
   // Iterate over the objective pairs, and test each one.
   for (Objective::const_iterator it = this->begin();
        it != this->end(); 

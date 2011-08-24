@@ -25,14 +25,6 @@ void LeafRenderOpenGL::Init(LeafData* pLd)
 void LeafRenderOpenGL::Draw(LeafData* pLd)
 {
   Assert(pLd);
-#if !defined(SCENE_EDITOR)
-  Assert(pLd->m_displayList != -1);
-#else
-  if (pLd->m_displayList == -1)
-  {
-    return;
-  }
-#endif
 
   // Get the Leaf to set the Texture coords generation function. This doesn't
   // seem to be compiled into the display list.

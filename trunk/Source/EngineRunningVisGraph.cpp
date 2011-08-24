@@ -119,7 +119,6 @@ bool EngineRunningVisGraph::PieceIntersects(Takeable* pObj, Level* pLevel)
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     //VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
     // We don't want to have to worry about CharacterGameobejcts for now.
@@ -188,7 +187,6 @@ bool EngineRunningVisGraph::PieceSupportsOthers(Takeable* pTakeable, Level* pLev
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     // TODO
@@ -343,7 +341,6 @@ void EngineRunningVisGraph::ResetTakeables()
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     Takeable* pTakeable = dynamic_cast<Takeable*>(pGo.GetPtr());
@@ -360,7 +357,6 @@ void EngineRunningVisGraph::ResetAis()
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 /*
     Ai* pAi = dynamic_cast<Ai*>(pGo.GetPtr());

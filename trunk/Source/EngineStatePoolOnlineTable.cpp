@@ -606,7 +606,7 @@ std::cout << "\n";
   // by the server, go to the Waiting state.
   if (m_weAreWaitingForAccept)
   {
-    for (int i = 0; i < m_buttons.size(); i++)
+    for (int i = 0; i < (int)m_buttons.size(); i++)
     {
       m_buttons[i].m_pButton->SetEnabled(false);
     }
@@ -729,7 +729,7 @@ void EngineStatePoolOnlineTable::DrawOverlays()
 {
   Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
   const float size = pFont->GetSize(); 
-  for (int i = 0; i < m_buttons.size(); i++)
+  for (int i = 0; i < (int)m_buttons.size(); i++)
   {
     const OnlineButton& pb = m_buttons[i];
 
@@ -835,7 +835,7 @@ std::cout << "Request to join game " << gameId << "\n";
   m_weAreWaitingForAccept = true;
 
   // Immediately disable all buttons
-  for (int i = 0; i < m_buttons.size(); i++)
+  for (int i = 0; i < (int)m_buttons.size(); i++)
   {
     m_buttons[i].m_pButton->SetEnabled(false);
   }
@@ -941,7 +941,7 @@ void EngineStatePoolOnlineTable::MouseButton(bool down, bool ctrl, bool shift)
   m_pScrollUpButton->MouseButton(down, false, false);
   m_pScrollDownButton->MouseButton(down, false, false);
 
-  for (int i = 0; i < m_buttons.size(); i++)
+  for (int i = 0; i < (int)m_buttons.size(); i++)
   {
     OnlineButton& pb = m_buttons[i];
     pb.m_pButton->MouseButton(down, ctrl, shift);

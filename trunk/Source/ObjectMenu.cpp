@@ -94,11 +94,11 @@ void ObjectMenu::Draw()
 
 void ObjectMenu::SetScale(int i, float f)
 {
-  if (i < m_scales.size())
+  if (i < (int)m_scales.size())
   {
     m_scales[i] = f;
   }
-  else if (i == m_scales.size())
+  else if (i == (int)m_scales.size())
   {
     m_scales.push_back(f);
   }
@@ -111,11 +111,11 @@ void ObjectMenu::SetScale(int i, float f)
 void ObjectMenu::SetPos(int i, float x, float y, float z)
 {
   VertexBase v(x, y, z);
-  if (i < m_positions.size())
+  if (i < (int)m_positions.size())
   {
     m_positions[i] = v;
   }
-  else if (i == m_positions.size())
+  else if (i == (int)m_positions.size())
   {
     m_positions.push_back(v);
   }
@@ -128,7 +128,7 @@ void ObjectMenu::SetPos(int i, float x, float y, float z)
 void ObjectMenu::DrawItem(int i)
 {
   const float s = m_scales[i];
-  const VertexBase& pos = m_positions[i];
+  //const VertexBase& pos = m_positions[i];
 
   AmjuGL::PushMatrix();
 //  AmjuGL::Translate(pos.x*s, pos.y*s, pos.z*s);

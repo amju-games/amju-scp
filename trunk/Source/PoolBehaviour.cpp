@@ -250,7 +250,7 @@ void PoolBehaviour::ValidShot::Draw()
   }
 
   // Draw lines from object ball to all visible pockets
-  for (int i = 0; i < m_pockets.size(); i++)
+  for (unsigned int i = 0; i < m_pockets.size(); i++)
   {
     VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
     VertexBase vPoc = m_pockets[i]->GetBoundingSphere()->GetCentre();
@@ -758,7 +758,7 @@ PoolBehaviour::Pockets PoolBehaviour::GetLosPockets(PoolBall* pb)
 
   // For each object in m_pockets, is there LOS to ball pb ? If so 
   // add the obj. to pockets.
-  for (int i = 0; i < m_pockets.size(); i++)
+  for (unsigned int i = 0; i < m_pockets.size(); i++)
   {
     PoolHole* pPocket = m_pockets[i];
     VertexBase v1 = pb->GetBoundingSphere()->GetCentre();
@@ -842,14 +842,13 @@ std::cout << "CALC PLACE CUE BALL:\n";
 
   ValidBalls vb = GetValidBalls();
   Assert(!vb.empty());
-  int i; // MSVC workaround
 
-  for (i = 0; i < vb.size(); i++)
+  for (unsigned int i = 0; i < vb.size(); i++)
   {
     // Get pockets to which this object ball has LOS.
     Pockets pockets = GetLosPockets(vb[i]);
 
-    for (int j = 0; j < pockets.size(); j++)
+    for (unsigned int j = 0; j < pockets.size(); j++)
     {
       VertexBase vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
       VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
@@ -903,7 +902,7 @@ std::cout << "Best place cue ball pos found - can pot a ball!\n";
 
   // No pos found where a ball can be potted.
   // Try to find a pos where we can at least hit a valid ball.
-  for (i = 0; i < vb.size(); i++)
+  for (unsigned int i = 0; i < vb.size(); i++)
   {
     VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
 
@@ -1072,12 +1071,12 @@ std::cout << "CALC PLACE BALL: Found this pos: "
   // Get radius of all balls
   float radius = vb[0]->GetBoundingSphere()->GetRadius();
 
-  for (int i = 0; i < vb.size(); i++)
+  for (unsigned int i = 0; i < vb.size(); i++)
   {
     // Get pockets to which this object ball has LOS.
     Pockets pockets = GetLosPockets(vb[i]);
 
-    for (int j = 0; j < pockets.size(); j++)
+    for (unsigned int j = 0; j < pockets.size(); j++)
     {
       VertexBase vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
       VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
@@ -1233,7 +1232,7 @@ bool PoolBehaviour::CalcAnyValidShot(
   // vCue is the cue ball position.
   FreeMovingGameObject* pCueBall = GetBall();
       
-  for (int i = 0; i < vb.size(); i++)
+  for (unsigned int i = 0; i < vb.size(); i++)
   {
     VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
 
@@ -1301,7 +1300,7 @@ std::cout << "Try to find valid bounce shot...\n";
   int numRails = m_rails.size();
   Geom2d::Point2d cuePt(vCue.x, vCue.z);
  
-  for (int j = 0; j < vb.size(); j++)
+  for (unsigned int j = 0; j < vb.size(); j++)
   {
     // Aim directly at the object ball.
     // TODO We really want to search for valid shots to the circle
@@ -1498,7 +1497,7 @@ void PoolBehaviour::CalcJumpShot(
   // Find the closest object ball
   int closest = -1;
   float bestDist = 99999.0f;
-  for (int i = 0; i < vb.size(); i++)
+  for (unsigned int i = 0; i < vb.size(); i++)
   {
     VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
     float distCueToObj = (vCue - vObj).Length();
@@ -1509,7 +1508,7 @@ void PoolBehaviour::CalcJumpShot(
     }
   }
   Assert(closest >= 0);
-  Assert(closest < vb.size());
+  Assert(closest < (int)vb.size());
 
   m_pTargetObject = vb[closest];
   *pGhostBall = *(vb[closest]->GetBoundingSphere());

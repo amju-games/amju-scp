@@ -277,10 +277,11 @@ void VisibilityGraph::Draw(const VertexBase& v)
   for (VisibilityList::const_iterator it = vlist.begin(); it != vlist.end(); ++it)
   {
     const VertexBase& v2 = *it;
-    glBegin(GL_LINES);
-      glVertex3f(v.x, v.y, v.z);
-      glVertex3f(v2.x, v2.y, v2.z);
-    glEnd();
+    //glBegin(GL_LINES);
+    //  glVertex3f(v.x, v.y, v.z);
+    //  glVertex3f(v2.x, v2.y, v2.z);
+    //glEnd();
+    AmjuGL::DrawLine(AmjuGL::Vec3(v.x, v.y, v.z), AmjuGL::Vec3(v2.x, v2.y, v2.z));
   }
 }
 
@@ -339,7 +340,6 @@ void VisibilityGraph::SweepUp()
   // This should be a no op.
   for (VisMap::iterator it = m_vismap.begin(); it != m_vismap.end(); /* nothing */ )
   {
-    const VertexBase& v1 = it->first;
     VisibilityList& vlist = it->second;
     if (vlist.empty())
     {

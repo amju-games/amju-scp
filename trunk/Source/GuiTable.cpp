@@ -93,7 +93,7 @@ std::cout << "GuiTable: first row, so set no of cols: " << m_numCols << "\n";
       // Number of elements in this row doesn't match the number of 
       // columns in the table - need to re-arrange the table!
     }
-    Assert(m_colWidths.size() == numChildren);
+    Assert((int)m_colWidths.size() == numChildren);
     for (int i = 0; i < numChildren; i++)
     {
       // Set the width of each column
@@ -131,7 +131,7 @@ std::cout << "GuiTable::DrawImpl\n";
   float top = 0;
   for (int r = 0; r < m_numRows; r++)
   {
-    Assert(r < m_rowHeights.size());
+    Assert(r < (int)m_rowHeights.size());
     float height = m_rowHeights[r];
 
     float left = 0;
@@ -142,12 +142,12 @@ std::cout << "GuiTable::DrawImpl\n";
 std::cout << "GuiTable: drawing element " << i << "\n";
 #endif
 
-      Assert(i < m_children.size());
+      Assert(i < (int)m_children.size());
       SharedPtr<GuiElement> pElem = m_children[i];
       // Set width and height of this element
       Assert(pElem.GetPtr());
 
-      Assert(c < m_colWidths.size());
+      Assert(c < (int)m_colWidths.size());
       float width = m_colWidths[c];
 
       pElem->SetSize(width, height);

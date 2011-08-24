@@ -59,7 +59,6 @@ void ChickHolder::FreeChicks()
 
     // Pasted from Egg: 
     // Face a random direction, and move, rather than dropping straight down.
-    float yDegs = (float)(rand() % 360);
     float hatchFwdVel = atof(Engine::Instance()->GetConfigValue("chick_hatch_fwd_vel").c_str());
     //pChick->GetOrientation()->SetYRot(yDegs);
     pChick->SetForwardVel(hatchFwdVel);
@@ -78,9 +77,6 @@ void ChickHolder::RecalcChickHeights()
   int i = 0;
   for (ChickList::iterator it = m_chicklist.begin(); it != m_chicklist.end(); ++it)
   {
-    Chick* pChick = *it;
-    Assert(pChick);
-
     // Set the height at which the Chick should float. This starts off at some
     // height, and then depends how many other chicks are captured.
     //float h = m_baseHeight + 0.5f * i;  

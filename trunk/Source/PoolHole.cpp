@@ -313,7 +313,7 @@ void PoolHole::CreateExtraBonuses()
     PoolBonus b;
     std::string s = bonuses[bonusIndex];
     ++bonusIndex;
-    if (bonusIndex == bonuses.size())
+    if (bonusIndex == (int)bonuses.size())
     {
       bonusIndex = 0;
     }
@@ -448,7 +448,7 @@ void PoolHole::DrawBonuses()
   AmjuGL::Translate(0, 5.0f, 0); // TODO CONFIG
   // Translate to golf hole position
   m_pSolid->GetOrientation()->Draw();
-  for (int i = 0; i < m_bonuses.size(); i++)
+  for (unsigned int i = 0; i < m_bonuses.size(); i++)
   {
     float y = 4.0f + 2.0f * i; // TODO CONFIG
     if (i == 0 && m_getBonuses)

@@ -142,13 +142,6 @@ bool EngineStatePlayerEdit::Load()
   static const float x2 = Engine::Instance()->GetConfigFloat(
     "pool_get_button_x2");
 
-  static const float SIZE_W = Engine::Instance()->GetConfigFloat(
-    "pool_choose_button_w");
-  static const float SIZE_H = Engine::Instance()->GetConfigFloat(
-    "pool_choose_button_h");
-  static const float SPACE_H = Engine::Instance()->GetConfigFloat(
-    "pool_choose_button_h_space");
-
   std::string backFile = "golf-reg-cancel-button.txt"; // TODO CONFIG
   if (!m_pBackButton->Load(backFile))
   {

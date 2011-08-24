@@ -122,7 +122,6 @@ void EvaluatorBlockRamp::Reset(Finder* pFinder)
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Consider the piece if it's a TakeableCrate and intersects the b.sphere.
     TakeableCrate* pTakeableCrate = dynamic_cast<TakeableCrate*>(pGo.GetPtr());

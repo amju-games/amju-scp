@@ -80,7 +80,7 @@ void PoolBlock::Draw()
   if (GetState() == UNKNOWN)
   {
     FreeMovingSolidGameObject::Draw();
-#ifdef _DEBUG
+#ifdef HS_DEBUG
     GetCollisionVol()->DrawHeights();
     GetCollisionVol()->DrawWalls();
 #endif

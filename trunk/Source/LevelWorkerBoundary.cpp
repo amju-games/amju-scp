@@ -104,7 +104,6 @@ bool LevelWorkerBoundary::AddFeature(Level* pLevel, CubeMap* pCubeMap)
 
     BoundingBox bb;
     bb.SetFromSolid(pBlock.GetPtr());
-    float xExtent = bb.m_xmax - bb.m_xmin;
 
     //m.identity();
     //pBlock->RecalculateAbsoluteCoords(m);

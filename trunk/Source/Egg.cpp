@@ -52,8 +52,6 @@ Egg::Egg()
 
 void Egg::Hatch()
 {
-  GameState* pGs = Engine::Instance()->GetGameState();
-
   // Create Chick(s) which drops out of the egg centre.
   // Create a new chick at the given coords, in the current room.
   Assert(m_pSolid.GetPtr());
@@ -63,7 +61,7 @@ void Egg::Hatch()
   string chickName = Engine::Instance()->GetConfigValue("chick");
 
   // More than one chick can hatch out of the egg. 
-  for (int i = 0; i < m_chickIds.size(); i++)
+  for (unsigned int i = 0; i < m_chickIds.size(); i++)
   {
     Chick* chick = new Chick;
     int chickId = m_chickIds[i];

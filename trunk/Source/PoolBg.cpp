@@ -78,7 +78,7 @@ void PoolBg::Draw(float alpha)
   Update();
 
   Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, alpha);
-  for (int i = 0; i < m_balls.size(); i++)
+  for (unsigned int i = 0; i < m_balls.size(); i++)
   {
     AmjuGL::PushMatrix();
     m_balls[i]->GetOrientation()->Draw();
@@ -100,7 +100,7 @@ void PoolBg::Update()
   static float dr = 0;
   float dt = Engine::Instance()->GetDeltaTime();
   dr += 250.0f * dt;
-  for (int i = 0; i < m_balls.size(); i++)
+  for (unsigned int i = 0; i < m_balls.size(); i++)
   {
     PSolidComponent p = m_balls[i];
     

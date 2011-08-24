@@ -281,11 +281,6 @@ void EngineStatePoolGameSelect::TimerExpired()
 
 void EngineStatePoolGameSelect::DrawOverlays()
 {
-  static const float x1 = Engine::Instance()->GetConfigFloat("golf_gs_x1");
-  static const float x2 = Engine::Instance()->GetConfigFloat("golf_gs_x2");
-  static const float y = Engine::Instance()->GetConfigFloat("golf_gs_y");
-  static const float z = Engine::Instance()->GetConfigFloat("golf_gs_z");
-
   m_pOnePlayerButton->Draw();
   m_pTwoPlayerButton->Draw();
   m_pOnePlayerPractiseButton->Draw();
@@ -364,9 +359,6 @@ bool EngineStatePoolGameSelect::Load()
   {
     return false;
   }
-
-  Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
-  Assert(pFont);
 
   std::string bg = GetEngine()->GetConfigValue("title_bg");
   if (!m_bg.Load(bg, ""))

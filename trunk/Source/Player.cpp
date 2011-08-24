@@ -50,9 +50,6 @@ void Player::FellFromHeight(float heightFallenFrom)
     heightDamage = 1.0f;
   }
 
-  // TODO TEMP TEST
-  float damage = 1.0f; //heightFallenFrom / heightDamage;
-
 #if defined(_DEBUG)
 /*
   cout << "Fallen from height " << heightFallenFrom << " taking " << damage << endl;

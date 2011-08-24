@@ -220,7 +220,6 @@ Finder::PieceList Finder::GetPiecesToConsider()
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Consider the piece if it's a TakeableCrate and intersects the b.sphere.
     TakeableCrate* pTakeableCrate = dynamic_cast<TakeableCrate*>(pGo.GetPtr());
@@ -449,7 +448,6 @@ Finder::PieceList Finder::GetAvailablePiecesOfType(
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Consider the piece if it's a TakeableCrate of the correct type,
     // desn't support anything, and isn't used by us or anyone in our group.
@@ -488,7 +486,6 @@ bool Finder::IsPieceTypeAt(
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     // Consider the piece if it's a TakeableCrate of the correct type,
     // desn't support anything, and isn't used by us or anyone in our group.
@@ -711,8 +708,6 @@ bool Finder::PieceWouldIntersectCubeMap(
   State savedState = pCrate->Takeable::GetState();
   pCrate->Takeable::SetState(UNKNOWN); // to get collision vol
 
-  float diff = o.GetYRot() - savedOr.GetYRot();
-
   Assert(pCrate->Takeable::GetCollisionVol());
   BoundingBox bb = pCrate->Takeable::GetCollisionVol()->GetBoundingBox();
   // If we can transform the bounding box directly, we don't have to 
@@ -848,12 +843,10 @@ bool Finder::GetMove(
 #endif
 
   RankedMoveList movelist = GetAllPossibleMoves(pVgo);
-  int numMoves = movelist.size();
 
   // Add the Seed moves even the list is non-empty, as a seed
   // move may get the best score.
   RankedMoveList seedmovelist = GetAllPossibleSeedMoves(pVgo);
-  int numSeedMoves = seedmovelist.size();
 
   std::copy(seedmovelist.begin(), seedmovelist.end(), back_inserter(movelist));
 

@@ -33,7 +33,7 @@ std::cout << "GuiText::DrawImpl\n";
   }
   Assert(pFont);
   float top = m_absTop;
-  for (int i = 0; i < m_strings.size(); i++)
+  for (unsigned int i = 0; i < m_strings.size(); i++)
   {
     pFont->PrintNoBlend(m_absLeft, top, m_strings[i].c_str());
     top += 0.8f; // TODO depends on font size

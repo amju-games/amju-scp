@@ -37,8 +37,6 @@ void Lensflare::Draw(const VertexBase& light, //sunpos,
 		const VertexBase& at) //lookatpos)
 {
   // Near clip same as in Engine::InitGl()
-  float near_clip = 0.5f;
-
   /* view_dir = normalize(at-from) */
   VertexBase viewdir(at);
   viewdir -= from;

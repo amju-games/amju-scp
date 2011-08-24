@@ -70,7 +70,6 @@ PGameObject Chick::FindShed()
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
 
     // TODO using CrocHome!!! We should use Shed, or ChickHome!

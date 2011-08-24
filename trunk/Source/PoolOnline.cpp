@@ -1214,8 +1214,7 @@ PoolOnline::ShotInfo PoolOnline::GetLastShotInfo() const
 
   // Find the shot with the lowest ID which is > m_shotId,
   // which should be m_shotId + 1
-  int newShotIndex = -1;
-  for (int i = 0; i < m_shots.size(); i++)
+  for (unsigned int i = 0; i < m_shots.size(); i++)
   {
     if (m_shots[i].m_shotId == m_shotId + 1)
     {
@@ -1625,7 +1624,7 @@ std::cout << "....there are " << m_objects.size() << " objects state changes for
 
     ShotLog("Got list of object state changes.");
 
-    for (i = 0; i < m_objects.size(); i++)
+    for (unsigned i = 0; i < m_objects.size(); i++)
     {
       const OnlineGameObject& obj = m_objects[i];
 
@@ -1789,7 +1788,7 @@ std::cout << "  Sending state for object (2): " << pGo->GetId() << "\n";
   {
     std::string s = "Sending object states: Num: ";
     s += ToString((int)ids.size());
-    for (int i = 0; i < ids.size(); i++)
+    for (unsigned int i = 0; i < ids.size(); i++)
     {
       s += ": ";
       s += ToString(ids[i]);
@@ -1865,7 +1864,7 @@ std::cout << "Update any objects with downloaded states this frame ?\n"
 
   // NB Iterate over all object state changes - so no need for them to be
   //  ordered.
-  for (int i = 0; i < m_objects.size(); i++)
+  for (unsigned int i = 0; i < m_objects.size(); i++)
   {
     OnlineGameObject& og = m_objects[i];
     if (og.m_frame == GetFrameNumber())
@@ -1954,7 +1953,7 @@ std::cout << "Found a game! ID: " << gameId << "\n";
 #ifdef _DEBUG
 {
   std::cout << " ...found " << m_games.size() << " games: ";
-  for (int i = 0; i < m_games.size(); i++)
+  for (unsigned int i = 0; i < m_games.size(); i++)
   {
     std::cout << " ID:" << m_games[i].m_id << " ";
   }
@@ -1978,7 +1977,7 @@ const PoolOnline::OnlineGame* PoolOnline::GetCurrentGame() const
 std::cout << "GetCurrentGame: m_gameId: " << m_gameId << "... ";
 #endif
 
-  for (int i = 0; i < m_games.size(); i++)
+  for (unsigned int i = 0; i < m_games.size(); i++)
   {
 #ifdef _DEBUG
 std::cout << " " << m_games[i].m_id;

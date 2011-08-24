@@ -27,9 +27,6 @@ void AiJumpDownBehaviour::ContinueActivating()
   // If there's a path, follow the path to the target.
   Assert(m_pInnerTarget.GetPtr());
 
-  Ai* pAi = dynamic_cast<Ai*>(m_pCharacter);
-  Assert(pAi);
-
   PGameObject pTemp = m_pTarget; // The piece we want
   State tempState = pTemp->GetState();
   // Temporarily disable the piece, so it won't obstruct the path to its

@@ -105,7 +105,7 @@ void EsLogo::Draw()
   int i = (int)(m_time / LOGO_TIME);
 
   // Fix last frame error 
-  if (i < m_logos.size())
+  if (i < (int)m_logos.size())
   {
     m_logos[i].Draw(3.0f, 7.0f, 3.0f + LOGO_HEIGHT, 8.0f + LOGO_WIDTH); 
   }

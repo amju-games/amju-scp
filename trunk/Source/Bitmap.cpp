@@ -156,7 +156,7 @@ unsigned char* LoadDIBitmap(const char *filename, unsigned int* pWidth, unsigned
     if(rest != 0)
         width32 =  (width*depth/8 + 4-rest);
 
-    int bitsize1 = (width * depth + 7) / 8 * height;
+    //int bitsize1 = (width * depth + 7) / 8 * height;
     int bitsize2 = width32 * height;
 //    Assert(bitsize1 >= bitsize2);
     bitsize = bitsize2;

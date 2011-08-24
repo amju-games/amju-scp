@@ -49,7 +49,6 @@ void ControlStyle::DoAction(bool down)
 
   if (a == PieceMover::ROTATE)
   {
-    Takeable* pTakeable = Engine::Instance()->GetPlayer()->GetCurrentPiece();
     // Get the orientation before rotating. We send a 'taken' event for this
     // orientation, then a 'dropped' event at the new orientation.
     //Orientation before = *(pTakeable->GetOrientation());

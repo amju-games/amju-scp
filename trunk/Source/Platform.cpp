@@ -233,7 +233,7 @@ void Platform::Draw()
     m_pMovingSolid->Draw();
     AmjuGL::PopMatrix();
 
-#if defined(_DEBUG)
+#if defined(HS_DEBUG)
     AmjuGL::PushMatrix();
     GetCollisionVol()->DrawHeights();
     GetCollisionVol()->DrawWalls();

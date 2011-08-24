@@ -401,8 +401,6 @@ bool EngineRunning::Load()
     return false;
   }
   */
-  float bwSpeed = atof(GetEngine()->GetConfigValue("player_bw_speed").c_str());
-  float bwTime = atof(GetEngine()->GetConfigValue("player_bw_time").c_str());
 
   // TODO CONFIG!
 //  PieceFootprint::SetTexture(TextureServer::Instance()->Get("diag.bmp", ""));

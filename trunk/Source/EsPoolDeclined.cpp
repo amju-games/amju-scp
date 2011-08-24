@@ -16,8 +16,8 @@ namespace Amju
 {
 static float TOP = 2.3f;
 static float LEFT = 8.0f;
-static float WIDTH = 8.0f;
-static float HEIGHT = 2.0f;
+//static float WIDTH = 8.0f;
+//static float HEIGHT = 2.0f;
 static float HSPACE = 2.25f;
 
 const char* EsPoolDeclined::Name = "pool-declined";

@@ -33,7 +33,6 @@ void ChickCapturedBehaviour::Update()
   const Orientation* pChickOrientation = m_pCharacter->GetOrientation();
 
   // (x, z) Chick coords match the target..
-  CharacterGameObject* pCgo = dynamic_cast<CharacterGameObject*>(m_pTarget.GetPtr());
   //pChickOrientation->SetX(pCgo->GetOrientation()->GetX());
   //pChickOrientation->SetZ(pCgo->GetOrientation()->GetZ());
 

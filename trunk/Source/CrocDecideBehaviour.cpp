@@ -82,7 +82,6 @@ void CrocDecideBehaviour::Update()
   bool foundChick = false;
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
     PGameObject pGo = it->second;
     Chick* pChick = dynamic_cast<Chick*>(pGo.GetPtr());
     if (!pChick)

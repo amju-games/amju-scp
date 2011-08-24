@@ -483,7 +483,7 @@ std::cout << "TOOLTIP: width: " << w << " for text: " << m_toolTipText[0]
   m_toolTipBg.Draw(y, x, y + h, x + w); // t, l, b, r
 */
 
-  for (int i = 0; i < m_toolTipText.size(); i++)
+  for (int i = 0; i < (int)m_toolTipText.size(); i++)
   {
     pFont->PrintNoBlend(x, y, m_toolTipText[i].c_str());
     y += 0.5; // TODO CONFIG

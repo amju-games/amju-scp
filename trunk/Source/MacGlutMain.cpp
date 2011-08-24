@@ -161,7 +161,6 @@ Added to repository
 
 #if defined(MACOSX)
 #include "MacTimer.h"
-#include "MacSpeechSynth.h"
 #endif
 
 //#include "BassSoundPlayer.h"
@@ -315,7 +314,7 @@ std::cout << "AmjuEventHandler: getting a mouse event!\n";
     {
       // Get text from clipboard, pass SpecialEvent to Engine
       result = noErr; 
- 
+/* TODO 
       // Get text data (if any) from the clipboard ("scrap").
       ScrapRef scrap = 0;
       GetCurrentScrap(&scrap);
@@ -343,6 +342,7 @@ std::cout << "AmjuEventHandler: getting a mouse event!\n";
 std::cout << "PASTE: got a paste command, but the clipboard data is no good.\n";
 #endif
       }
+*/
     }
   }
   return result;
@@ -370,7 +370,8 @@ std::cout << "Entering RegisterPasteHandler()\n";
   EventHandlerRef* handlerRef = 0;
 
 std::cout << "RegisterHandlers: num types: " << GetEventTypeCount(typeList) << "\n";
-  OSStatus s = InstallEventHandler(
+  /* OSStatus s = */  
+  InstallEventHandler(
     target,
     NewEventHandlerUPP(&AmjuApplicationEventHandler),
     GetEventTypeCount(typeList),
