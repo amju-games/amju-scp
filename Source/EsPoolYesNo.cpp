@@ -82,11 +82,12 @@ void EsPoolYesNo::Update()
 {
   EngineStateText::Update();
 
+#ifdef POOL_ONLINE
   // TODO This should be called by Engine, or EngineState, so it's
   // always updated.
   // Call here just in case we are in the middle of an online operation
   ThePoolOnlineManager::Instance()->Update();
-
+#endif
 }
 
 void EsPoolYesNo::Draw()

@@ -1527,7 +1527,9 @@ void EngineStatePoolSetUpShot::DrawOverlays()
     pFont->SetSize(s * 0.75f);
     Engine::Instance()->PushColour(0, 0, 0, 1.0f);
     pFont->PrintNoBlend(2.0f, 0.1f, m_playersOnlineStr.c_str());
+#ifdef POOL_ONLINE
     pFont->PrintNoBlend(2.0f, 0.6f, ThePoolOnlineManager::Instance()->GetLastStatusMsg().c_str());
+#endif
     Engine::Instance()->PopColour();
     pFont->SetSize(s);
   }
@@ -2416,6 +2418,7 @@ std::cout << "Player " << j << " is active, so will not be moved.\n";
 
 void EngineStatePoolSetUpShot::CheckForInvite()
 {
+#ifdef POOL_ONLINE
   // Check current games to see if we have been invited to an online game.
   const PoolOnline::Players& players = ThePoolOnlineManager::Instance()->GetPlayersOnline();
   const PoolOnline::OnlineGames& games = ThePoolOnlineManager::Instance()->GetGames();
@@ -2487,10 +2490,12 @@ std::cout << "CheckForInvite ** has found an invite!! **\n";
       return;
     }
   }
+#endif // POOL_ONLINE
 }
 
 void EngineStatePoolSetUpShot::InitOnlineStatus()
 {
+#ifdef POOL_ONLINE
   if (!m_serverStatusSetThisGame)
   {
     // Call at start of a new NON-online game. This sets up a row in server 
@@ -2507,10 +2512,12 @@ void EngineStatePoolSetUpShot::InitOnlineStatus()
       m_serverStatusSetThisGame = true;
     }
   }
+#endif
 }
 
 void EngineStatePoolSetUpShot::UpdateOnlineStatus()
 {
+#ifdef POOL_ONLINE
   Assert(!IsOnlineGame());
 
   // Not an online game: periodically tell the server that we are alive,
@@ -2554,6 +2561,7 @@ void EngineStatePoolSetUpShot::UpdateOnlineStatus()
     // Check if our game has an invite
     CheckForInvite();
   }
+#endif
 }
 
 void EngineStatePoolSetUpShot::Update()

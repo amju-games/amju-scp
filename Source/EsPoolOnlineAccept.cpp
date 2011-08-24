@@ -46,13 +46,16 @@ void EsPoolOnlineAccept::Set(int playerId, int opponentId, const std::string& op
 
 void EsPoolOnlineAccept::OnYes()
 {
+#ifdef POOL_ONLINE
   // Accept join request
   ThePoolOnlineManager::Instance()->SendGameJoinAccepted();
   EngineStatePoolOnlineTable::StartOnlineGame(m_playerId, m_opponentId, true /* we choose game */);
+#endif
 }
 
 void EsPoolOnlineAccept::OnNo()
 {
+#ifdef POOL_ONLINE
   // Go back to EsOnlineTable - but send request to server to update 
   //  the game between us and opponent.
   // The opponent should be removed from the game row. This will tell the opponent 
@@ -61,5 +64,6 @@ void EsPoolOnlineAccept::OnNo()
 
   Engine::Instance()->ChangeState(EngineStatePoolOnlineTable::Name,
     Engine::IMMEDIATE);
+#endif
 }
 }

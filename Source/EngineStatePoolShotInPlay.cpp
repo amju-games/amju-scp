@@ -663,6 +663,7 @@ bool EngineStatePoolShotInPlay::IsOutOfBounds()
 // Return true if all balls have stopped moving.
 bool EngineStatePoolShotInPlay::BallsHaveStopped()
 {
+#ifdef POOL_ONLINE
   // If we are the receiving client of an online game, make sure we don't
   // finish the shot too early, and so not set the final positions!
   if (IsOnlineGame() && !IsUserControlled() &&
@@ -678,6 +679,7 @@ std::cout << "Have not yet reached final frame sent (current: "
 
      return false;
   }
+#endif
 
   int levelId = m_pLevel->GetId();
   int roomId = m_pLevel->GetRoomId();

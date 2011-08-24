@@ -14,12 +14,6 @@ Amju Games source code (c) Copyright Jason Colman 2007
 
 namespace Amju
 {
-static float TOP = 2.3f;
-static float LEFT = 8.0f;
-//static float WIDTH = 8.0f;
-//static float HEIGHT = 2.0f;
-static float HSPACE = 2.25f;
-
 const char* EsPoolDeclined::Name = "pool-declined";
 
 static const bool registered= Engine::Instance()->
@@ -34,6 +28,7 @@ EsPoolDeclined::EsPoolDeclined()
 
 void EsPoolDeclined::SetActive(bool active)
 {
+#ifdef POOL_ONLINE
   if (active)
   {
     std::string opponent = ThePoolOnlineManager::Instance()->GetOpponentName(); 
@@ -56,15 +51,18 @@ void EsPoolDeclined::SetActive(bool active)
     m_pYesButton->SetRelPos(TOP + 2.0f * HSPACE, LEFT + 2.0f); // top, left
 
   }
+#endif
   EsPoolYesNo::SetActive(active);
 }
 
 void EsPoolDeclined::OnYes()
 {
+#ifdef POOL_ONLINE
   ThePoolOnlineManager::Instance()->SendGameFinished();
 
   Engine::Instance()->ChangeState(EngineStatePoolOnlineTable::Name,
     Engine::IMMEDIATE);
+#endif
 }
 }
 

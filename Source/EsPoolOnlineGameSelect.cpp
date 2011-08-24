@@ -24,7 +24,9 @@ void OnlineBackToPlayerSelect()
 std::cout << "***SENDING GAME FINISHED\n";
 #endif
 
+#ifdef POOL_ONLINE
   ThePoolOnlineManager::Instance()->SendGameFinished();
+#endif
 
   Engine::Instance()->ChangeState(EngineStatePoolGameSelect::Name,
     Engine::IMMEDIATE);
