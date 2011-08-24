@@ -211,7 +211,7 @@ std::cout << "POOL PLAYER STATS: saving stats for " << m_playerName.c_str() << "
   int numGames = (int)m_games.size();
   check ^= numGames;
   f.WriteInteger(numGames);
-  for (int i = 0; i < m_games.size(); i++)
+  for (unsigned int i = 0; i < m_games.size(); i++)
   {
     OneGame g = m_games[i];
     g.Save(&f);
@@ -290,7 +290,7 @@ void PoolPlayerStats::GetStats(int* pWin, int* pLose, int* pDraw)
   int lose = 0;
   int draw = 0;
   int played = 0;
-  for (int i = 0; i < m_games.size(); i++)
+  for (unsigned int i = 0; i < m_games.size(); i++)
   {
     played++;
     const OneGame& g = m_games[i];

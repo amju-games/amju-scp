@@ -33,7 +33,7 @@ namespace Amju
 
     void m4_submat( const MATRIX4 mr, MATRIX3 mb, int i, int j )
       {
-      int ti, tj, idst, jdst;
+      int ti, tj, idst = 0, jdst = 0;
 
       for ( ti = 0; ti < 4; ti++ )
         {
