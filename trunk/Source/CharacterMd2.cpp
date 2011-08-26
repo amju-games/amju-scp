@@ -105,7 +105,8 @@ void CharacterMd2::Draw()
     }
   }
 
-  m_pModel->DrawAnim((Md2Model::Animation)m_animation, m_frame, between);
+  // One -> zero based ???
+  m_pModel->DrawAnim((Md2Model::Animation)m_animation, m_frame - 1, between);
 }
 
 bool CharacterMd2::CurrentActionRepeats() const
