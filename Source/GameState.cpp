@@ -47,9 +47,11 @@ using namespace std;
 
 namespace Amju
 {
-extern void ReportError(const std::string&);
+void ReportError(const std::string&);
 
 static const std::string CHECKSUM = "check";
+
+extern const char* APPLICATION_NAME;
 
 GameState::GameState()
 {
@@ -101,7 +103,7 @@ bool GameState::Load()
   // directory where it's ok to save stuff to.
   std::string root = File::GetRoot();
   File::SetRoot("", "/");
-  std::string filename = GetSaveDir() + m_filename;
+  std::string filename = GetSaveDir(APPLICATION_NAME) + m_filename;
   bool b = m_cf.Load(filename);
   File::SetRoot(root, "/");
 
@@ -138,7 +140,7 @@ bool GameState::Save()
 
   // GetSaveDir() (in Directory) gets a user-preferences
   // directory where it's ok to save stuff to.
-  std::string filename = GetSaveDir() + m_filename;
+  std::string filename = GetSaveDir(APPLICATION_NAME) + m_filename;
   std::string root = File::GetRoot();
   File::SetRoot("", "/");
   bool b = m_cf.Save(filename);

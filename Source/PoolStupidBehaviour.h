@@ -15,7 +15,7 @@ Added to repository
 #if !defined(GOLF_STUPID_BEHAVIOUR_H_INCLUDED)
 #define GOLF_STUPID_BEHAVIOUR_H_INCLUDED
 
-#include "AvoidBehaviourBase.h"
+#include "Behaviour.h"
 
 namespace Amju
 {
@@ -25,7 +25,7 @@ namespace Amju
 // chanracters would just fall off the world. We want to
 // move around within a ring region around the player,
 // and we DON'T want to fall off any edges!
-class PoolStupidBehaviour : public AvoidBehaviourBase
+class PoolStupidBehaviour : public Behaviour
 {
 public:
   PoolStupidBehaviour();

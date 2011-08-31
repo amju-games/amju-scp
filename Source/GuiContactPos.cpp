@@ -49,7 +49,6 @@ Added new GUI element for specifying the cue contact position on the cue ball.
 #include "Common.h"
 #include "GuiContactPos.h"
 #include "Engine.h"
-#include "PickHelper.h"
 #include "Mouse.h"
 #include "TextWriter.h"
 

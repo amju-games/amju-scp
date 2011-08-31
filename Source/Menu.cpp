@@ -23,7 +23,6 @@ Added to repository
 #include "Attrib.h"
 #include "File.h"
 #include "FirstPersonCamera.h"
-#include "PickHelper.h"
 #include "GuiTextButton.h"
 #include "MenuCommand.h"
 #include "SchAssert.h"
@@ -155,6 +154,11 @@ void Menu::Next()
   EnsureVisible();
 }
 
+static bool operator !=(const Colour& c1, const Colour& c2)
+{
+  return (c1.m_r != c2.m_r || c1.m_g != c2.m_g || c1.m_b != c2.m_b || c1.m_a != c2.m_a);
+}
+
 void Menu::Draw()
 {
   // Picking: If we are in picking mode, check the colour under the 
@@ -191,13 +195,15 @@ void Menu::Draw()
     Engine::Instance()->PushColour(0.0f, 0.0f, 0.0f, a);
     DrawItem(i);
     Engine::Instance()->PopColour();
-    Colour c1 = PickHelper::ReadCursorColour();
+
+    // TODO Good lord
+    Colour c1; // = PickHelper::ReadCursorColour();
 
     // Draw in selected colour
     Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, a);
     DrawItem(i);
     Engine::Instance()->PopColour();
-    Colour c2 = PickHelper::ReadCursorColour();
+    Colour c2; // = PickHelper::ReadCursorColour();
 
     if (IsPickMode() && c1 != c2)
     {

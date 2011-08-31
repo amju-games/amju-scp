@@ -67,7 +67,6 @@ Added to repository
 #endif
 
 #include "GuiElement.h"
-#include "PickHelper.h"
 #include "GuiCommandHandler.h"
 #include "Engine.h"
 #include "Mouse.h"

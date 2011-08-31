@@ -20,7 +20,7 @@ namespace Amju
 StupidBehaviour::StupidBehaviour()
 {
   // We don't look very far ahead at all - because we are stupid.
-  m_lookahead = 0.5f; // TODO CONFIG
+  //m_lookahead = 0.5f; // TODO CONFIG
 
   // TODO
   // Vel. depends on character type and level.
@@ -48,8 +48,6 @@ void StupidBehaviour::ReactToObstacle()
 
 void StupidBehaviour::Update()
 {
-  static float stupidVel = Engine::Instance()->GetConfigFloat("stupid_vel");
-
   m_pCharacter->SetForwardVel(5.0f); // TODO TEMP TEST
 
 /*

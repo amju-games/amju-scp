@@ -37,7 +37,7 @@ bool LevelWorkerName::Load(File* pf)
   return true;
 }
 
-bool LevelWorkerName::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerName::AddFeature(Level* pLevel)
 {
   pLevel->SetLevelName(m_name);
   return true;

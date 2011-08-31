@@ -73,7 +73,7 @@ bool LevelWorkerAddRoom::Save(File* pf)
 }
 #endif
 
-bool LevelWorkerAddRoom::AddFeature(Level* pLevel, CubeMap* pCubeMap)
+bool LevelWorkerAddRoom::AddFeature(Level* pLevel)
 {
   int numRooms = m_roomNames.size();
 

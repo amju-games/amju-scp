@@ -35,7 +35,7 @@ bool LevelWorkerAddStupids::Save(File* )
 }
 #endif
 
-bool LevelWorkerAddStupids::AddFeature(Level* pLevel, CubeMap* pCubeMap)
+bool LevelWorkerAddStupids::AddFeature(Level* pLevel)
 {
   // Assume the zeroth character held by Character Manager is reserved 
   // for the player character.
@@ -100,7 +100,7 @@ bool LevelWorkerAddStupids::AddFeature(Level* pLevel, CubeMap* pCubeMap)
     BoundingBox bb(0, s, 0, s, 0, s);
 
     Orientation initialOr;
-    if (!GetOrientation(pCubeMap, bb, pLevel->GetPlayAreaSize(), &initialOr))
+    if (!GetOrientation(bb, pLevel->GetPlayAreaSize(), &initialOr))
     {
       return false; // play area too small
     }

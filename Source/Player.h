@@ -10,12 +10,11 @@ Added to repository
 #define PLAYER_H_INCLUDED
 
 #include "CharacterGameObject.h"
-#include "PieceMover.h" // TODO
 #include <string>
 
 namespace Amju
 {
-class Player : public CharacterGameObject, public PieceMover
+class Player : public CharacterGameObject
 {
 public:
   Player();
@@ -27,17 +26,9 @@ public:
   virtual void FellFromHeight(float heightFallenFrom);
 
   // Collision with another Game Object. 
-  // Specifically we want to check for collision with a chick, because we
-  // pick them up.
   virtual void HandleObjectCollision(GameObject* pObj);
 
   virtual bool Load(File*); // override GameObject load
-
-  // Override callbacks in PieceMover
-  virtual void NotifyPieceTaken(Takeable*);
-  virtual void NotifyPieceDropped(Takeable*);
-  virtual void NotifyPieceRotated(Takeable*);
-
 
   bool Load(const std::string& filename); // calls virtual function
 };

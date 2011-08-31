@@ -69,7 +69,7 @@ void Trajectory::Clear()
 void Trajectory::BallTr::Draw()
 {
 //  Engine::Instance()->PushColour(m_colour);
-  for (int i = 0; i <  m_linesegs.size(); i++)
+  for (unsigned int i = 0; i <  m_linesegs.size(); i++)
   {
     const std::pair<VertexBase, VertexBase> seg = m_linesegs[i];
 #define TR_DOTS
@@ -160,7 +160,6 @@ void Trajectory::Update()
   }
 
   m_trs.clear();
-  float time = 0;
 
 #ifdef TR_DEBUG
 std::cout << "TRAJECTORY: orig dir: " << m_yRot << "\n";
@@ -238,7 +237,7 @@ std::cout << "Find trajectory for new ball " << newBallId << "\n";
         // We have to limit the number of trajectories for speed.
         static const int BALL_RECURSE = (int)Engine::Instance()->GetConfigFloat(
           "trajectory_ball_recurse");
-        if (m_trs.size() < BALL_RECURSE)
+        if ((int)m_trs.size() < BALL_RECURSE)
         {
           GetLineSegsForBall(newBallId, vNewBallCentre, newBallDir);
         }
@@ -291,7 +290,7 @@ void GetClosestWall(
     WallPoly* pClosest = 0;
     float bestDist = 999999.0f;
     VertexBase bestIntersectPoint;
-    int s = walls.size();
+    unsigned int s = walls.size();
     for (unsigned int i = 0; i < s; i++)
     {
       WallPoly* pWp = const_cast<WallPoly*>(&(walls[i]));
@@ -300,9 +299,10 @@ void GetClosestWall(
       float d = sqrt(dsq);
 
       VertexBase intersectPoint;
-      bool gotIntPoint = pWp->IntersectGetPoint(v1, v2, &intersectPoint);
 
 #ifdef TR_DEBUG
+      bool gotIntPoint = pWp->IntersectGetPoint(v1, v2, &intersectPoint);
+
 std::cout << "  ..checking wall " 
   << pWp << ": dist: " 
   << d << " gotintpoint: " << gotIntPoint 
@@ -370,7 +370,7 @@ bool Trajectory::FindWallCollision(
     walls.erase(std::unique(walls.begin(), walls.end()), walls.end());
 
     // Find the closest wall.
-    int s = walls.size();
+    unsigned int s = walls.size();
 #ifdef TR_DEBUG
 std::cout << " Trajectory: hitting " << s << " walls, getting refleact angle\n";
 #endif
@@ -581,7 +581,7 @@ std::cout << "TRAJECTORY: COLLISION FOUND: ball "
 
     // Get ghost ball centre. I.e. find first position along line
     //  v1-v2 where ball is intersected. 
-    float collisionTime = 0;
+    //float collisionTime = 0;
     VertexBase resultV1, resultV2;
 
     VertexBase vDiff = v1 - v2;

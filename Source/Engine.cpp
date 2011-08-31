@@ -114,7 +114,6 @@ Added to repository
 #include "LevelServer.h"
 #include "GameState.h"
 #include "SoundServer.h"
-#include "CutSceneServer.h"
 #include "PowerUpServer.h"
 #include "MessageSerializer.h"
 #include "ClientSocket.h"
@@ -122,20 +121,17 @@ Added to repository
 #include "Shadow.h"
 #include "BasicShadow.h"
 #include "BlockShadow.h"
-#include "Number2d.h"
-#include "Number3d.h"
-#include "ClientReceiveThread.h"
 #include "EarthquakeServer.h"
 #include "TextWriter.h"
 #include "TextFactory.h"
 #include "Player.h"
 #include "File.h"
 #include "Mouse.h"
-//#include "EngineRunning.h" // StartGame
 #include "KeymapPrinter.h"
 #include "PoolCourseManager.h"
 #include "StringUtils.h"
 #include "Font.h"
+#include "Number3d.h"
 #include "SchAssert.h"
 
 #if defined(SCENE_EDITOR)
@@ -876,13 +872,7 @@ bool Engine::Load()
 
   case 5:
     {
-      // Load 3D numbers.
-      if (!Number3d::Init())
-      {
-        count = -1;
-        ReportError("Failed to load 3D numbers.");
-        return false;
-      }
+      Number3d::Init();
 
       // Sky and lensflare
       if (!m_dayNightSky.Init())
@@ -1415,7 +1405,7 @@ void Engine::Draw()
   }
 #else
   // Show FPS counter even in release build??
-  //Fps();
+  Fps();
 #endif
 
   // Tell TextWriter to write any scrolling text over everything.
@@ -1570,25 +1560,15 @@ void Engine::PopColour()
 
 void Engine::InitFrame()
 {
-  AmjuGL::InitFrame(m_clearR, m_clearG, m_clearB);
+  AmjuGL::SetClearColour(Colour(m_clearR, m_clearG, m_clearB, 1.0f));
+  AmjuGL::InitFrame();
 
   // Should be unnecessary, but may fix letterbox issue found on Intel iMac, 4/5/2006
   AmjuGL::Viewport(0, 0, m_viewportX, m_viewportY);
 
   // Do GL initialisation before we draw the frame.
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
-//TODO  glClearColor(m_clearR, m_clearG, m_clearB, 1.0f);
-
-  // j.c. TODO TEMP TEST no need to clear color ?
-  // (Removed GL_COLOR_BUFFER_BIT)
-//  glClear(GL_COLOR_BUFFER_BIT | AmjuGL::AMJU_DEPTH_READ);
-
-//  glCullFace(GL_BACK);
-//  AmjuGL::Enable(GL_CULL_FACE);
-  ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
-  //AmjuGL::Disable(AmjuGL::AMJU_BLEND); // only enabled where necessary
-  AmjuGL::Enable(AmjuGL::AMJU_BLEND); // TODO some things (day night sky etc) must enable this.
-  AmjuGL::Enable(AmjuGL::AMJU_TEXTURE_2D);
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
 
   // Set the modelview matrix
   AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
@@ -1611,11 +1591,7 @@ void Engine::InitGl()
   AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
   AmjuGL::SetIdentity();
   
-//  AmjuGL::Enable(GL_CULL_FACE);
-//  glCullFace(GL_BACK);
-  
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
-//  AmjuGL::Enable(GL_COLOR_MATERIAL);
 
   // Disable lighting for flat, hopefully cartoony look.
   if (GetConfigValue("lighting") == "y")
@@ -1626,20 +1602,6 @@ void Engine::InitGl()
   {
     AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
   }
-
-  ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
-//  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
-
-//  AmjuGL::Enable(GL_FOG);
-//  glFogi(GL_FOG_MODE, GL_LINEAR);
-//  GLfloat fogcolour[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
-//  glFogfv(GL_FOG_COLOR, fogcolour);
-//  glFogf(GL_FOG_DENSITY, 0);
-//  glFogf(GL_FOG_START, 1.0f);
-//  glFogf(GL_FOG_END, 100.0f);
-
-  // We can rely on default values for everything else. 
-  // NB Lighting is set up for each room when player enters.
 }
 
 void Engine::Fps()

@@ -13,7 +13,6 @@ Added to repository
 #include "GuiToolbox.h"
 #include "File.h"
 #include "Engine.h"
-#include "PickHelper.h"
 
 namespace Amju
 {

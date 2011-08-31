@@ -90,8 +90,6 @@ void PoolSnapshot::CreateFromCurrentState()
   // Iterate through map of Game Objects.  
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObjectId gameObjId = it->first;
-
     PGameObject pGo = it->second; 
     Assert(pGo.GetPtr());
 
@@ -129,8 +127,7 @@ if (gameObjId == 10)
 void PoolSnapshot::SetStateToSnapshot() const
 {
   // Set the state of all game objects we have stored.
-  int i;
-  for (i = 0; i < m_objInfo.size(); i++)
+  for (unsigned int i = 0; i < m_objInfo.size(); i++)
   {
     const ObjInfo& info = m_objInfo[i];
 
@@ -154,15 +151,15 @@ else  // NB NOT #else
     info.m_pGo->SetState(info.m_state);
   }
 
-  for (i = 0; i < m_playerInfo.size(); i++)
+  for (unsigned int i = 0; i < m_playerInfo.size(); i++)
   {
     Engine::Instance()->GetGameState()->SetPlayerInfo(i, m_playerInfo[i]);
   }
 
   // Set Rules state
   Level* pLevel = LevelServer::Instance()->GetCurrentLevel().GetPtr();
-  Rules* pRules = GetRules(pLevel);
-  int id = pRules->GetId();
+  //Rules* pRules = GetRules(pLevel);
+  //int id = pRules->GetId();
   
   // This was an attempt to assign the object into the one held by the Engine.
   // This won't work - it just assigns to the local variable!

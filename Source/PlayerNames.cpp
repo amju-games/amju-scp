@@ -44,6 +44,8 @@ Store all player names
 
 namespace Amju
 {
+extern const char* APPLICATION_NAME;
+
 PlayerNames::PlayerNames()
 {
 }
@@ -55,7 +57,7 @@ bool PlayerNames::Load()
   // Get previously entered player names.
   File f(true, File::STD); // yes has version info, no to glue file.
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   if (f.OpenRead("playernames.cfg"))
   {
     // Get number of names
@@ -95,7 +97,7 @@ std::cout << "*** Save player names\n";
 
   File f(true, File::STD); // yes has version info, no to glue file.
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   if (f.OpenWrite("playernames.cfg"))
   {
     int size = m_names.size();

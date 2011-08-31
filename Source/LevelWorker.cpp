@@ -11,7 +11,6 @@ Added to repository
 #endif
 
 #include "LevelWorker.h"
-#include "CubeMap.h"
 #include "Engine.h"
 #include "SolidGameObject.h"
 #include "Level.h"
@@ -68,7 +67,6 @@ float RndToPos(float rnd, float gridSize, float gridSpacing)
 }
 
 bool LevelWorker::GetOrientation(
-  CubeMap* pCubeMap, 
   const BoundingBox& bb, 
   int absPlayAreaSize,
   Orientation* pResult)
@@ -99,7 +97,7 @@ bool LevelWorker::GetOrientation(
 
       BoundingBox bbCopy(bb);
       bbCopy.Translate(x, 0, z);
-      bool conflict = pCubeMap->Intersects(bbCopy);
+      bool conflict = false; //pCubeMap->Intersects(bbCopy);
       if (!conflict)
       {
         candidates.push_back(o);
@@ -119,7 +117,7 @@ bool LevelWorker::GetOrientation(
   Orientation o = candidates[index];
   BoundingBox bbCopy(bb);
   bbCopy.Translate(o.GetX(), 0, o.GetZ());
-  pCubeMap->Set(bbCopy);
+  //pCubeMap->Set(bbCopy);
   *pResult = o;
 
   return true;

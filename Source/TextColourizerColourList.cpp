@@ -48,7 +48,7 @@ SolidComposite* TextColourizerColourList::ColourizeCharacter(
   Assert(m_colours.size() > 0);
 
   m_index++;
-  if (m_index == m_colours.size())
+  if (m_index == (int)m_colours.size())
   {
     m_index = 0;
   }

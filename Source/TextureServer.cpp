@@ -79,13 +79,6 @@ void TextureServer::Clear()
 
 void TextureServer::ReloadAll()
 {
-  for (TexturesMap::iterator it = m_texmap.begin();
-       it != m_texmap.end(); 
-       ++it)
-  {
-    string filenames = it->first;
-    Texture* pTex = it->second;
-  }
 }
 
 #ifdef SCENE_EDITOR

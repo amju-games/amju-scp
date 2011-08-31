@@ -21,7 +21,7 @@ public:
   static const char* TypeName;
 
   LevelWorkerAddCharacters();
-  virtual bool AddFeature(Level*, CubeMap* );
+  virtual bool AddFeature(Level*);
   virtual bool Load(File* );
 #ifdef SCENE_EDITOR
   virtual bool Save(File* );

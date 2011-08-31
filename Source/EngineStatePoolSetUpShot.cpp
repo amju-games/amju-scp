@@ -353,7 +353,6 @@ Added to repository
 #include "TextFactory.h"
 #include "TextColourizerColourList.h"
 #include "PoolCourseManager.h"
-#include "PickHelper.h"
 #include "ThirdPersonCameraBase.h"
 #include "Frustum.h"
 #include "LeafRenderer.h"

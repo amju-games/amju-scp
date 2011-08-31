@@ -84,7 +84,7 @@ void TextureModFire::Update()
 #endif
 
 #ifdef MACOSX
-    uint32 alpha = 0x000000c0; // data[i] & 0x000000ff; // ENDIAN
+    //uint32 alpha = 0x000000c0; // data[i] & 0x000000ff; // ENDIAN
     uint32 res = s_pColourTable[dst[i]];// & 0xffffff00 | alpha; // ENDIAN
 #endif
 

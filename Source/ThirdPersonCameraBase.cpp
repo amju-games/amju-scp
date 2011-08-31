@@ -163,7 +163,7 @@ std::cout << "ZOOM add vec: " << ToString(v).c_str() << "\n";
   if (m_yRotVel != 0)
   {
     static const float MAX_Y_ROT_VEL = 360.0f;
-    static const float MIN_Y_ROT_VEL = 10.0f;
+    //static const float MIN_Y_ROT_VEL = 10.0f;
     m_yRotVel += dt * m_yRotAcc;
     if (fabs(m_yRotVel) > MAX_Y_ROT_VEL)
     {
@@ -386,8 +386,6 @@ void ThirdPersonCameraBase::Z(bool down)
   {
     return;
   }
-
-  Engine::Instance()->GetPlayer()->ResetPieceCanRotate();
 
   if (Engine::Instance()->GetPlayer()->IsFalling())
   {

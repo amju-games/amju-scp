@@ -10,13 +10,11 @@ Added to repository
 #define ENGINE_RUNNING_H_INCLUDED
 
 #include <string>
-#include "EngineRunningVisGraph.h"
+#include "EngineRunningBase.h"
 #include "SolidComponent.h"
 #include "TexturedQuad.h"
 #include "CharacterGameObject.h"
-#include "Chick.h"
 #include "Score.h"
-#include "PieceFootprint.h"
 #include "Colour.h"
 #include "PowerGuage.h"
 #include "ControlStyle.h"
@@ -32,7 +30,7 @@ class HeightServer;
 class Takeable;
 
 // Engine state: game is being played and is running (i.e. isn't paused).
-class EngineRunning : public EngineRunningVisGraph
+class EngineRunning : public EngineRunningBase
 {
 public:
   static const std::string Name; // ID of this state.

@@ -69,7 +69,6 @@ Added to repository
 #include "PoolCourseManager.h"
 #include "PoolMisc.h"
 #include "GuiButton.h"
-#include "Registration.h"
 #include "TextWriter.h"
 #include "TimePeriod.h"
 
@@ -81,6 +80,8 @@ extern void OnBuyButton();
 namespace Amju
 {
 const char* EngineStatePoolSetUpShotDemo::Name = "golf_setup_demo";
+
+bool IsRegistered();
 
 // Register this State with the Engine.
 static const bool registeredgolfinplay = Engine::Instance()->
@@ -96,8 +97,8 @@ void EngineStatePoolSetUpShotDemo::SDrawOverlays()
 {
   // TODO disable start if trial period has expired.
   // Hide buy/register buttons if registered.
-  bool unreg = !Registration::IsRegistered();
-  int secs = Registration::GetRemainingEvalPeriod();
+  bool unreg = !IsRegistered();
+  int secs = 0; 
   bool expired = (secs == 0);
 
   if (unreg && expired)
@@ -151,7 +152,7 @@ void EngineStatePoolSetUpShotDemo::SMouseButton(bool down, bool ctrl, bool shift
   s_startButton->MouseButton(down, ctrl, shift);
   s_exitButton->MouseButton(down, ctrl, shift);
  
-  bool unreg = !Registration::IsRegistered();
+  bool unreg = !IsRegistered();
   if (unreg)
   {
     s_registerButton->MouseButton(down, ctrl, shift);

@@ -9,7 +9,6 @@ Added to repository
 #if !defined(LEVEL_H_INCLUDED)
 #define LEVEL_H_INCLUDED
 
-//#include "Common.h"
 #include "Room.h"
 #include "States.h"
 #include "Orientation.h"

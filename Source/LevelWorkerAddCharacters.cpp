@@ -37,7 +37,7 @@ LevelWorkerAddCharacters::LevelWorkerAddCharacters()
   m_infoString = "character";
 }
 
-bool LevelWorkerAddCharacters::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerAddCharacters::AddFeature(Level* pLevel)
 {
   int numChars = m_charNames.size();
   for (int i = 0; i < numChars; i++)

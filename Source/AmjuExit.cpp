@@ -34,7 +34,6 @@ Add exit functions, which go to Nag Mode if unregistered.
 #include "Engine.h"
 #include "EngineStatePoolSetUpShotNag.h"
 #include "PoolMisc.h"
-#include "Registration.h"
 #include "SoundPlayer.h"
 
 #ifdef MACOSX
@@ -45,21 +44,7 @@ using namespace Amju;
 
 void OnExitClicked()
 {
-#ifdef AMJU_NOT_UNLOCKABLE
-  ReallyExit();
-#else
-  if (Registration::IsRegistered())
-  {
     ReallyExit();
-  }
-  else
-  {
-    StartDemoMode();
-    SetNagMode(true);
-    Engine::Instance()->ChangeState(EngineStatePoolSetUpShotNag::Name,
-      Engine::IMMEDIATE);
-  }
-#endif
 }
 
 #ifdef MACOSX

@@ -20,7 +20,6 @@ Added to repository
 #include "LevelFactorySimple.h"
 #include "File.h"
 #include "LevelWorkerFactory.h"
-#include "CubeMap.h"
 #include "Engine.h"
 #include "Player.h"
 #include "CharacterManager.h"
@@ -65,8 +64,6 @@ PLevel LevelFactorySimple::Create(int levelId)
     Orientation start(0, 1.0f, 0, 0, 0, 0);
     pLevel->SetStartOrientation(start);
 
-    CubeMap cm;
-
     // Add a bounding box around the player start pos so there's a bit of space
     // around the player at the start.
     float s = 3.0f; // box size
@@ -74,14 +71,13 @@ PLevel LevelFactorySimple::Create(int levelId)
       start.GetX() - s, start.GetX() + s, 
       start.GetY() - s, start.GetY() + s,
       start.GetZ() - s, start.GetZ() + s);
-    cm.Set(bb);
 
     LevelWorker::RndSeed(levelId);
 
     bool ok = true;
     for (Workers::iterator it = m_workers.begin(); it != m_workers.end(); ++it)
     {
-      if (!(*it)->AddFeature(pLevel.GetPtr(), &cm))
+      if (!(*it)->AddFeature(pLevel.GetPtr()))
       {
         ok = false;
       }

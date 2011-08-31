@@ -18,7 +18,6 @@ namespace Amju
 {
 class File;
 class Level;
-class CubeMap;
 class LevelFactory;
 class GameObject;
 
@@ -36,9 +35,7 @@ public:
   virtual const char* GetTypeName() = 0;
 
   // Subclasses override this to add their specific feature to the given level.
-  // The CubeMap is a basic way of making sure features don't intersect. When
-  // a feature is succesfully added it should mark the cubes it occupies.
-  virtual bool AddFeature(Level*, CubeMap* ) = 0;
+  virtual bool AddFeature(Level*) = 0;
 
   virtual bool RemoveFeature() { return false; } 
 
@@ -66,7 +63,6 @@ protected:
   // origin.
   // Returns false if there is no space for the bounding box in the play area.
   bool GetOrientation(
-    CubeMap* pCubeMap, 
     const BoundingBox& bb, 
     int absPlayAreaSize,
     Orientation* pResult);

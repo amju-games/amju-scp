@@ -68,14 +68,12 @@ Added to repository
 
 #include "EngineStatePoolGameSelect.h"
 #include "EngineStateNumPlayers.h"
-#include "EngineStateRegister.h"
 #include "EngineStateTitle.h"
 #include "Engine.h"
 #include "TextMenu.h"
 #include "StringUtils.h"
 #include "GameState.h"
 #include "EngineStatePoolCourseSelect.h"
-#include "Registration.h"
 #include "PoolCourseManager.h"
 #include "LevelServer.h"
 #include "TextWriter.h"
@@ -97,7 +95,9 @@ extern void OnBuyButton();
 
 namespace Amju
 {
-extern void ReportError(const std::string&);
+void ReportError(const std::string&);
+
+bool IsRegistered();
 
 const char* EngineStatePoolGameSelect::Name = "golf_game_select"; 
 // Register this State with the Engine.
@@ -214,7 +214,7 @@ void EngineStatePoolGameSelect::SetActive(bool active)
     static const float SPACE_H = Engine::Instance()->GetConfigFloat(
       "pool_main_button_h_space"); 
 
-    bool registered = Registration::IsRegistered();
+    bool registered = IsRegistered();
     bool onePlayerPractice = true; 
     bool twoPlayer = true; 
 #ifdef POOL_ONLINE
@@ -294,7 +294,7 @@ void EngineStatePoolGameSelect::DrawOverlays()
 
 #ifndef AMJU_NOT_UNLOCKABLE
   // If not registered, draw reg and buy now buttons.
-  bool registered = Registration::IsRegistered();
+  bool registered = IsRegistered();
   if (!registered)
   {
     m_pRegButton->Draw();

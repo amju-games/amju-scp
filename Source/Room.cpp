@@ -241,25 +241,5 @@ int Room::GetNumberOfPolygons() const
   return scenePolys;
 }
 
-PVisibilityGraph Room::GetVisibilityGraph(float radius)
-{
-  // Look up the graph on radius. If it doesn't exist, create a new one.
-  VisGraphMap::iterator it = m_visibilityGraphs.find(radius);
-
-  if (it != m_visibilityGraphs.end())
-  {
-    // We have already created this graph.
-    return it->second;
-  }
-  SharedPtr<VisibilityGraph> pGraph = new VisibilityGraph;
-  pGraph->SetScene(m_pScene);
-  pGraph->CreateGraph(radius);
-   
-  // Add to map and return it.
-  m_visibilityGraphs[radius] = pGraph;
-  return pGraph;
-}
-
-
 }
 

@@ -14,7 +14,6 @@ Added to repository
 #include "States.h"
 #include "Lighting.h"
 #include "SharedPtr.h"
-#include "VisibilityGraph.h"
 #include <map>
 #include <utility> // pair
 #include <string>
@@ -74,12 +73,6 @@ public:
   // Set scene, used by Editor, LevelFactory
   void SetScene(PSolidComponent pScene) { m_pScene = pScene; }
   
-  // Get a visibility graph given the radius of the thing which must travel
-  // between nodes.
-  // This function creates the graphs on demand. We should expect to create
-  // a different graph for each type of thing (NPC) which does pathfinding.
-  PVisibilityGraph GetVisibilityGraph(float radius); 
-
   float GetFogDensity() const { return m_fogDensity; }
 
 protected:
@@ -107,15 +100,6 @@ protected:
 
   // Density of fog in this room (zero == no fog)
   float m_fogDensity;
-
-  // For this room,  graphs of nodes and their visible neighbours.
-  // Used for path finding.
-  // There is a different visibility graph for different line-of-sight
-  // radii. These are created on demand by GetVisibilityGraph().
-  //
-  // TODO use something faster than map given the usage.
-  typedef std::map<float, PVisibilityGraph> VisGraphMap;
-  VisGraphMap m_visibilityGraphs;
 
   // Filename for this room, used for stats reporting.
   std::string m_name;

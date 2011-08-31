@@ -482,7 +482,7 @@ void Water::HandleObjectCollision(GameObject* pObj)
   const float y = pObj->GetBoundingSphere()->GetCentre().y;
   const float r = pObj->GetBoundingSphere()->GetRadius();
   float maxy = y + r;
-  float miny = y - r;
+  //float miny = y - r;
 
   // NB Only test for object lower than water line.
   // Otherwise a fast object may not cause a ripple.

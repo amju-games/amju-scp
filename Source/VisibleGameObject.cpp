@@ -109,8 +109,6 @@ void VisibleGameObject::SetActivePlatform(Platform* p)
   const float y = GetOrientation()->GetY() + 1.0f; // TODO desperate
   const float z = GetOrientation()->GetZ();
 
-  int n = pHs->GetNumHeightPolys();
-
   const HeightPoly* pHp = pHs->GetHeightPoly(x, y, z);
   if (pHp)
   {

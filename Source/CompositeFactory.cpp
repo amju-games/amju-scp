@@ -20,9 +20,9 @@ Added to repository
 #include "TextLeaf.h"
 #include "AttribDecorator.h"
 #include "BillBoard.h"
-#include "Fire.h"
+//#include "Fire.h"
 #include "Text3dLeaf.h"
-#include "VisibilityPoint.h"
+//#include "VisibilityPoint.h"
 //#include "PulsatingBillboard.h"
 #include "SolidLeafCharacterMesh.h"
 
@@ -67,22 +67,6 @@ PSolidComponent CompositeFactory::Create(const string& filename)
   else if (ext == "bill")
   {
     pc = new BillBoard;
-  }
-  else if (ext == "fire")
-  {
-    pc = new Fire;
-  }
-  else if (ext == "tex3")
-  { 
-    pc = new Text3dLeaf;
-  }
-  else if (ext == "visb")
-  {
-    pc = new VisibilityPoint;
-  }
-  else if (ext == "pbil")
-  {
-    //pc = new PulsatingBillboard;
   }
   else if (ext == "char") // TODO or other formats
   {

@@ -56,7 +56,7 @@ bool LevelWorkerMusic::Load(File* pf)
   return true;
 }
 
-bool LevelWorkerMusic::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerMusic::AddFeature(Level* pLevel)
 {
   int id = pLevel->GetId();
   id %= m_songNames.size();

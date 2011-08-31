@@ -226,18 +226,6 @@ void ThirdPersonCamera2::PullBack()
 
 void ThirdPersonCamera2::RecalcIdle()
 {
-  const float deltaTime = Engine::Instance()->GetDeltaTime();
-  const Orientation* pPO = m_pPlayer->GetOrientation();
-
-/*
-  // This can fix a bad camera angle, but is usually just annoying.
-  // Users can always Reset the camera themselves.
-  if ((m_pPlayer->GetIdleTime() > m_idleSwingTime) && !m_hasReset)
-  {
-    Reset();
-  }
-*/
-
 #if defined CAMERA_AUTOMATICALLY_RISES
   if (!OverlookDrop())
   {

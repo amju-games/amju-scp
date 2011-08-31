@@ -26,7 +26,7 @@ public:
 #endif
 
   virtual const char* GetTypeName();
-  virtual bool AddFeature(Level*, CubeMap* );
+  virtual bool AddFeature(Level*);
   virtual bool RemoveFeature(); 
 
   void SetGameObject(PGameObject);

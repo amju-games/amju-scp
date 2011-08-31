@@ -42,7 +42,6 @@ Added to repository
 #include "LevelServer.h"
 #include "CharacterManager.h"
 #include "Mgc/MgcSegment3.h"
-#include "Takeable.h"
 #include <string>
 #include "Platform.h"
 #include "SchAssert.h"
