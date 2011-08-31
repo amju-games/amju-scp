@@ -84,8 +84,6 @@ Added to repository
 #include "LeafData.h"
 #include "LeafRenderer.h"
 #include "TextMenu.h"
-#include "ControlStyleRotateKeys.h"
-#include "ControlStyleJoystick.h"
 #include "ExplosionEffect.h"
 #include "TextWriter.h"
 #include "GuiButton.h"

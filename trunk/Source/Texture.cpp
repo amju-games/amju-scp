@@ -533,8 +533,8 @@ void Texture::AndMask(Texture* pTex)
 {
   Assert(m_Depth == pTex->m_Depth);
 
-  int w = m_Width;
-  int h = m_Height;
+  unsigned int w = m_Width;
+  unsigned int h = m_Height;
   int BytePerPixel = m_Depth/8;
 
   if (SameSize(pTex))
@@ -556,9 +556,9 @@ void Texture::AndMask(Texture* pTex)
   {
     h = pTex->GetHeight();
   }  
-  for (int i = 0; i < w; i++)
+  for (unsigned int i = 0; i < w; i++)
   {
-    for (int j = 0; j < h; j++)
+    for (unsigned int j = 0; j < h; j++)
     {
       for (int k = 0; k < BytePerPixel; k++)
       {
@@ -573,7 +573,7 @@ void Texture::AndMask(Texture* pTex)
 void Texture::SetFromTexture(Texture* pTex, int x, int y, int w, int h)
 {
   //Assert((x + w) <= pTex->GetWidth());
-  if ((x + w) > pTex->GetWidth())
+  if ((x + w) > (int)pTex->GetWidth())
   {
     w = pTex->GetWidth() - x;
   }
@@ -581,7 +581,7 @@ void Texture::SetFromTexture(Texture* pTex, int x, int y, int w, int h)
   //y = pTex->GetHeight() - y; // TODO TEMP TEST
 
   //Assert((y + h) <= pTex->GetHeight());
-  if ((y + h) > pTex->GetHeight())
+  if ((y + h) > (int)pTex->GetHeight())
   {
     h = pTex->GetHeight() - y;
   }
@@ -633,7 +633,7 @@ void Texture::MakePowerOfTwoSize()
   int width = HigherPowerOfTwo(m_Width); 
   int height = HigherPowerOfTwo(m_Height);
   // If width and height are already powers of two, do nothing.
-  if (width == m_Width && height == m_Height)
+  if (width == (int)m_Width && height == (int)m_Height)
   {
     return;
   }
@@ -647,9 +647,9 @@ void Texture::MakePowerOfTwoSize()
   // Zero the new data
   memset(pData, 0, height * width32);
   // Copy data to the new location
-  for (int i = 0; i < m_Width; i++)
+  for (unsigned int i = 0; i < m_Width; i++)
   {
-    for (int j = 0; j < m_Height; j++)
+    for (unsigned int j = 0; j < m_Height; j++)
     {
       int p = i * bytepp + (j + y) * width32; // destination
       int pSrc = i * bytepp + j * m_WidthByte32;

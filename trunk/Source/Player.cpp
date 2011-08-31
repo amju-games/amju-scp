@@ -17,21 +17,17 @@ Added to repository
 #include "Character.h"
 #include "File.h"
 #include "CharacterManager.h"
-#include "Chick.h" // Gahh!!
-#include "EngineRunningVisGraph.h" // Gahh!!
 
 using namespace std;
 namespace Amju
 {
 Player::Player()
 {
-  SetPMCharacter(this);
 }
 
 void Player::Update()
 {
   CharacterGameObject::Update();
-  UpdatePieceFootprint();
 }
 
 void Player::FellFromHeight(float heightFallenFrom)
@@ -60,26 +56,6 @@ void Player::FellFromHeight(float heightFallenFrom)
 
 void Player::HandleObjectCollision(GameObject* pObj)
 {
-  if (GetState() == DEAD ||
-      GetState() == FADING ||
-      GetState() == OUT_OF_PLAY ||
-      GetState() == FROZEN)
-  {
-    return;
-  }
-
-  Chick* pChick = dynamic_cast<Chick*>(pObj);
-  if (pChick && 
-      pChick->GetState() != JUST_HATCHED &&
-      pChick->GetState() != OUT_OF_PLAY)
-  {
-    pChick->Win();
-/*
-    // Set the Chick state to captured. 
-    CaptureChick(pChick);
-    pChick->SetCaptor(this);
-*/
-  }
 }
 
 bool Player::Load(File* pf)
@@ -103,11 +79,6 @@ bool Player::Load(File* pf)
   // Set up player bounciness (doesn't use player file :-( )
   float bounce = atof(Engine::Instance()->GetConfigValue("player_bounce").c_str());
   SetBounceDampen(bounce);
-
-  if (!PieceMover::LoadExplosion())
-  {
-    return false;
-  }
 
   return true;
 }
@@ -164,22 +135,4 @@ void Player::SetState(State newState)
   }
 }
 
-void Player::NotifyPieceTaken(Takeable* p)
-{
-  // If the player was standing on the taken piece, make sure we are in 
-  // 3rd person camera mode.
-  if (EngineRunningVisGraph::PieceSupportsObject(p, GetLevel(), this))
-  {
-    // The taken piece was holding up this player!
-    // TODO Send notification to change from 1st to 3rd person camera ?
-  }
-}
-
-void Player::NotifyPieceDropped(Takeable*)
-{
-}
-
-void Player::NotifyPieceRotated(Takeable*)
-{
-}
 }

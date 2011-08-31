@@ -50,6 +50,7 @@ Added to repository
 #include "Orientation.h"
 #include "TexturedQuad.h"
 #include "PoolCue.h"
+#include "ExplosionEffect.h"
 
 namespace Amju
 {

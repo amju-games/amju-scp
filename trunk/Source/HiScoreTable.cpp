@@ -24,6 +24,8 @@ Added to repository
 
 namespace Amju
 {
+extern const char* APPLICATION_NAME;
+
 const int SingleHiScoreTable::TABLE_SIZE = 10;
 
 void SingleHiScoreTable::GetScore(int i, int* pScore, std::string* pName)
@@ -68,7 +70,7 @@ bool SingleHiScoreTable::Load()
   File f(true, File::STD); // yes has version info, no to glue file.
 
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   if (!f.OpenRead("hiscores.cfg"))
   {
     // Make default hi score table and return.
@@ -116,7 +118,7 @@ bool SingleHiScoreTable::Save()
   int check = 0;
   File f;
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   if (!f.OpenWrite("hiscores.cfg"))
   {
     File::SetRoot(root, "/");

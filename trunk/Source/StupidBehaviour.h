@@ -9,13 +9,13 @@ Added to repository
 #if !defined(STUPID_BEHAVIOUR_H_INCLUDED)
 #define STUPID_BEHAVIOUR_H_INCLUDED
 
-#include "AvoidBehaviourBase.h"
+#include "Behaviour.h"
 
 namespace Amju
 {
 // This behaviour makes character stupidly walk in a straight line.
 // We derive from SeekBehaviour so we can avoid obstacles.
-class StupidBehaviour : public AvoidBehaviourBase
+class StupidBehaviour : public Behaviour
 {
 public:
   StupidBehaviour();

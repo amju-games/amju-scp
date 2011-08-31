@@ -46,8 +46,6 @@ public:
 
   virtual bool LineIntersects(const Mgc::Segment3& seg, float r) const;
 
-  virtual void AddVisibilityPoint(VisibilityGraph* ) const; 
-
   virtual bool BoxIntersects(const BoundingBox&) const;
 
 

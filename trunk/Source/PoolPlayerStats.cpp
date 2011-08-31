@@ -50,6 +50,8 @@ New class to store data on all played games for a player.
 
 namespace Amju
 {
+extern const char* APPLICATION_NAME;
+
 void PoolPlayerStats::SetPlayerStats(const std::string& name, int playerIndex)
 {
   std::string capitalised = name;
@@ -89,7 +91,7 @@ bool PoolPlayerStats::Load()
   File f(true, File::STD); // yes has version info, no to glue file.
 
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   // TODO check for bad characters in name ?
   std::string s = m_playerName;
   s += ".cfg";
@@ -197,7 +199,7 @@ std::cout << "POOL PLAYER STATS: saving stats for " << m_playerName.c_str() << "
   int check = 0;
   File f;
   std::string root = File::GetRoot();
-  File::SetRoot(GetSaveDir(), "/");
+  File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   std::string s = m_playerName;
   s += ".cfg";
   if (!f.OpenWrite(s))

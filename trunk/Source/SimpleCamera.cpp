@@ -44,12 +44,12 @@ void SimpleCamera::SetDirection(Direction d)
     m_lookAtPos.y -= 1.0f;
     m_lookAtPos.z -= 0.01f;
     break;
-/*
+
   case UP:
-    m_lookAtPos.y += 1.0f;
-    m_lookAtPos.z += 1.0f;
+    //m_lookAtPos.y += 1.0f;
+    //m_lookAtPos.z += 1.0f;
     break;
-*/
+
   case NORTH:
     m_lookAtPos.z += 1.0f;
     break;

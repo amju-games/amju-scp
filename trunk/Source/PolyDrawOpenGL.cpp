@@ -22,11 +22,34 @@ namespace Amju
 void PolyDrawOpenGL::Draw(Polygon* poly)
 {
   // TODO rewrite drqawing code to use big tri lists
+  const int MAX_VERTS = 16;
+
+  AmjuGL::Vert verts[MAX_VERTS];
 
   int sides = poly->m_theVertices.size();
+  if (sides > MAX_VERTS) sides = MAX_VERTS;
+  bool hasUvs = !poly->m_textureVerts.empty();
+  for (int i = 0; i < sides; i++)
+  {
+    verts[i] = AmjuGL::Vert(
+      poly->m_theVertices[i].x, 
+      poly->m_theVertices[i].y, 
+      poly->m_theVertices[i].z,  
+      0, 0, 
+      poly->m_theVertices[i].GetNormalX(), 
+      poly->m_theVertices[i].GetNormalY(), 
+      poly->m_theVertices[i].GetNormalZ());
+
+    if (hasUvs)
+    {
+      verts[i].m_u = poly->m_textureVerts[i].s();
+      verts[i].m_v = poly->m_textureVerts[i].t();
+    }
+  }
+
   if (sides == 3)
   {
-    
+/*    
     AmjuGL::Vert verts[3] =
     {
       AmjuGL::Vert(poly->m_theVertices[0].x, poly->m_theVertices[0].y, poly->m_theVertices[0].z,  
@@ -49,8 +72,8 @@ void PolyDrawOpenGL::Draw(Polygon* poly)
         verts[2].m_u = poly->m_textureVerts[2].s();
         verts[2].m_v = poly->m_textureVerts[2].t();
     }
+*/
 
-    //glBegin(GL_TRIANGLES);
     AmjuGL::Tris tris;
     AmjuGL::Tri t;
     t.m_verts[0] = verts[0];
@@ -61,29 +84,31 @@ void PolyDrawOpenGL::Draw(Polygon* poly)
   }
   else if (sides == 4)
   {
-////    glBegin(GL_QUADS);
+    AmjuGL::Tris tris;
+    AmjuGL::Tri t;
+    t.m_verts[0] = verts[0];
+    t.m_verts[1] = verts[1];
+    t.m_verts[2] = verts[2];
+    tris.push_back(t);
+    t.m_verts[0] = verts[0];
+    t.m_verts[1] = verts[2];
+    t.m_verts[2] = verts[3];
+    tris.push_back(t);
+    AmjuGL::DrawTriList(tris);
   }
   else
   {
-    //glBegin(GL_TRIANGLE_STRIP);
-////    glBegin(GL_POLYGON);
-  }
-/*
-  for (int i = 0; i < sides; i++)
-  {
-    // TODO This would be handled by the Polygon if we subclass for 
-    // Texture Coords.
-    
-    if (poly->m_textureVerts.size() > 0)
+    AmjuGL::Tris tris;
+    for (int i = 0; i < sides - 2; i++)
     {
-      poly->m_textureVerts[i].DrawVertex();
+      AmjuGL::Tri t;
+      t.m_verts[0] = verts[0];
+      t.m_verts[1] = verts[i + 1];
+      t.m_verts[2] = verts[i + 2];
+      tris.push_back(t);
     }
-    poly->m_theVertices[i].DrawVertex();
-
+    AmjuGL::DrawTriList(tris);
   }
-
-  glEnd();
-*/
 }
 }
 

@@ -26,7 +26,7 @@ LevelWorkerAddBonuses::LevelWorkerAddBonuses()
   m_infoString = "bonus";
 }
 
-bool LevelWorkerAddBonuses::AddFeature(Level* pLevel, CubeMap* pCubeMap)
+bool LevelWorkerAddBonuses::AddFeature(Level* pLevel)
 {
   // Extra Time bonuses
   // ------------------
@@ -45,7 +45,7 @@ bool LevelWorkerAddBonuses::AddFeature(Level* pLevel, CubeMap* pCubeMap)
 
     BoundingBox bb(0, 1.0f, 0, 1.0f, 0, 1.0f); // unit cube
     Orientation o;
-    if (!GetOrientation(pCubeMap, bb, pLevel->GetPlayAreaSize(), &o))
+    if (!GetOrientation(bb, pLevel->GetPlayAreaSize(), &o))
     {
       return false; // play area too small
     }

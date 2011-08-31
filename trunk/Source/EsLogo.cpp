@@ -73,6 +73,7 @@ void EsLogo::DrawOverlays()
 void EsLogo::Draw()
 {
   AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 
   static bool first = true;
   if (first)
@@ -82,12 +83,6 @@ void EsLogo::Draw()
     TexturedQuad tq;
     tq.Load("logo4.bmp", "");
     m_logos.push_back(tq);
-
-#ifdef BOONTY
-    TexturedQuad tq2;
-    tq2.Load("boonty.bmp", "");
-    m_logos.push_back(tq2);
-#endif
 
     m_bg.Load("wh8.bmp", "");
 

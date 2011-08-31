@@ -43,7 +43,7 @@ PoolStupidBehaviour::PoolStupidBehaviour()
   // collide with any GameObjects. If so we change dir to avoid. 
   // POOL This looks shit.
   // TODO Turn gradually to avoid, don'f flip direction.
-  m_lookahead = 0.5f; // TODO CONFIG
+  //m_lookahead = 0.5f; // TODO CONFIG
 
   // TODO
   // Vel. depends on character type and level.
@@ -76,7 +76,6 @@ void PoolStupidBehaviour::ReactToObstacle()
 
 void PoolStupidBehaviour::Update()
 {
-  static const float CHANGE_TIME = 1.0f; // TODO
   static const float stupidVel = Engine::Instance()->GetConfigFloat("stupid_vel");
 
   // This prevents each Stupid from having its own speed.
@@ -132,7 +131,7 @@ void PoolStupidBehaviour::Update()
 
   // Hopefully AvoidObstacles will take case of turning when we hit a wall
   // (or another Character)
-  AvoidObstacles();
+  //AvoidObstacles();
 
   if (IsBlocked())
   {

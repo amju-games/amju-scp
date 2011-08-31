@@ -143,8 +143,8 @@ Added to repository
 #include "FileImplGlue.h"
 #include "GlueFileMem.h" 
 #include "StringUtils.h"
-#include "Registration.h"
-#include "SpeechSynth.h"
+//#include "Registration.h"
+//#include "SpeechSynth.h"
 #include "GameState.h"
 #include "PlayerNames.h"
 #include "PoolOnline.h"
@@ -901,22 +901,6 @@ std::cout << "POOL ONLINE server: " << server.c_str() << "\n";
 
 #ifdef _DEBUG
 std::cout << "main(): got root\n";
-#endif
-
-  // Before we create the reg file, check if it already exists. If not,
-  // this is the first time the game has been run. The other reason the
-  // file is missing is that it has been deleted. In this case we will
-  // trash the player data.
-  bool trashPlayerData = false;
-  if (Registration::GetStatus() == -1)
-  {
-    trashPlayerData = true;
-  }
-
-  Registration::Init();
-
-#ifdef _DEBUG
-std::cout << "main(): called Registration::Init() ok\n";
 #endif
 
   engine->LoadConfigFile(GAME_CFG);

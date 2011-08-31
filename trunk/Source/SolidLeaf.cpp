@@ -186,23 +186,7 @@ void SolidLeaf::AddPolygon(Polygon* p)
 {
   if (!m_pLeafData)
   {
-    // Make sure this kind of leaf is known to the LeafServer.
-    LeafServer* pLs = LeafServer::Instance();
-    // TODO pass in type - it is currently fixed.
-
     m_pLeafData = new LeafData(GetName()); 
-/*
-#if defined(_DEBUG)
-    m_pLeafData = new LeafData(GetName()); 
-#else
-    // TODO make sure this is ok! 
-    // It should be, because we only add polys to leaves we create on the fly.
-    // So the LeafServer, which loads leaves, shouldn't have to worry about
-    // this one.
-    m_pLeafData = new LeafData("test"); 
-#endif
-*/
-
   }
   Assert(m_pLeafData);
   m_pLeafData->m_polygons.push_back(p);

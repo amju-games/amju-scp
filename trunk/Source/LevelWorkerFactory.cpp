@@ -16,7 +16,7 @@ Added to repository
 #include "LevelWorkerFactory.h"
 #include "LevelWorkerAddRoom.h"
 #include "LevelWorkerAddStupids.h"
-#include "LevelWorkerAddCrates.h"
+//#include "LevelWorkerAddCrates.h"
 #include "LevelWorkerAddTrees.h"
 //#include "LevelWorkerAddSheds.h"
 #include "LevelWorkerAddBonuses.h"
@@ -28,8 +28,8 @@ Added to repository
 #include "LevelWorkerGameObjects.h"
 #include "LevelWorkerFlowers.h"
 #include "LevelWorkerName.h"
-#include "LevelWorkerBoundary.h"
-#include "LevelWorkerAddWater.h"
+//#include "LevelWorkerBoundary.h"
+//#include "LevelWorkerAddWater.h"
 
 namespace Amju
 {
@@ -43,10 +43,10 @@ LevelWorker* CreateLwAddStupids()
   return new LevelWorkerAddStupids;
 }
 
-LevelWorker* CreateLwAddCrates()
-{
-  return new LevelWorkerAddCrates;
-}
+//LevelWorker* CreateLwAddCrates()
+//{
+//  return new LevelWorkerAddCrates;
+//}
 
 LevelWorker* CreateLwAddTrees()
 {
@@ -98,21 +98,21 @@ LevelWorker* CreateLwName()
   return new LevelWorkerName;
 }
 
-LevelWorker* CreateLwBoundary()
-{
-  return new LevelWorkerBoundary;
-}
+//LevelWorker* CreateLwBoundary()
+//{
+//  return new LevelWorkerBoundary;
+//}
 
-LevelWorker* CreateLwAddWater()
-{
-  return new LevelWorkerAddWater;
-}
+//LevelWorker* CreateLwAddWater()
+//{
+//  return new LevelWorkerAddWater;
+//}
 
 SingleLevelWorkerFactory::SingleLevelWorkerFactory()
 {
   RegisterFactoryFunction("add_room", CreateLwAddRoom);
   RegisterFactoryFunction("add_stupids", CreateLwAddStupids);
-  RegisterFactoryFunction("add_crates", CreateLwAddCrates);
+//  RegisterFactoryFunction("add_crates", CreateLwAddCrates);
   RegisterFactoryFunction("add_trees", CreateLwAddTrees);
 //  RegisterFactoryFunction("add_sheds", CreateLwAddSheds);
   RegisterFactoryFunction("add_bonuses", CreateLwAddBonuses);
@@ -123,8 +123,8 @@ SingleLevelWorkerFactory::SingleLevelWorkerFactory()
   RegisterFactoryFunction("game_objects", CreateLwGos);
   RegisterFactoryFunction("flowers", CreateLwFlowers);
   RegisterFactoryFunction("name", CreateLwName);
-  RegisterFactoryFunction("boundary", CreateLwBoundary);
-  RegisterFactoryFunction("water", CreateLwAddWater);
+//  RegisterFactoryFunction("boundary", CreateLwBoundary);
+//  RegisterFactoryFunction("water", CreateLwAddWater);
 }
 }
 

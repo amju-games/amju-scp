@@ -8,6 +8,7 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 #include "SharedPtr.h"
 #include "TexturedQuad.h"
 #include "Colour.h"
+#include <vector>
 
 namespace Amju
 {
@@ -37,6 +38,8 @@ public:
 protected:
   SharedPtr<GuiLayer> m_pChild;
 };
+
+typedef std::vector<Colour> ColourList;
 
 class GuiLayerColourList : public GuiLayerDecorator
 {

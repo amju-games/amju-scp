@@ -106,10 +106,10 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   {
     return;
   }
-  AmjuGL::PushMatrix();
-  AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING | AmjuGL::AMJU_DEPTH_READ | AmjuGL::AMJU_BLEND);
+//  AmjuGL::PushMatrix();
+//  AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING | AmjuGL::AMJU_DEPTH_READ | AmjuGL::AMJU_BLEND);
     
-  AmjuGL::Translate(0, 0, TextWriter::Z_OFFSET);
+//  AmjuGL::Translate(0, 0, TextWriter::Z_OFFSET);
 
   float xmax = right * TextWriter::CHAR_SIZE - TextWriter::X_OFFSET;
   float xmin = left * TextWriter::CHAR_SIZE - TextWriter::X_OFFSET;
@@ -119,9 +119,9 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
 
   ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
-  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
+//  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
 
-  AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
+//  AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
 
   m_pTex->Bind();
 
@@ -156,10 +156,10 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   AmjuGL::Vert verts[4] =
   {
     // x, y, z, u, v, nx, ny, nz
-    AmjuGL::Vert(xmin, ymin, 0,   m_areaLeft,  y1,     0, 1, 0), 
-    AmjuGL::Vert(xmax, ymin, 0,   m_areaRight, y1,     0, 1, 0),
-    AmjuGL::Vert(xmax, ymax, 0,   m_areaRight, y2,     0, 1, 0),
-    AmjuGL::Vert(xmin, ymax, 0,   m_areaLeft,  y2,     0, 1, 0)
+    AmjuGL::Vert(xmin, ymin, TextWriter::Z_OFFSET,   m_areaLeft,  y1,     1, 1, 0), 
+    AmjuGL::Vert(xmax, ymin, TextWriter::Z_OFFSET,   m_areaRight, y1,     0, 1, 0),
+    AmjuGL::Vert(xmax, ymax, TextWriter::Z_OFFSET,   m_areaRight, y2,     0, 1, 1),
+    AmjuGL::Vert(xmin, ymax, TextWriter::Z_OFFSET,   m_areaLeft,  y2,     0, 1, 0)
   };
 
   AmjuGL::Tris tris;
@@ -176,8 +176,8 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   tris.push_back(tri);
   AmjuGL::DrawTriList(tris);
 
-  AmjuGL::PopAttrib();
-  AmjuGL::PopMatrix();
+//  AmjuGL::PopAttrib();
+//  AmjuGL::PopMatrix();
 }
 
 void TexturedQuad::SetDrawArea(float t, float l, float b, float r)

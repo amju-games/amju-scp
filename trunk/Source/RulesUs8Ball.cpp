@@ -264,7 +264,7 @@ bool RulesUs8Ball::PotEndsGame()
     SpotsOrStripes sos0 = (colour0 < 8) ? SPOTS : STRIPES;
 
     // If one ball potted, or all balls the same colour, fix the player colours.   
-    for (int i = 1; i < m_ballsPottedThisShot.size(); i++)
+    for (unsigned int i = 1; i < m_ballsPottedThisShot.size(); i++)
     {
       int colour = m_ballsPottedThisShot[i]->GetNumber();
       if (colour == 8)

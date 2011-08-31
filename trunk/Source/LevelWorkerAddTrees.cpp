@@ -11,9 +11,7 @@ Added to repository
 #endif
 
 #include "LevelWorkerAddTrees.h"
-#include "CubeMap.h"
 #include "SortScene.h"
-#include "TakeableCrate.h"
 #include "Level.h"
 #include "SolidComposite.h"
 #include "File.h"
@@ -86,7 +84,7 @@ bool LevelWorkerAddTrees::Load(File* pf)
   return true;
 }
 
-bool LevelWorkerAddTrees::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerAddTrees::AddFeature(Level* pLevel)
 {
   // Add the trunks to the Scene.
   PSolidComponent pScene = pLevel->GetScene();

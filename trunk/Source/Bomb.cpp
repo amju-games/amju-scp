@@ -15,19 +15,15 @@ Added to repository
 #include "GameState.h"
 #include "BlastWaveEffect.h"
 #include "TextureServer.h"
-#include "Croc.h"
 #include "Level.h"
 #include "ExpandingBillboard.h"
-#include "ChickHolder.h"
 #include "Player.h"
 
 using namespace std;
 namespace Amju
 {
-Bomb::Bomb() : Takeable(this)
+Bomb::Bomb() 
 {
-  m_heightAboveGround = 1.5f; // TODO CONFIG ??
-
 #if defined(SCENE_EDITOR)
   // TODO default constructed Game Object must be saveable for Editor.
 #endif
@@ -69,11 +65,11 @@ bool Bomb::Load(File* pf)
 
 void Bomb::CullDraw(Frustum* pFrustum)
 {
-  if (Takeable::GetState() == DETONATING)
+  if (GetState() == DETONATING)
   {
     Draw(); // Don't cull
   }
-  else if (Takeable::GetState() == TAKEN)
+  else if (GetState() == TAKEN)
   {
     // Drawn above player elsewhere(?)
   }
@@ -85,7 +81,7 @@ void Bomb::CullDraw(Frustum* pFrustum)
 
 void Bomb::Draw()
 {
-  if (Takeable::GetState() == DETONATING)
+  if (GetState() == DETONATING)
   {
     if (!m_detonated)
     {
@@ -115,7 +111,7 @@ void Bomb::Draw()
       m_detonated = false;
     }
   }
-  else if (Takeable::GetState() == TAKEN)
+  else if (GetState() == TAKEN)
   {
     // Drawn above player elsewhere
   }

@@ -116,12 +116,13 @@ Added to repository
 #include "GameState.h"
 #include "PoolPlayerStats.h"
 #include "PoolBg.h"
-#include "Registration.h"
 #include "PoolOnline.h"
 
 namespace Amju
 {
-extern void ReportError(const std::string&);
+bool IsRegistered() { return true; }
+
+void ReportError(const std::string&);
 
 static const int NUM_THUMBNAILS = 4;
 
@@ -365,7 +366,7 @@ void EngineStatePoolCourseSelect::DrawOverlays()
       pFont->SetSize(0.6f);
       if (!PoolCourseManager::Instance()->
           IsRoomUnlockableDuringTrialPeriod(s_currentCourse, hole) &&
-          !Registration::IsRegistered())
+          !IsRegistered())
       {
         pFont->PrintNoBlend(l + 0.5f, b, "Full version only!");
       }
@@ -526,7 +527,7 @@ std::cout << "OK for online ? " << (PoolCourseManager::Instance()->IsRoomOkForOn
 
     if (!PoolCourseManager::Instance()->
         IsRoomUnlockableDuringTrialPeriod(s_currentCourse, i) &&
-        !Registration::IsRegistered())
+        !IsRegistered())
     {
 #ifdef _DEBUG
 std::cout << "Room " << i << " locked, registered game only\n";

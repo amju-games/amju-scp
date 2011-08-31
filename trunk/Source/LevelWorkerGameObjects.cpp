@@ -110,7 +110,7 @@ void LevelWorkerGameObjects::SetGameObject(PGameObject p)
   m_pGo = p;
 }
 
-bool LevelWorkerGameObjects::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerGameObjects::AddFeature(Level* pLevel)
 {
   m_pGo->SetLevel(pLevel);
   //m_pGo->SetRoomId(pLevel->GetRoom()->GetId());

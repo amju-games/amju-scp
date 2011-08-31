@@ -19,7 +19,6 @@ Added to repository
 #include "Geometry.h"
 #include "Engine.h"
 #include "ConfigKeys.h"
-#include "EngineRunningVisGraph.h"
 #include "Level.h"
 #include <algorithm>
 #include <iostream>

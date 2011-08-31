@@ -139,7 +139,7 @@ PSolidComponent SingleTextFactory::Create(
   float x = 0; // x-coord of current letter
   float z = 0; // z-coord
   float yRot = 0; // letter rotation 
-  for (int i = 0; i < text.size(); i++)
+  for (unsigned int i = 0; i < text.size(); i++)
   {
     // TODO this assumption should be replaced with a map of characters
     // to filenames.

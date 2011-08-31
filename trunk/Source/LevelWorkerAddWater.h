@@ -23,7 +23,7 @@ public:
   virtual bool Save(File* );
 #endif
   virtual const char* GetTypeName();
-  virtual bool AddFeature(Level*, CubeMap* );
+  virtual bool AddFeature(Level*);
 
 protected:
 };

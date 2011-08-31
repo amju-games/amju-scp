@@ -20,7 +20,7 @@ public:
 
   LevelWorkerAddBonuses();
   virtual const char* GetTypeName();
-  virtual bool AddFeature(Level*, CubeMap* );
+  virtual bool AddFeature(Level*);
 };
 }
 

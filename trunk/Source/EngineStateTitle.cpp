@@ -84,7 +84,6 @@ Added to repository
 #include "EngineStateTitle.h"
 #include "EngineStateTitle2.h"
 #include "Level.h"
-#include "EngineStateDemo.h"
 #include "Engine.h"
 #include "FunctionFactory.h"
 #include "TextFactory.h"
@@ -95,8 +94,6 @@ Added to repository
 #include "EngineStatePoolCourseSelect.h"
 #include "PoolMisc.h"
 #include "GuiButton.h"
-#include "EngineStateRegister.h"
-#include "Registration.h"
 #include "StringUtils.h"
 #include "EngineStateWorldDemoHiScores.h"
 #include "EngineStatePoolSetUpShotDemo.h"
@@ -118,16 +115,19 @@ void OnStartClicked()
 
 void OnRegisterClicked()
 {
-  Amju::Engine::Instance()->ChangeState(Amju::EngineStateRegister::Name, 
-    Amju::Engine::IMMEDIATE);
+//  Amju::Engine::Instance()->ChangeState(Amju::EngineStateRegister::Name, 
+//    Amju::Engine::IMMEDIATE);
 }
 
-extern void OnExitClicked();
+void OnExitClicked();
 
-extern void OnBuyButton();
+void OnBuyButton() {}
+void OnCancelButton() {}
 
 namespace Amju
 {
+bool IsRegistered();
+
 const char* EngineStateTitle::Name = "title"; 
 // Register this State with the Engine.
 static const bool registeredtitle = Engine::Instance()->
@@ -433,8 +433,8 @@ void EngineStateTitle::Draw()
 
 void EngineStateTitle::DrawOverlays()
 {
-  bool unreg = !Registration::IsRegistered();
-  int secs = Registration::GetRemainingEvalPeriod();
+  bool unreg = !IsRegistered();
+  int secs = 0; 
   bool expired = (secs == 0); 
   if (unreg && expired)
   {
@@ -488,7 +488,7 @@ void EngineStateTitle::MouseButton(bool down, bool ctrl, bool shift)
   m_pStartButton->MouseButton(down, ctrl, shift);
   m_pExitButton->MouseButton(down, ctrl, shift);
 
-  bool unreg = !Registration::IsRegistered();
+  bool unreg = !IsRegistered();
   if (unreg)
   {
     m_pRegButton->MouseButton(down, ctrl, shift);

@@ -32,7 +32,7 @@ bool LevelWorkerAddWater::Save(File* )
 }
 #endif
 
-bool LevelWorkerAddWater::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerAddWater::AddFeature(Level* pLevel)
 {
   Water* pWater = new Water;
   // TODO

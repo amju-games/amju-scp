@@ -9,14 +9,13 @@ Added to repository
 #if !defined(SCHMICKEN_BOMB_H_INCLUDED)
 #define SCHMICKEN_BOMB_H_INCLUDED
 
-#include "Takeable.h"
 #include "SolidGameObject.h"
 #include "Effect.h"
 #include "BillBoard.h"
 
 namespace Amju
 {
-class Bomb : public Takeable, public SolidGameObject
+class Bomb : public SolidGameObject
 {
 public:
   Bomb();

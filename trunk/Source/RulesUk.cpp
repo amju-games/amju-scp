@@ -269,7 +269,7 @@ bool RulesUk::PotEndsGame()
     Assert(!m_ballsPottedThisShot.empty());
     int colour = m_ballsPottedThisShot[0]->GetNumber();
     // If one ball potted, or all balls the same colour, fix the player colours.
-    for (int i = 1; i < m_ballsPottedThisShot.size(); i++)
+    for (unsigned int i = 1; i < m_ballsPottedThisShot.size(); i++)
     {
       if (colour != m_ballsPottedThisShot[i]->GetNumber())
       {

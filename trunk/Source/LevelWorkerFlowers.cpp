@@ -63,7 +63,7 @@ bool LevelWorkerFlowers::Load(File* pf)
   return true;
 }
 
-bool LevelWorkerFlowers::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerFlowers::AddFeature(Level* pLevel)
 {
   PSolidComponent pScene = pLevel->GetScene();
   SolidComposite* pComp = dynamic_cast<SolidComposite*>(pScene.GetPtr());

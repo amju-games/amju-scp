@@ -49,7 +49,7 @@ bool LevelWorkerAddBall::Save(File* )
 }
 #endif
 
-bool LevelWorkerAddBall::AddFeature(Level* pLevel, CubeMap* )
+bool LevelWorkerAddBall::AddFeature(Level* pLevel)
 {
 
   PoolBall* pBall = new PoolBall;

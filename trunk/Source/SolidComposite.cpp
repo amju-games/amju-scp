@@ -24,7 +24,6 @@ Added to repository
 #include "Engine.h"
 #include "Frustum.h"
 #include "StringUtils.h"
-#include "VisibilityGraph.h"
 #include "BoundingBox.h"
 #include "SchAssert.h"
 
@@ -204,7 +203,7 @@ void SolidComposite::CreateBoundingSphere(const Matrix& cm)
 
 void SolidComposite::StoreHeights(const Matrix& cm)
 {
-  for (int i = 0; i < m_children.size(); i++)
+  for (unsigned int i = 0; i < m_children.size(); i++)
   {
     SolidComponent* pc = m_children[i].GetPtr();
     Assert(pc);
@@ -225,7 +224,7 @@ void SolidComposite::AddHeights(HeightServer* pResult, const BoundingSphere& bs)
 
   // Add the HeightServer belonging to each child if the child intersects the
   // given bounding sphere.
-  for (int i = 0; i < m_children.size(); i++)
+  for (unsigned int i = 0; i < m_children.size(); i++)
   {
     SolidComponent* pc = m_children[i].GetPtr();
     Assert(pc);
@@ -330,7 +329,7 @@ int SolidComposite::GetNumberOfPolygons() const
 {
   // To get the number of polys, add up the number of polys in each child.
   int total = 0;
-  for (int i = 0; i < m_children.size(); i++)
+  for (unsigned int i = 0; i < m_children.size(); i++)
   {
     SolidComponent* pc = m_children[i].GetPtr();
     total += pc->GetNumberOfPolygons();
@@ -356,16 +355,6 @@ bool SolidComposite::LineIntersects(const Mgc::Segment3& seg, float r) const
     }
   }
   return false;
-}
-
-void SolidComposite::AddVisibilityPoint(VisibilityGraph* pVg) const
-{
-  const int size = m_children.size();
-  for (int i = 0; i < size; i++)
-  {
-    const SolidComponent* pc = m_children[i].GetPtr();
-    pc->AddVisibilityPoint(pVg);
-  }
 }
 
 bool SolidComposite::BoxIntersects(const BoundingBox& b) const

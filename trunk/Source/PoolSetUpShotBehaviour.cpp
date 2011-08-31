@@ -185,7 +185,6 @@ void PoolSetUpShotBehaviour::CalcShot()
     // Iterate through map of Game Objects.
     for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
     {
-      GameObjectId id = it->first;  
       PGameObject pGo = it->second;
   
       Waypoint* pW = dynamic_cast<Waypoint*>(pGo.GetPtr());
@@ -213,7 +212,6 @@ void PoolSetUpShotBehaviour::CalcShot()
 
     for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
     {
-      GameObjectId id = it->first;  
       PGameObject pGo = it->second;
   
       Bonus* pB = dynamic_cast<Bonus*>(pGo.GetPtr());
@@ -266,9 +264,9 @@ void PoolSetUpShotBehaviour::CalcShot()
   float yRot = AngleCompare::TurnToFace(vAimAt.x, vAimAt.z, vPlayer.x, vPlayer.z);
   m_yRot = RadToDeg(yRot);
 
-  float dx = vPlayer.x - vAimAt.x;
-  float dz = vPlayer.z - vAimAt.z;
-  float distsq = dx * dx + dz * dz;
+  //float dx = vPlayer.x - vAimAt.x;
+  //float dz = vPlayer.z - vAimAt.z;
+  //float distsq = dx * dx + dz * dz;
   float dist = (vPlayer - vAimAt).Length();
  
   static const float velMult = 

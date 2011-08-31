@@ -33,19 +33,9 @@ Added to repository
 #include "Npc.h"
 #include "Frustum.h"
 #include "TextureServer.h"
-#include "ChickBehaviour.h"
 #include "ThirdPersonCamera2.h"
 #include "ThirdPersonCameraFixed.h"
 #include "FirstPersonCamera.h"
-#include "Takeable.h"
-#include "ChickHolder.h"
-#include "VisibilityGraphWithObjects.h"
-#include "ChickShedBehaviour.h"
-#include "TakeableCrate.h"
-#include "AiCooperationGroup.h"
-#include "CooperationGroupManager.h"
-#include "RotateHelper.h"
-#include "MoveMemorizer.h"
 #include "SchAssert.h"
 #include "KeymapPrinter.h"
 #include "LevelServer.h"
@@ -243,9 +233,6 @@ void EngineRunning::OnNewGame()
 
   m_pLevel = LevelServer::Instance()->GetCurrentLevel();
 
-  // Reset Takeables back to their start positions.
-  ResetTakeables();
-
   //  NB Don't call OnNewLevel();
 
   m_score.Reset();
@@ -442,7 +429,7 @@ void EngineRunning::DrawPlayer()
 
 void EngineRunning::Update()
 {
-  EngineRunningVisGraph::Update();
+  EngineRunningBase::Update();
 
   m_pControlStyle->Update();
   GetCamera()->Update();
@@ -459,7 +446,7 @@ void EngineRunning::Draw()
   m_windowY = GetEngine()->GetWindowY();
 
   // Normal drawing
-  EngineRunningVisGraph::Draw();
+  EngineRunningBase::Draw();
 }
 
 void EngineRunning::MousePos(int x, int y)
