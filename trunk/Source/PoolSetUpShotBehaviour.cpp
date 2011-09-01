@@ -51,7 +51,6 @@ Added to repository
 #include "AngleCompare.h"
 #include "PoolCharacter.h"
 #include "GameState.h"
-#include "Waypoint.h"
 #include "LevelServer.h"
 #include "Bonus.h"
 
@@ -133,7 +132,7 @@ void PoolSetUpShotBehaviour::Update()
 
     // Set the shot data, then change to state which shows player swinging the club.
     Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke =
-        GameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
+        PoolGameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
         0, 0 );  // TODO english, roll/draw
 
     // TODO This is no good - it only works for demo mode.
@@ -176,32 +175,6 @@ void PoolSetUpShotBehaviour::CalcShot()
     // We can see the hole, so aim for it.
     found = true;
     m_pTargetObject = pHole;
-  }
-  else
-  {
-    // Find the Waypoint with the lowest ID which we can see.
-    // This works because Waypoints start at the hole and increase ID as they
-    // get nearer to the Tee. Waypoints must be able to see their neighbours.
-    // Iterate through map of Game Objects.
-    for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
-    {
-      PGameObject pGo = it->second;
-  
-      Waypoint* pW = dynamic_cast<Waypoint*>(pGo.GetPtr());
-      if (pW)
-      {
-        Orientation o = *(pW->GetOrientation());
-        VertexBase v = o.GetVertex();
-        if (LosExists(vPlayer, v) && DistanceIsOk(vPlayer, v))
-        {
-          // We can see this Waypoint, so aim for it.
-          vAimAt = v;
-          found = true;
-          m_pTargetObject = pW;
-          break;
-        }
-      }
-    }
   }
 
   if (!found)

@@ -318,7 +318,7 @@ std::cout << "UK RULES: Can't decide player colours yet.\n";
   if (!InPlay(p8Ball))
   { 
     // Out of play => black has been Potted
-//    int id = Engine::Instance()->GetGameState()->GetCurrentPlayer();
+//    int id = Engine::Instance()->GetEngineState()->GetCurrentPlayer();
     int numRem = GetNumBallsRemainingForPlayer();
 #ifdef RULES_DEBUG
 std::cout << "US 8 BALL: Black potted, num balls remaining: " << numRem << "\n";

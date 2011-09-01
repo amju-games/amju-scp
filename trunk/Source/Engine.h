@@ -51,8 +51,7 @@ namespace Amju
 {
 class Level;
 class Character;
-class GameState;
-class MessageSerializer;
+class PoolGameState;
 class ClientSocket;
 class ClientReceiveThread;
 class TextWriter;
@@ -185,7 +184,7 @@ public:
   
   // Point to the object holding the game status - i.e. the player score,
   // health, inventory, etc.
-  GameState* GetGameState();
+  PoolGameState* GetGameState();
 
   // The skybox
   DayNightSky* GetDayNightSky() { return &m_dayNightSky; }
@@ -515,7 +514,7 @@ private:
   // Clear colour r, g, b. 
   float m_clearR, m_clearG, m_clearB;
 
-  GameState* m_pGameState;
+  PoolGameState* m_pGameState;
 
   // Map of game object IDs to pointers to game objects.
   GameObjectMap m_objectMap;
@@ -580,12 +579,6 @@ private:
 
   // Special Message Recipients: SoundPlayer, CutScenePlayer, etc.
   SpecialRecipientMap m_specialRecipients;
-
-  // Network: Send/receive messages from server
-//  SharedPtr<ClientSocket> m_pClientSocket;
-//  SharedPtr<MessageSerializer> m_pNetworkSerializer;
-
-//  SharedPtr<ClientReceiveThread> m_pClientReceiveThread;
 
   Earthquake m_earthquake;
 

@@ -248,7 +248,7 @@ void Npc::HandlePlayerCollision(CharacterGameObject* pPlayer)
 
     // TODO Player and/or this NPC should recoil ?
     
-    //Engine::Instance()->GetGameState()->TakeDamage(m_playerDamage);
+    //Engine::Instance()->GetEngineState()->TakeDamage(m_playerDamage);
   }
 }
 
@@ -329,7 +329,7 @@ void Npc::CheckCharacterCollisions()
     PGameObject pGo = it->second;
 
     State s = pGo->GetState();
-    //Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+    //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     if (s != OUT_OF_PLAY)
     {
       PGameObject pGo = it->second;

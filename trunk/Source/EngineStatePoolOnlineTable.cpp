@@ -351,25 +351,25 @@ std::cout << "Opponent ID:    " << opponentId << "\n";
 
   if (chooseGame)
   {
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_name = thisName;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_isAi = false;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_isOnline = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_name = thisName;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_isAi = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_isOnline = false;
 
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_name = opponentName;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_isAi = false;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_isOnline = true;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_name = opponentName;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_isAi = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_isOnline = true;
 
     PoolPlayerStats::SetPlayerStats(thisName, 0); // fixes hearts 
   }
   else
   {
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_name = thisName;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_isAi = false;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(1)->m_isOnline = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_name = thisName;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_isAi = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(1)->m_isOnline = false;
 
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_name = opponentName;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_isAi = false;
-    Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_isOnline = true;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_name = opponentName;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_isAi = false;
+    Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_isOnline = true;
 
     PoolPlayerStats::SetPlayerStats(thisName, 1); 
   }
@@ -385,7 +385,7 @@ std::cout << "Opponent ID:    " << opponentId << "\n";
       EsPoolOnlineGameSelect::Name,
       Engine::IMMEDIATE);
 
-    Engine::Instance()->GetGameState()->SetCurrentPlayer(0); // this player starts
+    Engine::Instance()->GetEngineState()->SetCurrentPlayer(0); // this player starts
   }
   else
   {
@@ -394,7 +394,7 @@ std::cout << "Opponent ID:    " << opponentId << "\n";
       EngineStatePoolOnlineWait::Name,
       Engine::IMMEDIATE);
 
-    Engine::Instance()->GetGameState()->SetCurrentPlayer(0); 
+    Engine::Instance()->GetEngineState()->SetCurrentPlayer(0); 
   }
 }
 

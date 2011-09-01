@@ -21,7 +21,7 @@ void ShotLog(const std::string& s)
 
   std::string filename = "shotlog-";
   filename += ThePoolOnlineManager::Instance()->GetPlayerName();
-    //Engine::Instance()->GetGameState()->GetPlayerInfo(0)->m_name;
+    //Engine::Instance()->GetEngineState()->GetPlayerInfo(0)->m_name;
   filename += ".txt";
 
   f.SetName(filename);

@@ -292,7 +292,7 @@ void EngineStatePoolShowShot::TimerExpired()
     GetConfigValue("golf_wav_11");
   SoundFxManager::Instance()->PlayWav(sfx.c_str());
 
-  const GameState::PlayerInfo::PoolStroke& gs = 
+  const PoolGameState::PlayerInfo::PoolStroke& gs = 
     GetEngine()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke;
  
   EngineStatePoolSetUpShot::TakeShotNowImpl(gs.m_yRot, gs.m_vertVel, gs.m_horVel, gs.m_accel,

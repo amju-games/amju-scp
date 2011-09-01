@@ -61,7 +61,7 @@ void EngineStateSelectLevel::SetActive(bool active)
 {
   GetEngine()->GetGameState()->SetName("gamedata.cfg");
 
-  if (!GetEngine()->GetGameState()->Load())
+  if (!GetEngine()->GetEngineState()->Load())
   {
 #if defined(_DEBUG)
     GetEngine()->ReportError("Failed to load game.");

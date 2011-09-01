@@ -79,56 +79,6 @@ void Message::SetRealTime(float realElapsedSeconds)
   m_realTime = m_interval + realElapsedSeconds;
 }
 
-bool Message::Load(PSerialInterface p)
-{
-  if (!p->GetString(&m_name))
-  {
-    return false;
-  }
-  if (!p->GetFloat(&m_interval))
-  {
-    return false;
-  }
-  if (!p->GetInteger(&m_sendId))
-  {
-    return false;
-  }
-  if (!p->GetInteger(&m_recId))
-  {
-    return false;
-  }
-  if (!p->GetInteger(&m_code))
-  {
-    return false;
-  }
-  return true;
-}
-
-bool Message::Save(PSerialInterface p)
-{
-  if (!p->WriteString(m_name))
-  {
-    return false;
-  }
-  if (!p->WriteFloat(m_interval))
-  {
-    return false;
-  }
-  if (!p->WriteInteger(m_sendId))
-  {
-    return false;
-  }
-  if (!p->WriteInteger(m_recId))
-  {
-    return false;
-  }
-  if (!p->WriteInteger(m_code))
-  {
-    return false;
-  }
-  return true;
-}
-
 // TODO Deprecated, should use the SerialInterface version.
 bool Message::Load(File* pf)
 {

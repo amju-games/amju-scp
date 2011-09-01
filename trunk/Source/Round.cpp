@@ -48,7 +48,7 @@ std::cout << "ROUND: " << f << " (" << decimalPlaces << ") => " << f1 << "\n";
   f = f1;
 }
 
-void Round(GameState::PlayerInfo* pInfo)
+void Round(PoolGameState::PlayerInfo* pInfo)
 {
     Round(pInfo->m_golfStroke.m_yRot, 1);
     Round(pInfo->m_golfStroke.m_vertVel, 1);

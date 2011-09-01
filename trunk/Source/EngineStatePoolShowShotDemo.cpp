@@ -49,7 +49,7 @@ void EngineStatePoolShowShotDemo::TimerExpired()
 
 /*
   const GameState::PlayerInfo::PoolStroke& gs =
-  GetEngine()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke;
+  GetEngine()->GetEngineState()->GetCurrentPlayerInfo()->m_golfStroke;
 
   EngineStatePoolSetUpShot::TakeShotNowImpl(gs.m_yRot, gs.m_vertVel, gs.m_horVel, gs.m_accel,
     gs.m_english, gs.m_drawRoll);

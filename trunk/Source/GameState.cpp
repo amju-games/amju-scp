@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GameState.cpp,v $
+$Log: PoolGameState.cpp,v $
 Revision 1.1.4.1.2.7  2006/08/27 19:18:24  jay
 Added Server URL; don't check checksum, it just makes life inconvenient
 
@@ -53,17 +53,17 @@ static const std::string CHECKSUM = "check";
 
 extern const char* APPLICATION_NAME;
 
-GameState::GameState()
+PoolGameState::PoolGameState()
 {
   m_currentPlayerId = 0;
   m_isFriendly = true;
 }
 
-GameState::~GameState()
+PoolGameState::~PoolGameState()
 {
 }
 
-void GameState::Init()
+void PoolGameState::Init()
 { 
   Set("control_style", "rkeys");
   Set("camera_style", "follow");
@@ -74,30 +74,30 @@ void GameState::Init()
   Set("server", "www.amju.com/cgi-bin/");
 }
 
-void GameState::Set(const std::string& key, const std::string& value)
+void PoolGameState::Set(const std::string& key, const std::string& value)
 {
   m_cf.Set(key, value);
   Save();
 }
 
-void GameState::Set(const std::string& key, float f)
+void PoolGameState::Set(const std::string& key, float f)
 {
   m_cf.Set(key, ToString(f));
   Save(); // we want to save after setting a float -- probably not
     // done before because of infinite recursion ?
 }
 
-std::string GameState::Get(const std::string& key)
+std::string PoolGameState::Get(const std::string& key)
 {
   return m_cf.GetValue(key);
 }
 
-float GameState::GetFloat(const std::string& key)
+float PoolGameState::GetFloat(const std::string& key)
 {
   return atof(m_cf.GetValue(key).c_str());
 }
 
-bool GameState::Load()
+bool PoolGameState::Load()
 { 
   // GetSaveDir() (in Directory) gets a user-preferences
   // directory where it's ok to save stuff to.
@@ -131,7 +131,7 @@ bool GameState::Load()
   return true;
 }
 
-bool GameState::Save()
+bool PoolGameState::Save()
 {
   m_cf.Erase(CHECKSUM);
   float cs = (float)Checksum();
@@ -148,13 +148,13 @@ bool GameState::Save()
   return b;
 }
 
-int GameState::Checksum()
+int PoolGameState::Checksum()
 {
   int c = m_cf.GetChecksum(); // get all the characters added up.
   return c;
 }
 
-GameState::PlayerInfo::PlayerInfo(
+PoolGameState::PlayerInfo::PlayerInfo(
   int id, const std::string& name, const Orientation& o, bool isAi) :
   m_golfStroke(0, 0, 0, 0, 0, 0)
 {
@@ -174,7 +174,7 @@ GameState::PlayerInfo::PlayerInfo(
   m_isOnline = false;
 }
 
-GameState::PlayerInfo* GameState::GetCurrentPlayerInfo()
+PoolGameState::PlayerInfo* PoolGameState::GetCurrentPlayerInfo()
 {
   Assert(!m_playersInfo.empty());
   Assert(m_currentPlayerId >= 0);
@@ -182,7 +182,7 @@ GameState::PlayerInfo* GameState::GetCurrentPlayerInfo()
   return &(m_playersInfo[m_currentPlayerId]);
 }
 
-GameState::PlayerInfo* GameState::GetPlayerInfo(int index)
+PoolGameState::PlayerInfo* PoolGameState::GetPlayerInfo(int index)
 {
   Assert(!m_playersInfo.empty());
   Assert(index >= 0);
@@ -190,7 +190,7 @@ GameState::PlayerInfo* GameState::GetPlayerInfo(int index)
   return &(m_playersInfo[index]);
 }
 
-void GameState::SetPlayerInfo(int index, const GameState::PlayerInfo& info)
+void PoolGameState::SetPlayerInfo(int index, const PoolGameState::PlayerInfo& info)
 {
   Assert(!m_playersInfo.empty());
   Assert(index >= 0);
@@ -198,7 +198,7 @@ void GameState::SetPlayerInfo(int index, const GameState::PlayerInfo& info)
   m_playersInfo[index] = info;
 }
 
-int GameState::RotateToNextPlayer()
+int PoolGameState::RotateToNextPlayer()
 {
   m_currentPlayerId++;
   if (m_currentPlayerId == (int)m_playersInfo.size())
@@ -208,37 +208,37 @@ int GameState::RotateToNextPlayer()
   return m_currentPlayerId;
 }
 
-void GameState::AddPlayerInfo(const PlayerInfo& pi)
+void PoolGameState::AddPlayerInfo(const PlayerInfo& pi)
 {
   m_playersInfo.push_back(pi);
 }
 
-void GameState::ClearPlayers()
+void PoolGameState::ClearPlayers()
 {
   m_playersInfo.clear();
 }
 
-void GameState::SetCurrentPlayer(int index)
+void PoolGameState::SetCurrentPlayer(int index)
 {
   m_currentPlayerId = index;
 }
 
-int GameState::GetCurrentPlayer() const
+int PoolGameState::GetCurrentPlayer() const
 {
   return m_currentPlayerId;
 }
 
-int GameState::GetNumberOfPlayers() const
+int PoolGameState::GetNumberOfPlayers() const
 {
   return m_playersInfo.size();
 }
 
-void GameState::SetIsFriendly(bool f)
+void PoolGameState::SetIsFriendly(bool f)
 {
   m_isFriendly = f;
 }
 
-bool GameState::IsFriendly() const
+bool PoolGameState::IsFriendly() const
 {
   return m_isFriendly;
 }

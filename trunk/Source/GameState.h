@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GameState.h,v $
+$Log: PoolGameState.h,v $
 Revision 1.2.8.6  2006/08/26 21:27:40  jay
 Added cue ball position to pool shot info
 
@@ -27,8 +27,8 @@ Added to repository
   
 */
 
-#if !defined(GAME_STATE_H_INCLUDED)
-#define GAME_STATE_H_INCLUDED
+#if !defined(POOL_GAME_STATE_H_INCLUDED)
+#define POOL_GAME_STATE_H_INCLUDED
 
 #include <map>
 #include <string>
@@ -43,11 +43,11 @@ namespace Amju
 {
 // The state of the game. E.g. positions of moveable/takeable objects,
 // player health, etc. Can be loaded and saved.
-class GameState
+class PoolGameState
 {
 public:
-  GameState();
-  virtual ~GameState();
+  PoolGameState();
+  virtual ~PoolGameState();
 
   void SetName(const std::string& name) { m_filename = name; }
 

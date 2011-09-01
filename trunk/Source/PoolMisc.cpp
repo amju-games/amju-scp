@@ -181,7 +181,7 @@ void NextPlayer()
   {
     // Rotate simply moves the current index along, or back to zero.
     Engine::Instance()->GetGameState()->RotateToNextPlayer();
-    GameState::PlayerInfo* pPi = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo(); 
+    PoolGameState::PlayerInfo* pPi = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo(); 
     // Test if the player we have rotated to is still in the game.
     if (pPi->m_isPlaying && pPi->m_numBalls > 0) 
     {
@@ -297,7 +297,7 @@ int GetRemainingPlayers()
   int numRemaining = 0;
   for (int i = 0; i < numPlayers; i++)
   {
-    GameState::PlayerInfo* pPi = Engine::Instance()->GetGameState()->GetPlayerInfo(i);
+    PoolGameState::PlayerInfo* pPi = Engine::Instance()->GetGameState()->GetPlayerInfo(i);
 
     if (pPi->m_isPlaying && pPi->m_numBalls > 0)
     {
@@ -347,7 +347,7 @@ void StartGame(int numPlayers, bool isFriendly, bool p1IsOnline, bool p2IsOnline
   Engine::Instance()->GetGameState()->ClearPlayers();
   Engine::Instance()->GetGameState()->SetIsFriendly(isFriendly);
 
-  GameState::PlayerInfo p1(1, "Amju", Orientation(), false);
+  PoolGameState::PlayerInfo p1(1, "Amju", Orientation(), false);
   p1.m_score = 0;
   p1.m_isPlaying = true;
   p1.m_strokes = 0;
@@ -382,7 +382,7 @@ void StartGame(int numPlayers, bool isFriendly, bool p1IsOnline, bool p2IsOnline
   Engine::Instance()->GetGameState()->AddPlayerInfo(p1);
 
   // Create the second player.
-  GameState::PlayerInfo p2(2, "Marin", Orientation(), false);
+  PoolGameState::PlayerInfo p2(2, "Marin", Orientation(), false);
   p2.m_score = 0;
   p2.m_isPlaying = true;
   p2.m_strokes = 0;

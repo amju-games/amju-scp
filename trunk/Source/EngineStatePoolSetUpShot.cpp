@@ -823,7 +823,7 @@ bool EngineStatePoolSetUpShot::AddShotAngle(float rot)
     // MAY19
 // TODO TEMP TEST - do we need this for pool ?
 // Apparently we do, for the AI player.
-    GameState::PlayerInfo* pInfo = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo();
+    PoolGameState::PlayerInfo* pInfo = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo();
     if (pInfo->m_isAi && !pInfo->m_isOnline)
     {
       GetActivePlayer()->SetOrientation(oPlayer);
@@ -912,7 +912,7 @@ std::cout << "SET START POSITIONS: Resetting cue bal pos to tee box \n";
   int numPlayers = GetEngine()->GetGameState()->GetNumberOfPlayers();
   for (int i = 0; i < numPlayers; i++)
   {  
-    GameState::PlayerInfo* pInfo = GetEngine()->GetGameState()->GetPlayerInfo(i);
+    PoolGameState::PlayerInfo* pInfo = GetEngine()->GetGameState()->GetPlayerInfo(i);
     int id = pInfo->m_id;
     PGameObject pGo = GetEngine()->GetGameObject(id);
 
@@ -1911,11 +1911,6 @@ std::cout << "CAMERA: Setting position to see cue ball and object ball\n";
 
     SetShotPower(0.5f); // Does this have any effect ??
 
-    // make sure we don't think the ball is in some water.
-    GetBall()->SetWater(0);
-    // ..same for Camera
-    GetCamera()->SetWater(0);
-
     GetActivePlayer()->SetState(UNKNOWN);
 
     // Make all characters look at the cue ball.
@@ -2479,7 +2474,7 @@ std::cout << "CheckForInvite ** has found an invite!! **\n";
       // Player2 has requested to join this game. We now accept or decline.
       ThePoolOnlineManager::Instance()->SetGameId(g.m_id);
       const std::string& p2name = p2.m_name;
-      ((EsPoolOnlineAccept2*) Engine::Instance()->GetEngineState(EsPoolOnlineAccept2::Name).GetPtr())->
+      ((EsPoolOnlineAccept2*) Engine::Instance()->GetGameState(EsPoolOnlineAccept2::Name).GetPtr())->
         Set(thisPlayerId, g.m_playerId[1], p2name, g.m_id);
       Engine::Instance()->ChangeState(EsPoolOnlineAccept2::Name, Engine::IMMEDIATE);
 
@@ -2625,7 +2620,7 @@ std::cout << "TAKING SHOT NOW with pool cue swing\n";
     Engine::Instance()->ChangeState(EngineStatePoolShowShot::Name, Engine::IMMEDIATE);
 
     // Round the shot info so it's the same for this client and all others!
-    GameState::PlayerInfo* pInfo = 
+    PoolGameState::PlayerInfo* pInfo = 
       GetEngine()->GetGameState()->GetCurrentPlayerInfo();
 
     Round(pInfo);
@@ -2863,11 +2858,11 @@ std::cout << "JUMP: p: " << p << "\n";
     drawRoll = -0.2f; // TODO CONFIG
   }
 
-  GameState::PlayerInfo* pInfo = 
+  PoolGameState::PlayerInfo* pInfo = 
     GetEngine()->GetGameState()->GetCurrentPlayerInfo();
   float elev = pInfo->m_golfStroke.m_cueElevationDegs;
   pInfo->m_golfStroke =
-    GameState::PlayerInfo::PoolStroke(m_shotYRotate, m_shotVerticalVel, 
+    PoolGameState::PlayerInfo::PoolStroke(m_shotYRotate, m_shotVerticalVel, 
     m_shotHorizontalSpeed, m_shotAccel,
     english,  
     drawRoll);  

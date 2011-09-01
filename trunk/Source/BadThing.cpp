@@ -96,7 +96,7 @@ void BadThing::HandlePlayerCollision(CharacterGameObject* pPlayer)
     pPlayer->SetActionPain(); 
 
     // (Don't throw player back for now)
-//    Engine::Instance()->GetGameState()->TakeDamage(m_playerDamage);
+//    Engine::Instance()->GetEngineState()->TakeDamage(m_playerDamage);
   }
 }
 

@@ -114,8 +114,6 @@ Added to repository
 #include "LevelServer.h"
 #include "GameState.h"
 #include "SoundServer.h"
-#include "PowerUpServer.h"
-#include "MessageSerializer.h"
 #include "ClientSocket.h"
 #include "HeightServer.h"
 #include "Shadow.h"
@@ -195,7 +193,7 @@ Engine::Engine()
 
   SetLetterbox(false);
 
-  m_pGameState = new GameState;
+  m_pGameState = new PoolGameState;
   
   m_pTextWriter = new TextWriter;
 
@@ -536,7 +534,7 @@ void Engine::SetConfigValue(const char* key, const char* value)
   m_config.Set(key, value);
 }
 
-GameState* Engine::GetGameState()
+PoolGameState* Engine::GetGameState()
 {
   return m_pGameState;
 }
@@ -1787,25 +1785,6 @@ void Engine::ForEachSpecialRecipient(void (SpecialRecipient::*pf)())
 
 bool Engine::NetworkInit()
 {
-/*
-  // TODO move to point where server name and port are configurable.
-  m_pClientSocket = new ClientSocket;
-  m_pNetworkSerializer = new MessageSerializer(m_pClientSocket.GetPtr());
-
-  std::string servername = GetConfigValue("servername");
-  int serverport = atoi(GetConfigValue("serverport").c_str());
-
-  bool b = m_pClientSocket->Connect(servername, serverport);
-
-  if (b)
-  {
-    m_pClientReceiveThread = new ClientReceiveThread;
-    m_pClientReceiveThread->SetSocket(m_pClientSocket.GetPtr());
-    m_pClientReceiveThread->Start();
-  }
-
-  return b;
-*/
   return false;
 }
 
