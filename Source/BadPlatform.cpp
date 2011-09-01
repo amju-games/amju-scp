@@ -98,7 +98,7 @@ void BadPlatform::HandlePlayerCollision(CharacterGameObject* pPlayer)
     {
       // First-time collsion, so inflict damage.
       pPlayer->SetActionPain(); 
-//      Engine::Instance()->GetGameState()->TakeDamage(m_playerDamage);
+//      Engine::Instance()->GetEngineState()->TakeDamage(m_playerDamage);
       // TODO Throw player backwards ?
       // TODO particle effect ?
     }

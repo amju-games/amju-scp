@@ -43,7 +43,6 @@ Added to repository
 namespace Amju
 {
 class PlayerMessage;
-class Water;
 
 class FreeMovingGameObject 
 : public VisibleGameObject
@@ -226,11 +225,6 @@ public:
   virtual void OnBounceOffWall() {}
   virtual void OnBounceOnGround() {}
 
-  // Get/Set body of water which this object is in
-  // ---------------------------------------------
-  void SetWater(Water*);
-  Water* GetWater();
-
 protected:
   // Respond to Messages containing PlayerCodes
   void ExecuteForwardVel(const PlayerMessage& m);
@@ -352,10 +346,6 @@ protected:
   // HeightServer picks up things we are travelling towards.
   // NB maybe should be in FreeMoving bas class.
   BoundingSphere m_heightServerSphere;
-
-  // Water
-  // Point to body of water which this object is in, or zero if none.
-  Water* m_pWater;
 
 };
 }

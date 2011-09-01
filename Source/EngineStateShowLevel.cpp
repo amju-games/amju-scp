@@ -16,7 +16,6 @@ Added to repository
 #include "EngineRunning.h"
 #include "FunctionFactory.h"
 #include "TextFactory.h"
-#include "CharacterMenu.h"
 #include "Text3dLeaf.h"
 #include "CharacterManager.h"
 #include "SchAssert.h"
@@ -46,18 +45,6 @@ void EngineStateShowLevel::SetActive(bool active)
   if (active)
   {
     m_leveltext = new Text3dLeaf("oh no . out of bounds");
-
-    /*
-    // Get available characters for this level
-    m_pMenu->Clear();
-    std::vector<std::string> characters = 
-      GetEngine()->GetGameState()->GetCharacters();
-
-    for (int i = 0; i < characters.size(); i++)
-    {
-      ((CharacterMenu*)(m_pMenu.GetPtr()))->AddCharacter(GetCharacter(characters[i]));
-    }
-    */
   }
 }
 
@@ -100,16 +87,8 @@ bool EngineStateShowLevel::Load()
     return false;
   }
 
-  //CharacterMenu* pMenu = new CharacterMenu;
-  //m_pMenu = pMenu;
-
-  //EngineMenuState::Load();
   return true; 
 }
-
-//void EngineStateShowLevel::SetNumber(int levelNum)
-//{
-//}
 
 void EngineStateShowLevel::Red(bool down)
 {
@@ -120,7 +99,7 @@ void EngineStateShowLevel::Red(bool down)
     /*
     int choice = m_pMenu->Choose();
     std::vector<std::string> characters = 
-      GetEngine()->GetGameState()->GetCharacters();
+      GetEngine()->GetEngineState()->GetCharacters();
     std::string charName = characters[choice];
     */
 

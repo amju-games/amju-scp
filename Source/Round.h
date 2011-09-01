@@ -26,7 +26,7 @@ void Round(float& f, unsigned int decimalPlaces);
 // Call this when the client takes a shot, and when this info is
 // received from another client.
 // Calling more than once should NOT affect the values.
-void Round(GameState::PlayerInfo* pInfo);
+void Round(PoolGameState::PlayerInfo* pInfo);
 
 }
 

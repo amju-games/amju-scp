@@ -98,7 +98,6 @@ FreeMovingGameObject::FreeMovingGameObject()
   m_maxForwardVel = 10.0f;  // Default.
   m_idleTime = 0;
   m_deadStopAfterFall = true;
-  SetWater(0);
 }
 
 float FreeMovingGameObject::GetGravity() const
@@ -155,18 +154,6 @@ void FreeMovingGameObject::AdjustGravity()
 {
   // Ordinarily, local grav == global grav.
   m_g = s_g;
-  /*
-  // If underwater, gravity is reduced.
-  if (GetLevel()->GetRoom()->HasWater() && 
-      GetLevel()->GetRoom()->GetWaterHeight() > m_orientation.GetY())
-  {
-    // Gravity decreases over time until some low limit is reached.
-    // We may even then fluctuate it for 'bobbing' effects.
-    m_g = s_g * 0.1f; // TODO TEMP TEST
-
-    // TODO But bounce damping should be INCREASED too.
-  }
-  */
 }
 
 const BoundingSphere* FreeMovingGameObject::GetHeightServerSphere()
@@ -698,16 +685,6 @@ void FreeMovingGameObject::RefreshHeightServer()
       }
     }
   }
-}
-
-void FreeMovingGameObject::SetWater(Water* pWater)
-{
-  m_pWater = pWater;
-}	
-
-Water* FreeMovingGameObject::GetWater()
-{
-  return m_pWater;
 }
 }
 

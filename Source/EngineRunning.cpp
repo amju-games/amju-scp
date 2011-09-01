@@ -87,21 +87,21 @@ void EngineRunning::SetControlStyle(ControlStyleEnum cs)
   switch (cs)
   {
   case ROTATE_KEYS:
-    //GetEngine()->GetGameState()->Set("control_style", "rkeys");
+    //GetEngine()->GetEngineState()->Set("control_style", "rkeys");
     //SetControlStyle(new ControlStyleRotateKeys);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::KEYS);
     break;
   case DIRECTIONAL_KEYS:
-    //GetEngine()->GetGameState()->Set("control_style", "dirkeys");
+    //GetEngine()->GetEngineState()->Set("control_style", "dirkeys");
     //SetControlStyle(new ControlStyleDirectionalKeys);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::KEYS);
     break;
   case MOUSE_PICK:
-    //GetEngine()->GetGameState()->Set("control_style", "mouse");
+    //GetEngine()->GetEngineState()->Set("control_style", "mouse");
     //SetControlStyle(new ControlStyleMousePickBase);
     break;
   case JOYSTICK:
-    //GetEngine()->GetGameState()->Set("control_style", "joystick");
+    //GetEngine()->GetEngineState()->Set("control_style", "joystick");
     //SetControlStyle(new ControlStyleJoystick);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::JOYSTICK);
     break;
@@ -477,8 +477,8 @@ void EngineRunning::DrawOverlays()
   AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
   AmjuGL::PushMatrix();
   // Draw player health, starting in bottom left corner.
-  float health = GetEngine()->GetGameState()->GetPlayerHealth();
-  float maxHealth = GetEngine()->GetGameState()->GetMaxHealth();
+  float health = GetEngine()->GetEngineState()->GetPlayerHealth();
+  float maxHealth = GetEngine()->GetEngineState()->GetMaxHealth();
 
   // Draw integer health, then remainder.
   //int wholeHealth = (int)(health);
@@ -505,7 +505,7 @@ void EngineRunning::DrawOverlays()
 */
 
   // Score etc in top left corner
-  //int score = GetEngine()->GetGameState()->GetFloat("score");
+  //int score = GetEngine()->GetEngineState()->GetFloat("score");
   //m_score.Set(score);
   //m_score.Draw();
   //m_pTimeGuage->Draw();

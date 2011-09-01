@@ -11,7 +11,6 @@ Added to repository
 
 #include "GameObject.h"
 #include "SharedPtr.h"
-#include "SerialInterface.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -39,14 +38,6 @@ public:
   virtual Message* Clone();
 
   virtual void Print(std::ostream&) const;
-
-  // Load and Save using Serial Interface rather than File.
-  // This means we can serialize Messages to a Socket.
-
-  // TODO - sadly this never really took off.
-
-  virtual bool Load(PSerialInterface);
-  virtual bool Save(PSerialInterface);
 
   bool Load(File*); 
 #ifdef SCENE_EDITOR

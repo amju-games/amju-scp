@@ -68,10 +68,7 @@ Level* EngineRunningBase::GetLevel()
 
 bool EngineRunningBase::IsUnderwater()
 {
-  // Now Camera is a FreeMovingGameObject, so this is simple!
-  PCamera cam = GetCamera();
-  bool b =  (cam.GetPtr() && cam->GetWater());
-  return b;
+  return false;
 }
 
 void EngineRunningBase::Update()
@@ -255,7 +252,7 @@ void EngineRunningBase::DrawForeground()
 
   // Player shadow: draw it TWICE, once on the static scene, once on
   // the game objects.
-//  if (!GetEngine()->GetGameState()->PlayerIsDead())
+//  if (!GetEngine()->GetEngineState()->PlayerIsDead())
 //  {
 //    DrawCharacterShadow(GetPlayer());
 //  }
@@ -346,7 +343,7 @@ void EngineRunningBase::UpdateGameObjects()
 
       // Check state of object.
       State s = pVgo->GetState();
-      //Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+      //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     // POOL: some pool-specific states here
       if (s != OUT_OF_PLAY &&
           s != BALL_IN_POCKET &&
@@ -394,7 +391,7 @@ void EngineRunningBase::DrawGameObjectShadows()
 
       // Check state of object.
       State s = pVgo->GetState();
-      //Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+      //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
       // POOL: some pool-specific states here
       if (s != OUT_OF_PLAY &&
           s != BALL_IN_POCKET &&
@@ -430,7 +427,7 @@ void EngineRunningBase::DrawGameObjects(bool translucent)
 
       // Check state of object.
       State s = pVgo->GetState();
-      //Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+      //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     // POOL: some pool-specific states here
       if (s != OUT_OF_PLAY &&
           s != BALL_IN_POCKET &&
@@ -539,7 +536,7 @@ void EngineRunningBase::ObjectCollisionTest(GameObject* pObj)
     PGameObject pGo = it->second;
 
     State s = pGo->GetState();
-    //Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+    //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     if (s != OUT_OF_PLAY)
     {
       PGameObject pGo = it->second;
@@ -589,7 +586,7 @@ void EngineRunningBase::UpdateGameObjectHeightServer(VisibleGameObject* pVgo)
     if (pGo->IsVisible() && pGo != pVgo) // obviously, skip over self.
     {
       State s = UNKNOWN;
-      Engine::Instance()->GetGameState()->GetState(gameObjId, &s);
+      Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
       if (s != OUT_OF_PLAY)
       {
         // Check if the bounding spheres intersect - if so there is the
@@ -679,7 +676,7 @@ void EngineRunningBase::SetPlayerRoom(int roomId)
 
     pGo->SetLevel(m_pLevel.GetPtr());
 
-    //GetEngine()->GetGameState()->GetState(gameObjId, &s);
+    //GetEngine()->GetEngineState()->GetState(gameObjId, &s);
     //if (s != OUT_OF_PLAY)
     //{
       pGo->OnRoomEntry();

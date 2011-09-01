@@ -51,7 +51,7 @@ void Player::FellFromHeight(float heightFallenFrom)
   cout << "Fallen from height " << heightFallenFrom << " taking " << damage << endl;
 */
 #endif
-  //Engine::Instance()->GetGameState()->TakeDamage(damage);
+  //Engine::Instance()->GetEngineState()->TakeDamage(damage);
 }
 
 void Player::HandleObjectCollision(GameObject* pObj)

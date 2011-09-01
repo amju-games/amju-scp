@@ -78,7 +78,7 @@ void PoolBehaviourOnline::Update()
   Assert(IsOnlineGame());
 
   // Get opponent's name for messages
-  std::string opName = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_name;
+  std::string opName = Engine::Instance()->GetEngineState()->GetCurrentPlayerInfo()->m_name;
 
   // Check server for new shot periodically.
   m_pollTime += Engine::Instance()->GetDeltaTime();
@@ -138,7 +138,7 @@ std::cout << "OPPONENT HAS TAKEN SHOT!\n";
     // Take the shot
     // Set the shot data, then change to state which shows player 
     // taking the shot.
-    GameState::PlayerInfo* pInfo = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo();
+    GameState::PlayerInfo* pInfo = Engine::Instance()->GetEngineState()->GetCurrentPlayerInfo();
     pInfo->m_golfStroke =
       GameState::PlayerInfo::PoolStroke(
       s.m_yRot, s.m_verticalVel, s.m_horVel, 

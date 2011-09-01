@@ -222,7 +222,7 @@ void Bomb::Detonate()
     {
       // This Croc gets creamed
       pCroc->Dead();
-      //Engine::Instance()->GetGameState()->AddScore(100 * bonus);
+      //Engine::Instance()->GetEngineState()->AddScore(100 * bonus);
       bonus *= 2;
     }
     else

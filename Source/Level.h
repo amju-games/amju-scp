@@ -12,7 +12,6 @@ Added to repository
 #include "Room.h"
 #include "States.h"
 #include "Orientation.h"
-#include "Objective.h"
 #include "GameObject.h"
 #include "Camera.h"
 #include "SharedPtr.h"
@@ -141,10 +140,6 @@ protected:
   // CharacterManager. Having the player name per-level means you can have
   // different characters in different levels, which may be useful. 
   std::string m_playerName;
-
-  // The level objective: a list of <object ID, state> pairs, all of which must
-  // match.
-  Objective m_objective;
 
   // Level is made up of one or more connected "rooms", or enclosed spaces.
   // Map of room IDs to rooms.

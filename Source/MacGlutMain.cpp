@@ -138,7 +138,6 @@ Added to repository
 #endif
 
 #include "GameEngine.h"
-#include "EngineStateFullScreenTest.h"
 #include "SocketService.h"
 #include "FileImplGlue.h"
 #include "GlueFileMem.h" 
@@ -881,11 +880,11 @@ int main(int argc, char **argv)
 
 #ifdef POOL_ONLINE
   // Set Server for online games
-  std::string server = engine->GetGameState()->Get("server");
+  std::string server = engine->GetEngineState()->Get("server");
   if (server == "")
   {
     server = "www.amju.com/cgi-bin/";
-    engine->GetGameState()->Set("server", server);
+    engine->GetEngineState()->Set("server", server);
   }
   ThePoolOnlineManager::Instance()->SetServerUrl(server);
 #ifdef _DEBUG

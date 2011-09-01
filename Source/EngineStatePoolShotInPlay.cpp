@@ -164,7 +164,6 @@ Added to repository
 #include "Trajectory.h"
 #include "PoolCharacter.h"
 #include "TextWriter.h"
-#include "Water.h"
 #include "AngleCompare.h"
 #include "PoolBall.h"
 #include "TextFactory.h"
@@ -245,7 +244,7 @@ void EngineStatePoolShotInPlay::SetActive(bool active)
     }
 
     // Log shot info - is it _exactly_ the same for all clients
-    GameState::PlayerInfo* pInfo =
+    PoolGameState::PlayerInfo* pInfo =
       GetEngine()->GetGameState()->GetCurrentPlayerInfo();
   
     std::string s = "Shot taken: ";  
@@ -640,12 +639,7 @@ std::cout << " Earliest t: " << earliest << "\n";
 
 bool EngineStatePoolShotInPlay::IsUnderwater()
 {
-  bool b =  (GetBall()->GetWater() != 0);
-  if (b)
-  {
-    std::cout << "Ball is under water! Id is " << GetBall()->GetWater()->GetId() << "\n";
-  }
-  return b;
+  return false;
 }
 
 bool EngineStatePoolShotInPlay::IsOutOfBounds()
@@ -879,7 +873,7 @@ void EngineStatePoolShotInPlay::OnlineBallsStopped()
     {
       Assert(m_pLevel.GetPtr());
       // TODO Make sure 'current' player hasn't just been changed by the Rules.
-      if (Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_isOnline)
+      if (Engine::Instance()->GetEngineState()->GetCurrentPlayerInfo()->m_isOnline)
       {
         // We want to GET the state of all balls.
 
@@ -899,7 +893,7 @@ void EngineStatePoolShotInPlay::OnlineBallsStopped()
         // Send the shot info, then send the state of every ball at the end
         // of the shot.
         GameState::PlayerInfo* pInfo =
-          GetEngine()->GetGameState()->GetCurrentPlayerInfo();
+          GetEngine()->GetEngineState()->GetCurrentPlayerInfo();
 
         // Send the final state of every object - this is in addition
         //  to sending state changes during the shot.

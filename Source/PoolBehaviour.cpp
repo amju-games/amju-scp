@@ -633,7 +633,7 @@ void PoolBehaviour::Update()
 
   // Set the shot data, then change to state which shows player swinging the club.
   Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke =
-        GameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
+        PoolGameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
         0, 0);  // TODO english, draw/roll
 
   ChangeStateToShowShot();
@@ -999,7 +999,7 @@ std::cout << "AI Break: random angle offset: " << r << "\n";
     m_vVel = 0;
     m_hVel = 200.0f; // TODO TEMP TEST
     Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke =
-        GameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
+        PoolGameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
         0, 0);  // TODO english, draw/roll
 
 #ifdef AI_DEBUG
@@ -1162,7 +1162,7 @@ std::cout << "CALC PLACE BALL: Found this pos: "
   m_yRot = RadToDeg(atan2(v3.x, v3.z));
 
   Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke =
-        GameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
+        PoolGameState::PlayerInfo::PoolStroke(m_yRot, m_vVel, m_hVel, accel,
         0, 0);  // TODO english, draw/roll
 }
 

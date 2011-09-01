@@ -134,7 +134,7 @@ private:
 
 OnlinePlayerProfile::OnlinePlayerProfile()
 {
-  std::string server = Engine::Instance()->GetGameState()->Get("server");
+  std::string server = Engine::Instance()->GetEngineState()->Get("server");
   if (server == "")
   {
     server = "www.amju.com/cgi-bin/";

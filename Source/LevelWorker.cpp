@@ -131,12 +131,6 @@ bool LevelWorker::GetOrientationAboveWater(
     // This could loop forever!!!!!
 
     float waterLevel = 0;
-    /*
-    if (pLevel->GetRoom()->HasWater())
-    {
-      waterLevel = pLevel->GetRoom()->GetWaterHeight();
-    }
-    */
     bool foundGoodPos = false;
     while (!foundGoodPos)
     {

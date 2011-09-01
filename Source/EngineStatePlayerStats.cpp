@@ -86,7 +86,7 @@ void EngineStatePlayerStats::Red(bool down)
   // So transitions work for all players.
   m_time = 0;
   // Store the new stats for this player.
-  GameState::PlayerInfo* pInfo = 
+  PoolGameState::PlayerInfo* pInfo = 
     GetEngine()->GetGameState()->GetPlayerInfo(m_currentPlayer);
   Assert(pInfo);
   StoreStats(m_currentPlayer, pInfo->m_stats);
@@ -173,7 +173,7 @@ void EngineStatePlayerStats::DrawOverlays()
   AmjuGL::PopMatrix();
 
   // Get playerinfo so we can compare current stat value with previous.
-  GameState::PlayerInfo* pInfo = 
+  PoolGameState::PlayerInfo* pInfo = 
     GetEngine()->GetGameState()->GetPlayerInfo(m_currentPlayer);
   Assert(pInfo);
   std::vector<float> oldStats = GetStats(m_currentPlayer);
@@ -354,7 +354,7 @@ void EngineStatePlayerStats::MousePos(int x, int y)
 
 void EngineStatePlayerStats::InitPlayer()
 {
-  GameState::PlayerInfo* pInfo = 
+  PoolGameState::PlayerInfo* pInfo = 
     GetEngine()->GetGameState()->GetPlayerInfo(m_currentPlayer);
   Assert(pInfo);
 

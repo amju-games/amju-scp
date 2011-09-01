@@ -57,7 +57,6 @@ void EngineStatePoolOutOfBounds::SetActive(bool active)
 
   if (active)
   {
-    GetCamera()->SetWater(0);
     Engine::Instance()->PlayWav(Engine::Instance()->GetConfigValue("golf_wav_17"));
 
     Orientation o = *(GetActivePlayer()->GetOrientation());

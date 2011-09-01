@@ -56,7 +56,7 @@ protected:
   };
   std::vector<ObjInfo> m_objInfo;
 
-  std::vector<GameState::PlayerInfo> m_playerInfo;
+  std::vector<PoolGameState::PlayerInfo> m_playerInfo;
 
   // Store a copy of the Rules state for this room. 
   // NB Must be on heap, we will copy some subclass of Rules.
