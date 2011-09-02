@@ -38,7 +38,7 @@ Added to repository
 #include "Camera.h"
 #include "LeafData.h"
 #include "LeafRenderer.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "LevelServer.h"
 #include "CharacterManager.h"
 #include "Mgc/MgcSegment3.h"

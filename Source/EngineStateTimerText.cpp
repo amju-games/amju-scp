@@ -15,7 +15,7 @@ Added to repository
 
 #include "EngineStateTimerText.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 
 namespace Amju
 {

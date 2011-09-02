@@ -9,7 +9,7 @@ Amju Games source code (c) Copyright Jason Colman 2007
 #include "EsPoolDeclined.h"
 #include "Engine.h"
 #include "PoolOnline.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineStatePoolOnlineTable.h"
 
 namespace Amju

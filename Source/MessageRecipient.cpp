@@ -14,7 +14,7 @@ Added to repository
 #include "Message.h"
 #include "Fsm.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "UniqueId.h"
 #include <iostream>
 

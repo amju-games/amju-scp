@@ -154,7 +154,7 @@ Added to repository
 #include "EngineStatePoolOutOfBounds.h"
 #include "Engine.h"
 #include "LevelServer.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "ThirdPersonCamera2.h"
 #include "FreeMovingSolidGameObject.h" 
 #include "EngineStatePoolSetUpShot.h"

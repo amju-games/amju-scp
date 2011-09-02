@@ -230,7 +230,7 @@ New classes for Pool game
 #include "AngleCompare.h"
 #include "Frustum.h"
 #include "EngineStatePoolBase.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Geom2d.h"
 #include "StringUtils.h"
 #include "Capsule.h"

@@ -19,7 +19,7 @@ Added Undo manager
 #include "GameObject.h"
 #include "Orientation.h"
 #include "Singleton.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Rules.h"
 
 namespace Amju

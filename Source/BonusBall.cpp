@@ -17,7 +17,7 @@ Added to repository
 
 #include "BonusBall.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolMisc.h"
 #include "EngineStatePoolBase.h"
 

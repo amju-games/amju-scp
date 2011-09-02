@@ -92,7 +92,7 @@ Pool AI: initial revision is totally stupid.
 #include "Common.h"
 #include "PoolBehaviour.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineStatePoolShowShot.h"
 #include "EngineStatePoolShowShotDemo.h"
 #include "PoolMisc.h"

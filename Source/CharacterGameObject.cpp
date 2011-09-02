@@ -40,7 +40,7 @@ Added to repository
 #include "CharacterControl.h"
 #include "Engine.h"
 #include "Level.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PlayerCodes.h"
 #include "PlayerMessage.h"
 #include "Matrix.h"

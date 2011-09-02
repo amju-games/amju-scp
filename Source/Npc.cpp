@@ -15,7 +15,7 @@ Added to repository
 #include "File.h"
 #include "CharacterManager.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 //#include "CharacterControl.h"
 #include "Behaviour.h"
 #include "Level.h"

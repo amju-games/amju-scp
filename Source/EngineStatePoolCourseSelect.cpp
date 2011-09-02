@@ -113,7 +113,7 @@ Added to repository
 #include "TextWriter.h"
 #include "TextColourizerColourList.h"
 #include "GuiButton.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolPlayerStats.h"
 #include "PoolBg.h"
 #include "PoolOnline.h"

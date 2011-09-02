@@ -53,7 +53,7 @@ Add Trick Shot rules
 #include "StringUtils.h"
 #include "EngineStatePoolSetUpShot.h"
 #include "EngineStatePoolSetUpShotDemo.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolPlayerStats.h"
 #include "LevelServer.h"
 #include "PoolChangeState.h"

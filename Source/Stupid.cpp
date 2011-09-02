@@ -52,7 +52,7 @@ Added to repository
 #include "File.h"
 #include "Engine.h"
 #include "Level.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineRunning.h" // bah, hack to increase level time
 #include "PoolStupidController.h"
 #include "PoolMisc.h"

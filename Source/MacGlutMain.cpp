@@ -144,7 +144,7 @@ Added to repository
 #include "StringUtils.h"
 //#include "Registration.h"
 //#include "SpeechSynth.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PlayerNames.h"
 #include "PoolOnline.h"
 #include "SpecialEventPaste.h"

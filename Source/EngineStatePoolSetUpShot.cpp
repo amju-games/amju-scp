@@ -334,7 +334,7 @@ Added to repository
 #include "EngineStatePoolCamera.h"
 #include "Engine.h"
 #include "LevelServer.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolCamera.h"
 #include "FreeMovingSolidGameObject.h" 
 #include "PowerGuage.h"

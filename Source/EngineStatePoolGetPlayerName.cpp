@@ -60,7 +60,7 @@ New state to get player names
 #include "Engine.h"
 #include "EngineStatePoolCourseSelect.h"
 #include "TextWriter.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "StringUtils.h"
 #include "PoolPlayerStats.h"
 #include "TextMenu.h"

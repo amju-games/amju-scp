@@ -27,7 +27,7 @@ Added to repository
 #include "Engine.h"
 #include "Platform.h"
 #include "Level.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PlayerCodes.h"
 #include "PlayerMessage.h"
 #include "Matrix.h"

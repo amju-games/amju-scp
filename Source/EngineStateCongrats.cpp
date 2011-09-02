@@ -18,7 +18,7 @@ Added to repository
 #include "TextWriter.h"
 #include "GuiButton.h"
 #include "StringUtils.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolMisc.h"
 
 void OnCongratsOkButton()

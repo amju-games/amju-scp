@@ -37,7 +37,7 @@ Added to repository
 #pragma warning(disable: 4786)
 #endif
 
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "StringUtils.h"
 #include "Directory.h"
 #include "File.h"

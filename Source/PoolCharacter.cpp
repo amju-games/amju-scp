@@ -61,7 +61,7 @@ Added to repository
 #include "PoolCharacter.h"
 #include "Character.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolMisc.h"
 #include "LevelServer.h"
 #include "AngleCompare.h"

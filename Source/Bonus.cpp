@@ -21,7 +21,7 @@ Added to repository
 #include "File.h"
 #include "Common.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "GameObjectFactory.h"
 #include "Frustum.h"
 #include "EngineRunning.h"

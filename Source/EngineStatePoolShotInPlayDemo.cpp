@@ -35,7 +35,7 @@ Added to repository
 #include "EngineStatePoolSetUpShotDemo.h"
 #include "EngineStateTitle.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "LevelServer.h"
 #include "PowerGuage.h"
 #include "Behaviour.h"

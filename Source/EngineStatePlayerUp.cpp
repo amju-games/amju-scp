@@ -15,7 +15,7 @@ Added to repository
 
 #include "EngineStatePlayerUp.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Text3dLeaf.h"
 
 namespace Amju

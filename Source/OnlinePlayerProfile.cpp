@@ -18,7 +18,7 @@ Amju Games source code (c) Copyright Jason Colman 2007
 #include "OnlineReqTestable.h"
 #include "AmjuTime.h"
 #include "StringUtils.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolOnlineReqManager.h"
 #include "PlayerNames.h"
 #include "PoolOnline.h"

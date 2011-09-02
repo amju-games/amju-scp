@@ -92,7 +92,7 @@ Added to repository
 #include "EngineStatePoolSetUpShot.h"
 #include "EngineStateThanksForPlaying.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "LevelServer.h"
 #include "PoolMisc.h"
 #include "Trajectory.h"

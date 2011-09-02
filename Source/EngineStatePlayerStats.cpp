@@ -26,7 +26,7 @@ Adding player stats to game code
 #include "CharacterManager.h"
 #include "GuiButton.h"
 #include "TextFactory.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "StringUtils.h"
 #include "TextColourizerColourList.h"
 

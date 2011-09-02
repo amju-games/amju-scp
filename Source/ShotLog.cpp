@@ -8,7 +8,7 @@ Amju Games source code (c) Copyright Jason Colman 2007
 
 #include "ShotLog.h"
 #include "LogFile.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Engine.h"
 #include "PoolOnline.h"
 

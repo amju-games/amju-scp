@@ -28,7 +28,7 @@ Added demo mode
 #include "EngineStatePoolShotInPlayDemo.h"
 #include "EngineStatePoolSetUpShotDemo.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Level.h"
 #include "PoolChangeState.h"
 

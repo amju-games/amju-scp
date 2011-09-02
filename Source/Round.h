@@ -9,7 +9,7 @@ Round shot info in an attempt to remove inconsistencies between clients
 #ifndef ROUND_H_INCLUDED
 #define ROUND_H_INCLUDED
 
-#include "GameState.h"
+#include "PoolGameState.h"
 
 namespace Amju
 {
