@@ -20,7 +20,7 @@ Added to repository
 #include "Score.h"
 #include "Engine.h"
 #include "TextWriter.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Text3dLeaf.h"
 
 using namespace std;

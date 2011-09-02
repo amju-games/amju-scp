@@ -38,7 +38,7 @@ Added camera mode
 #include "PowerGuage.h"
 #include "PoolSetUpShotBehaviour.h"
 #include "ThirdPersonCameraBase.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolMisc.h"
 #include "TextWriter.h"
 

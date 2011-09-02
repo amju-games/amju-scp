@@ -55,7 +55,7 @@ Added to repository
 #include "Character.h"
 #include "Engine.h"
 #include "Level.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PlayerCodes.h"
 #include "PlayerMessage.h"
 #include "Matrix.h"

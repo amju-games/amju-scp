@@ -50,7 +50,7 @@ Added to repository
 #include "CharacterGameObject.h"
 #include "AngleCompare.h"
 #include "PoolCharacter.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "LevelServer.h"
 #include "Bonus.h"
 

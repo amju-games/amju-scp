@@ -20,7 +20,7 @@ Added to repository
 #include "Matrix.h"
 #include "Locator.h"
 #include "GameObjectFactory.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Frustum.h"
 #include "StringUtils.h"
 

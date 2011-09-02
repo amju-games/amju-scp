@@ -33,9 +33,9 @@ Added to repository
 #include "TextWriter.h"
 #include "HiScoreTable.h"
 #include "TexturedQuad.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "TextFactory.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolMisc.h"
 #include "StringUtils.h"
 

@@ -14,7 +14,7 @@ Added to repository
 #include "File.h"
 #include "CharacterGameObject.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "GameObjectFactory.h"
 
 namespace Amju

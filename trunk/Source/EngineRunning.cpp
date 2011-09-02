@@ -15,7 +15,7 @@ Added to repository
 
 #include <algorithm>
 #include "EngineRunning.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EnginePaused.h"
 //#include "EngineDeadState.h"
 #include "CharacterGameObject.h"

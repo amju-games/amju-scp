@@ -150,7 +150,7 @@ Not finished, the idea here is to show the "lobby" of games being played
 #include "EngineStatePoolOnlineTable.h"
 #include "EngineStatePoolOnlineWait.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolOnline.h"
 #include "TextWriter.h"
 #include "StringUtils.h"

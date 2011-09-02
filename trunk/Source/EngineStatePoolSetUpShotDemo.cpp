@@ -65,7 +65,7 @@ Added to repository
 #include "LevelServer.h"
 #include "PowerGuage.h"
 #include "Behaviour.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolCourseManager.h"
 #include "PoolMisc.h"
 #include "GuiButton.h"

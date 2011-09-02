@@ -90,7 +90,7 @@ Added to repository
 #include "LevelServer.h"
 #include "PoolMisc.h"
 #include "EngineStatePoolSetUpShot.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolCharacter.h"
 #include "SoundFxManager.h"
 #include "Frustum.h"

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: PoolGameState.h,v $
+$Log: PoolPoolGameState.h,v $
 Revision 1.2.8.6  2006/08/26 21:27:40  jay
 Added cue ball position to pool shot info
 

@@ -66,7 +66,7 @@ Online Pool - not working yet
 #include "PoolMisc.h"
 #include "LevelServer.h"
 #include "PoolBg.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolOnline.h"
 #include "EngineStatePoolGameSelect.h"
 #include "EsPoolDeclined.h"

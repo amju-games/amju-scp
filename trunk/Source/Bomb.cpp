@@ -12,7 +12,7 @@ Added to repository
 
 #include "Bomb.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "BlastWaveEffect.h"
 #include "TextureServer.h"
 #include "Level.h"

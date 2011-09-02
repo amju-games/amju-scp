@@ -112,7 +112,7 @@ Added to repository
 #include "CharacterManager.h"
 #include "Controller.h"
 #include "LevelServer.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "SoundServer.h"
 #include "ClientSocket.h"
 #include "HeightServer.h"

@@ -126,7 +126,7 @@ Added to repository
 #include "EngineStateTimerText.h"
 #include "EngineStatePoolShotInPlay.h"
 #include "EngineStatePoolSetUpShot.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "FreeMovingSolidGameObject.h"
 //#include "EngineStatePoolBallInHole.h"
 #include "Level.h"

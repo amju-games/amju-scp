@@ -51,7 +51,7 @@ are in the view frustum.
 
 #include "PoolCamera.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "AngleCompare.h"
 #include "PoolMisc.h"
 

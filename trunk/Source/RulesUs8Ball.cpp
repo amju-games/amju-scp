@@ -84,7 +84,7 @@ Move Rules variants to separate files
 #include "PoolMisc.h"
 #include "LevelServer.h"
 #include "EngineStateTitle.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "StringUtils.h"
 #include "PoolPlayerStats.h"
 

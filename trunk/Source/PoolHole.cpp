@@ -85,7 +85,7 @@ Added to repository
 #include "FreeMovingSolidGameObject.h"
 #include "PoolBall.h"
 #include "PoolPlayerStats.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineStatePoolBase.h"
 #include "Mgc/MgcDist3DLinLin.h"
 #include "Mgc/MgcDist3DVecLin.h"

@@ -18,7 +18,7 @@ Added to repository
 #include "TextMenu.h"
 #include "Text3dLeaf.h"
 #include "StringUtils.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "SchAssert.h"
 
 namespace Amju

@@ -30,7 +30,7 @@ Add Trick Shot rules
 #include "EngineStatePoolTrickShotOver.h"
 #include "Engine.h"
 #include "LevelServer.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineStatePoolCourseSelect.h"
 #include "TextFactory.h"
 #include "PoolMisc.h"

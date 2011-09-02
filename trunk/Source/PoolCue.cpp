@@ -46,7 +46,7 @@ Show user the cue position
 #include "PoolCue.h"
 #include "Engine.h"
 #include "PoolMisc.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "LevelServer.h"
 #include "AngleCompare.h"
 #include "EngineStatePoolBase.h"

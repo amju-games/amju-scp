@@ -57,7 +57,7 @@ Online Pool - not working yet
 #include "PoolBehaviourOnline.h"
 #include "Engine.h"
 #include "PoolOnline.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolChangeState.h"
 #include "PoolMisc.h"
 #include "Round.h"

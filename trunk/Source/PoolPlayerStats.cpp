@@ -45,7 +45,7 @@ New class to store data on all played games for a player.
 #include "File.h"
 #include "Directory.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "OnlinePlayerProfile.h"
 
 namespace Amju

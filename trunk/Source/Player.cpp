@@ -13,7 +13,7 @@ Added to repository
 #include <iostream>
 #include "Player.h"
 #include "Engine.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "Character.h"
 #include "File.h"
 #include "CharacterManager.h"

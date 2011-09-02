@@ -32,7 +32,7 @@ Add new options menu, accessed from main menu
 #include "TextWriter.h"
 #include "GuiButton.h"
 #include "EngineStatePoolGameSelect.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolBg.h"
 #include "SchAssert.h"
 

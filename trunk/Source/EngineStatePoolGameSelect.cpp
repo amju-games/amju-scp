@@ -71,7 +71,7 @@ Added to repository
 #include "Engine.h"
 #include "TextMenu.h"
 #include "StringUtils.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "EngineStatePoolCourseSelect.h"
 #include "PoolCourseManager.h"
 #include "LevelServer.h"

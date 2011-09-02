@@ -90,7 +90,7 @@ Added to repository
 #include "EngineStatePoolSetUpShot.h"
 #include "EngineStatePoolCourseSelect.h"
 #include "EngineStatePoolGameSelect.h"
-#include "GameState.h"
+#include "PoolGameState.h"
 #include "PoolBg.h"
 #include "PoolMisc.h"
 #include "EngineStatePoolOnlineTable.h"
