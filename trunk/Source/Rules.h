@@ -118,7 +118,7 @@ class PoolHole;
 // style of pool being played in it. 
 // This base class implements a sensible set of rules, which can be 
 // overridden in subclasses to get more specific rules.
-class Rules : public GameObject
+class Rules : public PoolGameObject
 {
 public:
   // Useful function for setting a pool ball to stop moving.
@@ -175,7 +175,7 @@ public:
 
   // Override this in subclasses for special objects - this is intended
   // for "crazy" pool which has other objects, not just balls.
-  virtual void BallHitsObject(PoolBall* pBall, GameObject* pObj) {}
+  virtual void BallHitsObject(PoolBall* pBall, PoolGameObject* pObj) {}
 
   // Call when all action on the table has stopped.
   virtual void BallsHaveStopped();

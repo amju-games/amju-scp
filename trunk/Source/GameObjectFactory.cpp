@@ -59,7 +59,7 @@ Added to repository
 //#include "Bonus.h"
 //#include "Npc.h"
 //#include "Platform.h"
-#include "Shed.h"
+//#include "Shed.h"
 //#include "Water.h"
 #include "SortScene.h"
 //#include "Target.h"
@@ -97,24 +97,24 @@ using namespace std;
 
 namespace Amju
 {
-extern GameObject* CreateRulesUk();
-extern GameObject* CreateRulesUs8Ball();
-extern GameObject* CreateRulesNBall();
-extern GameObject* CreatePoolBall();
-extern GameObject* CreateCueBall();
-extern GameObject* CreateNonHeadArea();
-extern GameObject* CreatePoolBlock();
-extern GameObject* CreateRulesTrickShot();
-extern GameObject* CreatePoolExplBall();
-extern GameObject* CreatePoolPuck();
+extern PoolGameObject* CreateRulesUk();
+extern PoolGameObject* CreateRulesUs8Ball();
+extern PoolGameObject* CreateRulesNBall();
+extern PoolGameObject* CreatePoolBall();
+extern PoolGameObject* CreateCueBall();
+extern PoolGameObject* CreateNonHeadArea();
+extern PoolGameObject* CreatePoolBlock();
+extern PoolGameObject* CreateRulesTrickShot();
+extern PoolGameObject* CreatePoolExplBall();
+extern PoolGameObject* CreatePoolPuck();
 
-GameObjectFactory* GameObjectFactory::Instance()
+PoolGameObjectFactory* PoolGameObjectFactory::Instance()
 {
-  static GameObjectFactory f;
+  static PoolGameObjectFactory f;
   return &f;
 }
 
-GameObjectFactory::GameObjectFactory()
+PoolGameObjectFactory::PoolGameObjectFactory()
 {
 #if defined(SCENE_EDITOR)
   // Yuck, we should be calling a static Name function on each type.
@@ -174,7 +174,7 @@ const std::vector<std::string>& GameObjectFactory::GetTypeNames() const
 }
 #endif
 
-GameObject* GameObjectFactory::Create(const string& gameObjectName)
+PoolGameObject* PoolGameObjectFactory::Create(const string& gameObjectName)
 {
   if (gameObjectName == "freezebonus")
   {
@@ -183,10 +183,6 @@ GameObject* GameObjectFactory::Create(const string& gameObjectName)
   if (gameObjectName == "stupid")
   {
     return new Stupid;
-  }
-  if (gameObjectName == "shed")
-  {
-    return new Shed;
   }
   if (gameObjectName == "pool_ball")
   {

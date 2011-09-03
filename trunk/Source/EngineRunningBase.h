@@ -15,7 +15,7 @@ Added to repository
 namespace Amju
 {
 class Level;
-class GameObject;
+class PoolGameObject;
 class CharacterGameObject;
 
 class EngineRunningBase : public EngineState
@@ -61,7 +61,7 @@ protected:
   virtual void PlayerCollisionTest();
 
   // Test for G.O./G.O. collision
-  void ObjectCollisionTest(GameObject* pObj);
+  void ObjectCollisionTest(PoolGameObject* pObj);
 
   // Draw shadow under player/other characters
   void DrawCharacterShadow(CharacterGameObject* pCharacter);

@@ -303,7 +303,7 @@ void CharacterGameObject::ReceiveMessage(const Message& m)
   }
   else
   {
-    GameObject::ReceiveMessage(m);
+    PoolGameObject::ReceiveMessage(m);
   }
 }
 

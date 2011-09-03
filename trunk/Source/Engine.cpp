@@ -118,7 +118,6 @@ Added to repository
 #include "HeightServer.h"
 #include "Shadow.h"
 #include "BasicShadow.h"
-#include "BlockShadow.h"
 #include "EarthquakeServer.h"
 #include "TextWriter.h"
 #include "TextFactory.h"
@@ -130,11 +129,15 @@ Added to repository
 #include "StringUtils.h"
 #include "Font.h"
 #include "Number3d.h"
+#include <Timer.h>
+#include <Screen.h>
 #include "SchAssert.h"
 
 #if defined(SCENE_EDITOR)
 #include "EngineStateNull.h"
 #endif
+
+#define USE_AMJULIB_TIMER
 
 using namespace std;
 
@@ -239,6 +242,10 @@ int Engine::GetWindowX() const
 int Engine::GetWindowY() const
 {
   return m_viewportY;
+}
+
+void Engine::Draw2d()
+{
 }
 
 Player* Engine::GetPlayer()
@@ -454,7 +461,7 @@ void Engine::StartGame(const string& savedGameName)
     //std::cout << "Resetting game object " << it->first << "\n";
 #endif
     //GameObjectId id = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     Assert(pGo.GetPtr());
     pGo->SetState(UNKNOWN);
   }
@@ -551,7 +558,7 @@ GameObjectMap& Engine::GetGameObjects(int levelId, int roomId)
   return m;
 }
 
-PGameObject Engine::GetGameObject(GameObjectId gid)
+PPoolGameObject Engine::GetGameObject(GameObjectId gid)
 {
   // Don't add null pointer to map if ID is bad.
   if (m_objectMap.find(gid) == m_objectMap.end())
@@ -569,7 +576,7 @@ PGameObject Engine::GetGameObject(GameObjectId gid)
 void Engine::GameObjectChangeRoom(GameObjectId id, int newRoomId)
 {
   // Get object for ID.
-  PGameObject pGo = GetGameObject(id);
+  PPoolGameObject pGo = GetGameObject(id);
   int levelId = pGo->GetLevel()->GetId();
   int oldRoomId = pGo->GetRoomId();
   // Make sure object has new room ID set.
@@ -589,7 +596,7 @@ void Engine::ClearGameObject(int id)
 {
   // TODO make sure ID is valid.
 
-  PGameObject pGo = GetGameObject(id);
+  PPoolGameObject pGo = GetGameObject(id);
   m_objectMap.erase(id);
   GameObjectMap& m = GetGameObjects(pGo->GetLevel()->GetId(), pGo->GetRoomId());
   m.erase(id);
@@ -597,7 +604,7 @@ void Engine::ClearGameObject(int id)
 //  m_pCurrentState->ClearObject(id);
 }
 
-void Engine::HoldGameObject(int levelId, int roomId, PGameObject pGo)
+void Engine::HoldGameObject(int levelId, int roomId, PPoolGameObject pGo)
 {
   int objId = pGo->GetId();
 
@@ -857,13 +864,6 @@ bool Engine::Load()
         ReportError("Failed to load basic shadow.");
         return false;
       }
-
-      if (!BlockShadow::Init())
-      {
-        count = -1;
-        ReportError("Failed to load block shadow.");
-        return false;
-      }
     }
     ++count;
     return false;
@@ -971,6 +971,59 @@ std::cout << "Loading golf courses...\n";
 
   Mouse::SetCursor(Mouse::STANDARD);
 
+  return true;
+}
+
+bool Engine::OnCursorEvent(const CursorEvent& ce)
+{
+  // Convert from -1..1 to  screen space
+  int x = (ce.x + 1) * Screen::X() / 2;
+  int y = (1 - ce.y) * Screen::Y() / 2;  // invert
+std::cout << "Got cursor event x: " << ce.x << " y: " << ce.y << " -> x: " << x << " y: " << y << "\n";
+  MousePos(x, y);
+  return true;
+}
+
+bool Engine::OnMouseButtonEvent(const MouseButtonEvent& mbe)
+{
+//std::cout << "Got MB event\n";
+  if (mbe.button == AMJU_BUTTON_MOUSE_LEFT)
+  {
+    MouseButton(mbe.isDown, false, false);  
+  }
+  return true;
+}
+
+bool Engine::OnButtonEvent(const ButtonEvent& be)
+{
+  switch (be.button)
+  {
+  case AMJU_BUTTON_A:
+    Green(be.isDown);
+    break;
+  case AMJU_BUTTON_B:
+    Blue(be.isDown);
+    break;
+  case AMJU_BUTTON_C:
+    Red(be.isDown);
+    break;
+  case AMJU_BUTTON_D:
+    break;
+  case AMJU_BUTTON_LEFT:
+    PlusLeft(be.isDown);
+    break;
+  case AMJU_BUTTON_RIGHT:
+    PlusRight(be.isDown);
+    break;
+  case AMJU_BUTTON_UP:
+    PlusUp(be.isDown);
+    break;
+  case AMJU_BUTTON_DOWN:
+    PlusDown(be.isDown);
+    break;
+  default:
+    break;
+  }
   return true;
 }
 
@@ -1149,6 +1202,10 @@ bool Engine::IsMouseEnabled() const
 
 float Engine::GetDeltaTime() const
 {
+#ifdef USE_AMJULIB_TIMER
+  return TheTimer::Instance()->GetDt(); // amjulib version
+#else
+
   // Pool online: fixed dt
 #ifdef POOL_ONLINE
 
@@ -1160,7 +1217,9 @@ float Engine::GetDeltaTime() const
   return DELTA_TIME;
 #else
   return m_deltaTime;
-#endif
+#endif  // POOL_ONLINE
+
+#endif // USE_AMJULIB_TIMER
 }
 
 void Engine::SetElapsedTime(double secs)
@@ -1297,6 +1356,7 @@ void Engine::DoLetterbox()
 {
   if (m_letterbox == 0)
   {
+    AmjuGL::SetPerspectiveProjection(FIELD_OF_VIEW, ASPECT_RATIO, NEAR_PLANE, FAR_PLANE);
     return;
   }
 
@@ -1559,13 +1619,15 @@ void Engine::PopColour()
 void Engine::InitFrame()
 {
   AmjuGL::SetClearColour(Colour(m_clearR, m_clearG, m_clearB, 1.0f));
-  AmjuGL::InitFrame();
+
+// Already called by Game::Draw
+//  AmjuGL::InitFrame();
 
   // Should be unnecessary, but may fix letterbox issue found on Intel iMac, 4/5/2006
   AmjuGL::Viewport(0, 0, m_viewportX, m_viewportY);
 
   // Do GL initialisation before we draw the frame.
-  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
+//  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
   AmjuGL::Enable(AmjuGL::AMJU_BLEND);
 
   // Set the modelview matrix
@@ -1575,6 +1637,7 @@ void Engine::InitFrame()
 
 void Engine::InitGl()
 {
+/*
   // Set the projection matrix
   AmjuGL::SetMatrixMode(AmjuGL::AMJU_PROJECTION_MATRIX);
   AmjuGL::SetIdentity();
@@ -1600,6 +1663,7 @@ void Engine::InitGl()
   {
     AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
   }
+*/
 }
 
 void Engine::Fps()
@@ -1762,7 +1826,7 @@ void Engine::GameOver()
   // want NPCs etc to behave stupidly during the death sequence.
   for (GameObjectMap::iterator it = m_objectMap.begin(); it != m_objectMap.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     Assert(pGo.GetPtr());
     if (pGo.GetPtr())
     {

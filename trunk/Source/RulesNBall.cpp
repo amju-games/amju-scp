@@ -86,7 +86,7 @@ Move Rules variants to separate files
 
 namespace Amju
 {
-GameObject* CreateRulesNBall()
+PoolGameObject* CreateRulesNBall()
 {
   return new RulesNBall;
 }

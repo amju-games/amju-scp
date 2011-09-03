@@ -45,7 +45,7 @@ public:
   virtual void OnRoomEntry();
   virtual void Reset();
   virtual void BallsHaveStopped();
-  virtual void BallHitsObject(PoolBall* pBall, GameObject* pObj);
+  virtual void BallHitsObject(PoolBall* pBall, PoolGameObject* pObj);
 
 protected:
   virtual void GivePlayerFoulAward();
@@ -62,7 +62,7 @@ protected:
   // I.e. things like animals, blocks, etc.
   // For trick shots, a shot is only a foul if you don't hit _anything_ 
   // -- hitting a non-ball object counts ok.
-  std::vector<GameObject*> m_objectsHitThisShot;
+  std::vector<PoolGameObject*> m_objectsHitThisShot;
 
 #if defined(SCENE_EDITOR)
 public:

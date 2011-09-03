@@ -67,7 +67,7 @@ protected:
   float GetShadowZ(int index);
 
 protected:
-  static Texture* s_pTexture;
+  static PoolTexture* s_pTexture;
 
   typedef std::vector<Polygon> ShadowList;
   ShadowList m_list;

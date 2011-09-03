@@ -217,7 +217,7 @@ bool BillBoard::Load(File* pf)
     pf->ReportError("Expected billboard texture.");
     return false;
   }
-  m_pTexture->CreateBinding(Texture::REGULAR);
+  m_pTexture->CreateBinding(PoolTexture::REGULAR);
 
   if (!pf->GetFloat(&m_size))
   {

@@ -39,14 +39,14 @@ namespace Amju
 {
 class TextureLoader;
 
-class Texture 
+class PoolTexture 
 {
   // Textures are constructed by the Texture Server only.
   friend class TextureServer;  // j.c. 23/4/00
 
 private :
-  Texture();
-  ~Texture();
+  PoolTexture();
+  ~PoolTexture();
 
 public: 
 
@@ -85,7 +85,7 @@ public:
 
   // Misc
   int IsValid();
-  int SameSize(Texture *pTexture);
+  int SameSize(PoolTexture *pTexture);
   int BGRtoRGB(void);
   int HigherPowerOfTwo(int value);
   int LowerPowerOfTwo(int value);
@@ -94,7 +94,7 @@ public:
   bool HasAlpha() { return (m_Depth == 32); }
   int AddAlphaLayer(unsigned char alpha);
   int SetAlphaLayer(unsigned char alpha);
-  int PutAlpha(Texture *pTexture);   // Put an alpha layer from grey scale
+  int PutAlpha(PoolTexture *pTexture);   // Put an alpha layer from grey scale
 
   // Buffer
   int ReadBuffer(unsigned char *buffer, int width, int height, int depth);
@@ -103,12 +103,12 @@ public:
   // Bitmask operations
   // Perform bitwise-and with argument texture, modifying the contents
   // of this texture.
-  void AndMask(Texture*);  
+  void AndMask(PoolTexture*);  
 
   // Set this texture to a rectangle of pTex. 
   // The new size of this texture will be (w, h).
   // The top left corner of this texture is set to texel(x, y) of pTex.
-  void SetFromTexture(Texture* pTex, int x, int y, int w, int h);
+  void SetFromTexture(PoolTexture* pTex, int x, int y, int w, int h);
 
   // Force the width and height of the texture to powers of two.
   void MakePowerOfTwoSize();
@@ -136,8 +136,8 @@ private:
     bool m_bindingset; // set to true once CreateBinding() has been called.
 
     // Not assignable or copyable.
-    Texture(const Texture&);
-    Texture& operator=(const Texture&);
+    PoolTexture(const PoolTexture&);
+    PoolTexture& operator=(const PoolTexture&);
 };
 }
 #endif // _TEXTURE_

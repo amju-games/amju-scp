@@ -20,9 +20,8 @@ Added to repository
 namespace Amju
 {
 class SolidComponent;
-class Texture;
+class PoolTexture;
 class WallPoly;
-class File;
 
 // Abstract Base class for animated meshes.
 // "Character" is a bad name, as a mesh may look like anything.

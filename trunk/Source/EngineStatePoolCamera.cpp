@@ -51,7 +51,7 @@ static const bool registered= Engine::Instance()->
 
 void OnCameraReturn()
 {
-  PGameObject pGo = Engine::Instance()->GetGameObject(
+  PPoolGameObject pGo = Engine::Instance()->GetGameObject(
     Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_id);
   Orientation ballOr = *(GetBall()->GetOrientation());
   pGo->SetOrientation(ballOr);
@@ -75,7 +75,7 @@ void EngineStatePoolCamera::SetActive(bool active)
     // Otherwise the ball and character will move around when Camera State
     // is flipped on and off.
     // See corresponding code in EngineStatePoolSetUpShot.
-    PGameObject pGo = GetEngine()->GetGameObject(
+    PPoolGameObject pGo = GetEngine()->GetGameObject(
       GetEngine()->GetGameState()->GetCurrentPlayerInfo()->m_id);
     Orientation ballOr = *(GetBall()->GetOrientation());
     pGo->SetOrientation(ballOr);

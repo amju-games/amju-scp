@@ -21,15 +21,12 @@ Added to repository
 #include "Level.h"
 #include "Frustum.h"
 #include "BasicShadow.h"
-#include "Platform.h"
 #include "RotateHelper.h"
 
 namespace Amju
 {
 VisibleGameObject::VisibleGameObject()
 {
-  m_pActivePlatform = 0;
-
   m_oldx = -1000.0f; // So we initially populate the HeightServer.
   m_oldy = -1000.0f;
   m_oldz = -1000.0f;
@@ -43,7 +40,7 @@ VisibleGameObject::VisibleGameObject()
 void VisibleGameObject::Update()
 {
   RefreshHeightServer();
-
+/*
   // Platforms
   if (m_pActivePlatform)
   {
@@ -79,8 +76,10 @@ void VisibleGameObject::Update()
     o += deltaO;
     SetOrientation(o);
   }
+*/
 }
 
+/*
 void VisibleGameObject::SetActivePlatform(Platform* p)
 {
   // j.c. 10/5/2004 - Pool - improved so that the platform is only
@@ -119,6 +118,7 @@ void VisibleGameObject::SetActivePlatform(Platform* p)
     m_pActivePlatform = 0; // ? Causes problems ?
   }
 }
+*/
 
 void VisibleGameObject::CreateShadow()
 {

@@ -44,7 +44,7 @@ class PoolExplBall : public PoolBall
 public:
   virtual const char* GetTypeName() const;
   virtual void SetState(State newState);
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
   virtual void Draw();
   virtual void CullDraw(Frustum*);
   virtual bool Load(File* pFile);

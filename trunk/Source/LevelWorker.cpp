@@ -230,7 +230,7 @@ std::string LevelWorker::GetInfoString() const
   return m_infoString;
 }
 
-void LevelWorker::AddGameObject(Level* pLevel, GameObject* pGo)
+void LevelWorker::AddGameObject(Level* pLevel, PoolGameObject* pGo)
 {
   GetFactory()->SetWorkerForObject(this, pGo->GetId());
   pLevel->AddGameObject(pGo);

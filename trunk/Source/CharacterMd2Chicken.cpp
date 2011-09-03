@@ -26,9 +26,9 @@ void CharacterMd2Chicken::CreateSkinBinding()
   // Two skins, normal and blinking
   Assert(m_skins.size() == 2);
   // Closed eyes
-  m_skins[0]->CreateBinding(Texture::REGULAR);
+  m_skins[0]->CreateBinding(PoolTexture::REGULAR);
   // Open eyes
-  m_skins[1]->CreateBinding(Texture::REGULAR);
+  m_skins[1]->CreateBinding(PoolTexture::REGULAR);
 }
 
 void CharacterMd2Chicken::BindSkin()

@@ -26,7 +26,7 @@ class PoolBonus : public Bonus
 public:
   PoolBonus();
   virtual const char* GetTypeName() const;
-  virtual void HandleObjectCollision(GameObject*);
+  virtual void HandleObjectCollision(PoolGameObject*);
   virtual void OnRoomEntry();
 };
 }

@@ -13,13 +13,13 @@ Added to repository
 #include "SharedPtr.h"
 #include "BoundingBox.h"
 #include "Orientation.h"
+#include "GameObject.h"
 
 namespace Amju
 {
 class File;
 class Level;
 class LevelFactory;
-class GameObject;
 
 class LevelWorker : public Shareable
 {
@@ -55,7 +55,7 @@ protected:
   // Add the given game object to the given level.
   // Also keep track of which LevelWorker added the game object to the Level.
   // (The map is held by the LevelFactory which owns this LevelWorker.)
-  void AddGameObject(Level* pLevel, GameObject* pGo);
+  void AddGameObject(Level* pLevel, PoolGameObject* pGo);
 
   // Choose a new random orientation, where the given bounding box doesn't
   // intersect anything else in the cube map.

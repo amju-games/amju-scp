@@ -33,11 +33,11 @@ class Orientation;
 // GameObject is the base class for stateful game things, like missiles,
 // characters, the player, etc. It receives messages, and also has a
 // location.
-class GameObject : public MessageRecipient
+class PoolGameObject : public MessageRecipient
 {
 public:
-  GameObject();
-  virtual ~GameObject();
+  PoolGameObject();
+  virtual ~PoolGameObject();
 
   // Pure virtuals
   // -------------
@@ -66,7 +66,7 @@ public:
   virtual void HandlePlayerCollision(CharacterGameObject* pPlayer) {}
 
   // Called when pObj collides with this object.
-  virtual void HandleObjectCollision(GameObject* pObj) {}
+  virtual void HandleObjectCollision(PoolGameObject* pObj) {}
 
   virtual void SetOrientation(const Orientation&) {}
 
@@ -93,7 +93,7 @@ public:
   // Returns true if this GameObject intersects with the other GameObject.
   // POOL: Virtual, so we can do special capsule intersection test for
   // pool balls.
-  virtual bool Intersects(const GameObject& g);
+  virtual bool Intersects(const PoolGameObject& g);
 
 
   // Non virtuals
@@ -152,9 +152,9 @@ public:
 #endif
 };
 
-typedef SharedPtr<GameObject> PGameObject;
+typedef SharedPtr<PoolGameObject> PPoolGameObject;
 typedef int GameObjectId;
-typedef std::map<GameObjectId, PGameObject> GameObjectMap;
+typedef std::map<GameObjectId, PPoolGameObject> GameObjectMap;
 }
 #endif
 

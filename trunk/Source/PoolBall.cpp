@@ -244,12 +244,12 @@ namespace Amju
 {
 using namespace Geom2d;
 
-GameObject* CreatePoolBall()
+PoolGameObject* CreatePoolBall()
 {
   return new PoolBall;
 }
 
-GameObject* CreateCueBall()
+PoolGameObject* CreateCueBall()
 {
   return new CueBall;
 }
@@ -934,7 +934,7 @@ std::cout << "COLLISION: Exact pos 1: " << ToString(this->GetBoundingSphere()->G
     }
 }
 
-void PoolBall::HandleObjectCollision(GameObject* pObj)
+void PoolBall::HandleObjectCollision(PoolGameObject* pObj)
 {
   // Don't do anything if ball is out of play, right ?
   if (!InPlay(this))
@@ -988,11 +988,11 @@ std::cout << "Local client: ball intersects pocket, but do nothing until we get 
   pObj->HandleObjectCollision(this);
 }
 
-bool PoolBall::Intersects(const GameObject& g)
+bool PoolBall::Intersects(const PoolGameObject& g)
 {
   static const float radius = GetBoundingSphere()->GetRadius();
 
-  const GameObject* pGo = &g;
+  const PoolGameObject* pGo = &g;
   const PoolBall* pB = dynamic_cast<const PoolBall*>(pGo);
   if (!pB)
   {
@@ -1594,7 +1594,7 @@ void PoolBall::RefreshHeightServer()
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     //GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     if (pGo.GetPtr() == this)
     {

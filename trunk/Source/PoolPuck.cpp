@@ -17,7 +17,7 @@ Add 'puck' - non-pottable block which slides around.
 
 namespace Amju
 {
-GameObject* CreatePoolPuck()
+PoolGameObject* CreatePoolPuck()
 {
   return new PoolPuck;
 }
@@ -27,7 +27,7 @@ const char* PoolPuck::GetTypeName() const
   return "pool-puck";
 }
 
-void PoolPuck::HandleObjectCollision(GameObject* pObj)
+void PoolPuck::HandleObjectCollision(PoolGameObject* pObj)
 {
   PoolBall::HandleObjectCollision(pObj);
 }

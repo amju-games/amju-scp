@@ -34,7 +34,7 @@ public:
   virtual bool Load(File*);
   virtual void Update();
   virtual void OnRoomEntry();
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
   virtual void SetState(State newState);
   virtual void CullDraw(Frustum*);
   virtual void Draw();

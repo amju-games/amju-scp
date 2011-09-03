@@ -29,10 +29,10 @@ public:
   virtual bool AddFeature(Level*);
   virtual bool RemoveFeature(); 
 
-  void SetGameObject(PGameObject);
+  void SetGameObject(PPoolGameObject);
 
 protected:
-  PGameObject m_pGo;
+  PPoolGameObject m_pGo;
 };
 }
 

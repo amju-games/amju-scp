@@ -11,7 +11,7 @@ Added to repository
 
 namespace Amju
 {
-// Mix-in subclass for classes which update a progress bar. 
+// Mix-in class for classes which update a progress bar. 
 class ProgressCaller
 {
 public:

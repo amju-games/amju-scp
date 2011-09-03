@@ -144,7 +144,7 @@ static const float DRAW_Y = 2.0f;
 
 PoolBehaviour::ValidShot::ValidShot(
   ShotType shotType, 
-  GameObject* pTargetObject, 
+  PoolGameObject* pTargetObject, 
   PoolHole* pPocket, 
   Geom2d::Point2d* pRailPos, 
   BoundingSphere* pGhostBall,
@@ -649,8 +649,8 @@ bool PoolBehaviour::IsLos(
   const VertexBase& v1,
   const VertexBase& v2, 
   float r,
-  GameObject* p1, 
-  GameObject* p2,
+  PoolGameObject* p1, 
+  PoolGameObject* p2,
   bool showDebug) 
 {
   // Check LOS between two points.
@@ -677,7 +677,7 @@ bool PoolBehaviour::IsLos(
   
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   { 
-    GameObject* pGo = it->second.GetPtr();
+    PoolGameObject* pGo = it->second.GetPtr();
     if (pGo == p1 || pGo == p2)
     {
       continue;
@@ -717,7 +717,7 @@ if (showDebug)
   return true;
 }
 
-bool PoolBehaviour::IsLos(GameObject* p1, GameObject* p2) 
+bool PoolBehaviour::IsLos(PoolGameObject* p1, PoolGameObject* p2) 
 {
   // Find LOS between the two objects. Need to account for
   // - static scene
@@ -786,7 +786,7 @@ void PoolBehaviour::FindPockets()
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   { 
-    GameObject* pGo = it->second.GetPtr();
+    PoolGameObject* pGo = it->second.GetPtr();
     PoolHole* pHole = dynamic_cast<PoolHole*>(pGo);
     if (pHole)
     {
@@ -1536,12 +1536,12 @@ void PoolBehaviour::CalcJumpShot(
   }
 }
 
-GameObject* PoolBehaviour::GetAimTarget()
+PoolGameObject* PoolBehaviour::GetAimTarget()
 {
   return &m_target; 
 }
 
-GameObject* PoolBehaviour::GetTargetObject() 
+PoolGameObject* PoolBehaviour::GetTargetObject() 
 {
   return m_pTargetObject.GetPtr();
 }
@@ -1624,7 +1624,7 @@ PoolBehaviour::ValidBalls PoolBehaviourUs8Ball::GetValidBalls()
   
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObject* pGo = it->second.GetPtr(); 
+    PoolGameObject* pGo = it->second.GetPtr(); 
     if (IsPoolBall(pGo))
     {
       PoolBall* pBall = dynamic_cast<PoolBall*>(pGo);
@@ -1710,7 +1710,7 @@ PoolBehaviour::ValidBalls PoolBehaviourUk::GetValidBalls()
   
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObject* pGo = it->second.GetPtr(); 
+    PoolGameObject* pGo = it->second.GetPtr(); 
     if (IsPoolBall(pGo))
     {
       PoolBall* pBall = dynamic_cast<PoolBall*>(pGo);

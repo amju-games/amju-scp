@@ -64,7 +64,7 @@ bool TextureSequence::Load(
   {
     return false;
   }
-  m_pTexture->CreateBinding(Texture::REGULAR, false /* clamp, don't wrap */);
+  m_pTexture->CreateBinding(PoolTexture::REGULAR, false /* clamp, don't wrap */);
   return true;
 }
 

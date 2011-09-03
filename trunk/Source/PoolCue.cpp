@@ -143,7 +143,7 @@ bool PoolCue::Intersects()
   // Iterate through map of Game Objects.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     PoolBall* pBall = dynamic_cast<PoolBall*>(pGo.GetPtr());
     if (pBall && !IsCueBall(pBall))
     {

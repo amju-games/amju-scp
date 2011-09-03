@@ -666,7 +666,7 @@ void FreeMovingGameObject::RefreshHeightServer()
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     //GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     if (pGo.GetPtr() == this)
     {

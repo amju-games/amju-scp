@@ -16,7 +16,6 @@ Added to repository
 #include "Common.h"
 #include "Engine.h"
 #include "PoolGameState.h"
-#include "GameObjectFactory.h"
 #include "Stupid.h"
 #include "Level.h"
 #include "Controller.h"
@@ -25,13 +24,6 @@ using namespace std;
 
 namespace Amju
 {
-/*
-// Register creation function with Game Object Factory
-GameObject* CreateBean() { return new Bean; }
-static const bool isBeanRegistered = GameObjectFactory::Instance()->
-  RegisterFactoryFunction("bean", CreateBean);
-*/
-
 Bean::Bean()
 {
   m_pExplosion = new ExplosionEffectMulticolour;

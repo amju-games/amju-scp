@@ -19,7 +19,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 class File;
 class HeightServer;
 class PolyLoader;

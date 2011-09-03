@@ -223,7 +223,7 @@ void Stupid::Update()
   // POOL: Draw the 'hidden' object above the character
   if (GetState() == UNKNOWN)
   {
-    PGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
+    PPoolGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
     if (pGo.GetPtr())
     {
       Orientation o = *(GetOrientation());
@@ -312,7 +312,7 @@ void Stupid::OnRoomEntry()
 */
   // Make sure the hidden object is hidden
   // POOL: make ball un-collidable until it falls into play
-  PGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
+  PPoolGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
   if (pGo.GetPtr())
   {
     pGo->SetState(DEAD);
@@ -325,7 +325,7 @@ void Stupid::OnRoomEntry()
   SetForwardVel(v); 
 }
 
-void Stupid::HandleObjectCollision(GameObject* pObj)
+void Stupid::HandleObjectCollision(PoolGameObject* pObj)
 {
   if (!pObj)
   {
@@ -385,7 +385,7 @@ void Stupid::HandleObjectCollision(GameObject* pObj)
   //AddToScore(1000); // TODO CONFIG
 
   // Un-hide the hidden object WITH A MESSAGE
-  PGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
+  PPoolGameObject pGo = Engine::Instance()->GetGameObject(m_hiddenId);
   if (pGo.GetPtr())
   {
     // TODO TEMP TEST
@@ -501,7 +501,7 @@ void Stupid::RefreshHeightServer()
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     //GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     if (pGo.GetPtr() == this)
     {

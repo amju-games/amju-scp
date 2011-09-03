@@ -18,8 +18,6 @@ Added to repository
 #include "CompositeFactory.h"
 #include "Engine.h"
 #include "Matrix.h"
-#include "Locator.h"
-#include "GameObjectFactory.h"
 #include "PoolGameState.h"
 #include "Frustum.h"
 #include "StringUtils.h"
@@ -324,7 +322,7 @@ bool Level::LoadGameObjects(File* pf)
     pf->ReportError(info);
 #endif
 
-    PGameObject pGo;// = GameObjectFactory::Instance()->Create(gameObjectType);
+    PPoolGameObject pGo;// = GameObjectFactory::Instance()->Create(gameObjectType);
     if (!pGo.GetPtr())
     {
       pf->ReportError("Bad type name.");
@@ -396,7 +394,7 @@ bool Level::SaveGameObjects(File* pf)
       pf->WriteComment("// Game Object ID");
       pf->WriteInteger(jt->first);
 
-      PGameObject pGo = jt->second;
+      PPoolGameObject pGo = jt->second;
 
       pf->WriteComment("// Game Object type name");
       pf->Write(pGo->GetTypeName());
@@ -427,12 +425,12 @@ void Level::RefreshObjects()
   // TODO This requires us to store the game objects here. 
   for (GameObjectList::iterator it = m_gameObjects.begin(); it != m_gameObjects.end(); ++it)
   {
-    PGameObject pGo = *it;
+    PPoolGameObject pGo = *it;
     Engine::Instance()->HoldGameObject(m_levelId, pGo->GetRoomId(), pGo);
   }
 }
 
-void Level::AddGameObject(PGameObject pGo)
+void Level::AddGameObject(PPoolGameObject pGo)
 {
   // Create Bounding Sphere for game object. (Used for VFC and collision.)
   Matrix m;

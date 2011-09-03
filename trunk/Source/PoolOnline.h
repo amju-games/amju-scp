@@ -132,10 +132,10 @@ Not finished; wrap communication with server for online games.
 #include "Xml/XmlNodeInterface.h"
 #include "HttpClient.h"
 #include "OnlineReqManager.h"
+#include "GameObject.h"
 
 namespace Amju
 {
-class GameObject;
 class Level;
 
 class PoolOnline

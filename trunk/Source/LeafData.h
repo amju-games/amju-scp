@@ -55,9 +55,9 @@ public:
   void MakeDisplayList();
 
   // Set Texture: used by Scene Editor.
-  void SetTexture(Texture* pTexture);
+  void SetTexture(PoolTexture* pTexture);
   // Get texture: the texture is owned by the TextureServer.
-  Texture* GetTexture();
+  PoolTexture* GetTexture();
 
   // Set the Texture Method: can be used by Scene Editor etc.
   // Allocate pTm on heap: ownership passes to this Leaf Data.

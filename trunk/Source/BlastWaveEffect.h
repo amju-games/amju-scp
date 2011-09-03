@@ -14,7 +14,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 
 // Expanding textured quad, which should look like a blast wave 
 // radiating from a point.
@@ -24,7 +24,7 @@ class BlastWaveEffect : public Effect
 public:
   BlastWaveEffect();
 
-  void Init(Texture* pBb, float speed, float maxTime, float xtilt, float ztilt);
+  void Init(PoolTexture* pBb, float speed, float maxTime, float xtilt, float ztilt);
 
   virtual bool Load(const std::string& filename);
   virtual void Reset(const VertexBase& centre);
@@ -33,7 +33,7 @@ public:
   bool IsDead() const;
 
 protected:
-  Texture* m_pTexture;
+  PoolTexture* m_pTexture;
   float m_speed;
   float m_maxTime;
   float m_time;

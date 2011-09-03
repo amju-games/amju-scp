@@ -26,7 +26,6 @@ Added to repository
 #include "PoolTeeBox.h"
 #include "File.h"
 #include "SolidComponent.h"
-#include "DecalShadow.h"
 #include "Engine.h"
 #include "TextureServer.h"
 
@@ -59,21 +58,6 @@ void PoolTeeBox::Draw()
 
 void PoolTeeBox::CreateShadow()
 {
-/* // POOL - not reqd
-
-  std::string bitmapname = Engine::Instance()->GetConfigValue("golf_tee_bm");
-  std::string alphaname = Engine::Instance()->GetConfigValue("golf_tee_alpha");
-
-  Texture* pTex = TextureServer::Instance()->Get(bitmapname, alphaname);
-  if (pTex)
-  {
-    pTex->CreateBinding(Texture::REGULAR);
-  }
-
-  DecalShadow* pShadow = new DecalShadow;
-  pShadow->SetTexture(pTex);
-  m_pShadow = pShadow;
-*/
 }
 
 void PoolTeeBox::SetOrientation(const Orientation& o)

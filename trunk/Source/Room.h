@@ -9,6 +9,7 @@ Added to repository
 #if !defined(ROOM_H_INCLUDED)
 #define ROOM_H_INCLUDED
 
+#include "GameObject.h"
 #include "Common.h"
 #include "SolidComponent.h"
 #include "States.h"
@@ -22,7 +23,6 @@ Added to repository
 namespace Amju
 {
 class Locator;
-class GameObject;
 class Character;
 class HeightServer;
 class Level;

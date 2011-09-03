@@ -50,7 +50,7 @@ Added destroyable block for CRAZY POOL
 
 namespace Amju
 {
-GameObject* CreatePoolBlock()
+PoolGameObject* CreatePoolBlock()
 {
   return new PoolBlock;
 }
@@ -136,13 +136,13 @@ bool PoolBlock::Load(File* pf)
 
   std::string strTex = Engine::Instance()->GetConfigValue("player_bw_texture");
   std::string strAlpha = Engine::Instance()->GetConfigValue("player_bw_alpha");
-  Texture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
+  PoolTexture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
   if (!pBwTex)
   {
     pf->ReportError("Failed to load blast wave texture.");
     return false;
   }
-  pBwTex->CreateBinding(Texture::REGULAR);
+  pBwTex->CreateBinding(PoolTexture::REGULAR);
   float speed = Engine::Instance()->GetConfigFloat("player_bw_speed");
   float time = Engine::Instance()->GetConfigFloat("player_bw_time");
   m_blastWave.Init(pBwTex, speed, time, 0, 0);
@@ -194,7 +194,7 @@ void PoolBlock::RecalcCollisionVol()
   m_pCollisionSolid->AddHeights(&m_collisionVolume, bs);
 }
 
-void PoolBlock::HandleObjectCollision(GameObject* pObj)
+void PoolBlock::HandleObjectCollision(PoolGameObject* pObj)
 {
   if (GetState() == DEAD ||
       GetState() == FADING ||
@@ -252,7 +252,7 @@ std::cout << "COLLISION - Cue Ball with PoolBlock!\n";
     for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
     {
       //GameObjectId gameObjId = it->first;
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
       VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
       if (pVis)
       {

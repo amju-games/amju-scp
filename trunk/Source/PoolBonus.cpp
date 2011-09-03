@@ -54,7 +54,7 @@ const char* PoolBonus::GetTypeName() const
   return "pool-bonus";
 }
 
-void PoolBonus::HandleObjectCollision(GameObject* pObj)
+void PoolBonus::HandleObjectCollision(PoolGameObject* pObj)
 {
   // If a ball hits this bonus, we explode, and create more heart bonuses
   // at each pocket.
@@ -97,7 +97,7 @@ void PoolBonus::HandleObjectCollision(GameObject* pObj)
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     //GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     PoolHole* p = dynamic_cast<PoolHole*>(pGo.GetPtr());
     if (p)
     {

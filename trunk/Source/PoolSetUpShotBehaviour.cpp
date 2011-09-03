@@ -185,7 +185,7 @@ void PoolSetUpShotBehaviour::CalcShot()
 
     for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
     {
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
   
       Bonus* pB = dynamic_cast<Bonus*>(pGo.GetPtr());
       if (pB && pB->GetState() == UNKNOWN)

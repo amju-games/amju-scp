@@ -78,12 +78,12 @@ public:
   void CalcShot();
 
   // Get the Object Ball.
-  GameObject* GetTargetObject();
+  PoolGameObject* GetTargetObject();
 
   // Get the target we want to aim at. This is usually the "ghost ball"
   // touching the object ball, but could be the position of a ghost
   // ball on a rail, for a shot which bounces off a rail.
-  GameObject* GetAimTarget();
+  PoolGameObject* GetAimTarget();
 
   // Get ball to display in HUD as the target ball.
   // May return zero if any ball may be hit.
@@ -163,7 +163,7 @@ protected:
   void FindPockets();
 
   // LOS between two objects ?
-  static bool IsLos(GameObject* p1, GameObject* p2);
+  static bool IsLos(PoolGameObject* p1, PoolGameObject* p2);
 
   // LOS between two points, using capsule of given radius ?
   // The two given GameObjects are ignored. This is so if you want to find
@@ -173,8 +173,8 @@ protected:
     const VertexBase&, 
     const VertexBase&, 
     float radius,
-    GameObject* p1, 
-    GameObject* p2,
+    PoolGameObject* p1, 
+    PoolGameObject* p2,
     bool showDebugOut = false);
 
   // Get pockets which the given ball has a clear line of sight to.
@@ -244,7 +244,7 @@ protected:
   float m_yRot;
 
   // The object ball we are aiming to hit with the cue ball.
-  PGameObject m_pTargetObject;
+  PPoolGameObject m_pTargetObject;
 
   // Ghost ball, touching object ball. 
   BoundingSphere m_ghostBall;
@@ -283,7 +283,7 @@ protected:
   struct ValidShot
   {
     float m_rank;
-    GameObject* m_pTargetObject;
+    PoolGameObject* m_pTargetObject;
     PoolHole* m_pPocket; // may be zero
     Geom2d::Point2d m_railPos; // rail pos for bounce/rail shots
     BoundingSphere m_ghostBall; 
@@ -301,7 +301,7 @@ protected:
     float m_hVel;
     float m_vVel;
 
-    ValidShot(ShotType, GameObject*, PoolHole*, Geom2d::Point2d*, BoundingSphere*, float rank);
+    ValidShot(ShotType, PoolGameObject*, PoolHole*, Geom2d::Point2d*, BoundingSphere*, float rank);
     void Draw();
     std::string ToString();
     // For sorting, to get the best shot

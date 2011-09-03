@@ -57,7 +57,7 @@ void SimpleTargetCamera::Update()
   m_lookAtPos = VertexBase(t.GetX(), t.GetY(), t.GetZ());
 }
 
-void SimpleTargetCamera::SetTarget(PGameObject pTarget)
+void SimpleTargetCamera::SetTarget(PPoolGameObject pTarget)
 {
   m_pTarget = pTarget;
   SetFollow(true);

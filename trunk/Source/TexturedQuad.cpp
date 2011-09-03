@@ -95,7 +95,7 @@ bool TexturedQuad::Load(const std::string& tex, const std::string& alpha)
   m_pTex = TextureServer::Instance()->Get(tex, alpha);
   if (m_pTex)
   {
-    m_pTex->CreateBinding(Texture::REGULAR);
+    m_pTex->CreateBinding(PoolTexture::REGULAR);
   }
   return (m_pTex != 0);
 }

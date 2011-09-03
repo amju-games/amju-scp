@@ -95,7 +95,7 @@ Move Rules variants to separate files
 
 namespace Amju
 {
-GameObject* CreateRulesUs8Ball()
+PoolGameObject* CreateRulesUs8Ball()
 {
   return new RulesUs8Ball;
 }
@@ -220,7 +220,7 @@ int RulesUs8Ball::GetNumBallsRemainingForPlayer()
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   { 
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     if (IsPoolBall(pGo.GetPtr()))
     {
       PoolBall* p = dynamic_cast<PoolBall*>(pGo.GetPtr());

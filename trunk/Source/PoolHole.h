@@ -32,7 +32,6 @@ Added to repository
 
 #include "SolidGameObject.h"
 #include "Target.h"
-#include "DecalShadow.h"
 #include "ExplosionEffect.h"
 
 namespace Amju
@@ -63,7 +62,7 @@ public:
   void SetIsNominated(bool b) { m_isNominated = b; }
   bool GetIsNominated() const { return m_isNominated; }
 
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
 
   // POOL
   // Bonuses - awarded if you get a valid ball in this pocket.

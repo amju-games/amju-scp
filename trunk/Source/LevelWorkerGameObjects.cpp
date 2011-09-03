@@ -50,7 +50,7 @@ bool LevelWorkerGameObjects::Load(File* pf)
   pf->ReportError(info);
 #endif
 
-  m_pGo = GameObjectFactory::Instance()->Create(name);
+  m_pGo = PoolGameObjectFactory::Instance()->Create(name);
   if (!m_pGo.GetPtr())
   {
     pf->ReportError("Bad type name.");
@@ -105,7 +105,7 @@ bool LevelWorkerGameObjects::Save(File* pf)
 }
 #endif
 
-void LevelWorkerGameObjects::SetGameObject(PGameObject p)
+void LevelWorkerGameObjects::SetGameObject(PPoolGameObject p)
 {
   m_pGo = p;
 }

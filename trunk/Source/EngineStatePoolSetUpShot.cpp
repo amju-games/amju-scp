@@ -357,7 +357,6 @@ Added to repository
 #include "Frustum.h"
 #include "LeafRenderer.h"
 #include "Mouse.h"
-#include "Platform.h"
 #include "StateStrings.h"
 #include "Rules.h"
 #include "NonHeadArea.h"
@@ -633,7 +632,7 @@ void EngineStatePoolSetUpShot::SetPlaceBallMode(bool b)
     SetBirdsEye(false);
 
     // Recalc. best target ball and face it  
-    GameObject* pTargetToFace = GetRules(m_pLevel.GetPtr())->GetBehaviour()->GetTargetObject();
+    PoolGameObject* pTargetToFace = GetRules(m_pLevel.GetPtr())->GetBehaviour()->GetTargetObject();
     Orientation o = *(GetBall()->GetOrientation());
     // Look at the cue ball, from a position on the opposite side
     // of the cue ball to the object ball.
@@ -914,7 +913,7 @@ std::cout << "SET START POSITIONS: Resetting cue bal pos to tee box \n";
   {  
     PoolGameState::PlayerInfo* pInfo = GetEngine()->GetGameState()->GetPlayerInfo(i);
     int id = pInfo->m_id;
-    PGameObject pGo = GetEngine()->GetGameObject(id);
+    PPoolGameObject pGo = GetEngine()->GetGameObject(id);
 
     // This fails if there are not enough player characters in the level :-(
     Assert(pGo.GetPtr());
@@ -1062,7 +1061,7 @@ std::cout << "Current player: "
 
   m_shotIsActive = false;
 
-  GetBall()->SetActivePlatform(0);
+  //GetBall()->SetActivePlatform(0);
   // check if tee is on a platform - this is done in SetActive()
 
   EngineStatePoolBase::CreateBonusesLeft();
@@ -1171,7 +1170,7 @@ std::cout << "CUE BALL POS OK: behindHeadstring: " << behindHeadstring << "\n";
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo1 = it->second;
+    PPoolGameObject pGo1 = it->second;
     State s = pGo1->GetState();
 
     if (InPlay(pGo1) && 
@@ -1740,7 +1739,7 @@ std::cout << "SET ACTIVE: Room ID: " << roomId << "\n";
     for (int i = 0; i < numPlayers; i++)
     {  
       int id = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_id;
-      PGameObject pGo = GetEngine()->GetGameObject(id);
+      PPoolGameObject pGo = GetEngine()->GetGameObject(id);
 
       // While we are here, make sure Engine list of objects has this
       // player character in the right room
@@ -1782,7 +1781,7 @@ std::cout << "SET ACTIVE: Room ID: " << roomId << "\n";
       // Hide the active player character, so we can see the cue and table ?
       // Or set translucent ??
       int id = GetEngine()->GetGameState()->GetCurrentPlayerInfo()->m_id;
-      PGameObject pGo = GetEngine()->GetGameObject(id);
+      PPoolGameObject pGo = GetEngine()->GetGameObject(id);
       ((PoolCharacter*)pGo.GetPtr())->SetAlpha(0);
     }
     else
@@ -1790,7 +1789,7 @@ std::cout << "SET ACTIVE: Room ID: " << roomId << "\n";
       GetEngine()->SetLetterbox(true);
       // Get the currently active NPC
       int id = GetEngine()->GetGameState()->GetCurrentPlayerInfo()->m_id;
-      PGameObject pGo = GetEngine()->GetGameObject(id);
+      PPoolGameObject pGo = GetEngine()->GetGameObject(id);
       ((PoolCharacter*)pGo.GetPtr())->SetAlpha(1.0f);
 
       GetRules(m_pLevel.GetPtr())->GetBehaviour()->SetNpc((CharacterGameObject*)pGo.GetPtr());
@@ -1822,7 +1821,7 @@ std::cout << "Not user controlled ? WTF ?\n";
 #endif
 
     // Face the object ball, from the opposite side of the cue ball.
-    GameObject* pTargetToFace = 0;
+    PoolGameObject* pTargetToFace = 0;
 
 #ifdef POOL_ONLINE
     //if (IsNonLocalPlayer())
@@ -2200,7 +2199,7 @@ void EngineStatePoolSetUpShot::Clear()
 {
 }
 
-void PlayerMoveAwayFrom(GameObject* p1, GameObject* p2)
+void PlayerMoveAwayFrom(PoolGameObject* p1, PoolGameObject* p2)
 {
   // p2 is stationary. We must move p1 away from p2 so they
   // do not intersect.
@@ -2347,7 +2346,7 @@ void EngineStatePoolSetUpShot::UpdatePlayerPositions()
   {  
     int id = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_id;
     bool isAlive = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_isPlaying;
-    PGameObject pGo = GetEngine()->GetGameObject(id);
+    PPoolGameObject pGo = GetEngine()->GetGameObject(id);
     if (isAlive)
     {
       players.push_back(pGo.GetPtr());
@@ -2631,6 +2630,7 @@ std::cout << "TAKING SHOT NOW with pool cue swing\n";
 
   // If the ball is on a platform it's imposssible to click on it.
   // Try moving the camera with the ball.
+/*
   Platform* pPlat = GetBall()->GetActivePlatform();
   if (pPlat)
   {
@@ -2674,7 +2674,7 @@ std::cout << "TAKING SHOT NOW with pool cue swing\n";
       GetCamera()->SetOrientation(oCam);
     }
   }
-
+*/
   // Make sure trajectory is correct on a moving platform
   // POOL: Not required
   //s_pTrajectory->SetBallPos(GetBall()->GetOrientation()->GetVertex());
@@ -2731,7 +2731,7 @@ void EngineStatePoolSetUpShot::AllFaceCueBall()
   {
     int id = GetEngine()->GetGameState()->GetPlayerInfo(i)->m_id;
 
-    PGameObject pGo = GetEngine()->GetGameObject(id); 
+    PPoolGameObject pGo = GetEngine()->GetGameObject(id); 
  
     // Get the current player Or: we only change the yRot here.
     Orientation to = *(pGo->GetOrientation()); 
@@ -2742,7 +2742,7 @@ void EngineStatePoolSetUpShot::AllFaceCueBall()
   }
 }
 
-void EngineStatePoolSetUpShot::FaceTarget(GameObject* pAnotherTarget)
+void EngineStatePoolSetUpShot::FaceTarget(PoolGameObject* pAnotherTarget)
 {
   // Rotate ball to face target - this is so the camera looks towards the
   // target from behind the ball.
@@ -3239,7 +3239,7 @@ void EngineStatePoolSetUpShot::TakeShotNowImpl(
 
   // Fix for #62 - ball must forget about the platform
   // it used to be on. Not 100% sure this fixes the bug.
-  pBall->SetActivePlatform(0);
+  ////pBall->SetActivePlatform(0);
 
   // POOL: Set english/ draw/roll
   static const float ENGLISH_VEL = Engine::Instance()->GetConfigFloat("pool_english_vel");

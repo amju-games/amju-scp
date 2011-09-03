@@ -54,7 +54,7 @@ void Player::FellFromHeight(float heightFallenFrom)
   //Engine::Instance()->GetEngineState()->TakeDamage(damage);
 }
 
-void Player::HandleObjectCollision(GameObject* pObj)
+void Player::HandleObjectCollision(PoolGameObject* pObj)
 {
 }
 

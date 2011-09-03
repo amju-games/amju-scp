@@ -16,7 +16,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 class File;
 
 // Very useful textured 2D quad, for overlays.
@@ -45,7 +45,7 @@ public:
 #endif
 
 protected:
-  Texture* m_pTex;
+  PoolTexture* m_pTex;
   // Set area of texture which is drawn.
   float m_areaTop, m_areaLeft, m_areaBottom, m_areaRight;
 };

@@ -60,7 +60,7 @@ Add Trick Shot rules
 
 namespace Amju
 {
-GameObject* CreateRulesTrickShot()
+PoolGameObject* CreateRulesTrickShot()
 {
   return new RulesTrickShot;
 }
@@ -79,7 +79,7 @@ PoolBehaviour::ValidBalls PoolBehaviourTrickShot::GetValidBalls()
  
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    GameObject* pGo = it->second.GetPtr();
+    PoolGameObject* pGo = it->second.GetPtr();
     if (IsPoolBall(pGo))
     {
       PoolBall* pBall = dynamic_cast<PoolBall*>(pGo);
@@ -305,7 +305,7 @@ void RulesTrickShot::SetProperties(const PropertyMap& pm)
 }
 #endif
 
-void RulesTrickShot::BallHitsObject(PoolBall* pBall, GameObject* pObj) 
+void RulesTrickShot::BallHitsObject(PoolBall* pBall, PoolGameObject* pObj) 
 {
   if (IsCueBall(pBall)) // ??
   { 

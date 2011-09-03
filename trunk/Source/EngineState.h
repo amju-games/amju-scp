@@ -133,7 +133,7 @@ public:
   // Special Event has occurred.
   virtual void OnSpecialEvent(SpecialEvent*) {}
 
-  virtual void AddObject(PGameObject) {}
+  virtual void AddObject(PPoolGameObject) {}
 
   // Return true if the Controls should be shown while this state is active.
   bool ShowControls() const;

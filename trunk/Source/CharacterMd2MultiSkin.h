@@ -31,7 +31,7 @@ protected:
   virtual void CreateSkinBinding() = 0;
 
 protected:
-  typedef std::vector<Texture*> Skins;
+  typedef std::vector<PoolTexture*> Skins;
   Skins m_skins;
 };
 }

@@ -38,7 +38,7 @@ public:
 
   // Add Game Object to the Level. (In fact the Engine holds all pointers to
   // GameObjects.)
-  void AddGameObject(PGameObject pGo);
+  void AddGameObject(PPoolGameObject pGo);
 
   // Re-add all objects in this level to the Engine.
   // This is to refresh a level without reloading it. 
@@ -174,7 +174,7 @@ public:
 protected:
   // New: store the game objects here, so we can instantly 'reload' the 
   // level if required.
-  typedef std::vector<PGameObject> GameObjectList;
+  typedef std::vector<PPoolGameObject> GameObjectList;
   GameObjectList m_gameObjects;
 
 };

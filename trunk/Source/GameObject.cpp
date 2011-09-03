@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GameObject.cpp,v $
+$Log: PoolGameObject.cpp,v $
 Revision 1.1.10.4  2007/12/10 22:58:12  jay
 Turn off some debug output
 
@@ -8,7 +8,7 @@ Revision 1.1.10.3  2007/06/23 11:43:15  Administrator
 MSVC fix
 
 Revision 1.1.10.2  2007/06/17 20:37:06  jay
-POOL ONLINE: Add flag to GameObject to send state to server this frame.
+POOL ONLINE: Add flag to PoolGameObject to send state to server this frame.
 Moved from PoolBall because other types may need to send their state, e.g. Rules
 
 Revision 1.1.10.1  2005/05/08 08:03:41  jay
@@ -33,7 +33,7 @@ Added to repository
 
 namespace Amju
 {
-GameObject::GameObject() :
+PoolGameObject::PoolGameObject() :
   m_room(0),
   m_pLevel(0),
   m_isTranslucent(false),
@@ -42,16 +42,16 @@ GameObject::GameObject() :
   SetState(UNKNOWN);
 }
 
-GameObject::~GameObject()
+PoolGameObject::~PoolGameObject()
 {
 }
 
-bool GameObject::SendStateThisFrame() const
+bool PoolGameObject::SendStateThisFrame() const
 {
   return m_sendStateThisFrame;
 }
 
-void GameObject::SetSendState(bool send)
+void PoolGameObject::SetSendState(bool send)
 {
 #ifdef SET_SEND_DEBUG
   if (send)
@@ -65,11 +65,11 @@ void GameObject::SetSendState(bool send)
   m_sendStateThisFrame = send;
 }
 
-bool GameObject::Intersects(const GameObject& g) 
+bool PoolGameObject::Intersects(const PoolGameObject& g) 
 {
   // Return true if the bounding sphere of the other Game Object intersects the
   // bounding sphere of this one.
-  const BoundingSphere* pBs = const_cast<GameObject&>(g).GetBoundingSphere();
+  const BoundingSphere* pBs = const_cast<PoolGameObject&>(g).GetBoundingSphere();
   if (GetBoundingSphere() && pBs)
   {
     return GetBoundingSphere()->Intersects(*pBs);
@@ -77,7 +77,7 @@ bool GameObject::Intersects(const GameObject& g)
   return false;
 }
 
-void GameObject::DrawSphere()
+void PoolGameObject::DrawSphere()
 {
   BoundingSphere* pBs = const_cast<BoundingSphere*>(GetBoundingSphere());
   if (pBs)
@@ -86,23 +86,23 @@ void GameObject::DrawSphere()
   }
 }
 
-const Orientation* GameObject::GetOrientation()
+const Orientation* PoolGameObject::GetOrientation()
 {
   return 0;
 }
 
-VertexBase GameObject::GetPosition() const
+VertexBase PoolGameObject::GetPosition() const
 {
-  Assert(const_cast<GameObject*>(this)->GetOrientation());
-  return const_cast<GameObject*>(this)->GetOrientation()->GetVertex();
+  Assert(const_cast<PoolGameObject*>(this)->GetOrientation());
+  return const_cast<PoolGameObject*>(this)->GetOrientation()->GetVertex();
 }
 
-bool GameObject::IsTranslucent() const
+bool PoolGameObject::IsTranslucent() const
 {
   return m_isTranslucent;
 }
 
-bool GameObject::Load(const std::string& filename)
+bool PoolGameObject::Load(const std::string& filename)
 {
   File f;
   if (!f.OpenRead(filename))
@@ -112,7 +112,7 @@ bool GameObject::Load(const std::string& filename)
   return Load(&f);
 }
 
-void GameObject::DrawEditSolid()
+void PoolGameObject::DrawEditSolid()
 {
   static PSolidComponent pComp;
   if (!pComp.GetPtr())

@@ -170,7 +170,7 @@ void FileCheckState::DrawOverlays()
     e->GetTextWriter()->Print(0, 1, "© Copyright 2005-2007 Amju Games");
     e->GetTextWriter()->Print(0, 2, "Please visit www.amju.com for updates and more games!");        
 
-#ifdef MACOSX
+#ifdef SHOW_FULLSCREEN_TEXT
     // Tell user that + and - keys change full screen resolution
     if (IsFullScreen())
     {

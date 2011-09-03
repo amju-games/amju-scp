@@ -43,7 +43,7 @@ public:
   virtual bool Load(File* pFile);
   virtual void OnRoomEntry();
   virtual void CullDraw(Frustum*);
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
   virtual void RecalcCollisionVol();
   // Returns 0 if we are 'DEAD', i.e. exploding
   virtual const HeightServer* GetCollisionVol() const;

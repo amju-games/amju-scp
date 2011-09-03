@@ -39,7 +39,6 @@ Added to repository
 #include "SchAssert.h"
 #include "KeymapPrinter.h"
 #include "LevelServer.h"
-#include "Platform.h"
 
 using namespace std;
 
@@ -621,7 +620,7 @@ void EngineRunning::ShowStats()
   GetEngine()->GetTextWriter()->ScrollPrint(buf);
   //sprintf(buf, "Action: %s", GetPlayer()->GetCharacter()->GetActionName().c_str());
   //GetEngine()->GetTextWriter()->ScrollPrint(buf);
-
+/*
   // Active platform
   Platform* p = GetPlayer()->GetActivePlatform();
   if (p)
@@ -633,7 +632,7 @@ void EngineRunning::ShowStats()
   {
     GetEngine()->GetTextWriter()->ScrollPrint("No active platform");
   }
-
+*/
   // Is Falling status
   if (GetPlayer()->IsFalling())
   {
@@ -674,7 +673,7 @@ void EngineRunning::PlayerFellOffWorldTest()
     // We must zero the player's velocity etc.
     GetPlayer()->SetForwardVel(0);
     GetPlayer()->SetYRotateVel(0);
-    GetPlayer()->SetActivePlatform(0); // TODO does this prevent resetting to on a platform ?
+    //GetPlayer()->SetActivePlatform(0); // TODO does this prevent resetting to on a platform ?
     GetPlayer()->SetFalling(false);
   }
 }
