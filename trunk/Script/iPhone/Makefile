@@ -3,11 +3,11 @@ $(error "Please set AMJULIB_IPHONE_SCRIPT_PATH in your environment.")
 endif
 
 APP		:=	AmjuSCP
-NICE_NAME	:=	AmjuSCP
+NICE_NAME	:=	Amju_SCP
 
 BUILD		:=	../../Build/iPhoneBuild
 TARGET		:=	$(BUILD)/$(APP)
-AMJU      	:= 	../../../../amjulib/Source
+AMJU      	:= 	../../../amjulib/Source
 SOURCES		:=	../../Source
 RUNDIR 		:=	../../Build/CompiledAssets
 APP_DIR		:= 	$(BUILD)/$(NICE_NAME).app
