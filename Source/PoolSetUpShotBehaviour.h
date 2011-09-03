@@ -37,7 +37,7 @@ public:
   virtual void Update();
   virtual void OnActivated();
 
-  GameObject* GetTargetObject() { return m_pTargetObject.GetPtr(); }
+  PoolGameObject* GetTargetObject() { return m_pTargetObject.GetPtr(); }
 
   void CalcShot();
 
@@ -48,7 +48,7 @@ protected:
   float m_yRot;
 
   // The object we are aiming to hit with the ball.
-  PGameObject m_pTargetObject;
+  PPoolGameObject m_pTargetObject;
 };
 }
 

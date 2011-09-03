@@ -26,7 +26,7 @@ class PoolPuck : public PoolBall
 {
 public:
   virtual const char* GetTypeName() const;
-  virtual void HandleObjectCollision(GameObject*);
+  virtual void HandleObjectCollision(PoolGameObject*);
   virtual void Draw();
 };
 }

@@ -21,7 +21,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 class VisibleGameObject;
 
 // Draws a shadow on the ground. This is complicated because the ground under 

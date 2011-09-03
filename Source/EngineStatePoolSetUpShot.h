@@ -189,7 +189,7 @@ protected:
   void FaceBall();
 
   // Make sure cue ball faces object ball or point on rail etc.
-  void FaceTarget(GameObject* pAnotherTarget);
+  void FaceTarget(PoolGameObject* pAnotherTarget);
 
   // Make the non-active character(s) look at the cue ball.
   void AllFaceCueBall();

@@ -175,7 +175,7 @@ std::cout << "Rules::SetState: object " << GetId()
   << " new state: " << StateStrings[newState]  << "\n";
 #endif
 
-  GameObject::SetState(newState);
+  PoolGameObject::SetState(newState);
 
   if (newState == FOUL)
   {
@@ -545,7 +545,7 @@ int Rules::GetNumBallsRemainingForPlayer()
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     // Only count PoolBalls - not special subclassed objects.
     if (IsPoolBall(pGo.GetPtr()) && !IsCueBall(pGo.GetPtr()))
     {

@@ -86,8 +86,8 @@ class PoolCharacter;
 class SolidGameObject;
 
 // Convenience functions to check if a ball is in play, i.e. still on the table.
-bool InPlay(PGameObject p);
-bool InPlay(GameObject* pGo);
+bool InPlay(PPoolGameObject p);
+bool InPlay(PoolGameObject* pGo);
 
 // Call to start playing a hole. I.e. at game start, and
 // then whenever the players start a new hole.
@@ -153,12 +153,12 @@ Rules* GetRules(Level*);
 PoolBall* GetLowestBall(Level*);
 
 // Return true if the given ball is the cue ball.
-bool IsCueBall(GameObject*);
+bool IsCueBall(PoolGameObject*);
 
 // Returns true if given obejct is a PoolBall or CueBall.
 // This is useful because special "crazy" objects derive from PoolBall,
 // but should not be treated as valid balls.
-bool IsPoolBall(GameObject*);
+bool IsPoolBall(PoolGameObject*);
 
 // Set up demo level and start 2 AIs playing.
 void StartDemoMode();

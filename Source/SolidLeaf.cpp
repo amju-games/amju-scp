@@ -201,12 +201,12 @@ bool SolidLeaf::DeletePolygon(Polygon* p)
   return m_pLeafData->DeletePolygon(p);
 }
 
-void SolidLeaf::SetTexture(Texture* pTexture)
+void SolidLeaf::SetTexture(PoolTexture* pTexture)
 {
   m_pLeafData->SetTexture(pTexture);
 }
 
-Texture* SolidLeaf::GetTexture() 
+PoolTexture* SolidLeaf::GetTexture() 
 { 
   if (!m_pLeafData)
   {

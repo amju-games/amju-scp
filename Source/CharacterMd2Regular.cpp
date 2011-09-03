@@ -24,7 +24,7 @@ Character* CharacterMd2Regular::Clone() const
 void CharacterMd2Regular::CreateSkinBinding()
 {
   Assert(m_skins.size() == 1);
-  m_skins[0]->CreateBinding(Texture::REGULAR);
+  m_skins[0]->CreateBinding(PoolTexture::REGULAR);
 }
 
 void CharacterMd2Regular::BindSkin()

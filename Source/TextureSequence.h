@@ -41,8 +41,7 @@ public:
   int GetTextureHeight();
 
 protected:
-  //unsigned int m_displayList; 
-  Texture* m_pTexture; // the texure data, (owned by TextureServer).
+  PoolTexture* m_pTexture; // the texure data, (owned by TextureServer).
   int m_numElements;
   int m_numElementsX;
   int m_numElementsY;

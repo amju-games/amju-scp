@@ -229,7 +229,7 @@ bool PoolHole::Load(File* pf)
   return true;
 }
 
-void PoolHole::HandleObjectCollision(GameObject* pObj)
+void PoolHole::HandleObjectCollision(PoolGameObject* pObj)
 {
   if (!pObj)
   {

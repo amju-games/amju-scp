@@ -46,8 +46,8 @@ bool Bomb::Load(File* pf)
   BlastWaveEffect* pBlastWave = new BlastWaveEffect;
   string strTex = Engine::Instance()->GetConfigValue("player_bw_texture");
   string strAlpha = Engine::Instance()->GetConfigValue("player_bw_alpha");
-  Texture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
-  pBwTex->CreateBinding(Texture::REGULAR);
+  PoolTexture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
+  pBwTex->CreateBinding(PoolTexture::REGULAR);
   pBlastWave->Init(pBwTex, 40.0f, 3.0f, 0, 0);
   m_fx.push_back(pBlastWave); 
 
@@ -207,7 +207,7 @@ void Bomb::Detonate()
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     Croc* pCroc = dynamic_cast<Croc*>(pGo.GetPtr()); 
     if (!pCroc)
     {

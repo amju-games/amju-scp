@@ -37,7 +37,7 @@ bool CharacterMd2MultiSkin::Load(File* pf)
 
   for (int i = 0; i < numSkins; i++)
   {
-    Texture* pTex = TextureServer::Instance()->Get(pf);
+    PoolTexture* pTex = TextureServer::Instance()->Get(pf);
     if (!pTex)
     {
       pf->ReportError("Failed to load skin.");

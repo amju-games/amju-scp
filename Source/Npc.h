@@ -34,10 +34,10 @@ public:
   virtual void HandlePlayerCollision(CharacterGameObject* pPlayer);
 
   // Collision with another Game Object. 
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
 
   // Call to tell this NPC what it should be chasing.
-  virtual void SetTarget(GameObject*) {}
+  virtual void SetTarget(PoolGameObject*) {}
 
   // Checks all Game Objects for collision. Call whenever something moves, I suppose.
   void CheckCharacterCollisions();

@@ -77,8 +77,8 @@ public:
   TextureMethod* GetTextureMethod(); 
   void SetTextureMethod(TextureMethod* );
 
-  Texture* GetTexture();
-  void SetTexture(Texture* pTexture);
+  PoolTexture* GetTexture();
+  void SetTexture(PoolTexture* pTexture);
 
   void CreateNormals(bool smooth);
   

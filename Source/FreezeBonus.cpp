@@ -44,7 +44,7 @@ const char* FreezeBonus::GetTypeName() const
   return "freezebonus";
 }
 
-void FreezeBonus::HandleObjectCollision(GameObject* pObj)
+void FreezeBonus::HandleObjectCollision(PoolGameObject* pObj)
 {
   if (!pObj)
   {
@@ -77,7 +77,7 @@ void FreezeBonus::HandleObjectCollision(GameObject* pObj)
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     Stupid* pStupid = dynamic_cast<Stupid*>(pGo.GetPtr());
     if (pStupid && pStupid->GetState() == UNKNOWN)

@@ -41,11 +41,11 @@ void EngineStatePoolText::Update()
  
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     if (InPlay(pGo))
     {
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
       // Check camera collision
       if (pCam->Intersects(*(pGo.GetPtr())))
       {

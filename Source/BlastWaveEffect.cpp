@@ -78,7 +78,7 @@ bool BlastWaveEffect::Load(const std::string& fileName)
   return true;
 }
 
-void BlastWaveEffect::Init(Texture* pTex, float speed, float maxTime, float xtilt, float ztilt)
+void BlastWaveEffect::Init(PoolTexture* pTex, float speed, float maxTime, float xtilt, float ztilt)
 {
   m_pTexture = pTex;
   m_maxTime = maxTime;

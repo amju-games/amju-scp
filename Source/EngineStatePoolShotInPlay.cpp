@@ -233,7 +233,7 @@ void EngineStatePoolShotInPlay::SetActive(bool active)
     GameObjectMap::iterator it;
     for (it = objs.begin(); it != objs.end(); ++it)
     {
-      PGameObject pGo1 = it->second;
+      PPoolGameObject pGo1 = it->second;
       PoolBall* p = dynamic_cast<PoolBall*>(pGo1.GetPtr());
       if (p)
       {
@@ -261,7 +261,7 @@ void EngineStatePoolShotInPlay::SetActive(bool active)
     ShotLog("Initial positions of all balls follow:");
     for (it = objs.begin(); it != objs.end(); ++it)
     {
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
       PoolBall* pBall = dynamic_cast<PoolBall*>(pGo.GetPtr());
       if (pBall)
       {
@@ -304,7 +304,7 @@ void EngineStatePoolShotInPlay::SetActive(bool active)
     // Done already
     //GetActivePlayer()->SetActionGo();
 
-    GetBall()->SetActivePlatform(0);
+    ////GetBall()->SetActivePlatform(0);
 
     VertexBase v = GetBall()->GetOrientation()->GetVertex();
     v.y += 0.1f;
@@ -370,7 +370,7 @@ void EngineStatePoolShotInPlay::NonBallPairTest()
    
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo1 = it->second;
+    PPoolGameObject pGo1 = it->second;
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
 
     if (InPlay(pGo1))
@@ -379,7 +379,7 @@ void EngineStatePoolShotInPlay::NonBallPairTest()
       ++jt;
       for (; jt != objs.end(); ++jt)
       {
-        PGameObject pGo2 = jt->second;
+        PPoolGameObject pGo2 = jt->second;
         PoolBall* pBall2 = dynamic_cast<PoolBall*>(pGo2.GetPtr());
         if (pBall1 && pBall2)
         {
@@ -416,7 +416,7 @@ bool EngineStatePoolShotInPlay::BallCollisionTest(
    
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo1 = it->second;
+    PPoolGameObject pGo1 = it->second;
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
 
     if (pBall1 && InPlay(pBall1))
@@ -425,7 +425,7 @@ bool EngineStatePoolShotInPlay::BallCollisionTest(
       ++jt;
       for (; jt != objs.end(); ++jt)
       {
-        PGameObject pGo2 = jt->second;
+        PPoolGameObject pGo2 = jt->second;
 
         Assert(pGo1.GetPtr() != pGo2.GetPtr());
 
@@ -462,7 +462,7 @@ bool EngineStatePoolShotInPlay::BallCollisions()
    
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo1 = it->second;
+    PPoolGameObject pGo1 = it->second;
     PoolBall* pBall1 = dynamic_cast<PoolBall*>(pGo1.GetPtr());
 
     if (pBall1 && InPlay(pBall1))
@@ -486,7 +486,7 @@ bool EngineStatePoolShotInPlay::BallCollisions()
       ++jt;
       for (; jt != objs.end(); ++jt)
       {
-        PGameObject pGo2 = jt->second;
+        PPoolGameObject pGo2 = jt->second;
         Assert(pGo1.GetPtr() != pGo2.GetPtr());
         PoolBall* pBall2 = dynamic_cast<PoolBall*>(pGo2.GetPtr());
 
@@ -610,7 +610,7 @@ std::cout << " Earliest t: " << earliest << "\n";
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second; 
+    PPoolGameObject pGo = it->second; 
     PoolBall* pBall = dynamic_cast<PoolBall*>(pGo.GetPtr());
     if (pBall && pBall != p1 && pBall != p2)
     {
@@ -683,7 +683,7 @@ std::cout << "Have not yet reached final frame sent (current: "
    
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo1 = it->second;
+    PPoolGameObject pGo1 = it->second;
     PoolBall* pBall = dynamic_cast<PoolBall*>(pGo1.GetPtr());
     if (pBall && InPlay(pBall))
     {
@@ -708,7 +708,7 @@ void EngineStatePoolShotInPlay::ResetSendStateFlags()
    
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     pGo->SetSendState(false);
     // NB if true, does send all ball states every frame. 
 
@@ -832,7 +832,7 @@ std::cout << "** Balls have stopped --- this is the end of the shot **\n";
     GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
     for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
     {
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
       PoolBall* pBall = dynamic_cast<PoolBall*>(pGo.GetPtr());
       if (pBall)
       {

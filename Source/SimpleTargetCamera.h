@@ -29,12 +29,12 @@ public:
 
   virtual void OnMouseDrag(int x, int dy);
 
-  void SetTarget(PGameObject pTarget);
+  void SetTarget(PPoolGameObject pTarget);
 
   void SetFollow(bool follow);
 
 protected:
-  PGameObject m_pTarget;
+  PPoolGameObject m_pTarget;
 
   // If true, follow the current object (if there is one).
   // If false, the active object moves without being followed.

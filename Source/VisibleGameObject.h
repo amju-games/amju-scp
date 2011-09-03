@@ -16,9 +16,8 @@ Added to repository
 namespace Amju
 {
 class Frustum;
-class Platform;
 
-class VisibleGameObject : public GameObject
+class VisibleGameObject : public PoolGameObject
 {
 public:
   VisibleGameObject();
@@ -62,10 +61,10 @@ public:
 
   // Set pointer to the Platform the character is on. If the character is not
   // on a platform, set to 0.
-  void SetActivePlatform(Platform* p);
+//  void SetActivePlatform(Platform* p);
   
   // Get platform Character is on, or 0.
-  Platform* GetActivePlatform() { return m_pActivePlatform; }
+//  Platform* GetActivePlatform() { return m_pActivePlatform; }
 
   // Redo the collision volume height server when the object moves.
   // NB Public so we can call this from EngineState when we need to reset
@@ -101,7 +100,7 @@ protected:
   // Platforms
   // ---------
   // Point to any platform this object is currently on.
-  Platform* m_pActivePlatform; 
+//  Platform* m_pActivePlatform; 
 
 
 };

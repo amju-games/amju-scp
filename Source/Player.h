@@ -26,7 +26,7 @@ public:
   virtual void FellFromHeight(float heightFallenFrom);
 
   // Collision with another Game Object. 
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
 
   virtual bool Load(File*); // override GameObject load
 

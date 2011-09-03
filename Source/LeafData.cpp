@@ -56,7 +56,7 @@ void LeafData::Clear()
   m_polygons.clear();
 }
 
-void LeafData::SetTexture(Texture* pTexture)
+void LeafData::SetTexture(PoolTexture* pTexture)
 {
   Assert(m_pTextureMethod.GetPtr());
   if (m_pTextureMethod.GetPtr()) // TODO unnecessary check
@@ -65,7 +65,7 @@ void LeafData::SetTexture(Texture* pTexture)
   }
 }
 
-Texture* LeafData::GetTexture()
+PoolTexture* LeafData::GetTexture()
 {
   Assert(m_pTextureMethod.GetPtr());
   if (m_pTextureMethod.GetPtr())

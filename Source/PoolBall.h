@@ -99,7 +99,7 @@ public:
   // Override this so we can tell when a moving ball is outside the view frustum.
   virtual void CullDraw(Frustum*);
 
-  virtual void HandleObjectCollision(GameObject* pObj);
+  virtual void HandleObjectCollision(PoolGameObject* pObj);
 
   // Lose some momentum when we bounce off a wall. 
   // Also sound FX.
@@ -117,7 +117,7 @@ public:
 
   // Override Intersects so we can check the capsule makde by a moving 
   // ball. 
-  virtual bool Intersects(const GameObject& );
+  virtual bool Intersects(const PoolGameObject& );
 
   // Override FreeMovingGameObject version because we need better
   // accuracy.

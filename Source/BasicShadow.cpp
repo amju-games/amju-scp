@@ -27,7 +27,7 @@ extern "C"
 
 namespace Amju
 {
-Texture* BasicShadow::s_pTexture;
+PoolTexture* BasicShadow::s_pTexture;
 
 bool BasicShadow::Init()
 {
@@ -37,7 +37,7 @@ bool BasicShadow::Init()
   s_pTexture = TextureServer::Instance()->Get(bitmapname, alphaname); 
   if (s_pTexture)
   {
-    s_pTexture->CreateBinding(Texture::REGULAR);
+    s_pTexture->CreateBinding(PoolTexture::REGULAR);
   }
   else 
   {

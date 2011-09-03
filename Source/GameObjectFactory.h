@@ -14,19 +14,19 @@ Added to repository
 
 namespace Amju
 {
-class GameObject;
+class PoolGameObject;
 // This should simply be a typedef for Factory<GameObject>.
 // But Registering functions with the Factory using statics
 // isn't working using MSVC.
-class GameObjectFactory
+class PoolGameObjectFactory
 {
 public:
-  static GameObjectFactory* Instance();
+  static PoolGameObjectFactory* Instance();
   
-  GameObject* Create(const std::string& gameObjectName);
+  PoolGameObject* Create(const std::string& gameObjectName);
 
 private:
-  GameObjectFactory();
+  PoolGameObjectFactory();
 
 
 #if defined(SCENE_EDITOR)

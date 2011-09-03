@@ -32,12 +32,12 @@ void TextureMethod::Bind()
   }
 }
 
-Texture* TextureMethod::GetTexture() 
+PoolTexture* TextureMethod::GetTexture() 
 {
   return m_pTexture; 
 }
 
-void TextureMethod::SetTexture(Texture* p)
+void TextureMethod::SetTexture(PoolTexture* p)
 { 
   m_pTexture = p; 
 
@@ -99,7 +99,7 @@ bool TexMethodRegular::Load(File* pf)
   {
     return false;
   }
-  m_pTexture->CreateBinding(Texture::REGULAR);
+  m_pTexture->CreateBinding(PoolTexture::REGULAR);
   return true;
 }
  
@@ -179,7 +179,7 @@ bool TexMethodAuto::Load(File* pf)
   {
     return false;
   }
-  m_pTexture->CreateBinding(Texture::AUTO_GENERATE);
+  m_pTexture->CreateBinding(PoolTexture::AUTO_GENERATE);
   return true;
 }
 
@@ -247,7 +247,7 @@ bool TexMethodEnv::Load(File* pf)
   {
     return false;
   }
-  m_pTexture->CreateBinding(Texture::ENV_MAP);
+  m_pTexture->CreateBinding(PoolTexture::ENV_MAP);
   return true;
 }
 
@@ -296,7 +296,7 @@ bool TexMethodRegularClamp::Load(File* pf)
     return false;
   }
   // NB false parameter below means CLAMP.
-  m_pTexture->CreateBinding(Texture::REGULAR, false);
+  m_pTexture->CreateBinding(PoolTexture::REGULAR, false);
   return true;
 }
 

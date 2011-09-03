@@ -149,12 +149,12 @@ Added to repository
 
 namespace Amju
 {
-bool InPlay(PGameObject p)
+bool InPlay(PPoolGameObject p)
 {
   return InPlay(p.GetPtr());
 }
 
-bool InPlay(GameObject* pGo)
+bool InPlay(PoolGameObject* pGo)
 {
   return 
     (pGo->GetState() != OUT_OF_PLAY &&
@@ -228,7 +228,7 @@ PoolTeeBox* GetTeeBox(Level* pLevel)
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     PoolTeeBox* pTee = dynamic_cast<PoolTeeBox*>(pGo.GetPtr());
     if (pTee)
@@ -253,7 +253,7 @@ PoolHole* GetPoolHole(Level* pLevel)
   // Iterate through map of Game Objects. 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     PoolHole* pHole = dynamic_cast<PoolHole*>(pGo.GetPtr());
     if (pHole)
@@ -284,7 +284,7 @@ void BallInHole()
 PoolCharacter* GetActivePlayer()
 {
   int id = Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_id;
-  GameObject* pGo = Engine::Instance()->GetGameObject(id).GetPtr();
+  PoolGameObject* pGo = Engine::Instance()->GetGameObject(id).GetPtr();
   Assert(pGo);
   CharacterGameObject* pChar = dynamic_cast<CharacterGameObject* >(pGo);
   Assert(pChar);
@@ -570,7 +570,7 @@ SolidGameObject* GetNonHeadArea(Level* pLevel)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     NonHeadArea* p = dynamic_cast<NonHeadArea*>(pGo.GetPtr());
     if (p)
@@ -592,7 +592,7 @@ Rules* GetRules(Level* pLevel)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     Rules* p = dynamic_cast<Rules*>(pGo.GetPtr());
     if (p)
@@ -607,7 +607,7 @@ std::cout << "GetRules(): No rules found. List of objects in Level: "
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     std::cout << " Obj: " << gameObjId << " (" << pGo->GetTypeName() << ")\n";
   }
 #endif
@@ -626,7 +626,7 @@ PoolBall* GetNumberBall(Level* pLevel, int number)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     PoolBall* p = dynamic_cast<PoolBall*>(pGo.GetPtr());
     if (p && p->GetNumber() == number)
     {
@@ -649,7 +649,7 @@ PoolBall* GetLowestBall(Level* pLevel)
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     if (IsPoolBall(pGo.GetPtr()))
     {
       PoolBall* p = dynamic_cast<PoolBall*>(pGo.GetPtr());
@@ -667,13 +667,13 @@ PoolBall* GetLowestBall(Level* pLevel)
   return pResult;
 }
 
-bool IsCueBall(GameObject* p)
+bool IsCueBall(PoolGameObject* p)
 {
-  //return (dynamic_cast<CueBall*>(p) != 0); 
-  return (p->GetId() == 10); // TODO total HACK
+  return (dynamic_cast<CueBall*>(p) != 0); 
+  //return (p->GetId() == 10); // TODO total HACK
 }
 
-bool IsPoolBall(GameObject* p)
+bool IsPoolBall(PoolGameObject* p)
 {
   return (dynamic_cast<PoolBall*>(p)  &&  
           !dynamic_cast<PoolExplBall*>(p) &&

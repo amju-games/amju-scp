@@ -14,7 +14,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 
 // Character loaded from an MD2 file.
 // This is an abstract base class; it just provides Mesh drawing and animation.

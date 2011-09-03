@@ -27,7 +27,7 @@ public:
   virtual const char* GetTypeName() const;
 
   virtual void HandlePlayerCollision(CharacterGameObject* pPlayer);
-  virtual void HandleObjectCollision(GameObject* );
+  virtual void HandleObjectCollision(PoolGameObject* );
   virtual void Update();
   virtual void Draw();
   virtual void CullDraw(Frustum*); // for explosion effect

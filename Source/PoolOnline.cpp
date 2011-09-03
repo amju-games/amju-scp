@@ -1771,7 +1771,7 @@ void PoolOnline::SendObjectStateChangesThisFrame()
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     Assert(pGo.GetPtr());
     if (pGo->SendStateThisFrame())
     {
@@ -1807,7 +1807,7 @@ std::cout << "Setting game object with state from server. Frame: "
   << ":\n";
 #endif
 
-      PGameObject pGo = Engine::Instance()->GetGameObject(obj.m_id);
+      PPoolGameObject pGo = Engine::Instance()->GetGameObject(obj.m_id);
       if (!pGo.GetPtr())
       {
 #ifdef _DEBUG

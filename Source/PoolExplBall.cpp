@@ -44,7 +44,7 @@ Add exploding balls for crazy pool
 
 namespace Amju
 {
-GameObject* CreatePoolExplBall()
+PoolGameObject* CreatePoolExplBall()
 {
   return new PoolExplBall;
 }
@@ -124,7 +124,7 @@ std::cout << "Bomb " << GetId() << " exploding now!\n";
   m_isDetonating = false;
 }
 
-void PoolExplBall::HandleObjectCollision(GameObject* pObj)
+void PoolExplBall::HandleObjectCollision(PoolGameObject* pObj)
 {
 //  if (GetState() != UNKNOWN)
 //  {
@@ -243,13 +243,13 @@ bool PoolExplBall::Load(File* pf)
   // Load blast wave
   std::string strTex = Engine::Instance()->GetConfigValue("player_bw_texture");
   std::string strAlpha = Engine::Instance()->GetConfigValue("player_bw_alpha");
-  Texture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
+  PoolTexture* pBwTex = TextureServer::Instance()->Get(strTex, strAlpha);
   if (!pBwTex)
   {
     pf->ReportError("Failed to load blast wave texture.");
     return false; 
   }
-  pBwTex->CreateBinding(Texture::REGULAR);
+  pBwTex->CreateBinding(PoolTexture::REGULAR);
   float speed = Engine::Instance()->GetConfigFloat("player_bw_speed");
   float time = Engine::Instance()->GetConfigFloat("player_bw_time");
   m_blastWave.Init(pBwTex, speed, time, 0, 0);

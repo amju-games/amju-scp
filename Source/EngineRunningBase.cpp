@@ -43,7 +43,6 @@ Added to repository
 #include "CharacterManager.h"
 #include "Mgc/MgcSegment3.h"
 #include <string>
-#include "Platform.h"
 #include "SchAssert.h"
 
 using namespace std;
@@ -302,11 +301,11 @@ void EngineRunningBase::UpdateGameObjects()
   // platform they are on.
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
-    if (!dynamic_cast<Platform*>(pGo.GetPtr()))
-    {
-      continue;
-    }
+    PPoolGameObject pGo = it->second;
+    //if (!dynamic_cast<Platform*>(pGo.GetPtr()))
+    //{
+    //  continue;
+    //}
 
     // Don't bother with more costly dynamic_cast - we know it's visible.
     VisibleGameObject* pVgo = (VisibleGameObject*)pGo.GetPtr();
@@ -330,11 +329,11 @@ void EngineRunningBase::UpdateGameObjects()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
-    if (dynamic_cast<Platform*>(pGo.GetPtr()))
-    {
-      continue;
-    }
+    PPoolGameObject pGo = it->second;
+    //if (dynamic_cast<Platform*>(pGo.GetPtr()))
+    //{
+    //  continue;
+    //}
 
     if (pGo->IsVisible())
     {
@@ -384,7 +383,7 @@ void EngineRunningBase::DrawGameObjectShadows()
   // to see if it has been collected/killed/whatever.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     if (pGo->IsVisible())
     {
       VisibleGameObject* pVgo = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
@@ -420,7 +419,7 @@ void EngineRunningBase::DrawGameObjects(bool translucent)
   // to see if it has been collected/killed/whatever.
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     if (pGo->IsVisible() && pGo->IsTranslucent() == translucent)
     {
       VisibleGameObject* pVgo = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
@@ -476,7 +475,7 @@ void EngineRunningBase::PlayerCollisionTest()
     return;
   }
 
-  GetPlayer()->SetActivePlatform(0);
+////  GetPlayer()->SetActivePlatform(0);
 
   // Iterate over the game objects which are in the current level/room.
   int levelId = m_pLevel->GetId();
@@ -487,7 +486,7 @@ void EngineRunningBase::PlayerCollisionTest()
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
  
     State s = pGo->GetState();
 
@@ -513,7 +512,7 @@ void EngineRunningBase::PlayerCollisionTest()
 }
 
 /*
-void EngineRunningBase::ObjectCollisionTest(GameObject* pObj)
+void EngineRunningBase::ObjectCollisionTest(PoolGameObject* pObj)
 {
   // If the given object (probably a Takeable)
   // intersects with another object (a Locator), perform any action
@@ -533,13 +532,13 @@ void EngineRunningBase::ObjectCollisionTest(GameObject* pObj)
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
     GameObjectId gameObjId = it->first;
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     State s = pGo->GetState();
     //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     if (s != OUT_OF_PLAY)
     {
-      PGameObject pGo = it->second;
+      PPoolGameObject pGo = it->second;
       if (pObj != pGo.GetPtr() && pObj->Intersects(*(pGo.GetPtr())))
       {
         pGo->HandleObjectCollision(pObj);
@@ -617,6 +616,7 @@ void EngineRunningBase::OnNewRoom()
 
 void EngineRunningBase::SetUpPlatforms()
 {
+/*
   // For all Visible game objects, find out if they are starting off on a platform.
   // Get the game objects which are in the same room as the player.
   int levelId = m_pLevel->GetId();
@@ -627,11 +627,11 @@ void EngineRunningBase::SetUpPlatforms()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
     if (pVis)
     {
-      pVis->SetActivePlatform(0);
+      ///pVis->SetActivePlatform(0);
       // This fixes problem where platforms' collision volumes were not
       // generated.
       pVis->RecalcCollisionVol(); 
@@ -640,11 +640,11 @@ void EngineRunningBase::SetUpPlatforms()
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     for (GameObjectMap::iterator jt = objs.begin(); jt != objs.end(); ++jt)
     {
-      PGameObject pGo2 = jt->second;
+      PPoolGameObject pGo2 = jt->second;
 
       VisibleGameObject* pVis = dynamic_cast<VisibleGameObject*>(pGo.GetPtr());
       Platform* pPlat = dynamic_cast<Platform*>(pGo2.GetPtr());
@@ -655,6 +655,7 @@ void EngineRunningBase::SetUpPlatforms()
       }
     }
   }
+*/
 }
 
 void EngineRunningBase::SetPlayerRoom(int roomId)
@@ -672,7 +673,7 @@ void EngineRunningBase::SetPlayerRoom(int roomId)
 
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     pGo->SetLevel(m_pLevel.GetPtr());
 

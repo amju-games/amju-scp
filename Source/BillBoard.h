@@ -12,7 +12,7 @@ Added to repository
 #include "SolidLeaf.h"
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 
 // A billboard Leaf always faces the camera directly.
 class BillBoard : public SolidLeaf
@@ -38,7 +38,7 @@ public:
   void SetVertical(bool vertical) { m_vertical = vertical; }
 
 protected:
-  Texture* m_pTexture;
+  PoolTexture* m_pTexture;
   // The size is the size from the origin to the edge, i.e. like the radius.
   float m_size;
   // If true, the billboard is always vertical; othewise can be non-vertical to

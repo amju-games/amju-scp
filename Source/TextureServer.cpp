@@ -44,7 +44,7 @@ TextureServer::~TextureServer()
   //Clear();
 }
 
-void TextureServer::DeleteTexture(Texture* p)
+void TextureServer::DeleteTexture(PoolTexture* p)
 {
   // Very dicey: any existing pointers to the texture will be pointing to
   // garbage!
@@ -53,7 +53,7 @@ void TextureServer::DeleteTexture(Texture* p)
        it != m_texmap.end(); 
        ++it)
   {
-    Texture* pt = (*it).second;
+    PoolTexture* pt = (*it).second;
     if (pt == p)
     {
       delete pt;
@@ -71,7 +71,7 @@ void TextureServer::Clear()
        it != m_texmap.end(); 
        ++it)
   {
-    Texture* pt = (*it).second;
+    PoolTexture* pt = (*it).second;
     delete pt;
   }
   m_texmap.clear();
@@ -108,14 +108,14 @@ bool TextureServer::Save(File* pf, Texture* pTex)
 }
 #endif
 
-Texture* TextureServer::CreateNewTexture(
+PoolTexture* TextureServer::CreateNewTexture(
   const std::string& bitmapname,
   const std::string& alphafilename)
 {
   // Try to find the texture filename in the map.
   TexturesMap::iterator it = m_texmap.find(bitmapname);
 
-  Texture* pTex = 0;
+  PoolTexture* pTex = 0;
 
   // If we have already loaded the texture, we may be changing the 
   // alpha layer.
@@ -128,7 +128,7 @@ Texture* TextureServer::CreateNewTexture(
   }
   else
   {
-    pTex = new Texture;
+    pTex = new PoolTexture;
     pTex->SetFileName(bitmapname);
     m_texmap[bitmapname] = pTex;
   }
@@ -138,7 +138,7 @@ Texture* TextureServer::CreateNewTexture(
   return pTex;
 }
 
-Texture* TextureServer::Get(const string& texturefile, const string& alphafile)
+PoolTexture* TextureServer::Get(const string& texturefile, const string& alphafile)
 {
   string lookupname = texturefile;
   lookupname += "@"; // to separate the two filenames. See ReloadAll().
@@ -152,7 +152,7 @@ Texture* TextureServer::Get(const string& texturefile, const string& alphafile)
     return (*it).second;
 
   // Texture not found. We create it, and add the pair to the map.
-  Texture* pt = new Texture;
+  PoolTexture* pt = new PoolTexture;
 
   // No loader - but we can still have a texture object, for scene editor.
   pt->SetAlphaFilename(alphafile);
@@ -194,7 +194,7 @@ Texture* TextureServer::Get(const string& texturefile, const string& alphafile)
   return pt;
 }
 
-Texture* TextureServer::Get(File* pf)
+PoolTexture* TextureServer::Get(File* pf)
 {
   // Get the texture filename for this polygon.
   std::string texturefile;
@@ -232,7 +232,7 @@ Texture* TextureServer::Get(File* pf)
 }
 
 
-bool TextureServer::LoadAlphaData(Texture* pt, 
+bool TextureServer::LoadAlphaData(PoolTexture* pt, 
                                     const std::string& alphafilename)
 {
   // The alpha data is stored in the same format as texture data - i.e., a
@@ -244,7 +244,7 @@ bool TextureServer::LoadAlphaData(Texture* pt,
   // We will be adding the alpha data to *pt. pt is a pointer to a texture
   // which already has an alpha layer set - we just change the data.
 
-  Texture alphatex; // temporarily use another Texture to load the 
+  PoolTexture alphatex; // temporarily use another Texture to load the 
                      // alpha bitmap.
   int ret = alphatex.ReadFile(const_cast<char*>(alphafilename.c_str()));
 

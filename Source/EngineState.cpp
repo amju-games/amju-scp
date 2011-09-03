@@ -38,7 +38,7 @@ void EngineState::ClearScrollText()
 
 void EngineState::ReceiveMessage(const Message& m)
 {
-  PGameObject pGo = GetEngine()->GetGameObject(m.GetRecipientId());
+  PPoolGameObject pGo = GetEngine()->GetGameObject(m.GetRecipientId());
   if (pGo.GetPtr())
   {
     pGo->ReceiveMessage(m);

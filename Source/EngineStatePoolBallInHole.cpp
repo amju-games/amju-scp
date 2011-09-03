@@ -224,7 +224,7 @@ void EngineStatePoolBallInHole::SetActive(bool active)
     for (int i = 0; i < 2; i++)
     {
       int id = Engine::Instance()->GetGameState()->GetPlayerInfo(i)->m_id;
-      GameObject* pGo = Engine::Instance()->GetGameObject(id).GetPtr();
+      PoolGameObject* pGo = Engine::Instance()->GetGameObject(id).GetPtr();
       Assert(pGo);
       ((PoolCharacter*)pGo)->SetActionReady();
       ((PoolCharacter*)pGo)->SetAlpha(1.0f);

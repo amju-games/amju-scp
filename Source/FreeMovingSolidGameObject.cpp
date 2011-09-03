@@ -25,7 +25,6 @@ Added to repository
 #include "FreeMovingSolidGameObject.h"
 #include "CharacterControl.h"
 #include "Engine.h"
-#include "Platform.h"
 #include "Level.h"
 #include "PoolGameState.h"
 #include "PlayerCodes.h"

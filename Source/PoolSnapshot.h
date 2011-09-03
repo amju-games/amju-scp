@@ -50,7 +50,7 @@ protected:
   // taken when balls are stationary.
   struct ObjInfo
   {
-    PGameObject m_pGo;
+    PPoolGameObject m_pGo;
     Orientation m_or;
     State m_state;
   };

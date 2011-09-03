@@ -19,7 +19,7 @@ namespace Amju
 {
 // A GameObject which doesn't do anything, but, because it has a Bounding Sphere,  
 // can be used by other Game Objects to aim for.
-class Target : public GameObject
+class Target : public PoolGameObject
 {
 public:
   Target();

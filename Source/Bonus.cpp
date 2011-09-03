@@ -22,7 +22,6 @@ Added to repository
 #include "Common.h"
 #include "Engine.h"
 #include "PoolGameState.h"
-#include "GameObjectFactory.h"
 #include "Frustum.h"
 #include "EngineRunning.h"
 #include "PoolMisc.h"
@@ -34,13 +33,6 @@ using namespace std;
 
 namespace Amju
 {
-/*/
-/ Register creation function with Game Object Factory
-GameObject* CreateBonus() { return new Bonus; }
-static const bool isBonusRegistered = GameObjectFactory::Instance()->
-  RegisterFactoryFunction("melon", CreateBonus);
-*/
-
 Bonus::Bonus()
 {
   m_pExplosion = new ExplosionEffect;
@@ -224,7 +216,7 @@ void Bonus::HandlePlayerCollision(CharacterGameObject* pPlayer)
 */
 }
 
-void Bonus::HandleObjectCollision(GameObject* pObj)
+void Bonus::HandleObjectCollision(PoolGameObject* pObj)
 {
   if (!pObj)
   {

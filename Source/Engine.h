@@ -46,6 +46,7 @@ Added to repository
 #include "ProgressCaller.h"
 #include "LoadResult.h"
 #include "SpecialEvent.h"
+#include <GameState.h>
 
 namespace Amju
 {
@@ -57,11 +58,18 @@ class ClientReceiveThread;
 class TextWriter;
 class Player;
 
-class Engine : public ProgressCaller
+class Engine : public ProgressCaller, public GameState
 {
 public:
   static Engine* Instance(); // Singleton
   ~Engine();
+
+  virtual void Draw2d(); // GameState override
+
+  // EventHandler overrides
+  bool OnCursorEvent(const CursorEvent&);
+  bool OnMouseButtonEvent(const MouseButtonEvent&);
+  bool OnButtonEvent(const ButtonEvent&);
 
   // Initialisation
   // --------------
@@ -211,11 +219,11 @@ public:
   GameObjectMap& GetGameObjects(int levelId, int roomId);
 
   // Look up one game object from its ID.
-  PGameObject GetGameObject(GameObjectId gid);
+  PPoolGameObject GetGameObject(GameObjectId gid);
 
   // This engine owns all the Game Objects. When a Game Object is loaded it is
   // handed over using this function.
-  void HoldGameObject(int levelId, int roomId, PGameObject pGo);
+  void HoldGameObject(int levelId, int roomId, PPoolGameObject pGo);
 
   // Clear all Game Objects. This is required by the Editor, and
   // by LevelFactory for creating levels on the fly.

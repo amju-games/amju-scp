@@ -19,7 +19,7 @@ Added to repository
 
 namespace Amju
 {
-class Texture;
+class PoolTexture;
 class File;
 class LeafData;
 
@@ -32,8 +32,8 @@ public:
   virtual ~TextureMethod() {}
 
   void Bind();
-  Texture* GetTexture();
-  void SetTexture(Texture* p);
+  PoolTexture* GetTexture();
+  void SetTexture(PoolTexture* p);
 
   virtual bool Load(File* pf) = 0;
 
@@ -49,7 +49,7 @@ public:
 
 protected:
   // Not shared ptr because all Texture lifetimes are handled by TextureServer.
-  Texture* m_pTexture;
+  PoolTexture* m_pTexture;
 };
 
 // This Texture Method has no Texture! This is so we can specify geometry

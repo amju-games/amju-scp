@@ -227,7 +227,7 @@ std::cout << "Ball " << newBallId << " already in map m_trs..??\n";
 #ifdef TR_DEBUG
 std::cout << "Find trajectory for new ball " << newBallId << "\n";
 #endif
-        PGameObject pGo = Engine::Instance()->GetGameObject(newBallId);
+        PPoolGameObject pGo = Engine::Instance()->GetGameObject(newBallId);
         VertexBase vNewBallCentre = pGo->GetBoundingSphere()->GetCentre();
         // Get the new direction, from the new ball pos and the ghost
         //  ball pos. As the current vel is zero, the direction is along
@@ -524,7 +524,7 @@ bool Trajectory::FindClosestBallCollision(
   GameObjectMap& objs = Engine::Instance()->GetGameObjects(levelId, roomId);
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
     PoolBall* p = dynamic_cast<PoolBall*>(pGo.GetPtr());
     // TODO Each ball may have its own trajectory. Ignore balls which
     // already have one.

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: Texture.cpp,v $
+$Log: PoolTexture.cpp,v $
 Revision 1.1.10.2  2006/05/04 09:44:05  jay
 If AMJU_GL_NONE is #defined, no calls to OpenGL are made. This lets us
 build command-line tools where there is no GL context.
@@ -19,9 +19,9 @@ Added to repository
 // of several years. Sorry Pierre.
 
 //********************************************
-// Texture.cpp
+// PoolTexture.cpp
 //********************************************
-// class Texture
+// class PoolTexture
 //********************************************
 // pierre.alliez@cnet.francetelecom.fr
 // Created : 17/12/97
@@ -47,7 +47,7 @@ namespace Amju
 {
 extern void ReportError(const string& msg);
 
-Texture::Texture()
+PoolTexture::PoolTexture()
 {
     m_pData = NULL;
     m_Width = 0;
@@ -58,20 +58,20 @@ Texture::Texture()
     m_binding = 0;
 
 //#ifndef AMJU_GL_NONE
-//    glGenTextures(1, (GLuint*)&m_binding);
+//    glGenPoolTextures(1, (GLuint*)&m_binding);
 //#endif
     m_bindingset = false;
 }
 
-Texture::~Texture()
+PoolTexture::~PoolTexture()
 {
 //#ifndef AMJU_GL_NONE
-//    glDeleteTextures(1, (GLuint*)&m_binding);
+//    glDeletePoolTextures(1, (GLuint*)&m_binding);
 //#endif
     Free();
 }
 
-void Texture::CreateBinding(Texture::BindType bt, bool wrap /*=true*/)
+void PoolTexture::CreateBinding(PoolTexture::BindType bt, bool wrap /*=true*/)
 {
   if (!GetData())
   { 
@@ -85,7 +85,7 @@ void Texture::CreateBinding(Texture::BindType bt, bool wrap /*=true*/)
 
   m_bindingset = true;
 //#ifndef AMJU_GL_NONE
-//  glBindTexture(AmjuGL::AMJU_TEXTURE_2D, m_binding);
+//  glBindPoolTexture(AmjuGL::AMJU_TEXTURE_2D, m_binding);
 //#endif
 
   DrawNoBinding(bt, wrap);
@@ -123,7 +123,7 @@ void Texture::CreateBinding(Texture::BindType bt, bool wrap /*=true*/)
 */
 }
 
-void Texture::DrawNoBinding(Texture::BindType bt, bool wrap)
+void PoolTexture::DrawNoBinding(PoolTexture::BindType bt, bool wrap)
 {
 /*
   Assert(GetData());
@@ -219,16 +219,12 @@ void Texture::DrawNoBinding(Texture::BindType bt, bool wrap)
 
 }
 
-void Texture::Bind()
+void PoolTexture::Bind()
 {
-//#ifndef AMJU_GL_NONE
-//  glBindTexture(AmjuGL::AMJU_TEXTURE_2D, m_binding);
-//#endif
-  
   AmjuGL::UseTexture(m_binding);
 }
 
-int Texture::Alloc(unsigned int width,
+int PoolTexture::Alloc(unsigned int width,
                     unsigned int height,
                     unsigned int depth)
 {
@@ -257,7 +253,7 @@ int Texture::Alloc(unsigned int width,
     return 1;
 }
 
-void Texture::Free()
+void PoolTexture::Free()
 {
     delete [] m_pData;
     m_pData = 0;
@@ -267,7 +263,7 @@ void Texture::Free()
     m_Depth = 0;
 }
 
-int Texture::ReadFile(const char *filename,
+int PoolTexture::ReadFile(const char *filename,
                        int width,  // = -1
                        int height, // = -1
                        int depth)  // = -1
@@ -285,7 +281,7 @@ int Texture::ReadFile(const char *filename,
     std::string extension = GetFileExt(filestring);
 
 #ifdef TEXTURE_DEBUG
-std::cout << "Texture::ReadFile: filename: " 
+std::cout << "PoolTexture::ReadFile: filename: " 
  << filename << ": ext: " << extension.c_str() << "\n";
 #endif
 
@@ -301,7 +297,7 @@ std::cout << "File is a BMP file\n";
 std::cout << "Unexpected!\n";
 #endif
     // Unrecognized file format
-    string error = "Bad Texture file extension: ";
+    string error = "Bad PoolTexture file extension: ";
     error += filestring; // + string(filename);
     error += ": extension is: ";
     error += extension;
@@ -311,7 +307,7 @@ std::cout << "Unexpected!\n";
 
 extern bool IsPowerOfTwo(int i);
 
-int Texture::ReadFileBMP(const char *filename)
+int PoolTexture::ReadFileBMP(const char *filename)
 {
   unsigned char* bits = LoadDIBitmap(filename, &m_Width, &m_Height);
 
@@ -338,12 +334,12 @@ int Texture::ReadFileBMP(const char *filename)
   return 1;
 }
 
-void Texture::UpdateWidthByte32()
+void PoolTexture::UpdateWidthByte32()
 {
     m_WidthByte32 = WidthByte32(m_Width,m_Depth);
 }
 
-unsigned int Texture::WidthByte32(unsigned int width,
+unsigned int PoolTexture::WidthByte32(unsigned int width,
                                                                      unsigned int depth)
 {
     // 32 bits alignment (4 bytes)
@@ -354,7 +350,7 @@ unsigned int Texture::WidthByte32(unsigned int width,
         return (width*depth/8);
 }
 
-int Texture::IsValid()
+int PoolTexture::IsValid()
 {
     int success = 0;
     success = (m_Depth == 24) || (m_Depth == 32);
@@ -365,7 +361,7 @@ int Texture::IsValid()
     return success;
 }
 
-int Texture::HigherPowerOfTwo(int value)
+int PoolTexture::HigherPowerOfTwo(int value)
 {
     Assert(value > 0);
     if(value <= 0)
@@ -383,7 +379,7 @@ int Texture::HigherPowerOfTwo(int value)
     return value;
 }
 
-int Texture::LowerPowerOfTwo(int value)
+int PoolTexture::LowerPowerOfTwo(int value)
 {
     Assert(value > 0);
     if(value <= 0)
@@ -403,14 +399,14 @@ int Texture::LowerPowerOfTwo(int value)
     return value;
 }
 
-int Texture::SameSize(Texture *pTexture)
+int PoolTexture::SameSize(PoolTexture *pTexture)
 {
     int success = (m_Width == pTexture->GetWidth());
     success &= (m_Height == pTexture->GetHeight());
     return success;
 }
 
-int Texture::BGRtoRGB(void)
+int PoolTexture::BGRtoRGB(void)
 {
     if(!IsValid())
         return 0;
@@ -427,7 +423,7 @@ int Texture::BGRtoRGB(void)
     return 1;
 }
 
-int Texture::SetAlphaLayer(unsigned char alpha) // 0 - 255
+int PoolTexture::SetAlphaLayer(unsigned char alpha) // 0 - 255
 {
     // Check
     if(!IsValid())
@@ -444,7 +440,7 @@ int Texture::SetAlphaLayer(unsigned char alpha) // 0 - 255
     return 1;
 }
 
-int Texture::AddAlphaLayer(unsigned char alpha) // 0 - 255
+int PoolTexture::AddAlphaLayer(unsigned char alpha) // 0 - 255
 {
     // Check
     if(!IsValid())
@@ -458,7 +454,7 @@ int Texture::AddAlphaLayer(unsigned char alpha) // 0 - 255
     unsigned char *pData = new unsigned char[4*m_Width*m_Height];
     if(pData == NULL)
         {
-        //AfxMessageBox("Texture::AddAlphaLayer : insuffisant memory");
+        //AfxMessageBox("PoolTexture::AddAlphaLayer : insuffisant memory");
         return 0;
         }
 
@@ -484,7 +480,7 @@ int Texture::AddAlphaLayer(unsigned char alpha) // 0 - 255
     return 1;
 }
 
-int Texture::PutAlpha(Texture *pTexture) 
+int PoolTexture::PutAlpha(PoolTexture *pTexture) 
 {
     // Check
     if(!IsValid())
@@ -515,7 +511,7 @@ int Texture::PutAlpha(Texture *pTexture)
     return 1;
 }
 
-int Texture::Grey(unsigned int x, unsigned int y)
+int PoolTexture::Grey(unsigned int x, unsigned int y)
 {
     Assert(x<m_Width && x>=0);
     Assert(y<m_Height && y>=0);
@@ -529,7 +525,7 @@ int Texture::Grey(unsigned int x, unsigned int y)
                                  (int)m_pData[m_WidthByte32*y + x*BytePerPixel+2])/3;
 }
 
-void Texture::AndMask(Texture* pTex)
+void PoolTexture::AndMask(PoolTexture* pTex)
 {
   Assert(m_Depth == pTex->m_Depth);
 
@@ -570,7 +566,7 @@ void Texture::AndMask(Texture* pTex)
   }
 }
 
-void Texture::SetFromTexture(Texture* pTex, int x, int y, int w, int h)
+void PoolTexture::SetFromTexture(PoolTexture* pTex, int x, int y, int w, int h)
 {
   //Assert((x + w) <= pTex->GetWidth());
   if ((x + w) > (int)pTex->GetWidth())
@@ -628,7 +624,7 @@ void Texture::SetFromTexture(Texture* pTex, int x, int y, int w, int h)
   m_bindingset = false;
 }
 
-void Texture::MakePowerOfTwoSize()
+void PoolTexture::MakePowerOfTwoSize()
 {
   int width = HigherPowerOfTwo(m_Width); 
   int height = HigherPowerOfTwo(m_Height);

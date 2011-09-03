@@ -199,7 +199,7 @@ void Npc::OnRoomEntry()
   SetBlocked(false);
 }
 
-void Npc::HandleObjectCollision(GameObject* pObj)
+void Npc::HandleObjectCollision(PoolGameObject* pObj)
 {
   // TODO This should be handled by the thing collided with.
   // We only need to handle Npc-Npc collisions here.
@@ -326,14 +326,14 @@ void Npc::CheckCharacterCollisions()
     
   for (GameObjectMap::iterator it = objs.begin(); it != objs.end(); ++it)
   {
-    PGameObject pGo = it->second;
+    PPoolGameObject pGo = it->second;
 
     State s = pGo->GetState();
     //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
     if (s != OUT_OF_PLAY)
     {
-      PGameObject pGo = it->second;
-      if ((GameObject*)this != pGo.GetPtr() && this->Intersects(*(pGo.GetPtr())))
+      PPoolGameObject pGo = it->second;
+      if ((PoolGameObject*)this != pGo.GetPtr() && this->Intersects(*(pGo.GetPtr())))
       {
         // TODO we want one unambigous function which is called once for the
         // pair of objects which have collided.

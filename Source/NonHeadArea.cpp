@@ -30,7 +30,7 @@ Added not-behind-headstring object for placing cue ball
 
 namespace Amju
 {
-GameObject* CreateNonHeadArea()
+PoolGameObject* CreateNonHeadArea()
 {
   return new NonHeadArea;
 }
