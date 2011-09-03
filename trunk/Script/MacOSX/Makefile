@@ -6,7 +6,7 @@ EXE_NAME	:=	ascp-mac
 RUNDIR		:=	../../Assets
 BUILD		:=	../../Build/MacBuild
 TARGET		:=	$(BUILD)/$(EXE_NAME)
-AMJU      	:= 	../../../../amjulib/Source
+AMJU      	:= 	../../../amjulib/Source
 SOURCES		:=	../../Source 
 
 LIBS	:= \
@@ -18,6 +18,9 @@ LIBS	:= \
 	-framework Carbon \
 	-framework IOKit \
 	-lstdc++ -lm 
+
+EXTRA_CFLAGS	:=	-g -O0 -D_DEBUG 
+#-DPOOL_ONLINE
 
 include $(AMJULIB_MAC_SCRIPT_PATH)/GenMakefile
 
