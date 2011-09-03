@@ -125,7 +125,6 @@ Added to repository
 #include "Bonus.h"
 #include "LevelServer.h"
 #include "Frustum.h"
-#include "LeafRenderer.h"
 #include "SimpleCamera.h"
 #include "TextWriter.h"
 #include "MovingSolid.h"
@@ -591,7 +590,7 @@ void EngineStatePoolBase::Draw()
   // Scene display lists may be stored in a sorted list. 
   // This call executes the sorted display lists
   // then empties the container. 
-  LeafData::GetRenderer()->DrawList();
+//  LeafData::GetRenderer()->DrawList();
 
   // Draw Game Objects. These are stateful, interactive things, including
   // moving Platforms, bonuses, etc.
@@ -605,7 +604,7 @@ void EngineStatePoolBase::Draw()
   DrawGameObjects(true); // true => translucent, or with transparent areas.
 
   // Execute GameObject display lists.
-  LeafData::GetRenderer()->DrawList();
+//  LeafData::GetRenderer()->DrawList();
 
   // If underwater, we pushed a colour onto the colour stack.
   if (IsUnderwater())

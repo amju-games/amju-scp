@@ -17,7 +17,6 @@ Added to repository
 #include "File.h"
 #include "SolidComponent.h"
 #include "SolidComposite.h"
-#include "ScaleSolid.h"
 #include "StringUtils.h"
 
 namespace Amju

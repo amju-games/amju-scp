@@ -355,7 +355,6 @@ Added to repository
 #include "PoolCourseManager.h"
 #include "ThirdPersonCameraBase.h"
 #include "Frustum.h"
-#include "LeafRenderer.h"
 #include "Mouse.h"
 #include "StateStrings.h"
 #include "Rules.h"
@@ -1364,14 +1363,14 @@ std::cout << "Place ball: height no good ? \n";
   }
   
   // Scene display lists may be stored in a sorted list. 
-  LeafData::GetRenderer()->DrawList();
+//  LeafData::GetRenderer()->DrawList();
 
   DrawGameObjectShadows();
   DrawBigText();
   DrawGameObjects(false); // false => non-translucent
 
   // Execute GameObject display lists.
-  LeafData::GetRenderer()->DrawList();
+//  LeafData::GetRenderer()->DrawList();
 
   // POOL: Draw the cue IF user is the active player
   if (!m_placeBallMode && IsUserControlled())

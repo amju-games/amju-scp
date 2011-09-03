@@ -979,7 +979,6 @@ bool Engine::OnCursorEvent(const CursorEvent& ce)
   // Convert from -1..1 to  screen space
   int x = (ce.x + 1) * Screen::X() / 2;
   int y = (1 - ce.y) * Screen::Y() / 2;  // invert
-std::cout << "Got cursor event x: " << ce.x << " y: " << ce.y << " -> x: " << x << " y: " << y << "\n";
   MousePos(x, y);
   return true;
 }

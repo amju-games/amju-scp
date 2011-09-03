@@ -82,7 +82,6 @@ Added to repository
 #include "CompositeFactory.h"
 #include "Engine.h"
 #include "LeafData.h"
-#include "LeafRenderer.h"
 #include "TextMenu.h"
 #include "ExplosionEffect.h"
 #include "TextWriter.h"

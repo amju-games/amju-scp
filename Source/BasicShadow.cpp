@@ -1,17 +1,64 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: BasicShadow.cpp,v $
-Revision 1.1.10.2  2007/12/12 10:27:41  jay
-Add per-shadow height offset
+Revision 1.17  2008/05/08 10:57:24  jay
+New memory management code
 
-Revision 1.1.10.1  2006/08/14 17:37:29  jay
-Rename "Pool"
+Revision 1.16  2008/04/27 06:16:36  jay
+AmjuGL API changes
+
+Revision 1.15  2007/12/19 11:44:35  jay
+We must explicitly set the texture mode whenever we draw
+
+Revision 1.14  2007/12/14 16:22:04  staff
+Fixes for MSVC 8
+
+Revision 1.13  2007/11/24 22:30:59  jay
+Use a private Polygon class to draw Shadows; we should remove Polygon
+from AmjuGL
+
+Revision 1.12  2007/11/13 21:33:09  jay
+Remove all OpenGL calls from game code
+
+Revision 1.11  2007/11/10 13:19:22  jay
+LeafData: different version for game/Scene Ed
+
+Revision 1.10  2007/11/09 09:33:16  jay
+Game Objects can now be saved if SAVE_GO is defined. SCENE_EDITOR should
+not be defined for game code.
+
+Revision 1.9  2007/11/08 00:26:05  jay
+First pass at wrapping all OpenGL calls
+
+Revision 1.8  2006/11/16 09:22:13  jay
+Set height range for floor polys, so we don't cast shadows on floors which
+are too high
+
+Revision 1.7  2006/11/13 22:08:48  jay
+Refine height range for getting floor polys
+
+Revision 1.6  2006/11/10 19:30:25  jay
+Debug: draw floor poly for shadow
+
+Revision 1.5  2006/10/27 21:49:10  jay
+Tweaks
+
+Revision 1.4  2006/10/15 12:05:29  jay
+Turn off debug output
+
+Revision 1.3  2006/10/14 20:25:19  Administrator
+Debug output, increase height range
+
+Revision 1.2  2006/10/12 19:57:01  jay
+Debug output, minor tweaking which could fix some issues with
+shadows flickering sometimes.
 
 Revision 1.1  2004/09/08 15:42:44  jay
 Added to repository
   
 */
 
+#include "AmjuFirst.h"
 #if defined(WIN32)
 #pragma warning(disable: 4786)
 #endif
@@ -23,14 +70,50 @@ Added to repository
 extern "C"
 {
 #include "Gpc/gpc.h" // Polygon clipping code - it's in C.
+#include "AmjuFinal.h"
 }
+
+//#define SHADOW_DEBUG
 
 namespace Amju
 {
+void BasicShadow::Polygon::Tesselate()
+{
+  AMJU_CALL_STACK;
+
+  int numVerts = m_verts.size();
+  const AmjuGL::Vert firstVert = m_verts[0];
+  for (int i = 1; i < numVerts - 1; i++)
+  {
+    AmjuGL::Tri tri;
+    tri.m_verts[0] = firstVert;
+    tri.m_verts[1] = m_verts[i];
+    tri.m_verts[2] = m_verts[i + 1];
+    m_tris.push_back(tri);
+  }
+}
+
+void BasicShadow::Polygon::Draw()
+{
+  AMJU_CALL_STACK;
+
+  //AmjuGL::SetTextureMode(AmjuGL::AMJU_REGULAR);
+  AmjuGL::DrawTriList(m_tris);
+}
+
+void BasicShadow::Polygon::AddVertex(const AmjuGL::Vert& v)
+{
+  AMJU_CALL_STACK;
+
+  m_verts.push_back(v);
+}
+
 PoolTexture* BasicShadow::s_pTexture;
 
 bool BasicShadow::Init()
 {
+  AMJU_CALL_STACK;
+
   std::string bitmapname = Engine::Instance()->GetConfigValue("shadow"); 
   std::string alphaname = Engine::Instance()->GetConfigValue("shadow_alpha");
 
@@ -49,18 +132,37 @@ bool BasicShadow::Init()
 
 BasicShadow::BasicShadow()
 {
+  AMJU_CALL_STACK;
+
   m_mult = 1.0f;
 
+  static const float HEIGHT_RANGE_DOWN = 3.0f;
+  static const float HEIGHT_RANGE_UP = 2.0f;
+
+  m_heightRangeUp = HEIGHT_RANGE_UP; 
+  m_heightRangeDown = HEIGHT_RANGE_DOWN;
+}
+
+void BasicShadow::SetHeightRange(float up, float down)
+{
+  AMJU_CALL_STACK;
+
+  m_heightRangeUp = up; 
+  m_heightRangeDown = down;
 }
 
 void BasicShadow::BindTexture()
 { 
+  AMJU_CALL_STACK;
+
   Assert(s_pTexture);
   s_pTexture->Bind();
 }
 
 void BasicShadow::RecalculateVerts()
 {
+  AMJU_CALL_STACK;
+
   m_verts.clear();
 
   const float x1 = m_oldx + m_oldsize * m_mult;
@@ -76,33 +178,39 @@ void BasicShadow::RecalculateVerts()
 
 int BasicShadow::GetNumShadowVerts()
 {
+  AMJU_CALL_STACK;
+
   return m_verts.size();
 }
 
 float BasicShadow::GetShadowX(int index)
 {
+  AMJU_CALL_STACK;
+
   Assert(index < GetNumShadowVerts());
   return m_verts[index].first;
 }
 
 float BasicShadow::GetShadowZ(int index)
 {
+  AMJU_CALL_STACK;
+
   Assert(index < GetNumShadowVerts());
   return m_verts[index].second;
 }
 
 void BasicShadow::DrawList() 
 {
-  // 12/5/2004 commented out offset proportional to camera height.
-  // It doesn't work in Pool, and player is allowed to go quite high.`
-/*
-  float h = 0;
-  if (Engine::Instance()->GetCamera().GetPtr())
+  AMJU_CALL_STACK;
+
+#ifdef SHADOW_DEBUG
+  if (m_list.empty())
   {
-    Assert(Engine::Instance()->GetCamera()->GetOrientation());
-    h = Engine::Instance()->GetCamera()->GetOrientation()->GetY() * m_yOffset * 0.1f;
+std::cout << "Shadow list is empty for obj: " << m_pCaster->GetId() 
+  << ": " << m_pCaster->GetTypeName() << "\n";
   }
-*/
+#endif
+
   // m_mult is between 1 (full size shadow) and 0 (no shadow). We use this to 
   // change the transparency of the shadow: smaller shadows are more
   // translucent.
@@ -113,20 +221,15 @@ void BasicShadow::DrawList()
 
   AmjuGL::PushAttrib(AmjuGL::AMJU_BLEND);
   AmjuGL::Enable(AmjuGL::AMJU_BLEND);
-  ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
 
   // Allow read-, but not write-access to the depth buffer. This overlaps
   // shadows properly.
-  AmjuGL::Disable(AmjuGL::AMJU_DEPTH_WRITE);
+  AmjuGL::Disable(AmjuGL::AMJU_DEPTH_WRITE); //ZWrite(false);
 
   // Adjust height of shadow with height of camera. This is because, as the 
   // camera gets higher, the distance between shadow and ground needs to 
   // increase to avoid z-fighting.
   AmjuGL::PushMatrix();
-
-/*  
-  AmjuGL::Translate(0, h, 0);
-*/
 
   for (ShadowList::iterator it = m_list.begin(); it != m_list.end(); ++it)
   {
@@ -135,7 +238,8 @@ void BasicShadow::DrawList()
 
   AmjuGL::PopMatrix();
 
-  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_WRITE);
+  //AmjuGL::EnableZWrite(true);
+  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_WRITE); //ZWrite(false);
   AmjuGL::PopAttrib();
 
   Engine::Instance()->PopColour(); // pop off the alpha change.
@@ -143,6 +247,8 @@ void BasicShadow::DrawList()
 
 void BasicShadow::RecalcMult(float y, float h)
 {
+  AMJU_CALL_STACK;
+
   m_mult = (1.0f - (y - h)/s_maxHeight); 
 }
 
@@ -151,25 +257,48 @@ void BasicShadow::RecalculateList(
   float size,
   const HeightServer& hs)
 {
+  AMJU_CALL_STACK;
+
   m_list.clear();
 
   // Get the height poly which is the heighest below y.
-  const HeightPoly* pHp = hs.GetHeightPoly(x, y, z);
+  // TODO TEMP TEST Add offset..?
+  const HeightPoly* pHp = hs.GetHeightPoly(x, y + 1.0f, z);
   if (!pHp)
   {
+#ifdef SHADOW_DEBUG
+std::cout << "BASIC SHADOW for " << m_pCaster->GetId() << " " 
+  << m_pCaster->GetTypeName() << ": No height poly.\n";
+#endif
+
     return;
   }   
   float h = pHp->GetY(x, z);
+  if (y < h)
+  {
+    y = h;
+
+#ifdef SHADOW_DEBUG
+std::cout << "BASIC SHADOW for " << m_pCaster->GetId() << " " 
+  << m_pCaster->GetTypeName() << ": obj height below ground height ?\n";
+#endif
+
+  }
   Assert(y >= h);
   if (y - s_maxHeight >= h) 
   {
     // We are too far above the ground to cast a shadow.
+#ifdef SHADOW_DEBUG
+std::cout << "BASIC SHADOW for " << m_pCaster->GetId() << " " 
+  << m_pCaster->GetTypeName() << ": TOO HIGH TO CAST SHADOW??\n";
+#endif
+
     return;
   }
   else 
   {
     RecalcMult(y, h);
-    size *= m_mult;
+// TODO TEMP TEST//    size *= m_mult;
   }
   Assert(size > 0);
 
@@ -187,12 +316,21 @@ void BasicShadow::RecalculateList(
   // The height at the edges of the shadow may be higher than at
   // the centre. To make sure we always get the correct Height Poly,
   // add an offset to the height.
-  float y2 = y + 0.8f; // TODO get exact offset using trig. and size.
-
+  // TODO get exact offset using trig. and size.
+  float ymax = y + m_heightRangeUp; 
+  float ymin = y - m_heightRangeDown;
   std::list<const HeightPoly*> heightPolys;
 
   // Get all height polys which this shadow may cover.
-  hs.GetAllHeightPolys(x2, x1, y2, y - 2.0f, z2, z1, &heightPolys);
+  hs.GetAllHeightPolys(x2, x1, ymax, ymin, z2, z1, &heightPolys);
+
+#ifdef SHADOW_DEBUG
+  if (heightPolys.empty())
+  {
+    std::cout << "BASIC SHADOW for obj: " << m_pCaster->GetId()
+      << " " << m_pCaster->GetTypeName() << ": NO HEIGHT POLYS!!!\n";
+  }
+#endif
 
   // Fix for shadows being cast through floors:
   // Only use the height polys with the highest max y value.
@@ -205,9 +343,25 @@ void BasicShadow::RecalculateList(
        it != heightPolys.end(); 
        ++it)
   {
+#ifdef SHADOW_DEBUG
+    // Draw the floor poly
+    //glLineWidth(4);
+    AmjuGL::Disable(GL_TEXTURE_2D);
+    Engine::Instance()->PushColour(0, 0, 0, 1.0f);
+    (*it)->Draw();
+    Engine::Instance()->PopColour();
+    AmjuGL::Enable(GL_TEXTURE_2D);
+#endif
+
     // Now for each height poly, clip the shadow poly to it.
     ClipShadowToHeightPoly(**it, x, y, z, size);
   }
+#ifdef SHADOW_DEBUG
+  if (m_list.empty())
+  {
+    std::cout << "HEY! Empty shadow list!\n";
+  }
+#endif
 }
 
 // Map 2D point (x, z) to texture coord (s, t).
@@ -223,6 +377,8 @@ void BasicShadow::MapST(
   float* s, 
   float* t)
 {
+  AMJU_CALL_STACK;
+
   Assert(size > SMALLEST);
 
   const float twosize = 2 * size;
@@ -237,6 +393,8 @@ void BasicShadow::ClipShadowToHeightPoly(
   float centrez,
   float size) 
 {
+  AMJU_CALL_STACK;
+
   // Clip the shadow poly to the given height poly (which should be a triangle).
 
   // One or more vertices of the shadow may fall outside the poly the shadow 
@@ -302,6 +460,9 @@ void BasicShadow::ClipShadowToHeightPoly(
   if (result.num_contours != 1)
   {
     // Error, there should be one gpc 'contour' (== polygon here).
+#ifdef SHADOW_DEBUG
+std::cout << "SHADOW: BAILING before cliiping shadow poly to height poly!\n";
+#endif
     return;
   }
 
@@ -309,7 +470,7 @@ void BasicShadow::ClipShadowToHeightPoly(
   for (int k = 0; k < vlist.num_vertices; k++)
   {
     gpc_vertex& v = vlist.vertex[k];
-    VertexBase vb(v.x, 0, v.y);
+    VertexBase vb((float)v.x, 0, (float)v.y);
     vertices.push_back(vb);
   }
 
@@ -322,16 +483,21 @@ void BasicShadow::ClipShadowToHeightPoly(
   {
     const VertexBase& v = vertices[j];
     float y = hp.GetY(v.x, v.z);
+    Assert(y != HeightServer::BadHeight);
 
     float s, t;
     MapST(centrex, centrez, v.x, v.z, size, &s, &t);
-    TexVertex texv(s, t);
-    SceneVertex sv(v.x, y + m_yOffset, v.z);
+    //TexVertex texv(s, t);
+    //SceneVertex sv(v.x, y + OFFSET, v.z);
 
-    poly.AddVertex(sv);
-    poly.AddTexVertex(texv);
+    poly.AddVertex(AmjuGL::Vert(v.x, y + OFFSET, v.z, s, t, 0, 1.0f, 0));
+    //poly.AddTexVertex(texv);
   }
-  poly.SetPerpendicularNormals(); // bug no 10, create correct normal.
+
+  // Finished creating the polygon - now tesselate it
+  poly.Tesselate();
+
+  //poly.SetPerpendicularNormals(); // bug no 10, create correct normal.
   m_list.push_back(poly);
 }
 
