@@ -1,6 +1,20 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: BasicShadow.h,v $
+Revision 1.5  2007/11/24 22:31:00  jay
+Use a private Polygon class to draw Shadows; we should remove Polygon
+from AmjuGL
+
+Revision 1.4  2007/11/13 21:33:10  jay
+Remove all OpenGL calls from game code
+
+Revision 1.3  2007/11/10 13:19:22  jay
+LeafData: different version for game/Scene Ed
+
+Revision 1.2  2006/11/16 09:22:13  jay
+Set height range for floor polys, so we don't cast shadows on floors which
+are too high
+
 Revision 1.1  2004/09/08 15:42:44  jay
 Added to repository
   
@@ -10,6 +24,7 @@ Added to repository
 #define SCHMICKEN_BASIC_SHADOW_H_INCLUDED
 
 #include "Shadow.h"
+#include "AmjuGL.h"
 
 namespace Amju
 {
@@ -20,6 +35,8 @@ public:
   static bool Init();
 
   BasicShadow();
+
+  void SetHeightRange(float up, float down);
 
 protected:
   virtual void BindTexture();
@@ -69,6 +86,31 @@ protected:
 protected:
   static PoolTexture* s_pTexture;
 
+/* Use AmjuGL version
+  struct Vert
+  {
+    Vert() {}
+    Vert(float x, float y, float z, float u, float v) : m_x(x), m_y(y), m_z(z), m_u(u), m_v(v) {}
+
+    float m_x, m_y, m_z, m_u, m_v;
+  };
+*/
+  // Unknown number of verts, as we clip the shadow to the ground poly.
+  struct Polygon
+  {
+    void Draw();
+    void AddVertex(const AmjuGL::Vert& v);
+    // Call once all vertices have been added
+    void Tesselate();
+ 
+    //typedef std::vector<Vert> Verts;
+    //AmuGL::Verts m_verts;
+    // Create tris as verts added
+    AmjuGL::Tris m_tris;
+
+    std::vector<AmjuGL::Vert> m_verts;
+ };
+
   typedef std::vector<Polygon> ShadowList;
   ShadowList m_list;
 
@@ -80,6 +122,8 @@ protected:
   // These verts are recalculated in RecalculateVerts().
   std::vector<std::pair<float, float> > m_verts;
 
+  float m_heightRangeUp;
+  float m_heightRangeDown;
 };
 }
 

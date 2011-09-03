@@ -14,7 +14,6 @@ Added to repository
 #endif
 
 #include "LeafServer.h"
-#include "LeafRenderer.h"
 
 using namespace std;
 
@@ -100,7 +99,7 @@ std::cout << "Did open file: " << leafname << "\n";
     m_leafmap.insert(LeafMap::value_type(leafname, pld));
   }
 
-  pld->MakeDisplayList();
+  //pld->MakeDisplayList();
   
   return pld;
 }

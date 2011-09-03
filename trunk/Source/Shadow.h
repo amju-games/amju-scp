@@ -79,7 +79,7 @@ protected:
   // Max height above ground an object can be and still cast a shadow. 
   static float s_maxHeight;
 
-private:
+
   // Default height above ground at which shadows are drawn
   static const float OFFSET;
 

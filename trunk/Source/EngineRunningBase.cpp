@@ -37,7 +37,6 @@ Added to repository
 #include "Engine.h"
 #include "Camera.h"
 #include "LeafData.h"
-#include "LeafRenderer.h"
 #include "PoolGameState.h"
 #include "LevelServer.h"
 #include "CharacterManager.h"
@@ -155,7 +154,7 @@ void EngineRunningBase::DrawSkybox()
     GetEngine()->GetDayNightSky()->DrawSkybox();
 
     // In case the renderer sorts by Textures, draw the list so far.
-    LeafData::GetRenderer()->DrawList();
+    //LeafData::GetRenderer()->DrawList();
   }
 }
 
@@ -246,7 +245,7 @@ void EngineRunningBase::DrawForeground()
   // Scene display lists may be stored in a sorted list. 
   // This call executes the sorted display lists
   // then empties the container. 
-  LeafData::GetRenderer()->DrawList();
+  //LeafData::GetRenderer()->DrawList();
 
 
   // Player shadow: draw it TWICE, once on the static scene, once on
@@ -269,7 +268,7 @@ void EngineRunningBase::DrawForeground()
   DrawGameObjects(true); // true => translucent, or with transparent areas.
 
   // Execute GameObject display lists.
-  LeafData::GetRenderer()->DrawList();
+  //LeafData::GetRenderer()->DrawList();
 
   // Player shadow: draw it AGAIN
   //DrawCharacterShadow(GetPlayer());

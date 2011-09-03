@@ -29,7 +29,6 @@ Added to repository
 #include "LevelServer.h"
 #include "Geometry.h"
 #include "LeafData.h"
-#include "LeafRenderer.h"
 #include "Npc.h"
 #include "Frustum.h"
 #include "TextureServer.h"
