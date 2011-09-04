@@ -66,7 +66,7 @@ void StartUp()
 //  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
 #endif
 
-  if (!FileImplGlue::OpenGlueFile(GLUE_FILE))
+  if (!FileImplGlue::OpenGlueFile(GLUE_FILE, new GlueFile))
   {
     ReportError("Failed to open data glue file");
   }
