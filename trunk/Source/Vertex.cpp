@@ -33,7 +33,6 @@ Added to repository
 #include "File.h"
 #include "Matrix.h"
 #include "Geometry.h"
-#include "Snap.h"
 #include "StringUtils.h"
 #include "SchAssert.h"
 
@@ -162,15 +161,6 @@ bool VertexBase::Normalize()
     z/=len;
   }
   return true;
-}
-
-void VertexBase::SnapTo(float snap)
-{
-  // Snap each of x, y and z to nearest multiple of snap.
-  Assert(snap > 0);
-  x = Snap(x, snap);
-  y = Snap(y, snap);
-  z = Snap(z, snap);
 }
 
 float VertexBase::Length() const

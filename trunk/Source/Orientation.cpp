@@ -20,7 +20,6 @@ Added to repository
 #include "Common.h"
 #include "File.h"
 #include "Matrix.h"
-#include "Snap.h"
 #include "SchAssert.h"
 #include "StringUtils.h"
 
@@ -58,16 +57,6 @@ Orientation Interpolate(const Orientation& o1, const Orientation& o2, float f)
   r.SetZRot(o1.GetZRot() + (o2.GetZRot() - o1.GetZRot()) * f);
 
   return r;
-}
-
-void Orientation::SnapTo(float snapTr, float snapRot)
-{
-  m_trx = Snap(m_trx, snapTr);
-  m_try = Snap(m_try, snapTr);
-  m_trz = Snap(m_trz, snapTr);
-  m_rx = Snap(m_rz, snapRot);
-  m_ry = Snap(m_ry, snapRot);
-  m_rz = Snap(m_rz, snapRot);
 }
 
 void Orientation::Draw() const
