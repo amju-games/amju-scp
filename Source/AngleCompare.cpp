@@ -11,6 +11,7 @@ Added to repository
 
 #include "Common.h"
 #include "AngleCompare.h"
+#include <DegRad.h>
 
 namespace Amju
 {
@@ -75,18 +76,6 @@ float TurnToFace(float x, float z, float targetX, float targetZ)
   return r;
 }
 
-}
-
-float DegToRad(float degs)
-{
-  float rads = degs / 180.0f * pi;
-  return rads;
-}
-
-float RadToDeg(float rads)
-{
-  float degs = rads * 180.0f / pi; 
-  return degs;
 }
 }
 
