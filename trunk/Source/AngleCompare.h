@@ -25,11 +25,6 @@ float RadDiff(float a1, float a2);
 // Used to point characters to face relevant objects, etc.
 float TurnToFace(float x, float z, float targetX, float targetZ);
 }
-
-float DegToRad(float degs);
-
-float RadToDeg(float rads);
-
 }
 
 #endif
