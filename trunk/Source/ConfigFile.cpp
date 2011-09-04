@@ -42,7 +42,7 @@ void ConfigFile::Clear()
 
 bool ConfigFile::Save(const std::string& filename)
 {
-  File f;
+  File f(true, File::STD);
   if (!f.OpenWrite(filename))
   {
     f.ReportError("Couldn't open config file for writing.");
