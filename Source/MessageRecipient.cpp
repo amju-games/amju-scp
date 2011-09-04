@@ -15,7 +15,6 @@ Added to repository
 #include "Fsm.h"
 #include "Engine.h"
 #include "PoolGameState.h"
-#include "UniqueId.h"
 #include <iostream>
 
 using namespace std;
@@ -35,7 +34,6 @@ MessageRecipient::~MessageRecipient()
 void MessageRecipient::SetId(int id)
 {
   m_id = id;
-  UniqueId::SetUsedId(id);
 }
 
 void MessageRecipient::ReceiveMessage(const Message& m)
