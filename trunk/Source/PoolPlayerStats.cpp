@@ -197,7 +197,7 @@ std::cout << "POOL PLAYER STATS: saving stats for " << m_playerName.c_str() << "
 #endif
 
   int check = 0;
-  File f;
+  File f(true, File::STD); // version info, never glue file
   std::string root = File::GetRoot();
   File::SetRoot(GetSaveDir(APPLICATION_NAME), "/");
   std::string s = m_playerName;
