@@ -17,6 +17,7 @@
 #include "PolyDrawOpenGL.h"
 #include "PolyLoader.h"
 #include "PoolGameState.h"
+#include <BassSoundPlayer.h>
 #include <iostream>
 #include <AmjuGLWindowInfo.h>
 #include <AmjuFinal.h>
@@ -66,12 +67,19 @@ void StartUp()
 //  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
 #endif
 
-  if (!FileImplGlue::OpenGlueFile(GLUE_FILE, new GlueFileMem))
+  GlueFile* gf = new GlueFileMem;
+  gf->SetPrintUnusedInDtor(true);
+  if (!FileImplGlue::OpenGlueFile(GLUE_FILE, gf))
   {
     ReportError("Failed to open data glue file");
   }
 
   // Set up music glue file
+#if defined (MACOSX)
+  // TODO remove from reusable main in all platforms ?
+  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
+#endif
+
   GlueFile* pMusicGlueFile = new GlueFileMem;
   if (pMusicGlueFile->OpenGlueFile(MUSIC_GLUE_FILE, true)) // true = read only 
   {
