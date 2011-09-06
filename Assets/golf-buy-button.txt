@@ -3,15 +3,15 @@
 11
 // no of textures
 1
-pool-buy.bmp
+pool-buy.png
 1
-pool-start-a.bmp
+pool-start-a.png
 2
 Visit the Amju Store and 
 buy a registration key!
 // bg tq
-tool-1.bmp
+tool-1.png
 1
-gui-button-1.bmp
+gui-button-1.png
 
 

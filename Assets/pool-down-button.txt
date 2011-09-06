@@ -3,9 +3,9 @@
 11
 // no of textures
 1
-pool-down.bmp
+pool-down.png
 1
-pool-exit-a.bmp
+pool-exit-a.png
 0
 
 

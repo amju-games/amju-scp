@@ -2,9 +2,9 @@
 11
 // no of textures
 1
-gui-button-blank.bmp
+gui-button-blank.png
 1
-gui-button-1.bmp
+gui-button-1.png
 0
 // font
 cheri-1.0

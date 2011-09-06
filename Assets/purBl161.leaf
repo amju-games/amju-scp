@@ -6,11 +6,11 @@
 // TextureMethod
 2
 // Texture file name
-pur1.bmp
+pur1.png
 // Use alpha layer (1) or no alpha layer (0)
 1
 // Alpha layer filename
-pur1_a2.bmp
+pur1_a2.png
 // Coeffs. for texture coord generation follow.
 0
 1

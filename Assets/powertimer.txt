@@ -2,11 +2,11 @@
 // ver
 1
 // background textured quad
-power-guage-vert.bmp
+power-guage-vert.png
 1
-power-guage-vert-a.bmp
+power-guage-vert-a.png
 // foreground textured quad
-wh64.bmp
+wh64.png
 0
 // Position (t, l, b, r)
 5

@@ -5,7 +5,7 @@
 // Texture method follows (1 = Specify (s,t), 2 = AutoTexture, 3 = Env)
 1
 // Texture (for whole leaf) follows.
-redsky.bmp
+redsky.png
 0
 // Normals flag follows - (1 = smooth, 2 = perpendicular).
 1

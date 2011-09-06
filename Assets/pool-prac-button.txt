@@ -2,15 +2,15 @@
 11
 // no of textures
 1
-gui-button-1p-prac.bmp
+gui-button-1p-prac.png
 1
-gui-button-1.bmp
+gui-button-1.png
 2
 Choose this game to practice - your
 score is not added to your stats!
 // tq bg
-tool-1.bmp
+tool-1.png
 1
-gui-button-1.bmp
+gui-button-1.png
 
 

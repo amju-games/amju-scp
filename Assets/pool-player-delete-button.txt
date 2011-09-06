@@ -2,9 +2,9 @@
 11
 // no of textures
 1
-gui-button-delete.bmp
+gui-button-delete.png
 1
-gui-button-1.bmp
+gui-button-1.png
 // help 
 0
 

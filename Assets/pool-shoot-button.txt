@@ -2,9 +2,9 @@
 11
 // no of textures
 1
-red-gui-button-2.bmp
+red-gui-button-2.png
 1
-angle-dot_a.bmp
+angle-dot_a.png
 // help 
 0
 

@@ -2,11 +2,11 @@
 // ver
 1
 // background textured quad
-statguage-wh.bmp
+statguage-wh.png
 1
-statguage-lr.bmp
+statguage-lr.png
 // foreground textured quad
-wh64.bmp
+wh64.png
 0
 
 // Position (t, l, b, r)

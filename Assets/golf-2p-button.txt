@@ -2,13 +2,13 @@
 11
 // no of textures
 1
-gui-button-2p.bmp
+gui-button-2p.png
 1
-gui-button-1.bmp
+gui-button-1.png
 1
 Start a two-player game
 // tq bg
-tool-1.bmp
+tool-1.png
 1
-gui-button-1.bmp
+gui-button-1.png
 

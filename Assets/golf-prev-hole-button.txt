@@ -3,8 +3,8 @@
 11
 // no of textures
 1
-wh32.bmp
+wh32.png
 1
-prev-arrow.bmp
+prev-arrow.png
 
 

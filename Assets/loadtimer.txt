@@ -2,10 +2,10 @@
 // ver
 1
 // background textured quad
-loadtimer.bmp
+loadtimer.png
 0
 // foreground textured quad
-black8.bmp
+black8.png
 0
 // Position (t, l, b, r)
 13.5

@@ -2,9 +2,9 @@
 11
 // no of textures
 1
-pool-redo.bmp
+pool-redo.png
 1
-pool-ok-a.bmp
+pool-ok-a.png
 // help 
 0
 

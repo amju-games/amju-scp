@@ -59,9 +59,9 @@ cueball.comp
 // Ball no.
 0
 // Textured Quad
-wh64.bmp
+wh64.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1002
@@ -114,9 +114,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1005
@@ -256,9 +256,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1203
@@ -278,9 +278,9 @@ ball2.comp
 // Ball no.
 2
 // Textured Quad
-ball2.bmp
+ball2.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1220
@@ -307,9 +307,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2012
@@ -329,9 +329,9 @@ ball2.comp
 // Ball no.
 2
 // Textured Quad
-ball2.bmp
+ball2.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2014
@@ -351,9 +351,9 @@ ball3.comp
 // Ball no.
 3
 // Textured Quad
-ball3.bmp
+ball3.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2015
@@ -373,9 +373,9 @@ ball4.comp
 // Ball no.
 4
 // Textured Quad
-ball4.bmp
+ball4.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2018
@@ -395,9 +395,9 @@ ball5.comp
 // Ball no.
 5
 // Textured Quad
-ball5.bmp
+ball5.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2019
@@ -417,9 +417,9 @@ ball6.comp
 // Ball no.
 6
 // Textured Quad
-ball6.bmp
+ball6.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2021
@@ -439,9 +439,9 @@ ball7.comp
 // Ball no.
 7
 // Textured Quad
-ball7.bmp
+ball7.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1020
@@ -705,9 +705,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2068
@@ -727,9 +727,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2069
@@ -749,9 +749,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2071
@@ -771,9 +771,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 3001

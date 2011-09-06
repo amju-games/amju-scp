@@ -2,8 +2,8 @@
 11
 // no of textures
 1
-gui-button-register.bmp
+gui-button-register.png
 1
-gui-button-1.bmp
+gui-button-1.png
 0
 

@@ -2,13 +2,13 @@
 11
 // no of textures
 1
-pool-music.bmp
+pool-music.png
 1
-pool-start-a.bmp
+pool-start-a.png
 1
 Click to turn music on and off
-tool-2.bmp
+tool-2.png
 1
-slot-a.bmp
+slot-a.png
 
 

@@ -2,12 +2,12 @@
 11
 // no of textures
 1
-pool-fullscreen.bmp
+pool-fullscreen.png
 1
-pool-start-a.bmp
+pool-start-a.png
 1
 Click to switch between full screen and windowed mode
-tool-2.bmp
+tool-2.png
 1
-slot-a.bmp
+slot-a.png
 

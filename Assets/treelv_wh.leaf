@@ -5,11 +5,11 @@
 // TextureMethod
 5
 // Texture file name
-wh256.bmp
+wh256.png
 // Use alpha layer (1) or no alpha layer (0)
 1
 // Alpha layer filename
-tree4_a.bmp
+tree4_a.png
 // Normals flag 1 = smooth, 2 = perpendicular.
 2
 // Number of polygons follows on next line.

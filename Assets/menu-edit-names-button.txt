@@ -2,8 +2,8 @@
 11
 // no of textures
 1
-gui-button-edit-names.bmp
+gui-button-edit-names.png
 1
-gui-button-1.bmp
+gui-button-1.png
 0
 

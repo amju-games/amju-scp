@@ -3,13 +3,13 @@
 11
 // no of textures
 1
-birdseye2.bmp
+birdseye2.png
 1
-pool-exit-a.bmp
+pool-exit-a.png
 1
 Birds-eye view
 // bg tq
-tool-1.bmp
+tool-1.png
 1
-gui-button-1.bmp
+gui-button-1.png
 

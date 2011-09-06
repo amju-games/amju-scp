@@ -27,9 +27,9 @@ ball2.comp
 // Ball no.
 2
 // Textured Quad
-ball2.bmp
+ball2.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 10000
@@ -81,9 +81,9 @@ cueball.comp
 // Ball no.
 0
 // Textured Quad
-wh64.bmp
+wh64.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1002
@@ -136,9 +136,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1012
@@ -158,9 +158,9 @@ ball3.comp
 // Ball no.
 3
 // Textured Quad
-ball3.bmp
+ball3.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2000
@@ -187,9 +187,9 @@ ball4.comp
 // Ball no.
 4
 // Textured Quad
-ball4.bmp
+ball4.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1014
@@ -209,9 +209,9 @@ ball5.comp
 // Ball no.
 5
 // Textured Quad
-ball5.bmp
+ball5.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1015
@@ -231,9 +231,9 @@ ball6.comp
 // Ball no.
 6
 // Textured Quad
-ball6.bmp
+ball6.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1005
@@ -373,9 +373,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1203
@@ -395,9 +395,9 @@ ball3.comp
 // Ball no.
 3
 // Textured Quad
-ball3.bmp
+ball3.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1204
@@ -417,9 +417,9 @@ ball4.comp
 // Ball no.
 4
 // Textured Quad
-ball4.bmp
+ball4.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1205
@@ -439,9 +439,9 @@ ball5.comp
 // Ball no.
 5
 // Textured Quad
-ball5.bmp
+ball5.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1206
@@ -461,9 +461,9 @@ ball6.comp
 // Ball no.
 6
 // Textured Quad
-ball6.bmp
+ball6.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1207
@@ -483,9 +483,9 @@ ball7.comp
 // Ball no.
 7
 // Textured Quad
-ball7.bmp
+ball7.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1208
@@ -505,9 +505,9 @@ ball8.comp
 // Ball no.
 8
 // Textured Quad
-ball8.bmp
+ball8.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1209
@@ -527,9 +527,9 @@ ball9.comp
 // Ball no.
 9
 // Textured Quad
-ball9.bmp
+ball9.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2010
@@ -549,9 +549,9 @@ ball1.comp
 // Ball no.
 1
 // Textured Quad
-ball1.bmp
+ball1.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2011
@@ -571,9 +571,9 @@ ball2.comp
 // Ball no.
 2
 // Textured Quad
-ball2.bmp
+ball2.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2012
@@ -593,9 +593,9 @@ ball3.comp
 // Ball no.
 3
 // Textured Quad
-ball3.bmp
+ball3.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2013
@@ -615,9 +615,9 @@ ball4.comp
 // Ball no.
 4
 // Textured Quad
-ball4.bmp
+ball4.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2014
@@ -637,9 +637,9 @@ ball5.comp
 // Ball no.
 5
 // Textured Quad
-ball5.bmp
+ball5.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2015
@@ -659,9 +659,9 @@ ball6.comp
 // Ball no.
 6
 // Textured Quad
-ball6.bmp
+ball6.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2016
@@ -681,9 +681,9 @@ ball7.comp
 // Ball no.
 7
 // Textured Quad
-ball7.bmp
+ball7.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2017
@@ -703,9 +703,9 @@ ball8.comp
 // Ball no.
 8
 // Textured Quad
-ball8.bmp
+ball8.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2018
@@ -725,9 +725,9 @@ ball9.comp
 // Ball no.
 9
 // Textured Quad
-ball9.bmp
+ball9.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2019
@@ -747,9 +747,9 @@ ball10.comp
 // Ball no.
 10
 // Textured Quad
-ball10.bmp
+ball10.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2020
@@ -769,9 +769,9 @@ ball11.comp
 // Ball no.
 11
 // Textured Quad
-ball11.bmp
+ball11.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2021
@@ -791,9 +791,9 @@ ball12.comp
 // Ball no.
 12
 // Textured Quad
-ball12.bmp
+ball12.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2022
@@ -813,9 +813,9 @@ ball13.comp
 // Ball no.
 13
 // Textured Quad
-ball13.bmp
+ball13.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2023
@@ -835,9 +835,9 @@ ball14.comp
 // Ball no.
 14
 // Textured Quad
-ball14.bmp
+ball14.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2024
@@ -857,9 +857,9 @@ ball15.comp
 // Ball no.
 15
 // Textured Quad
-ball15.bmp
+ball15.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2030
@@ -1133,9 +1133,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2068
@@ -1155,9 +1155,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2069
@@ -1177,9 +1177,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2070
@@ -1199,9 +1199,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2071
@@ -1221,9 +1221,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2072
@@ -1243,9 +1243,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2073
@@ -1265,9 +1265,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2074
@@ -1287,9 +1287,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2075
@@ -1309,9 +1309,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2076
@@ -1331,9 +1331,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2077
@@ -1353,9 +1353,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2078
@@ -1375,9 +1375,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2079
@@ -1397,9 +1397,9 @@ ball8.comp
 // Ball no.
 3
 // Textured Quad
-ball8.bmp
+ball8.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2080
@@ -1419,9 +1419,9 @@ ball-yell.comp
 // Ball no.
 1
 // Textured Quad
-ball-yell.bmp
+ball-yell.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 2081
@@ -1441,9 +1441,9 @@ ball-red.comp
 // Ball no.
 2
 // Textured Quad
-ball-red.bmp
+ball-red.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 3001
@@ -1482,9 +1482,9 @@ ball2.comp
 // Ball no.
 2
 // Textured Quad
-ball2.bmp
+ball2.png
 1
-moon_a.bmp
+moon_a.png
 end
 game_objects
 1220

@@ -66,7 +66,7 @@ md2
 sgshed.md2
 //skins
 1
-sgshed.bmp
+sgshed.png
 0
 
 
@@ -78,9 +78,9 @@ md2blinkeyes
 marin1.md2
 // skins
 2
-marin1-2.bmp
+marin1-2.png
 0
-marin1.bmp
+marin1.png
 0
 
 
@@ -92,9 +92,9 @@ md2blinkeyes
 per.md2
 // skins
 2
-pera.bmp
+pera.png
 0
-per.bmp
+per.png
 0
 
 
@@ -106,9 +106,9 @@ md2blinkeyes
 bird1.md2
 // skins
 2
-bird1a.bmp
+bird1a.png
 0
-bird1.bmp
+bird1.png
 0
 
 
@@ -123,9 +123,9 @@ cat2.md2
 // Num skins
 2
 // Skins 
-cat4a.bmp
+cat4a.png
 0
-cat4.bmp
+cat4.png
 0
 
 
@@ -138,8 +138,8 @@ md2blinkeyes
 fox2.md2
 // skins
 2
-fox3a.bmp
+fox3a.png
 0
-fox3.bmp
+fox3.png
 0
 
