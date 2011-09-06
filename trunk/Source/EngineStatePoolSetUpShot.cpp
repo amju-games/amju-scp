@@ -1403,13 +1403,13 @@ void DrawKeys()
   {
     first = false;
 
-    tqKeyBlank.Load("key-blank.bmp", "key-a.bmp");
-    tqKeyArrowUp.Load("key-up.bmp", "key-a.bmp");
-    tqKeyArrowDown.Load("key-down.bmp", "key-a.bmp");
-    tqKeyArrowLeft.Load("key-left.bmp", "key-a.bmp");
-    tqKeyArrowRight.Load("key-right.bmp", "key-a.bmp");
-    tqPlayShot.Load("play-red.bmp", "pool-exit-a.bmp");
-    tqCamera.Load("camera-red.bmp", "pool-exit-a.bmp");
+    tqKeyBlank.Load("key-blank.png", "key-a.png");
+    tqKeyArrowUp.Load("key-up.png", "key-a.png");
+    tqKeyArrowDown.Load("key-down.png", "key-a.png");
+    tqKeyArrowLeft.Load("key-left.png", "key-a.png");
+    tqKeyArrowRight.Load("key-right.png", "key-a.png");
+    tqPlayShot.Load("play-red.png", "pool-exit-a.png");
+    tqCamera.Load("camera-red.png", "pool-exit-a.png");
   }
   static const float keySize = Engine::Instance()->GetConfigFloat("pool-gui-key-size");
   static const float keyLeft = Engine::Instance()->GetConfigFloat("pool-gui-key-left");

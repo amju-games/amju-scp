@@ -36,7 +36,7 @@ static const bool registered = Engine::Instance()->
 
 bool EngineStateCongrats::Load()
 {
-  m_bg.Load("oct_t.bmp", ""); // TODO CONFIG
+  m_bg.Load("oct_t.png", ""); // TODO CONFIG
   SetText("congratulations!");
 
   m_pOkButton = new GuiButton;

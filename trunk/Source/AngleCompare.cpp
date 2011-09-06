@@ -11,7 +11,7 @@ Added to repository
 
 #include "Common.h"
 #include "AngleCompare.h"
-#include <DegRad.h>
+//#include <DegRad.h>
 
 namespace Amju
 {

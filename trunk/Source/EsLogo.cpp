@@ -81,10 +81,10 @@ void EsLogo::Draw()
     first = false;
     // Can't do this in ctor
     TexturedQuad tq;
-    tq.Load("logo4.bmp", "");
+    tq.Load("logo4.png", "");
     m_logos.push_back(tq);
 
-    m_bg.Load("wh8.bmp", "");
+    m_bg.Load("wh8.png", "");
 
     m_maxTime = LOGO_TIME * m_logos.size();
   }

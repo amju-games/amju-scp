@@ -1567,8 +1567,8 @@ PoolBehaviourUk::PoolBehaviourUk()
 PoolBehaviourUs8Ball::PoolBehaviourUs8Ball() 
 {
   // TODO CONFIG
-  m_spots.Load("spots.bmp", "moon_a.bmp");
-  m_stripes.Load("stripes.bmp", "moon_a.bmp");
+  m_spots.Load("spots.png", "moon_a.png");
+  m_stripes.Load("stripes.png", "moon_a.png");
 }
 
 TexturedQuad* PoolBehaviourUs8Ball::GetHudBall()

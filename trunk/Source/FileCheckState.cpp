@@ -141,7 +141,7 @@ void FileCheckState::DrawOverlays()
         SetMaxProgressCount(maxProgress);  
 
         Engine::Instance()->SetClearColour(1.0f, 1.0f, 1.0f);
-        tq.Load("supercoolpool.bmp", "");
+        tq.Load("supercoolpool.png", "");
 
         m_pGuage = new PowerGuage;
         File ftimer;

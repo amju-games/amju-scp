@@ -83,7 +83,7 @@ bool GuiContactPos::Load()
     return false;
   }
 
-  if (!m_spot.Load("black32.bmp", "cross32.bmp")) // TODO CONFIG
+  if (!m_spot.Load("black32.png", "cross32.png")) // TODO CONFIG
   {
     return false;
   }

@@ -51,7 +51,7 @@ bool EngineStateThanks::Load()
 
   m_pComp = TextFactory::Instance()->Create("thanks!", &tc); // TODO!!!
 
-  m_bg.Load("thanks-bg.bmp", "");
+  m_bg.Load("thanks-bg.png", "");
 
   m_pOkButton = new GuiButton;
   std::string menuButtonFile = GetEngine()->GetConfigValue("golf_thx_reg_button");

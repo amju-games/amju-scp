@@ -408,7 +408,7 @@ void EngineStatePoolBase::DrawBonusesLeft()
   if (first)
   {
     first = false;
-    heart.Load("heart4.bmp", "heart4_a.bmp"); // TODO CONFIG
+    heart.Load("heart4.png", "heart4_a.png"); // TODO CONFIG
   }
 
   static float extraHeartTime = 0;
@@ -622,7 +622,7 @@ void EngineStatePoolBase::DrawOverlays()
   static bool first = true;
   if (first)
   {
-    tq.Load("wh128.bmp", "golf-base-overlay.bmp");
+    tq.Load("wh128.png", "golf-base-overlay.png");
   }
 
   Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, 0.65f);

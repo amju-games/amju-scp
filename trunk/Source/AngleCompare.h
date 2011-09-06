@@ -9,6 +9,8 @@ Added to repository
 #if !defined(ANGLE_COMPARE_H_INCLUDED)
 #define ANGLE_COMPARE_H_INCLUDED
 
+#include <DegRad.h>
+
 namespace Amju
 {
 namespace AngleCompare
