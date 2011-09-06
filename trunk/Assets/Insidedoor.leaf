@@ -11,11 +11,11 @@
 // Texture (1) or Colour (0)
 1
 // Texture file name
-door3.bmp
+door3.png
 // Use alpha layer (1) or no alpha layer (0)
 1
 // Alpha layer filename
-door3tr.bmp
+door3tr.png
 // Repeat (1) or clamp (0)
 0
 // Use height (1) or ignore height (0)

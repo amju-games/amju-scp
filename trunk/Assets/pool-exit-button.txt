@@ -3,13 +3,13 @@
 11
 // no of textures
 1
-pool-exit.bmp
+pool-exit.png
 1
-pool-exit-a.bmp
+pool-exit-a.png
 1
 Quit Amju Super Cool Pool
 // bg tq
-tool-1.bmp
+tool-1.png
 1
-gui-button-1.bmp
+gui-button-1.png
 

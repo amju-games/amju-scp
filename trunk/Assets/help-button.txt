@@ -3,13 +3,13 @@
 11
 // no of textures
 1
-help.bmp
+help.png
 1
-pool-exit-a.bmp
+pool-exit-a.png
 1
 Help
 // bg tq
-tool-2.bmp
+tool-2.png
 1
-slot-a.bmp
+slot-a.png
 

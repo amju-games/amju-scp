@@ -7,7 +7,7 @@ texmethod
 // TextureMethod
 1
 // Texture file name
-ball6.bmp
+ball6.png
 // Use alpha layer (1) or no alpha layer (0)
 0
 // Decorated composite

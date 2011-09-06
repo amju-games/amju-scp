@@ -3,9 +3,9 @@
 11
 // no of textures
 1
-close-instr.bmp
+close-instr.png
 1
-close-instr-a.bmp
+close-instr-a.png
 // help
 0
 

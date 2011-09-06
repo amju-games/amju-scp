@@ -3,13 +3,13 @@
 11
 // no of textures
 1
-pool-redo.bmp
+pool-redo.png
 1
-pool-ok-a.bmp
+pool-ok-a.png
 1
 Tell your opponent to play the shot
 // bg tq
-tool-2.bmp
+tool-2.png
 1
-slot-a.bmp
+slot-a.png
 

@@ -3,8 +3,8 @@
 11
 // no of textures
 1
-small-left.bmp
+small-left.png
 1
-small-mask.bmp
+small-mask.png
 
 

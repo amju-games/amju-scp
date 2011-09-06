@@ -3,13 +3,13 @@
 11
 // no of textures
 2
-blue-gui-button-2.bmp
+blue-gui-button-2.png
 1
-gui-button-2_a.bmp
+gui-button-2_a.png
 
-wh32.bmp
+wh32.png
 1
-power-slider.bmp
+power-slider.png
 
 
 

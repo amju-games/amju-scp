@@ -2,8 +2,8 @@
 11
 // no of textures
 1
-gui-button-quit.bmp
+gui-button-quit.png
 1
-gui-button-1.bmp
+gui-button-1.png
 0
 

@@ -3,14 +3,14 @@
 11
 // no of textures
 1
-yellow-gui-button-2.bmp
+yellow-gui-button-2.png
 1
-gui-button-2_a.bmp
+gui-button-2_a.png
 
 // Final texture, which is rotated around centre
-angle-dot.bmp
+angle-dot.png
 1
-angle-dot_a.bmp
+angle-dot_a.png
 
 
 

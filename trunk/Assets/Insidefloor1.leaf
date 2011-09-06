@@ -6,7 +6,7 @@
 1
 //----------------------------------------------------------------------------
 // Texture file name
-tile4.bmp
+tile4.png
 // Use alpha layer (1) or no alpha layer (0)
 0
 // Normals flag follows - (1 = smooth, 2 = perpendicular).

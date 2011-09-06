@@ -4,11 +4,11 @@
 // Texture Method
 1
 // The texture file for this polygon
-flare1.bmp
+flare1.png
 // alpha file specified ? (1 for yes, 0 for no)
 0
 // Alpha filename
-//flare1_a.bmp
+//flare1_a.png
 // Normal flag
 2
 // The number of polygons
