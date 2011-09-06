@@ -102,7 +102,7 @@ bool EngineStateWorldDemoHiScores::Load()
 {
   HiScoreTable::Instance()->Load();
 
-  m_bg.Load("oct_t3.bmp", "");
+  m_bg.Load("oct_t3.png", "");
 
   m_maxTime = Engine::Instance()->GetConfigFloat("hi_score_max_time");
   return true;

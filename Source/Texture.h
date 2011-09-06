@@ -17,7 +17,7 @@ Added to repository
 //********************************************
 // This object stores a bitmap image used as
 // an OpenGL texture.
-// Files are stored as .bmp format. 
+// Files are stored as .png format. 
 // Depth are currently 24 or 32 bits,
 // Modes are : RGB, RGBA (alpha layer).
 //********************************************
@@ -114,7 +114,7 @@ public:
   void MakePowerOfTwoSize();
 
 private:
-    // Get the data from a .bmp file.
+    // Get the data from a .png file.
     int ReadFileBMP(const char *filename);
 
     void UpdateWidthByte32();

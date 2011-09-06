@@ -388,7 +388,7 @@ bool EngineRunning::Load()
   */
 
   // TODO CONFIG!
-//  PieceFootprint::SetTexture(TextureServer::Instance()->Get("diag.bmp", ""));
+//  PieceFootprint::SetTexture(TextureServer::Instance()->Get("diag.png", ""));
 
   File ftimer;
   if (!ftimer.OpenRead(Engine::Instance()->GetConfigValue("powertimer")))

@@ -168,7 +168,7 @@ PoolTexture* TextureServer::Get(const string& texturefile, const string& alphafi
     return 0;
   }
 
-  pt->BGRtoRGB();
+//  pt->BGRtoRGB();
 
   // If an alpha-layer file has been specified, load the data and add to 
   // texture.

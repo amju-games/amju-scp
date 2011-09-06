@@ -258,8 +258,8 @@ PoolBall::PoolBall()
 {
 #ifdef SCENE_EDITOR
   m_pSolid = SolidComponent::LoadSolid("ball1.comp");
-  m_tqBmp = "ball1.bmp";
-  m_tqAlpha = "moon_a.bmp";
+  m_tqBmp = "ball1.png";
+  m_tqAlpha = "moon_a.png";
   m_tq.Load(m_tqBmp, m_tqAlpha);
 #endif
 
@@ -1493,7 +1493,7 @@ bool PoolBall::Load(File* pf)
   std::string tq, tqAlpha;
   if (!pf->GetDataLine(&tq))
   {
-    pf->ReportError("Expected ball TQ bmp name");
+    pf->ReportError("Expected ball TQ.png name");
     return false;
   }
   int tqFlag = 0;
@@ -1641,7 +1641,7 @@ bool PoolBall::Save(File* pf)
 
 static const char* BALL_NUM = "Ball num";
 static const char* COMP_FILE = "Solid comp file";
-static const char* TQ_BMP = "Textured quad bmp";
+static const char* TQ_BMP = "Textured quad.png";
 
 GameObject::PropertyMap PoolBall::GetProperties() const
 {
@@ -1668,7 +1668,7 @@ void PoolBall::SetProperties(const PropertyMap& pm)
     const_cast<GameObject::PropertyMap&>(pm)[TQ_BMP].GetString();
   if (tqBmp.empty())
   {
-    tqBmp = "ball" + ToString(m_number) + ".bmp";
+    tqBmp = "ball" + ToString(m_number) + ".png";
   }
   if (tqBmp != m_tqBmp)
   {

@@ -204,10 +204,10 @@ bool EngineStatePoolCourseSelect::Load()
 
   // Heart quad to show room "costs"
   TexturedQuad tq1;
-  tq1.Load("heart4.bmp", "heart4_a.bmp");
+  tq1.Load("heart4.png", "heart4_a.png");
   m_costTqs.push_back(tq1);
   TexturedQuad tq2;
-  tq2.Load("star.bmp", "star_a.bmp");
+  tq2.Load("star.png", "star_a.png");
   m_costTqs.push_back(tq2);
 
   //m_pNextText = TextFactory::Instance()->Create("next", &tc);
@@ -471,9 +471,9 @@ std::cout << "In GetThumbnails...\n";
     imageName += ToString(s_currentCourse);
     imageName += "-";
     imageName += ToString(i);
-    imageName += ".bmp";
+    imageName += ".png";
     TexturedQuad tq;
-    tq.Load(imageName, "thumb-a.bmp");
+    tq.Load(imageName, "thumb-a.png");
 
     GuiButton* pGb = new GuiButton;
     pGb->SetFromQuad(tq);

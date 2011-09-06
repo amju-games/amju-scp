@@ -267,7 +267,7 @@ bool EngineStatePoolGetPlayerName::Load()
   }
 
   // Get the text entry TQ
-  if (!m_textboxTq.Load("power-guage2.bmp", "power-guage2-a.bmp")) 
+  if (!m_textboxTq.Load("power-guage2.png", "power-guage2-a.png")) 
     // TODO CONFIG
   {
     return false;

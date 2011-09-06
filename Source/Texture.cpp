@@ -40,6 +40,8 @@ Added to repository
 #include "File.h" // Get directory root
 #include "StringUtils.h"
 #include "SchAssert.h"
+#include <LoadPng.h>
+#include <TextureUtils.h>
 
 using namespace std;
 
@@ -285,11 +287,26 @@ std::cout << "PoolTexture::ReadFile: filename: "
  << filename << ": ext: " << extension.c_str() << "\n";
 #endif
 
-    if (ToLower(extension) == "bmp")
+    if (ToLower(extension) == "png")
+    {
+        unsigned int bytesPerPix = 0;
+        m_pData = LoadPng(filename, &m_Width, &m_Height, &bytesPerPix);
+
+        // Pngs upside down?!
+        // TODO Fix properly if this also happens in other projects
+        FlipBmp(m_pData, m_Width, m_Height, bytesPerPix);
+
+        m_Depth = bytesPerPix * 8;
+        UpdateWidthByte32();
+        Assert(m_pData);
+        return 1;
+    }
+    else if (ToLower(extension) == "bmp")
     {
 #ifdef TEXTURE_DEBUG
 std::cout << "File is a BMP file\n";
 #endif
+        Assert(0); // s/b png now
         return ReadFileBMP(filestring.c_str());
     }
     // TODO Other file formats.

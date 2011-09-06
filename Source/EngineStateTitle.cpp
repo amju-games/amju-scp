@@ -228,7 +228,7 @@ bool EngineStateTitle::Load()
   }
 
 //  string bg = GetEngine()->GetConfigValue("title_bg");
-  if (!m_bg.Load("wh8.bmp", ""))
+  if (!m_bg.Load("wh8.png", ""))
   {
     return false;
   }

@@ -66,7 +66,7 @@ LeafData* LeafServer::Get(const std::string& leafname)
 // The idea here is that for dev builds you want to be able to edit leaf
 // files without rebuilding the .leafb file.
 
-//#if !defined(_DEBUG) && !defined(SCENE_EDITOR)
+#ifdef USE_LEAFB
   File binFile;
   std::string binfilename = leafname + std::string("b");
   if (binFile.OpenRead(binfilename, true))
@@ -74,7 +74,7 @@ LeafData* LeafServer::Get(const std::string& leafname)
     pFile = &binFile;
   }
   else
-//#endif
+#endif
 
   {
     if (!textFile.OpenRead(leafname))
@@ -82,7 +82,6 @@ LeafData* LeafServer::Get(const std::string& leafname)
       textFile.ReportError("Couldn't open file.");
       return 0;
     }
-std::cout << "Did open file: " << leafname << "\n";
     pFile = &textFile;
   }
 
@@ -93,14 +92,14 @@ std::cout << "Did open file: " << leafname << "\n";
     return 0;
   }
 
+std::cout << "Loaded file ok: " << leafname << "\n";
+
   // Add the leaf data to the map of created leaf data objects.
   if (!StoreDuplicates())
   {
     m_leafmap.insert(LeafMap::value_type(leafname, pld));
   }
 
-  //pld->MakeDisplayList();
-  
   return pld;
 }
 

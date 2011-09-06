@@ -296,11 +296,11 @@ bool EnginePaused::Load()
   m_pButtonQuitNo->SetCommand(&OnQuitNo);
   m_pButtonQuitNo->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
 
-  if (!m_tqSound.Load("sound.bmp", "pool-exit-a.bmp"))
+  if (!m_tqSound.Load("sound.png", "pool-exit-a.png"))
   {
     return false;
   }
-  if (!m_tqNoSound.Load("no-sound.bmp", "pool-exit-a.bmp"))
+  if (!m_tqNoSound.Load("no-sound.png", "pool-exit-a.png"))
   {
     return false;
   }
