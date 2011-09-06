@@ -3,7 +3,7 @@ $(error "Please set AMJULIB_MAC_SCRIPT_PATH in your environment.")
 endif
 
 EXE_NAME	:=	ascp-mac
-RUNDIR		:=	../../Assets
+RUNDIR		:=	../../Build/CompiledAssets
 BUILD		:=	../../Build/MacBuild
 TARGET		:=	$(BUILD)/$(EXE_NAME)
 AMJU      	:= 	../../../amjulib/Source
