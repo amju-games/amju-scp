@@ -47,6 +47,7 @@ Added to repository
 #include "LoadResult.h"
 #include "SpecialEvent.h"
 #include <GameState.h>
+#include <SoundManager.h>
 
 namespace Amju
 {
@@ -299,8 +300,8 @@ public:
   // ---------------
 
   // Sound player should be set up by OS-specific main().
-  void SetSoundPlayer(SoundPlayer* pSp) { m_pSoundPlayer = pSp; }
-  PSoundPlayer GetSoundPlayer() { return m_pSoundPlayer; }
+  //void SetSoundPlayer(SoundPlayer* pSp) { m_pSoundPlayer = pSp; }
+  SoundManager* GetSoundPlayer(); 
 
   // Play a wav file. Volume is from 0 (silent) to 1.0 (full volume)
   bool PlayWav(const std::string& file, float volume = 1.0f);

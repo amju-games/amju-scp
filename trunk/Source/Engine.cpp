@@ -167,10 +167,28 @@ void ReportError(const string& error)
   Engine::Instance()->ReportError(error);
 }
 
+static void Destroy()
+{
+#ifdef _DEBUG
+std::cout << "Destroying singleton: Engine\n";
+#endif
+
+  delete Engine::Instance();
+}
+
 Engine* Engine::Instance()
 {
-  static Engine e;
-  return &e;
+  static Engine* t = 0;
+  if (!t)
+  {
+#ifdef _DEBUG
+std::cout << "Creating singleton: Engine\n";
+#endif
+
+    t = new Engine;
+    atexit(Destroy);
+  }
+  return t;
 }
 
 Engine::Engine() 
@@ -194,7 +212,8 @@ Engine::Engine()
   // Start with white screen
   SetClearColour(1.0f, 1.0f, 1.0f);
 
-  SetLetterbox(false);
+  //SetLetterbox(false);
+  m_letterbox = 0;
 
   m_pGameState = new PoolGameState;
   
@@ -232,6 +251,11 @@ Engine::Engine()
 Engine::~Engine()
 {
 //  CleanUp(); // causes crash!?!
+}
+
+SoundManager* Engine::GetSoundPlayer()
+{
+  return TheSoundManager::Instance();
 }
 
 int Engine::GetWindowX() const
@@ -1356,6 +1380,7 @@ void Engine::DoLetterbox()
   if (m_letterbox == 0)
   {
     AmjuGL::SetPerspectiveProjection(FIELD_OF_VIEW, ASPECT_RATIO, NEAR_PLANE, FAR_PLANE);
+    AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
     return;
   }
 
@@ -1524,7 +1549,6 @@ void Engine::Fade()
   static bool first = true;
   if (first)
   {
-    if (GetSoundPlayer().GetPtr())
     {
       maxVol = GetSoundPlayer()->GetSongMaxVolume();
     }
@@ -1538,7 +1562,7 @@ void Engine::Fade()
   {
     if (m_fade == 1.0f)
     {
-      if (GetSoundPlayer().GetPtr() && GetSoundPlayer()->GetSongMaxVolume() == 0)
+      if (GetSoundPlayer()->GetSongMaxVolume() == 0)
       {
          musicIsSilent = true;
       }
@@ -1553,14 +1577,14 @@ void Engine::Fade()
 
     PushColour(m_fade * m_globalR, m_fade * m_globalG, m_fade * m_globalB, 1);
 
-    if (!musicIsSilent && GetSoundPlayer().GetPtr())
+    if (!musicIsSilent)
     {
       GetSoundPlayer()->SetSongMaxVolume(m_fade * maxVol);
     }
 
     if (m_fade <= SMALLEST)
     {
-      if (!musicIsSilent && GetSoundPlayer().GetPtr())
+      if (!musicIsSilent)
       {
          GetSoundPlayer()->SetSongMaxVolume(maxVol);
       }
