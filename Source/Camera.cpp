@@ -107,8 +107,8 @@ void Camera::MousePos(int x, int y)
   }
 
 
-  if (m_drag && (fabs(x - m_mouseX) > MOUSEMOVE || 
-      fabs(y - m_mouseY) > MOUSEMOVE))
+  if (m_drag && (fabs((float)(x - m_mouseX)) > MOUSEMOVE || 
+      fabs((float)(y - m_mouseY)) > MOUSEMOVE))
   {
     m_newMousePos = true;
 

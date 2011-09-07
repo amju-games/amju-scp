@@ -353,8 +353,11 @@ void HeightServer::AddHeightServer(const HeightServer& hs)
 {
   // Add the entire contents of hs to this HeightServer.
   // We don't Union polys, for speed.
-  std::copy(hs.m_heightPolys.begin(), hs.m_heightPolys.end(), back_inserter(m_heightPolys));
-  std::copy(hs.m_wallPolys.begin(), hs.m_wallPolys.end(), back_inserter(m_wallPolys));
+  //std::copy(hs.m_heightPolys.begin(), hs.m_heightPolys.end(), HeightPolyList::back_inserter(m_heightPolys));
+  //std::copy(hs.m_wallPolys.begin(), hs.m_wallPolys.end(), HeightPolyList::back_inserter(m_wallPolys));
+  
+  m_heightPolys.insert(m_heightPolys.end(), hs.m_heightPolys.begin(), hs.m_heightPolys.end());
+  m_wallPolys.insert(m_wallPolys.end(), hs.m_wallPolys.begin(), hs.m_wallPolys.end());
 
   m_boundingBox.Union(hs.m_boundingBox);
 }

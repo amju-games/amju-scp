@@ -97,7 +97,7 @@ PSolidComponent SingleTextFactory::CreateMultiline(
 
   SolidComposite* pComp = new SolidComposite;
 
-  float z = (float(choppedText.size() - 1)) / 2.0 * LINE_HEIGHT;
+  float z = (float(choppedText.size() - 1)) / 2.0f * LINE_HEIGHT;
 
   for (unsigned int i = 0; i < choppedText.size(); i++)
   {

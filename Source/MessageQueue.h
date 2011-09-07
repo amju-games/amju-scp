@@ -10,7 +10,7 @@ Added to repository
 #define SCHMICKEN_MESSAGE_QUEUE_H_INCLUDED
 
 #include "Message.h"
-#include "Mutex.h"
+#include <Mutex.h>
 #include <queue>
 
 namespace Amju

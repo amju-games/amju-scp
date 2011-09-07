@@ -198,7 +198,7 @@ float Variable::GetFloat() const
   }
   else
   {
-    return m_data.i;
+    return (float)m_data.i;
   }
   return 0;
 }

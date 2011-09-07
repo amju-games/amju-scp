@@ -152,7 +152,7 @@ bool Orientation::Save(File* jf)
 }
 #endif
 
-float degToRad(float deg) { return deg / 180.0f * pi; }
+float degToRad(float deg) { return deg / (float)(180.0 * pi); }
 
 void Orientation::TransformMatrix(Matrix* m) const
 {

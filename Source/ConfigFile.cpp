@@ -120,7 +120,7 @@ float ConfigFile::GetFloat(const std::string& key) const
   {
     return 0;
   }
-  return atof(it->second.c_str());
+  return (float)atof(it->second.c_str());
 }
 
 bool ConfigFile::Exists(const std::string& key) const

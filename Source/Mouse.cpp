@@ -24,7 +24,7 @@ Added to repository
 #ifdef WIN32
 #include <windows.h>
 // This is a bit nasty :-(
-#include "../WinMain/resource.h"
+//#include "../WinMain/resource.h"
 #endif
 #include "SchAssert.h"
 
