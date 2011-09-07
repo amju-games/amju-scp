@@ -495,7 +495,7 @@ void Engine::StartGame(const string& savedGameName)
        jt != m_engineStateMap.end(); 
        ++jt)
   {
-#ifdef _DEBUG
+#ifdef RESET_STATE_DEBUG
     std::cout << "Resetting state " << jt->first.c_str() << "\n";
 #endif
     jt->second->OnNewGame();
