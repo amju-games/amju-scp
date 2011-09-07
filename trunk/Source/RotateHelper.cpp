@@ -59,7 +59,7 @@ bool RotateHelper(
 
   float b = asin(s);
 
-  float bdegs = b * 180.0f / pi; // for debugging
+  float bdegs = b * (float)(180.0 / pi); // for debugging
   // bdegs is in range -90 to 90 - i.e. only 180 degrees of values.
   bdegs += 90; // now in range 0 - 180
   // Get the other 180 degrees
@@ -75,7 +75,7 @@ bool RotateHelper(
   float abdegs = bdegs + adegs;
   abdegs -= 90.0f;
 
-  const float abrads = abdegs / 180.0f * pi;
+  const float abrads = abdegs / (float)(180.0 * pi);
 
   // New position: rotate about the platform centre.
   float newx = dist * sin(abrads) + xOrigin;

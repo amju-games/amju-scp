@@ -20,7 +20,7 @@ Added to repository
 #include "CharacterGameObject.h"
 #include "TextLeaf.h"
 #include "GuiElement.h"
-#include "Mutex.h"
+#include <Mutex.h>
 
 namespace Amju
 {

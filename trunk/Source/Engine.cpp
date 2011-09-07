@@ -100,7 +100,7 @@ Added to repository
 
 #if defined(WIN32)
 // This is to make sure <winsock2.h> gets included before <windsock.h>
-#include "Socket.h"
+#include <Socket.h>
 #endif
 
 #include <iostream>

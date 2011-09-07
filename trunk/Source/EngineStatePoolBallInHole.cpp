@@ -90,7 +90,7 @@ Added to repository
 
 #include "EngineStatePoolBallInHole.h"
 #include "EngineStatePoolSetUpShot.h"
-#include "EngineStateThanksForPlaying.h"
+//#include "EngineStateThanksForPlaying.h"
 #include "Engine.h"
 #include "PoolGameState.h"
 #include "LevelServer.h"
@@ -104,7 +104,7 @@ Added to repository
 #include "TextWriter.h"
 #include "TextColourizerColourList.h"
 #include "PoolHole.h"
-#include "EngineStateCongrats.h"
+//#include "EngineStateCongrats.h"
 #include "EngineStatePoolCourseSelect.h"
 #include "PoolPlayerStats.h"
 #include "GuiButton.h"

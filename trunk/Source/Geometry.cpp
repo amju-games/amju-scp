@@ -30,7 +30,7 @@ float GetXZAngle(const VertexBase& v1, const VertexBase& v2)
   float dx = v2.x - v1.x;
   float dz = v2.z - v1.z;
   float r = atan2(dx, dz); // TODO do we need to check if z = 0 ?
-  float rDegs = r / pi * 180.0f; // convert to degs
+  float rDegs = r / (float)(pi * 180.0); // convert to degs
   rDegs += 180.0f; // need this to fix z direction 
   return rDegs;
 }

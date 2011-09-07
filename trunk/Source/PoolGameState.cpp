@@ -94,7 +94,7 @@ std::string PoolGameState::Get(const std::string& key)
 
 float PoolGameState::GetFloat(const std::string& key)
 {
-  return atof(m_cf.GetValue(key).c_str());
+  return (float)atof(m_cf.GetValue(key).c_str());
 }
 
 bool PoolGameState::Load()

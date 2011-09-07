@@ -60,7 +60,7 @@ void ThirdPersonCameraFollow::GetControlPoint()
     // Erase the first element.
     m_points.erase(m_points.begin());
   }
-  m_points.push_back(std::make_pair(0, newPoint));
+  m_points.push_back(std::make_pair(0.0f, newPoint));
   // Set the times for the 1st and 2nd points (0-based).
   // The time for point[1] is zero. The time for point[2] is the sample
   // period. The camera pos is some point between these two.

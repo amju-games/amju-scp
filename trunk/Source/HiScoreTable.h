@@ -12,7 +12,7 @@ Added to repository
 #include <map>
 #include <string>
 #include "Singleton.h"
-#include "Thread.h"
+#include <Thread.h>
 
 namespace Amju
 {

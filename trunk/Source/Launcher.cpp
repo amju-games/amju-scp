@@ -23,7 +23,7 @@ namespace Amju
 bool LaunchBrowser(const char* url)
 {
 #ifdef WIN32
-  int r =  (int)ShellExecute(0, "open", url, "", "", 1);
+  int r =  (int)ShellExecuteA(0, "open", url, "", "", 1);
   return (r > 32);
 
 #else 

@@ -435,7 +435,7 @@ void GetExactCollisionCoords(
   }
 
   // Start half-way between the balls.
-  float dt = len * 0.5;
+  float dt = len * 0.5f;
 
   bool broke = false;
   int count = 0;

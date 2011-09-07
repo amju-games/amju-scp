@@ -73,7 +73,7 @@ void SimpleTargetCamera::OnMouseDrag(int dx, int dy)
 
   // TODO: Zoom if shift held down ?
 
-  float rot = dx;
+  float rot = (float)dx;
   VertexBase v(0, 0, 0); // TODO CONFIG
   if (m_pTarget.GetPtr())
   {
