@@ -74,7 +74,6 @@ void EngineRunningBase::Update()
   EngineState::Update();
 
   Assert(m_pLevel.GetPtr());
-//  GetPlayer()->SetLevel(m_pLevel.GetPtr());
 
   GetEngine()->GetDayNightSky()->Update();
 
@@ -86,15 +85,6 @@ void EngineRunningBase::Update()
   // rather than their position in the previous frame.
   UpdateGameObjects();
 
-//  GetPlayer()->Update();
-  // Above call should probably do the following too!
-//  GetPlayer()->RefreshHeightServer(); 
-  // Update player height server with any game objects which are close 
-  // enough to collide.
-//  UpdateGameObjectHeightServer(GetPlayer());
-
-  // See if player has collided with a game object.
-//  PlayerCollisionTest();
 }
 
 void EngineRunningBase::DrawLensflare()
@@ -295,44 +285,10 @@ void EngineRunningBase::UpdateGameObjects()
   GameObjectMap& objs = GetEngine()->GetGameObjects(levelId, roomId);
 
   GameObjectMap::iterator it;
-  // First update platforms. Then update other objects.
-  // This is to prevent objects on platforms from lagging behind the
-  // platform they are on.
-  for (it = objs.begin(); it != objs.end(); ++it)
-  {
-    PPoolGameObject pGo = it->second;
-    //if (!dynamic_cast<Platform*>(pGo.GetPtr()))
-    //{
-    //  continue;
-    //}
-
-    // Don't bother with more costly dynamic_cast - we know it's visible.
-    VisibleGameObject* pVgo = (VisibleGameObject*)pGo.GetPtr();
-
-    // Check state of object.
-    State s = pVgo->GetState();
-
-    // POOL: some pool-specific states here
-    if (s != OUT_OF_PLAY &&
-        s != BALL_IN_POCKET &&
-        s != BALL_OUT_OF_BOUNDS)
-    {
-      pVgo->Update(); // Game objects can do things even when out of view.
-
-      // Static scenery heights:
-      // If the object has moved, we refresh the floor/wall info for it.
-      // Heights of other objects.
-      UpdateGameObjectHeightServer(pVgo);
-    }
-  }
 
   for (it = objs.begin(); it != objs.end(); ++it)
   {
     PPoolGameObject pGo = it->second;
-    //if (dynamic_cast<Platform*>(pGo.GetPtr()))
-    //{
-    //  continue;
-    //}
 
     if (pGo->IsVisible())
     {
@@ -341,8 +297,7 @@ void EngineRunningBase::UpdateGameObjects()
 
       // Check state of object.
       State s = pVgo->GetState();
-      //Engine::Instance()->GetEngineState()->GetState(gameObjId, &s);
-    // POOL: some pool-specific states here
+      
       if (s != OUT_OF_PLAY &&
           s != BALL_IN_POCKET &&
           s != BALL_OUT_OF_BOUNDS)
