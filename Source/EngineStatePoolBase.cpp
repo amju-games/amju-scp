@@ -242,7 +242,7 @@ void EngineStatePoolBase::OnNewLevel()
 
 void EngineStatePoolBase::OnNewGame()
 {
-#ifdef _DEBUG
+#ifdef RESET_EXTRA_HEARTS_DEBUG
   std::cout << "RESET EXTRA HEARTS!\n";
 #endif
 
