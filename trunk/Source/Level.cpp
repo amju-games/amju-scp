@@ -485,7 +485,7 @@ void Level::GetHeightServer(HeightServer* pResult, const BoundingSphere& bs)
 
 void Level::SetRoomId(int roomId)
 {
-#ifdef _DEBUG
+#ifdef SET_ROOM_ID_DEBUG
   std::cout << "Setting new room ID: " << roomId << "\n";
 #endif
 
