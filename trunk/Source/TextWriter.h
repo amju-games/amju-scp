@@ -33,14 +33,14 @@ public:
 
   // Print text. You must call this every frame.
   // If pFont is 0, the default Font is used.
-  void Print(float x, float y, const char *text, Font* pFont = 0);
+  void Print(float x, float y, const char *text, PoolFont* pFont = 0);
 
   // As above, but centre text along x-axis.
   // If pFont is 0, the default Font is used.
-  void PrintCentre(float y, const char* text, Font* pFont = 0);
+  void PrintCentre(float y, const char* text, PoolFont* pFont = 0);
 
   // No Blending is set, so you can override the normal blending calls.
-  void PrintNoBlend(float x, float y, const char *text, Font* pFont = 0);
+  void PrintNoBlend(float x, float y, const char *text, PoolFont* pFont = 0);
 
   // Add a string to the scrolling text. 
   void ScrollPrint(const std::string& text);
@@ -66,12 +66,12 @@ public:
   static const float HORIZONTAL_SPACING;
 
   // The default font - probably don't need to access it ?
-  Font* GetDefaultFont();
+  PoolFont* GetDefaultFont();
 
 private:
-  friend class FontManager;
+  friend class PoolFontManager;
   // Set by Font Manager after fonts have been loaded.
-  void SetDefaultFont(Font*);
+  void SetDefaultFont(PoolFont*);
 
 protected:
   // Container of strings which scroll up the screen. 
@@ -83,7 +83,7 @@ protected:
   int m_maxLines;
 
   // The default font; this is used whenever a custom font is not specified.
-  SharedPtr<Font> m_pFont;
+  SharedPtr<PoolFont> m_pFont;
 
   bool m_dropShadow;
 };

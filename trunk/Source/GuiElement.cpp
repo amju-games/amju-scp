@@ -451,7 +451,7 @@ std::cout << "Checkmouse: " << checkMouse << "\n";
 
 void GuiElement::DrawToolTipText()
 {
-  static Font* pFont = TheFontManager::Instance()->GetFont("tooltip");
+  static PoolFont* pFont = TheFontManager::Instance()->GetFont("tooltip");
 
   if (m_toolTipText.empty())
   {

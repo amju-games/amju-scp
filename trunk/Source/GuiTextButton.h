@@ -43,7 +43,7 @@ public:
   // Set font - if not set, the Default Font is used.
   // NB Set Font before text so the width is set correctly.
   // TODO Refresh the width if the font is changed.
-  void SetFont(Font* pFont);
+  void SetFont(PoolFont* pFont);
 
   void SetFontSize(float);
 
@@ -51,7 +51,7 @@ public:
 
 protected:
   std::string m_text;
-  Font* m_pFont;
+  PoolFont* m_pFont;
   float m_textWidth;
   float m_fontSize;
   Colour m_fontColour;

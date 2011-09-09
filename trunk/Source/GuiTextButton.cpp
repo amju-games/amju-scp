@@ -112,7 +112,7 @@ void GuiTextButton::DrawImpl()
     a = 0.5f; // TODO CONFIG
   }
 
-  Font* pFont = m_pFont;
+  PoolFont* pFont = m_pFont;
   if (!pFont)
   {
     pFont = Engine::Instance()->GetTextWriter()->GetDefaultFont();
@@ -162,7 +162,7 @@ void GuiTextButton::SetText(const std::string& s)
 {
   m_text = s;
   // Get the width of the text, and set the button width to fit.
-  Font* pFont = m_pFont;
+  PoolFont* pFont = m_pFont;
   if (!pFont)
   {
     pFont = Engine::Instance()->GetTextWriter()->GetDefaultFont();
@@ -173,7 +173,7 @@ void GuiTextButton::SetText(const std::string& s)
   // a font of size 1.0.
 }
 
-void GuiTextButton::SetFont(Font* pFont)
+void GuiTextButton::SetFont(PoolFont* pFont)
 {
   m_pFont = pFont;
 }

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: TextureSequence.cpp,v $
+$Log: PoolTextureSequence.cpp,v $
 Revision 1.1  2004/09/08 15:42:58  jay
 Added to repository
   
@@ -18,7 +18,7 @@ Added to repository
 
 namespace Amju
 {
-TextureSequence::TextureSequence()
+PoolTextureSequence::PoolTextureSequence()
 {
   m_pTexture = 0;
 
@@ -30,21 +30,21 @@ TextureSequence::TextureSequence()
   m_cellSizeY = 0;
 }
 
-TextureSequence::~TextureSequence()
+PoolTextureSequence::~PoolTextureSequence()
 {
 }
 
-int TextureSequence::GetTextureWidth()
+int PoolTextureSequence::GetTextureWidth()
 {
   return m_pTexture->GetWidth();
 }
 
-int TextureSequence::GetTextureHeight()
+int PoolTextureSequence::GetTextureHeight()
 {
   return m_pTexture->GetHeight();
 }
 
-bool TextureSequence::Load(
+bool PoolTextureSequence::Load(
   const std::string& texturename, 
   const std::string& alphaname, 
   int numElementsX, int numElementsY,
@@ -68,7 +68,7 @@ bool TextureSequence::Load(
   return true;
 }
 
-void TextureSequence::Draw(int element)
+void PoolTextureSequence::Draw(int element)
 {
   Assert(m_pTexture);
   Assert(element < m_numElements);
@@ -110,12 +110,12 @@ void TextureSequence::Draw(int element)
   return;
 }
 
-int TextureSequence::GetNumElements() const
+int PoolTextureSequence::GetNumElements() const
 {
   return m_numElements;
 }
 
-void TextureSequence::Bind()
+void PoolTextureSequence::Bind()
 {
   m_pTexture->Bind();
 }

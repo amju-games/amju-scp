@@ -19,10 +19,10 @@ namespace Amju
 {
 class File;
 
-class Font : public Shareable
+class PoolFont : public Shareable
 {
 public:
-  Font(const std::string& name);
+  PoolFont(const std::string& name);
 
   // Load font data from a file. 
   // I.e. point size, texture file names, etc.
@@ -49,7 +49,7 @@ public:
 
 protected:
   std::string m_name;
-  TextureSequence m_textureSequence;
+  PoolTextureSequence m_textureSequence;
   float m_size;
   std::map<char, float> m_charWidths; 
   // The first character in the texture sequence - usually 0 for a 256-
@@ -57,21 +57,21 @@ protected:
   int m_startChar;
 };
 
-class FontManager
+class PoolFontManager
 {
 public:
   // Load all available fonts
   bool Init();
 
   // Get a font - the name includes the point size ?
-  Font* GetFont(const std::string& fontName);
+  PoolFont* GetFont(const std::string& fontName);
 
 protected:
-  typedef std::map<std::string, SharedPtr<Font> > Fonts;
+  typedef std::map<std::string, SharedPtr<PoolFont> > Fonts;
   Fonts m_fonts;
 };
 
-typedef Singleton<FontManager> TheFontManager;
+typedef Singleton<PoolFontManager> TheFontManager;
 }
 
 #endif

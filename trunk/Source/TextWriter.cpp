@@ -50,12 +50,12 @@ void TextWriter::SetDropShadow(bool b)
   m_dropShadow = b;
 }
 
-Font* TextWriter::GetDefaultFont()
+PoolFont* TextWriter::GetDefaultFont()
 {
   return m_pFont.GetPtr();
 }
 
-void TextWriter::SetDefaultFont(Font* pFont)
+void TextWriter::SetDefaultFont(PoolFont* pFont)
 {
   m_pFont = pFont;
 }
@@ -74,7 +74,7 @@ TextWriter::~TextWriter()
 { 
 }
 
-void TextWriter::PrintNoBlend(float x, float y, const char *text, Font* pFont)
+void TextWriter::PrintNoBlend(float x, float y, const char *text, PoolFont* pFont)
 {
     if (pFont == 0)
     {
@@ -83,7 +83,7 @@ void TextWriter::PrintNoBlend(float x, float y, const char *text, Font* pFont)
     pFont->PrintNoBlend(x, y, text);
 }
 
-void TextWriter::Print(float x, float y, const char *text, Font* pFont)
+void TextWriter::Print(float x, float y, const char *text, PoolFont* pFont)
 {
     AmjuGL::PushAttrib(AmjuGL::AMJU_BLEND);
 
@@ -112,7 +112,7 @@ void TextWriter::Print(float x, float y, const char *text, Font* pFont)
     AmjuGL::PopAttrib(); // Blend
 }
 
-void TextWriter::PrintCentre(float y, const char* text, Font* pFont)
+void TextWriter::PrintCentre(float y, const char* text, PoolFont* pFont)
 {
     // Get width of string.
     if (pFont == 0)

@@ -26,7 +26,7 @@ std::cout << "GuiText::DrawImpl\n";
 #endif
 
   // TODO Stencil/scissor ? buffer, so text never overflows rectangle ?
-  Font* pFont = m_pFont;
+  PoolFont* pFont = m_pFont;
   if (!pFont)
   {
     pFont = Engine::Instance()->GetTextWriter()->GetDefaultFont();
@@ -55,7 +55,7 @@ void GuiText::SetText(const std::string& s)
   m_strings.push_back(s);
 }
 
-void GuiText::SetFont(Font* pFont)
+void GuiText::SetFont(PoolFont* pFont)
 {
   m_pFont = pFont;
 }
