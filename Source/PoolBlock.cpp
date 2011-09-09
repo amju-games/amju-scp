@@ -123,7 +123,7 @@ bool PoolBlock::Load(File* pf)
   }
   m_pCollisionSolid = pComp;
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   m_pCollisionSolid->RecalculateAbsoluteCoords(m);
 
   if (!m_startOrientation.Load(pf))
@@ -183,8 +183,8 @@ const HeightServer* PoolBlock::GetCollisionVol() const
 void PoolBlock::RecalcCollisionVol()
 {
   Matrix m;
-  m.identity();
-  BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  m.SetIdentity();
+  BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
   m_collisionVolume.Clear();
 
   GetOrientation()->TransformMatrix(&m);
@@ -225,7 +225,7 @@ std::cout << "Pool block " << GetId() << ": collision with ball: " << pObj->GetI
 
     // Cue ball is in B.Sphere - check for collision with actual solid.
     const BoundingSphere& bs = *(pObj->GetBoundingSphere());
-    const VertexBase& v = bs.GetCentre();
+    const Vec3f& v = bs.GetCentre();
 
     m_blastWave.Reset(v);
 

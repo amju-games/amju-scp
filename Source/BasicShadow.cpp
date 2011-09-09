@@ -402,7 +402,7 @@ void BasicShadow::ClipShadowToHeightPoly(
   // Luckily we can use the GPC ("Generic Polygon Clipper").
 
   // Vector of shadow polygon vertices after clipping.
-  std::vector<VertexBase> vertices;
+  std::vector<Vec3f> vertices;
 
   // Set up gpc data structures for the two polygons.
   // First poly: the shadow 
@@ -456,7 +456,7 @@ void BasicShadow::ClipShadowToHeightPoly(
   gpc_polygon result;
   gpc_polygon_clip(GPC_INT, &p1, &p2, &result);
 
-  // Convert result into vector of VertexBase.
+  // Convert result into vector of Vec3f.
   if (result.num_contours != 1)
   {
     // Error, there should be one gpc 'contour' (== polygon here).
@@ -470,7 +470,7 @@ std::cout << "SHADOW: BAILING before cliiping shadow poly to height poly!\n";
   for (int k = 0; k < vlist.num_vertices; k++)
   {
     gpc_vertex& v = vlist.vertex[k];
-    VertexBase vb((float)v.x, 0, (float)v.y);
+    Vec3f vb((float)v.x, 0, (float)v.y);
     vertices.push_back(vb);
   }
 
@@ -481,7 +481,7 @@ std::cout << "SHADOW: BAILING before cliiping shadow poly to height poly!\n";
   Polygon poly;
   for (unsigned int j = 0; j < vertices.size(); j++)
   {
-    const VertexBase& v = vertices[j];
+    const Vec3f& v = vertices[j];
     float y = hp.GetY(v.x, v.z);
     Assert(y != HeightServer::BadHeight);
 

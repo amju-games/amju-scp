@@ -15,7 +15,8 @@ Added to repository
 #define SCHMICKEN_POLYGON_H_INCLUDED
 
 #include <vector>
-#include "Matrix.h"
+#include <Matrix.h>
+#include "Vertex.h"
 
 namespace Amju
 {
@@ -26,7 +27,6 @@ class PolyLoader;
 class PolyDrawer;
 class LeafData;
 class SolidLeaf;
-class SceneVertex;
 
 class Polygon
 {

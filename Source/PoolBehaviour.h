@@ -97,7 +97,7 @@ public:
   virtual ValidBalls GetValidBalls() = 0;
 
   // Get position to place cue ball - use this for AI characters after a foul.
-  VertexBase GetPlaceCueBallPos() const;
+  Vec3f GetPlaceCueBallPos() const;
 
 // NB Rails are public so Trajectory can use them. This lets us show
 // the player the direction of a ball once it hits the rail.
@@ -170,8 +170,8 @@ protected:
   // if there is LOS between two Game Objects, the objects themselves
   // don't appear to cause an obstruction.
   static bool IsLos(
-    const VertexBase&, 
-    const VertexBase&, 
+    const Vec3f&, 
+    const Vec3f&, 
     float radius,
     PoolGameObject* p1, 
     PoolGameObject* p2,
@@ -184,9 +184,9 @@ protected:
   // pocket. Returns true if the shot exists, and returns the shot
   // rank, ghost ball pos, cue ball vel.
   bool CalcPotShot(
-    const VertexBase& vCue, 
-    const VertexBase& vObj, 
-    const VertexBase& vPocket,
+    const Vec3f& vCue, 
+    const Vec3f& vObj, 
+    const Vec3f& vPocket,
     float radius,
     float* pRank,
     BoundingSphere* pGhostBs,
@@ -196,7 +196,7 @@ protected:
   // Nothing is pottable - just try to hit a valid ball.
   // Return true if this is possible, false if snookered.
   bool CalcAnyValidShot(
-    const VertexBase& vCue, 
+    const Vec3f& vCue, 
     float radius,
     float* pRank, 
     BoundingSphere* pGhostBs);
@@ -206,7 +206,7 @@ protected:
   // Call this if nothing is pottable and there is no direct 
   // LOS to any valid ball.
   bool CalcValidBounceShot(
-    const VertexBase& vCue, 
+    const Vec3f& vCue, 
     float radius,
     float* pRank, 
     BoundingSphere* pGhostBs);
@@ -223,9 +223,9 @@ protected:
   // object ball in the given pocket. Returns true if such a
   // shot is found, with rank.
   bool CalcBouncePotShot(
-    const VertexBase& vCue, 
-    const VertexBase& vObj, 
-    const VertexBase& vPocket,
+    const Vec3f& vCue, 
+    const Vec3f& vObj, 
+    const Vec3f& vPocket,
     float radius,
     float* pRank, 
     BoundingSphere* pGhostBs,
@@ -313,7 +313,7 @@ protected:
 
   // If we can place the cue ball anywhere (i.e., after a foul),
   // this is the new cue ball position.
-  VertexBase m_placeCueBallPos;
+  Vec3f m_placeCueBallPos;
   
 public:
   // Public interface for drawing all valid shots - just for 

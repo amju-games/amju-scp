@@ -434,7 +434,7 @@ void Level::AddGameObject(PPoolGameObject pGo)
 {
   // Create Bounding Sphere for game object. (Used for VFC and collision.)
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   pGo->CreateBoundingSphere(m);
 
   // Give GameObject the opportunity to hold a pointer to this level. Some

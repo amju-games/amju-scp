@@ -92,7 +92,7 @@ protected:
   float m_x, m_y; // contact pos: (0, 0) is cue ball centre.
 
   // Endpoints of line - v1 is centre of ball.
-  VertexBase m_v1, m_v2;
+  Vec3f m_v1, m_v2;
 
   bool m_autoTakeShot;
 };

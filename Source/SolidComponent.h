@@ -107,7 +107,7 @@ public:
 
   // Calls virtual LineIntersects() above. This just converts 2 vertices
   // to a Line Seg.
-  bool LineIntersects(const VertexBase& v1, const VertexBase& v2, float r) const;
+  bool LineIntersects(const Vec3f& v1, const Vec3f& v2, float r) const;
 
 
   // Issue gl commands to translate and rotate.

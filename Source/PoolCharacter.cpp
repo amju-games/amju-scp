@@ -134,8 +134,8 @@ void PoolCharacter::Draw()
   m_tableBs1.Draw();
   m_tableBs2.Draw();
   // Draw line between centres
-  VertexBase v1 = m_tableBs1.GetCentre();
-  VertexBase v2 = m_tableBs2.GetCentre();
+  Vec3f v1 = m_tableBs1.GetCentre();
+  Vec3f v2 = m_tableBs2.GetCentre();
   glBegin(GL_LINES);
     glVertex3f(v1.x, v1.y, v1.z);
     glVertex3f(v2.x, v2.y, v2.z);
@@ -215,7 +215,7 @@ std::cout << "SET ACTION GO\n";
   // Test if the player intersects the table. If so, we use the 'lean'
   // animation.
   Level* pLevel = LevelServer::Instance()->GetCurrentLevel().GetPtr();
-  VertexBase v1 = GetOrientation()->GetVertex(); 
+  Vec3f v1 = GetOrientation()->GetVertex(); 
 
   // Set the y-coord so that we will intersect the table cushions.
   v1.y = 1.0f;
@@ -242,7 +242,7 @@ std::cout << "SET ACTION GO\n";
 
   // Move away more - so we don't have the situation where the player is so
   // deep in the table that we don't spot the intersect!
-  VertexBase v2(v1);
+  Vec3f v2(v1);
   static const float FAR_DIST = 50.0f;
   v2.x -= dx * FAR_DIST;
   v2.z -= dz * FAR_DIST;
@@ -254,7 +254,7 @@ std::cout << "SET ACTION GO\n";
 
   // Store so we can draw this
 //  // TODO TEMP TEST - char positon not set yet ??
-//  VertexBase v3 = GetOrientation()->GetVertex(); 
+//  Vec3f v3 = GetOrientation()->GetVertex(); 
   m_tableBs1.SetCentre(v1); 
   m_tableBs1.SetRadius(r);
   m_tableBs2.SetCentre(v2); 

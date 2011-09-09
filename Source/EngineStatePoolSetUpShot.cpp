@@ -438,7 +438,7 @@ void EngineStatePoolSetUpShot::SetShowTrajectory(bool b)
   if (b)
   {
     // Recalc trajectory
-    VertexBase vBall = GetBall()->GetOrientation()->GetVertex();
+    Vec3f vBall = GetBall()->GetOrientation()->GetVertex();
     // POOL: shot speed is set independently of direction, so just use a dummy
     // horizontal vel.
     float hvel = 10.0f; 
@@ -585,10 +585,10 @@ EngineStatePoolSetUpShot::EngineStatePoolSetUpShot()
   s_avoidVec.clear();
   s_avoidVec.reserve(4); // TODO max no of players
   Assert(s_avoidVec.empty()); // NB reserve does not create elements
-  s_avoidVec.push_back(VertexBase());
-  s_avoidVec.push_back(VertexBase());
-  s_avoidVec.push_back(VertexBase());
-  s_avoidVec.push_back(VertexBase());
+  s_avoidVec.push_back(Vec3f());
+  s_avoidVec.push_back(Vec3f());
+  s_avoidVec.push_back(Vec3f());
+  s_avoidVec.push_back(Vec3f());
   Assert(s_avoidVec.size() == 4);
 
   m_showTrajectory = false;
@@ -635,8 +635,8 @@ void EngineStatePoolSetUpShot::SetPlaceBallMode(bool b)
     Orientation o = *(GetBall()->GetOrientation());
     // Look at the cue ball, from a position on the opposite side
     // of the cue ball to the object ball.
-    VertexBase v = o.GetVertex() - pTargetToFace->GetBoundingSphere()->GetCentre();
-    v.Normalize();
+    Vec3f v = o.GetVertex() - pTargetToFace->GetBoundingSphere()->GetCentre();
+    v.Normalise();
     // NB +180 required to pull back in the required direction
     o.SetYRot(180.0f + RadToDeg(atan2(v.x, v.z)));
     // Change the direction the cue ball is facing. This will change
@@ -797,7 +797,7 @@ bool EngineStatePoolSetUpShot::AddShotAngle(float rot)
 // around the cue ball.
 ////    Orientation oPlayer(*(GetActivePlayer()->GetOrientation()));
 
-    VertexBase v1 = oPlayer.GetVertex();
+    Vec3f v1 = oPlayer.GetVertex();
 
     oPlayer.SetXRot(0);
     oPlayer.SetYRot(0);
@@ -843,7 +843,7 @@ Orientation GetTeeSpot()
   Orientation o;
   PoolTeeBox* pTee = GetTeeBox(pLevel);
   const BoundingSphere* bb = pTee->GetBoundingSphere();
-  const VertexBase& v = bb->GetCentre();
+  const Vec3f& v = bb->GetCentre();
   o.SetX(v.x);
   o.SetY(v.y);
   o.SetZ(v.z);
@@ -1131,7 +1131,7 @@ void EngineStatePoolSetUpShot::OnNewGame()
   m_serverStatusSetThisGame = false;
 }
 
-bool EngineStatePoolSetUpShot::CueBallPosOk(const VertexBase& newpos)
+bool EngineStatePoolSetUpShot::CueBallPosOk(const Vec3f& newpos)
 {
   // Return true if cue ball does not intersect another ball, and does
   // not intersect scene.
@@ -1291,7 +1291,7 @@ void EngineStatePoolSetUpShot::Draw()
     double ox, oy, oz;
     gluUnProject(wx,wy,wz,modelview,projection,viewport,&ox,&oy,&oz);
 */
-    VertexBase newpos; //(ox, oy, oz);
+    Vec3f newpos; //(ox, oy, oz);
     // store mouse position for moving cue in birds-eye mode
     m_mousePos = newpos; 
 
@@ -1748,7 +1748,7 @@ std::cout << "SET ACTIVE: Room ID: " << roomId << "\n";
       ((PoolCharacter*)pGo.GetPtr())->SetAlpha(1.0f);
       
       // Reset the avoid vec for this player.
-      s_avoidVec[i] = VertexBase();
+      s_avoidVec[i] = Vec3f();
     }
 
     Orientation ballOr = *(GetBall()->GetOrientation()); // POOL
@@ -1837,7 +1837,7 @@ std::cout << "Not user controlled ? WTF ?\n";
           !GetRules(m_pLevel.GetPtr())->PlayerMayPlaceCueBallBehindHeadstring() &&
           !GetRules(m_pLevel.GetPtr())->ShotIsBreak())
       {
-        VertexBase vCue = GetRules(m_pLevel.GetPtr())->GetBehaviour()->
+        Vec3f vCue = GetRules(m_pLevel.GetPtr())->GetBehaviour()->
           GetPlaceCueBallPos();
         Orientation o = *(GetBall()->GetOrientation());
         o.SetVertex(vCue);
@@ -1875,8 +1875,8 @@ std::cout << "CAMERA: Setting position to see cue ball and object ball\n";
 
         // Look at the cue ball, from a position on the opposite side
         // of the cue ball to the object ball.
-        VertexBase v = o.GetVertex() - pTargetToFace->GetBoundingSphere()->GetCentre();
-        v.Normalize();
+        Vec3f v = o.GetVertex() - pTargetToFace->GetBoundingSphere()->GetCentre();
+        v.Normalise();
         // TODO NB +180 required to pull back in the required direction
         o.SetYRot(180.0f + RadToDeg(atan2(v.x, v.z)));
         // POOL
@@ -2214,8 +2214,8 @@ void PlayerMoveAwayFrom(PoolGameObject* p1, PoolGameObject* p2)
   // yRads is direction we want to go in.
   // NB The character doesn't face this direction, we just change the
   // position in this direction.
-  VertexBase v1 = p1->GetOrientation()->GetVertex();
-  VertexBase v2 = p2->GetOrientation()->GetVertex();
+  Vec3f v1 = p1->GetOrientation()->GetVertex();
+  Vec3f v2 = p2->GetOrientation()->GetVertex();
 
   float yRads = AngleCompare::TurnToFace(v1.x, v1.z, v2.x, v2.z);
 
@@ -2378,7 +2378,7 @@ std::cout << "Player " << i << " and player " << j << " intersect!\n";
           PlayerMoveAwayFrom(players[i], players[j]);
           Orientation o2 = *(players[i]->GetOrientation());
           Orientation oDiff = o2 - o1;
-          VertexBase vDiff = oDiff.GetVertex();
+          Vec3f vDiff = oDiff.GetVertex();
           s_avoidVec[i] += vDiff;
         }        
         else
@@ -2393,7 +2393,7 @@ std::cout << "Player " << i << " is active, so will not be moved.\n";
           PlayerMoveAwayFrom(players[j], players[i]);
           Orientation o2 = *(players[j]->GetOrientation());
           Orientation oDiff = o2 - o1;
-          VertexBase vDiff = oDiff.GetVertex();
+          Vec3f vDiff = oDiff.GetVertex();
           s_avoidVec[j] += vDiff;
         }        
         else
@@ -2752,7 +2752,7 @@ void EngineStatePoolSetUpShot::FaceTarget(PoolGameObject* pAnotherTarget)
   Assert(GetBall());
   Assert(GetBall()->GetOrientation());
 
-  VertexBase vHole = pAnotherTarget->GetBoundingSphere()->GetCentre();
+  Vec3f vHole = pAnotherTarget->GetBoundingSphere()->GetCentre();
 
   Orientation oBall = *(GetBall()->GetOrientation());
   // Get the angle required for ball to travel towards hole
@@ -2872,7 +2872,7 @@ std::cout << "JUMP: p: " << p << "\n";
   // If friendly game, make sure trajectory is pointing the right way.
   if (GetShowTrajectory())
   {
-    VertexBase vBall = GetBall()->GetOrientation()->GetVertex();
+    Vec3f vBall = GetBall()->GetOrientation()->GetVertex();
 //  vBall.y += 0.25f; // make sure a float trajectory will be visible
     // POOL: shot speed is set independently of direction, so just use a dummy
     // horizontal vel.
@@ -2980,10 +2980,10 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
           // Elevation can't be set in this mode: just set it to some
           // default value.
         
-          VertexBase vMouse = m_mousePos; // set in Draw()
-          VertexBase vCue = GetBall()->GetOrientation()->GetVertex();
+          Vec3f vMouse = m_mousePos; // set in Draw()
+          Vec3f vCue = GetBall()->GetOrientation()->GetVertex();
           vMouse.y = vCue.y;
-          VertexBase vDiff = vCue - vMouse;
+          Vec3f vDiff = vCue - vMouse;
           float rads = atan2(vDiff.x, vDiff.z);
           float degs = RadToDeg(rads);
           m_shotYRotate = degs; 

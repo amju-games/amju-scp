@@ -190,7 +190,6 @@ void FileCheckState::DrawOverlays()
             // For profiling, exit immeditately.
             //exit(0); 
             e->ReportError("Loaded ok.");
-            e->SetShowKeys(false);
         }
         else
         {

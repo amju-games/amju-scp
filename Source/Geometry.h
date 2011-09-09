@@ -9,10 +9,10 @@ Added to repository
 #if !defined(GEOM_H_INCLUDED)
 #define GEOM_H_INCLUDED
 
+#include <Vec3.h>
+
 namespace Amju
 {
-class VertexBase;
-
 namespace Geometry
 {
   void MakeNormal(const float v1[3], 
@@ -20,22 +20,22 @@ namespace Geometry
                          const float v3[3], 
                          float result[3]);
 
-  void MakeNormal(const VertexBase& v1,
-                         const VertexBase& v2,
-                         const VertexBase& v3,
-                         VertexBase* pResult);
+  void MakeNormal(const Vec3f& v1,
+                         const Vec3f& v2,
+                         const Vec3f& v3,
+                         Vec3f* pResult);
 
   void CrossProduct(float v1[3], float v2[3], float result[3]);
 
-  VertexBase CrossProduct(const VertexBase& v1, const VertexBase& v2);
+  Vec3f CrossProduct(const Vec3f& v1, const Vec3f& v2);
 
-  float DotProduct(const VertexBase& v1, const VertexBase& v2);
+  float DotProduct(const Vec3f& v1, const Vec3f& v2);
 
-  void Normalize(float r[3]);
+  void Normalise(float r[3]);
 
   // Get the angle in the x-z plane between the first vertex and the
   // second.
-  float GetXZAngle(const VertexBase& v1, const VertexBase& v2);
+  float GetXZAngle(const Vec3f& v1, const Vec3f& v2);
 };
 }
 #endif

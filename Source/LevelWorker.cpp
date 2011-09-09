@@ -147,7 +147,7 @@ bool LevelWorker::GetOrientationAboveWater(
       //  the sphere, then get the height.
       float y = 0;
       float r = 10.0f; // TODO CONFIG
-      BoundingSphere bs(VertexBase(pResult->GetX(), y, pResult->GetZ()), r);
+      BoundingSphere bs(Vec3f(pResult->GetX(), y, pResult->GetZ()), r);
       HeightServer hs;
       pLevel->GetHeightServer(&hs, bs);
       if (!hs.GetHeight(pResult->GetX(), pResult->GetZ(), &y))

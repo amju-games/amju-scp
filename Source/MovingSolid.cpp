@@ -206,8 +206,8 @@ void MovingSolid::DrawSphere()
   // change in position.
   if (m_pSolid.GetPtr())
   {
-    VertexBase v = m_pSolid->GetBoundingSphere()->GetCentre();
-    VertexBase delta(m_orientationDelta.GetX(),
+    Vec3f v = m_pSolid->GetBoundingSphere()->GetCentre();
+    Vec3f delta(m_orientationDelta.GetX(),
                      m_orientationDelta.GetY(),
                      m_orientationDelta.GetZ() );
     v += delta;

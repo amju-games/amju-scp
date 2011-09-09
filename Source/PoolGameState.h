@@ -95,13 +95,13 @@ public:
         m_yRot(yRot), m_vertVel(vertVel), m_horVel(horVel), m_accel(accel),
         m_english(english), m_drawRoll(drawRoll), m_cueElevationDegs(0)  {}
 
-      void SetCueBallPos(const VertexBase& v) { m_cueBallPos = v; }
-      const VertexBase& GetCueBallPos() const { return m_cueBallPos; }
+      void SetCueBallPos(const Vec3f& v) { m_cueBallPos = v; }
+      const Vec3f& GetCueBallPos() const { return m_cueBallPos; }
 
       float m_yRot, m_vertVel, m_horVel, m_accel;
       float m_english, m_drawRoll;
       float m_cueElevationDegs;
-      VertexBase m_cueBallPos;
+      Vec3f m_cueBallPos;
     };
     PoolStroke m_golfStroke;
  

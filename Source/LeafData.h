@@ -14,6 +14,7 @@ Added to repository
 #include "File.h"
 #include "Texture.h"
 #include "TextureMethod.h"
+//#include <ObjMesh.h>
 #include <string>
 #include <vector>
 
@@ -44,6 +45,7 @@ public:
   void Draw();
 
   bool Load(File* pf);
+//  bool Load(const std::string& filename);
 
   void StoreAbsoluteCoords(Matrix m, HeightServer* pHs);
   void RecalculateAbsoluteCoords(const Matrix& cm);
@@ -135,6 +137,8 @@ protected:
 
   // The object which renders all leaves.
   static LeafRenderer* s_pLeafRenderer;
+
+//  ObjMesh m_obj;
 
 
 #if defined(SCENE_EDITOR)

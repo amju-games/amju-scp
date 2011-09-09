@@ -57,7 +57,7 @@ public:
   virtual void OnRoomEntry();
 
   // Get the position of the hole.
-  VertexBase GetTargetVertex() const;
+  Vec3f GetTargetVertex() const;
 
   void SetIsNominated(bool b) { m_isNominated = b; }
   bool GetIsNominated() const { return m_isNominated; }

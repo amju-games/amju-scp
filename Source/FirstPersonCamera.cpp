@@ -70,7 +70,7 @@ void FirstPersonCamera::Draw()
             0, 1.0, 0 /* 'Up' vector */);
 
   // Store "look at" pos.
-  m_lookAtPos = VertexBase(x, y, z);
+  m_lookAtPos = Vec3f(x, y, z);
 }
 
 void FirstPersonCamera::DrawRotation()

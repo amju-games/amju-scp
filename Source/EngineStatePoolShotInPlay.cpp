@@ -151,7 +151,6 @@ Added to repository
 #endif
 
 #include "EngineStatePoolShotInPlay.h"
-//#include "EngineStatePoolOutOfBounds.h"
 #include "Engine.h"
 #include "LevelServer.h"
 #include "PoolGameState.h"
@@ -306,7 +305,7 @@ void EngineStatePoolShotInPlay::SetActive(bool active)
 
     ////GetBall()->SetActivePlatform(0);
 
-    VertexBase v = GetBall()->GetOrientation()->GetVertex();
+    Vec3f v = GetBall()->GetOrientation()->GetVertex();
     v.y += 0.1f;
     m_explosion.Reset(v);
 
@@ -520,9 +519,9 @@ if (pairs.size() > 1)
       PoolBall* pBest = 0;
       for (unsigned int i = 0; i < pairs.size(); i++)
       {
-        VertexBase v1 = pairs[i].first->GetPrevOrientation().GetVertex();
-        VertexBase v2 = pairs[i].second->GetPrevOrientation().GetVertex();
-        float dist = (v1 - v2).Length();
+        Vec3f v1 = pairs[i].first->GetPrevOrientation().GetVertex();
+        Vec3f v2 = pairs[i].second->GetPrevOrientation().GetVertex();
+        float dist = sqrt((v1 - v2).SqLen());
         if (dist < bestDist)
         {
           bestDist = dist;
@@ -578,7 +577,7 @@ std::cout << "Ball collision: found " << pairs.size() << " colliding pairs\n";
     PoolBall* p2 = pairs[i].second;
 
     float t = 0; // time of exact collision
-    VertexBase v1, v2; // exact positions at collision time
+    Vec3f v1, v2; // exact positions at collision time
     PoolBall::GetExactCollisionCoords(p1, p2, &t, &v1,&v2);
     if (t < earliest)
     {

@@ -91,7 +91,7 @@ const Orientation* PoolGameObject::GetOrientation()
   return 0;
 }
 
-VertexBase PoolGameObject::GetPosition() const
+Vec3f PoolGameObject::GetPosition() const
 {
   Assert(const_cast<PoolGameObject*>(this)->GetOrientation());
   return const_cast<PoolGameObject*>(this)->GetOrientation()->GetVertex();

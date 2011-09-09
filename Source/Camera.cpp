@@ -126,7 +126,7 @@ void Camera::MousePos(int x, int y)
 
 }
 
-void Camera::RotateCameraHoriz(float rot, const VertexBase& centre)
+void Camera::RotateCameraHoriz(float rot, const Vec3f& centre)
 {
   Orientation cam = *(GetOrientation());
   float xadd = 0;

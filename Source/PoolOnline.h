@@ -259,8 +259,8 @@ public:
       int frame,
       int id,
       State state,
-      const VertexBase& v,
-      const VertexBase& vel) 
+      const Vec3f& v,
+      const Vec3f& vel) 
       : 
       m_frame(frame), m_id(id), m_state(state), m_vertex(v), m_vel(vel) {}
 
@@ -270,8 +270,8 @@ public:
     int m_frame;
     int m_id;
     State m_state;
-    VertexBase m_vertex;
-    VertexBase m_vel;
+    Vec3f m_vertex;
+    Vec3f m_vel;
   };
   typedef std::vector<OnlineGameObject> OnlineGameObjects;
   

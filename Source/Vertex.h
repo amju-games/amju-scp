@@ -23,36 +23,42 @@ Added to repository
 #define VERTEX_H_INCLUDED
 
 #include "Matrix.h"
+#include <Vec3.h>
 #include <iostream>
 #include <string>
 
 namespace Amju
 {
-class VertexBase
-{
-  friend std::ostream& operator<<(std::ostream&, const VertexBase&);
+bool operator==(const Vec3f& v1, const Vec3f& v2);
+std::ostream& operator<<(std::ostream&, const Vec3f&);
+std::string ToString(const Vec3f& v, int decimalPlaces = 2);
 
-  friend const VertexBase operator+(const VertexBase& v1, const VertexBase& v2);
-  friend const VertexBase operator-(const VertexBase& v1, const VertexBase& v2);
-  friend std::string ToString(const VertexBase& v, int decimalPlaces = 2);
+/*
+class Vec3f
+{
+  friend std::ostream& operator<<(std::ostream&, const Vec3f&);
+
+  friend const Vec3f operator+(const Vec3f& v1, const Vec3f& v2);
+  friend const Vec3f operator-(const Vec3f& v1, const Vec3f& v2);
+  friend std::string ToString(const Vec3f& v, int decimalPlaces = 2);
 
 public:
-  VertexBase();
-  VertexBase(float x, float y, float z);
+  Vec3f();
+  Vec3f(float x, float y, float z);
 
 //  inline float x() const { return x; }
 //  inline float y() const { return y; }
 //  inline float z() const { return z; }
 
-  bool operator==(const VertexBase& rhs) const;
-  bool operator!=(const VertexBase& rhs) const { return !operator==(rhs); }
+  bool operator==(const Vec3f& rhs) const;
+  bool operator!=(const Vec3f& rhs) const { return !operator==(rhs); }
 
   // Less-than, for STL.
-  bool operator<(const VertexBase& rhs) const;
+  bool operator<(const Vec3f& rhs) const;
 
-  VertexBase& operator+=(const VertexBase& rhs);
-  VertexBase& operator-=(const VertexBase& rhs);
-  VertexBase& operator*=(float s);
+  Vec3f& operator+=(const Vec3f& rhs);
+  Vec3f& operator-=(const Vec3f& rhs);
+  Vec3f& operator*=(float s);
 
   // Returns false if length is zero; else returns true, and length 
   // will be 1.0.
@@ -66,17 +72,18 @@ public:
 public:
   float x, y, z;
 };
+*/
 
 class File;
 class HeightServer;
 class Matrix;
 
-class SceneVertex : public VertexBase
+class SceneVertex : public Vec3f
 {
 public:
   SceneVertex();
   SceneVertex(float x, float y, float z);
-  SceneVertex(const VertexBase& v);
+  SceneVertex(const Vec3f& v);
   ~SceneVertex();
 
   SceneVertex& operator=(const SceneVertex& rhs);
@@ -115,7 +122,7 @@ private:
   float m_normal[3]; // normal at this vertex.
 };
 
-float SquareDist(const VertexBase& v1, const VertexBase& v2);
+float SquareDist(const Vec3f& v1, const Vec3f& v2);
 
 // Vertex with texture (s, t) coords.
 class TexVertex 

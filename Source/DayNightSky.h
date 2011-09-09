@@ -33,7 +33,7 @@ public:
   void Update();
 
   // Get the positon of the sun
-  VertexBase GetSunPosition() const { return m_sunpos; }
+  Vec3f GetSunPosition() const { return m_sunpos; }
   
   // Returns true if it's daylight.
   bool IsSunVisible() const { return (m_daylight > 0); }
@@ -62,10 +62,10 @@ protected:
 
   // sin and cos values to get light/sun/moon position
   float m_s, m_c;
-  VertexBase m_sunpos;
-  VertexBase m_sunsparklepos;
-  VertexBase m_moonpos;
-  VertexBase m_shootstarpos;
+  Vec3f m_sunpos;
+  Vec3f m_sunsparklepos;
+  Vec3f m_moonpos;
+  Vec3f m_shootstarpos;
 
   float m_nightLevel, m_dayLevel;
 

@@ -36,7 +36,6 @@ Added to repository
 #include "ThirdPersonCameraFixed.h"
 #include "FirstPersonCamera.h"
 #include "SchAssert.h"
-#include "KeymapPrinter.h"
 #include "LevelServer.h"
 
 using namespace std;
@@ -233,8 +232,6 @@ void EngineRunning::OnNewGame()
 
   //  NB Don't call OnNewLevel();
 
-  m_score.Reset();
-
   // Set player state, so shadow is shown.
   GetPlayer()->SetState(UNKNOWN);
 }
@@ -321,9 +318,6 @@ void EngineRunning::OnNewLevel()
 
 void EngineRunning::IncreaseScore(int i)
 {
-  int s = m_score.Get();
-  s += i;
-  m_score.Set(s);
 }
 
 // SetActive() is called when this state becomes active - in this case when 
@@ -401,8 +395,6 @@ bool EngineRunning::Load()
     GetEngine()->ReportError("Failed to load timer.");
     return false;
   }
-
-  m_score.Init();
 
   return true;
 }

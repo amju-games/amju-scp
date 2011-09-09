@@ -271,7 +271,7 @@ bool CharacterGameObject::LoadCollisionVolume(File* pf)
   }
   
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   m_pCollisionVol->CreateBoundingSphere(m);
 
   return true;
@@ -459,7 +459,7 @@ const BoundingSphere* CharacterGameObject::GetBoundingSphere() const
 {
   m_bsphere.SetRadius(m_radius); 
 
-  VertexBase v(GetPosition().x + m_sphereXOffset * m_vectorX, 
+  Vec3f v(GetPosition().x + m_sphereXOffset * m_vectorX, 
                GetPosition().y + m_sphereYOffset,  
                GetPosition().z + m_sphereZOffset * m_vectorZ);
   m_bsphere.SetCentre(v);
@@ -507,12 +507,12 @@ void CharacterGameObject::RecalcCollisionVol()
   m_pCollisionVol->SetOrientation(m_orientation);
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   // Get a matrix from the solid's orientation
   m_pCollisionVol->GetOrientation()->TransformMatrix(&m);
   // Use the matrix to make absolute coord height/wall info
   m_pCollisionVol->StoreHeights(m);
-  BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
   m_collisionVolume.Clear();
   // Add all the polys (that fit inside bs, which should be all of them)
   // which are part of our Solid to our heightserver.
@@ -546,7 +546,7 @@ void CharacterGameObject::ExecuteJump(const PlayerMessage& m)
 
   // Don't jump if we would go through the ceiling.
   const BoundingSphere& bsBefore = *GetBoundingSphere();
-  VertexBase v(bsBefore.GetCentre());
+  Vec3f v(bsBefore.GetCentre());
   v.y += jumpHeight;
   BoundingSphere bsAfter(v, bsBefore.GetRadius());
   

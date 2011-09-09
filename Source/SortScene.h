@@ -45,14 +45,14 @@ protected:
 protected:
   // Vector of SolidComponents. This is sorted whenever the eye position changes.
   CompVector m_solids;
-  VertexBase m_lastEyePos;
+  Vec3f m_lastEyePos;
 
   struct SceneSorter
   {
-    SceneSorter(const VertexBase& v) : m_v(v) {}
+    SceneSorter(const Vec3f& v) : m_v(v) {}
     bool operator()(const PSolidComponent& p1, const PSolidComponent& p2) const;
 
-    VertexBase m_v;
+    Vec3f m_v;
   };
 
   BoundingSphere m_bsphere;  

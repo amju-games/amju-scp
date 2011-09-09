@@ -155,8 +155,8 @@ public:
     const PoolBall* p1, 
     const PoolBall* p2,
     float* pCollisionTime,
-    VertexBase* v1, 
-    VertexBase* v2);
+    Vec3f* v1, 
+    Vec3f* v2);
 
   // Set the position at the given time after the last known good
   // time.

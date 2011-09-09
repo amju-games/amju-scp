@@ -181,10 +181,10 @@ bool HeightServer::QuickIntersectReject(
   const BoundingSphere& bsBefore, 
   const BoundingSphere& bsAfter) const
 {
-  const VertexBase& vBefore = bsBefore.GetCentre();
+  const Vec3f& vBefore = bsBefore.GetCentre();
   float rBefore = bsBefore.GetRadius();
 
-  const VertexBase& vAfter = bsAfter.GetCentre();
+  const Vec3f& vAfter = bsAfter.GetCentre();
   float rAfter = bsAfter.GetRadius();
 
 //  Assert(fabs(rBefore - rAfter) < SMALLEST);
@@ -280,8 +280,8 @@ bool HeightServer::Intersects(
 }
 
 bool HeightServer::Intersects(
-  const VertexBase& v1, 
-  const VertexBase& v2, 
+  const Vec3f& v1, 
+  const Vec3f& v2, 
   float radius) const
 {
   BoundingSphere begin(v1, radius);
@@ -302,8 +302,8 @@ bool HeightServer::Intersects(const Mgc::Segment3& seg, float radius) const
   // of Intersects().
   // TODO undoubtedly faster to use Magic code.
 
-  VertexBase v1(seg.Origin().x, seg.Origin().y, seg.Origin().z);
-  VertexBase v2(
+  Vec3f v1(seg.Origin().x, seg.Origin().y, seg.Origin().z);
+  Vec3f v2(
     seg.Origin().x + seg.Direction().x, 
     seg.Origin().y + seg.Direction().y, 
     seg.Origin().z + seg.Direction().z);
@@ -312,10 +312,10 @@ bool HeightServer::Intersects(const Mgc::Segment3& seg, float radius) const
 
 /*
   BoundingSphere begin(
-    VertexBase(seg.Origin().x, seg.Origin().y, seg.Origin().z), radius);
+    Vec3f(seg.Origin().x, seg.Origin().y, seg.Origin().z), radius);
 
   BoundingSphere end(
-    VertexBase(
+    Vec3f(
       seg.Origin().x + seg.Direction().x, 
       seg.Origin().y + seg.Direction().y, 
       seg.Origin().z + seg.Direction().z), radius);
@@ -435,7 +435,7 @@ void HeightPoly::CreateBoundingBox()
   // Iterate over vertices.
   for (int j = 0; j < 3; j++)
   {
-    const VertexBase& v = m_vertices[j];
+    const Vec3f& v = m_vertices[j];
 
     m_mgcVerts.push_back(Mgc::Vector2(v.x, v.z));
 
@@ -601,9 +601,9 @@ bool WallPoly::Intersects(
   // Make Mgc triangle from wall vertices.
   // TODO Do this once up front!
   Mgc::Triangle3 tri;
-  const VertexBase& a = m_vertices[0];
-  const VertexBase& b = m_vertices[1];
-  const VertexBase& c = m_vertices[2];
+  const Vec3f& a = m_vertices[0];
+  const Vec3f& b = m_vertices[1];
+  const Vec3f& c = m_vertices[2];
   
   tri.Origin() = Mgc::Vector3(a.x, a.y, a.z);
   tri.Edge0() = Mgc::Vector3(b.x - a.x, b.y - a.y, b.z - a.z);
@@ -614,9 +614,9 @@ bool WallPoly::Intersects(
 }
 
 bool WallPoly::IntersectGetPoint(
-  const VertexBase& v1, 
-  const VertexBase& v2,
-  VertexBase* pIntersectPoint)
+  const Vec3f& v1, 
+  const Vec3f& v2,
+  Vec3f* pIntersectPoint)
 {
   // Get the point on the wall poly where the line v1-v2 intersects.
   Mgc::Vector3 pt1(v1.x, v1.y, v1.z);
@@ -626,9 +626,9 @@ bool WallPoly::IntersectGetPoint(
   seg.Direction() = pt2;
 
   Mgc::Triangle3 tri;
-  const VertexBase& a = m_vertices[0];
-  const VertexBase& b = m_vertices[1];
-  const VertexBase& c = m_vertices[2];
+  const Vec3f& a = m_vertices[0];
+  const Vec3f& b = m_vertices[1];
+  const Vec3f& c = m_vertices[2];
   
   tri.Origin() = Mgc::Vector3(a.x, a.y, a.z);
   tri.Edge0() = Mgc::Vector3(b.x - a.x, b.y - a.y, b.z - a.z);
@@ -640,23 +640,23 @@ bool WallPoly::IntersectGetPoint(
   float squareDist = Mgc::SqrDistance(seg, tri, &x, &y, &z);
   // We would expect the dist to be zero for an intersect.
   // But the line v1-v2 may not intersect, it may just get close.
-  *pIntersectPoint = VertexBase(x, y, z);
+  *pIntersectPoint = Vec3f(x, y, z);
 #ifdef _DEBUG
 std::cout << "WALLPOLY: Get Intersect Point: sq dist: " << squareDist << "\n";
 #endif
   return squareDist == 0;
 }
 
-float WallPoly::SqDist(const VertexBase& v) const
+float WallPoly::SqDist(const Vec3f& v) const
 {
   // Get square dist from point v to this wall.
 
   Mgc::Vector3 point(v.x, v.y, v.z);
 
   Mgc::Triangle3 tri;
-  const VertexBase& a = m_vertices[0];
-  const VertexBase& b = m_vertices[1];
-  const VertexBase& c = m_vertices[2];
+  const Vec3f& a = m_vertices[0];
+  const Vec3f& b = m_vertices[1];
+  const Vec3f& c = m_vertices[2];
   
   tri.Origin() = Mgc::Vector3(a.x, a.y, a.z);
   tri.Edge0() = Mgc::Vector3(b.x - a.x, b.y - a.y, b.z - a.z);
@@ -671,13 +671,13 @@ bool WallPoly::Intersects(const BoundingSphere& bs) const
 /*
   // We have to work out if the sphere is 'behind' this wall.
   // The normal of this wall is (m_a, m_b, m_c) - but we will ignore m_b.
-  VertexBase n(m_a, 0, m_c);
+  Vec3f n(m_a, 0, m_c);
   // Get a vector for the sphere. Try the bounding sphere centre - a vertex of the wall. 
-  VertexBase v(bs.GetCentre().x - m_vertices[0].x,
+  Vec3f v(bs.GetCentre().x - m_vertices[0].x,
                0, //bs.GetCentre().y() - m_vertices[0].y(),
                bs.GetCentre().z - m_vertices[0].z );
-  n.Normalize(); // TODO are these calls necessary ?
-  v.Normalize();
+  n.Normalise(); // TODO are these calls necessary ?
+  v.Normalise();
   // Get Dot product.
   float dp = Geometry::DotProduct(v, n);
   // If the sphere is behind the poly, the dot product will be < 0.
@@ -694,9 +694,9 @@ bool WallPoly::Intersects(const BoundingSphere& bs) const
 
   // TODO rewrite this to avoid all the conversion from Schmicken types to Mgc types.
   Mgc::Triangle3 tri;
-  const VertexBase& a = m_vertices[0];
-  const VertexBase& b = m_vertices[1];
-  const VertexBase& c = m_vertices[2];
+  const Vec3f& a = m_vertices[0];
+  const Vec3f& b = m_vertices[1];
+  const Vec3f& c = m_vertices[2];
   
   tri.Origin() = Mgc::Vector3(a.x, a.y, a.z);
   tri.Edge0() = Mgc::Vector3(b.x - a.x, b.y - a.y, b.z - a.z);
@@ -730,9 +730,9 @@ void Plane::GetNormal(float pResult[3]) const
   pResult[2] = m_c;
 }
 
-VertexBase Plane::GetNormal() const
+Vec3f Plane::GetNormal() const
 {
-  return VertexBase(m_a, m_b, m_c);
+  return Vec3f(m_a, m_b, m_c);
 }
 
 Geom2d::Line2d Plane::GetEdge(unsigned int i) const
@@ -748,7 +748,7 @@ Geom2d::Line2d Plane::GetEdge(unsigned int i) const
                         Geom2d::Point2d(m_vertices[0].x, m_vertices[0].z));
 }
 
-void Plane::AddVertex(const VertexBase& v, unsigned int i)
+void Plane::AddVertex(const Vec3f& v, unsigned int i)
 {
   Assert(i < 3);
   m_vertices[i] = v; 
@@ -839,7 +839,7 @@ bool Plane::operator==(const Plane& rhs) const
           fabs(m_d - rhs.m_d) < SMALLEST);
 }
 
-Plane::PositionType Plane::ClassifyPoint(const VertexBase& v) const
+Plane::PositionType Plane::ClassifyPoint(const Vec3f& v) const
 {
   // From Flipcode collision detection tutorial
   float f = Geometry::DotProduct(GetNormal(), v) + m_d;

@@ -105,7 +105,7 @@ void SolidGameObject::SetOrientation(const Orientation& o)
   // Also we must reset the bounding sphere of the object.
   // Assume we are not currently transformed by anything.
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   CreateBoundingSphere(m);
 
   // Some solid Game Objects may be solid, at least to NPCs.
@@ -125,7 +125,7 @@ void SolidGameObject::SetSolid(PSolidComponent pSolid)
   m_pSolid = pSolid;
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   CreateBoundingSphere(m);
 
   RecalcCollisionVol();
@@ -143,12 +143,12 @@ void SolidGameObject::SetSolid(PSolidComponent pSolid)
 void SolidGameObject::RecalcCollisionVol() 
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   GetOrientation()->TransformMatrix(&m); 
   m_pSolid->StoreHeights(m);
 
   m_collisionVolume.Clear();
-  BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
   m_pSolid->AddHeights(&m_collisionVolume, bs);
 }
 

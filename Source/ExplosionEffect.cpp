@@ -118,7 +118,7 @@ void ExplosionEffect::Kill()
   }
 }
 
-void ExplosionEffect::Reset(const VertexBase& centre)
+void ExplosionEffect::Reset(const Vec3f& centre)
 {
   for (ParticleList::iterator it = m_particles.begin(); it != m_particles.end(); ++it)
   {
@@ -150,7 +150,7 @@ void ExplosionParticle::Draw()
 
   // Update the position of the particle, then draw it.
   m_vely += s_g * delta;
-  m_centre = VertexBase(m_centre.x + m_velx, m_centre.y - m_vely, m_centre.z + m_velz);
+  m_centre = Vec3f(m_centre.x + m_velx, m_centre.y - m_vely, m_centre.z + m_velz);
   // NB Positive Y vel => downwards
 
   AmjuGL::PushMatrix();
@@ -171,7 +171,7 @@ void ExplosionParticle::Kill()
   m_isDead = true;
 }
 
-void ExplosionParticle::Reset(const VertexBase& centre)
+void ExplosionParticle::Reset(const Vec3f& centre)
 {
   m_centre = centre;
   m_time = 0;

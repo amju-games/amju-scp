@@ -54,7 +54,7 @@ void SimpleTargetCamera::Update()
   {
     t = *(m_pTarget->GetOrientation());
   }
-  m_lookAtPos = VertexBase(t.GetX(), t.GetY(), t.GetZ());
+  m_lookAtPos = Vec3f(t.GetX(), t.GetY(), t.GetZ());
 }
 
 void SimpleTargetCamera::SetTarget(PPoolGameObject pTarget)
@@ -74,7 +74,7 @@ void SimpleTargetCamera::OnMouseDrag(int dx, int dy)
   // TODO: Zoom if shift held down ?
 
   float rot = (float)dx;
-  VertexBase v(0, 0, 0); // TODO CONFIG
+  Vec3f v(0, 0, 0); // TODO CONFIG
   if (m_pTarget.GetPtr())
   {
     v = m_pTarget->GetOrientation()->GetVertex();

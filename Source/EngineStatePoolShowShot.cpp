@@ -164,7 +164,7 @@ void EngineStatePoolShowShot::SetActive(bool active)
 
     // The "take shot" animation expects the ball to be at the (x, z) origin.
     Orientation o = *(GetActivePlayer()->GetOrientation());
-    VertexBase v = GetBall()->GetOrientation()->GetVertex();
+    Vec3f v = GetBall()->GetOrientation()->GetVertex();
     o.SetX(v.x);
     o.SetZ(v.z);
 

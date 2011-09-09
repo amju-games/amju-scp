@@ -2,7 +2,7 @@
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: Geom2d.cpp,v $
 Revision 1.1.10.2  2005/09/26 07:57:10  jay
-Add return value to Normalize() so we can try to find causes of
+Add return value to Normalise() so we can try to find causes of
 bad zero-length vectors
 
 Revision 1.1.10.1  2005/06/13 22:11:32  jay
@@ -75,7 +75,7 @@ float DotProduct(const Vec2d& p1, const Vec2d& p2)
   return (p1.x * p2.x  +  p1.y * p2.y);
 }
 
-bool Point2d::Normalize()
+bool Point2d::Normalise()
 {
   const float len = (float) sqrt(x * x + y * y);
   if (len == 0)

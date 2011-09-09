@@ -34,7 +34,7 @@ struct Point2d
 
   Point2d operator+(const Point2d& rhs) const;
   Point2d operator-(const Point2d& rhs) const;
-  bool Normalize();
+  bool Normalise();
   Point2d& operator*=(float);
 };
  

@@ -295,7 +295,7 @@ void Bonus::OnRoomEntry()
 {
   // Make sure bonus is resting on the ground underneath it.
   m_pLevel = LevelServer::Instance()->GetCurrentLevel().GetPtr();
-  BoundingSphere bigBs(VertexBase(0, 0, 0), 1000.0f);
+  BoundingSphere bigBs(Vec3f(0, 0, 0), 1000.0f);
   HeightServer hs;
   m_pLevel->GetHeightServer(&hs, bigBs);
   Orientation o = *(m_pSolid->GetOrientation());

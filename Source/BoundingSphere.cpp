@@ -40,7 +40,7 @@ BoundingSphere::BoundingSphere() : m_r(0.0f)
 {
 }
 
-BoundingSphere::BoundingSphere(VertexBase v, float radius) : m_v(v), m_r(radius)
+BoundingSphere::BoundingSphere(Vec3f v, float radius) : m_v(v), m_r(radius)
 {
 }
 
@@ -61,7 +61,7 @@ bool BoundingSphere::Load(File* pf)
     return false;
   }
   SetRadius(r);
-  SetCentre(VertexBase(x, y, z));
+  SetCentre(Vec3f(x, y, z));
   return true;
 }
 
@@ -107,7 +107,7 @@ void BoundingSphere::Draw()
 #endif
 }
 
-void BoundingSphere::SetCentre(const VertexBase& v)
+void BoundingSphere::SetCentre(const Vec3f& v)
 {
   m_v = v;
 }
@@ -117,7 +117,7 @@ void BoundingSphere::SetRadius(float r)
   m_r = r;
 }
  
-const VertexBase& BoundingSphere::GetCentre() const 
+const Vec3f& BoundingSphere::GetCentre() const 
 {
   return m_v;
 }
@@ -128,8 +128,8 @@ float BoundingSphere::GetRadius() const
 }
 
 bool BoundingSphere::Intersects(
-  const VertexBase& v1, 
-  const VertexBase& v2, 
+  const Vec3f& v1, 
+  const Vec3f& v2, 
   float r) const
 {
   Mgc::Segment3 seg;
@@ -194,7 +194,7 @@ BoundingSphere operator+(const BoundingSphere& lhs, const BoundingSphere& rhs)
   
   Mgc::Sphere res = Mgc::MergeSpheres(s1, s2);
 
-  VertexBase centre(res.Center().x, res.Center().y, res.Center().z);
+  Vec3f centre(res.Center().x, res.Center().y, res.Center().z);
   return BoundingSphere(centre, res.Radius());
 }
 
@@ -252,7 +252,7 @@ void BoundingSphere::SetFromLeaf(const SolidLeaf& leaf)
   }
 
   // Sphere centre is centre of box.
-  m_v = VertexBase((maxx + minx)/2.0f, (maxy + miny)/2.0f, (maxz + minz)/2.0f);
+  m_v = Vec3f((maxx + minx)/2.0f, (maxy + miny)/2.0f, (maxz + minz)/2.0f);
 
   // Iterate again to get the radius. Get distance from centre to each point.
   float rsquared = 0;

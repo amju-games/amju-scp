@@ -149,7 +149,7 @@ void BlastWaveEffect::Draw()
   AmjuGL::PopAttrib();
 }
 
-void BlastWaveEffect::Reset(const VertexBase& centre)
+void BlastWaveEffect::Reset(const Vec3f& centre)
 {
   if (!m_dead) 
   {

@@ -131,7 +131,7 @@ bool LevelWorkerAddTrees::AddFeature(Level* pLevel)
 
     pTrunk->SetOrientation(o);
     Matrix m;
-    m.identity();
+    m.SetIdentity();
     o.TransformMatrix(&m);
     pTrunk->StoreHeights(m);
     pComp->AddComponent(pTrunk);
@@ -141,7 +141,7 @@ bool LevelWorkerAddTrees::AddFeature(Level* pLevel)
 
   // Redo scene bounding sphere tree to take trunks into account.
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   pComp->CreateBoundingSphere(m);
 
   return true;

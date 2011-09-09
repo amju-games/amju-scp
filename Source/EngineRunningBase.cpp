@@ -94,14 +94,14 @@ void EngineRunningBase::DrawLensflare()
       GetEngine()->GetDayNightSky()->IsSparkleVisible())
   {
     // Make a bounding sphere around the sun coords.
-    VertexBase sunPos = GetEngine()->GetDayNightSky()->GetSunPosition();
+    Vec3f sunPos = GetEngine()->GetDayNightSky()->GetSunPosition();
     BoundingSphere sunBs(sunPos, 50.0f); // sun's "radius"
     // Find out if the sun intersects the view frustum
     if (Frustum::Instance()->Contains(sunBs))
     {
       PCamera pCam = GetCamera();
       Assert(pCam.GetPtr());
-      VertexBase eyePos(pCam->GetOrientation()->GetX(), 
+      Vec3f eyePos(pCam->GetOrientation()->GetX(), 
                         pCam->GetOrientation()->GetY(), 
                         pCam->GetOrientation()->GetZ());
 

@@ -142,15 +142,15 @@ bool Room::Load(const string& filename)
     return false;
   }
 
-  Matrix identityMatrix;
-  identityMatrix.identity();
-  m_pScene->CreateBoundingSphere(identityMatrix);
+  Matrix SetIdentityMatrix;
+  SetIdentityMatrix.SetIdentity();
+  m_pScene->CreateBoundingSphere(SetIdentityMatrix);
 
   // This static scenery data is converted to absolute coords, and "height"
   // polygons - i.e. floors etc - go in the Height Server.
-  // StoreHeights() recurses - start off with the identity matrix.
+  // StoreHeights() recurses - start off with the SetIdentity matrix.
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   m_pScene->StoreHeights(m);
 
   // Get Indoors flag. 1=outdoors, 0=indoors.

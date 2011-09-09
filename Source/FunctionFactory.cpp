@@ -15,7 +15,7 @@ Added to repository
 // Bah - we should use Factory<Function> But it won't work!
 #include "FunctionSimple.h"
 #include "FunctionSimpleRotation.h"
-#include "FunctionCtrlPoints.h"
+//#include "FunctionCtrlPoints.h"
 #include "FunctionRotate.h"
 #include "FunctionBlocker.h"
 #include "FunctionTimedBlocker.h"
@@ -59,10 +59,10 @@ Function* FunctionFactory::Create(const string& fnName)
   {
     return new FunctionSimpleRotation;
   }
-  else if (fnName == FunctionCtrlPoints::Name)
-  {
-    return new FunctionCtrlPoints;
-  }
+  //else if (fnName == FunctionCtrlPoints::Name)
+  //{
+  //  return new FunctionCtrlPoints;
+  //}
   else if (fnName == FunctionRotate::Name)
   {
     return new FunctionRotate;

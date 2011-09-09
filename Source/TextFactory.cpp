@@ -133,7 +133,7 @@ PSolidComponent SingleTextFactory::Create(
   }
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
 
   SharedPtr<SolidComposite> result = new SolidComposite;
   float x = 0; // x-coord of current letter

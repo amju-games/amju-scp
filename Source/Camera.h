@@ -55,7 +55,7 @@ public:
   virtual const Orientation* GetOrientation() { return &m_orientation; }
   virtual void SetOrientation(const Orientation& o) { m_orientation = o; }
 
-  VertexBase GetLookAtPos() const { return m_lookAtPos; }
+  Vec3f GetLookAtPos() const { return m_lookAtPos; }
 
   // For subclasses which get constants from a config file. Do it in this 
   // function, and assign to members - don't get the values every time
@@ -100,11 +100,11 @@ protected: // ?
 
 protected:
   // Rotate camera position rot degrees about centre.
-  void RotateCameraHoriz(float rot, const VertexBase& centre);
+  void RotateCameraHoriz(float rot, const Vec3f& centre);
 
 protected:
   Orientation m_orientation;
-  VertexBase m_lookAtPos;
+  Vec3f m_lookAtPos;
 
   // The protagonist - in Third person mode we look at the player;
   // in first person mode we look from the player position.
