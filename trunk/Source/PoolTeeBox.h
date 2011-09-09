@@ -45,7 +45,7 @@ public:
 #endif
 
 protected:
-  VertexBase m_teeVertex;
+  Vec3f m_teeVertex;
   BoundingSphere m_bs;
 };
 }

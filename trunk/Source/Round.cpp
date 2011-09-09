@@ -61,7 +61,7 @@ void Round(PoolGameState::PlayerInfo* pInfo)
 
     Round(pInfo->m_golfStroke.m_english, 2);
     Round(pInfo->m_golfStroke.m_drawRoll, 2);
-    VertexBase v = pInfo->m_golfStroke.GetCueBallPos();
+    Vec3f v = pInfo->m_golfStroke.GetCueBallPos();
     Round(v.x, 2);
     Round(v.y, 2);
     Round(v.z, 2);

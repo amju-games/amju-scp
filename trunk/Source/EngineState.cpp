@@ -57,7 +57,6 @@ void EngineState::GameOver()
 
 void EngineState::OnKey(char key, bool down)
 {
-  GetEngine()->GetKeymap()->OnKey(key, down);
 }
 
 bool EngineState::ShowControls() const

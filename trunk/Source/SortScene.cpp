@@ -34,7 +34,7 @@ SortScene::SortScene()
 
 typedef CompVector NodeStack;
 
-float DistanceSquared(const VertexBase& v1, const VertexBase& v2)
+float DistanceSquared(const Vec3f& v1, const Vec3f& v2)
 {
   const float dx = (v1.x - v2.x);
   //const float dy = (v1.y - v2.y);
@@ -64,9 +64,9 @@ void SortScene::Resort()
     return;
   }
 
-  VertexBase eyePos = pCam->GetOrientation()->GetVertex();
+  Vec3f eyePos = pCam->GetOrientation()->GetVertex();
 
-  if (m_lastEyePos != eyePos) 
+  if (!(m_lastEyePos == eyePos)) // TODO op!= 
   {
     // Sort vector.
     SceneSorter sorter(eyePos);
@@ -191,12 +191,12 @@ void AddNonCompositeToVector(PSolidComponent pComp, CompVector& vec, NodeStack s
   }
   pCurrent->AddComponent(pComp);
 
-  Matrix identityMatrix;
-  identityMatrix.identity();
-  pRoot->CreateBoundingSphere(identityMatrix);
+  Matrix SetIdentityMatrix;
+  SetIdentityMatrix.SetIdentity();
+  pRoot->CreateBoundingSphere(SetIdentityMatrix);
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   pRoot->StoreHeights(m);
 
   vec.push_back(pRoot.GetPtr());
@@ -290,21 +290,21 @@ bool SortScene::Load(File* pf)
 
 void SortScene::AddSolid(PSolidComponent pSolid)
 {
-  Matrix identityMatrix;
-  identityMatrix.identity();
-  pSolid->CreateBoundingSphere(identityMatrix);
+  Matrix SetIdentityMatrix;
+  SetIdentityMatrix.SetIdentity();
+  pSolid->CreateBoundingSphere(SetIdentityMatrix);
 
   // Bounding sphere should be created by merging all the child spheres.
   m_bsphere += *(pSolid->GetBoundingSphere());
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   pSolid->GetOrientation()->TransformMatrix(&m); 
   pSolid->StoreHeights(m);
 
   // Add to collision volume now - i.e. RecalcCollisionVol() is a no-op.
   // POOL: we DON'T need the trees to have collision volumes!!
-  //BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  //BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
   //pSolid->AddHeights(&m_collisionVolume, bs);
 
   //m_solids.push_back(pSolid);

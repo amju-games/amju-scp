@@ -345,7 +345,7 @@ void LeafData::CreateSmoothNormals()
   // Map vertices to normals. The plan is to iterate through every vertex in the leaf.
   // We add the normals up, so they point in the average direction.
   // Then we normalise each one, and iterate again to copy each normal to its vertex.
-  typedef map<VertexBase, VertexBase> VertexToNormal;
+  typedef map<Vec3f, Vec3f> VertexToNormal;
   VertexToNormal vmap;
 
   // Iterate through every vertex. Add its corresponding perpendicular to the map.
@@ -357,11 +357,11 @@ void LeafData::CreateSmoothNormals()
     const Polygon* pPoly = m_polygons[i];
     for (int j = 0; j < pPoly->Vertices(); j++)
     {
-      VertexBase v(pPoly->GetVertex(j).x,
+      Vec3f v(pPoly->GetVertex(j).x,
                    pPoly->GetVertex(j).y,
                    pPoly->GetVertex(j).z );
  
-      const VertexBase n(pPoly->GetVertex(j).GetNormalX(),
+      const Vec3f n(pPoly->GetVertex(j).GetNormalX(),
                          pPoly->GetVertex(j).GetNormalY(),
                          pPoly->GetVertex(j).GetNormalZ() );
       
@@ -371,17 +371,17 @@ void LeafData::CreateSmoothNormals()
   // Now the map contains one copy of each vertex, with an average normal.
   // Iterate through all the vertices again, replacing the exisiting
   // perpendicular normal with one from the map.
-  // VertexBase objects make sure each normal has unit length.
+  // Vec3f objects make sure each normal has unit length.
   for (i = 0; i < (int)m_polygons.size(); i++)
   {
     const Polygon* pPoly = m_polygons[i];
     for (int j = 0; j < m_polygons[i]->Vertices(); j++)
     {
-      VertexBase v(pPoly->GetVertex(j).x,
+      Vec3f v(pPoly->GetVertex(j).x,
                    pPoly->GetVertex(j).y,
                    pPoly->GetVertex(j).z );
 
-      const VertexBase n = vmap[v];
+      const Vec3f n = vmap[v];
 
       m_polygons[i]->GetVertex(j)->SetNormal(n.x, n.y, n.z);
     }

@@ -612,7 +612,7 @@ VertexD GetNewPos(const VertexD& v0, double dx, double dz,
 
 void PoolBall::SetPositionAtTime(float t)
 {
-  VertexBase v10f = m_prevOrientation.GetVertex();
+  Vec3f v10f = m_prevOrientation.GetVertex();
   VertexD v10(v10f.x, v10f.y, v10f.z);
 
   float dx1f = 0, dz1f = 0; // forward vec of ball 1
@@ -629,7 +629,7 @@ void PoolBall::SetPositionAtTime(float t)
   VertexD v1 = GetNewPos(v10, dx1, dz1, accel1, vel1, t); 
 
   Orientation o = *(GetOrientation());
-  o.SetVertex(VertexBase(v1.x, v1.y, v1.z));
+  o.SetVertex(Vec3f(v1.x, v1.y, v1.z));
 
   // Update previous position data
   //m_prevOrientation = m_orientation;
@@ -652,7 +652,7 @@ void PoolBall::SetPositionAtTime(float t)
 void PoolBall::GetExactCollisionCoords(PoolBall* p1, PoolBall* p2)
 {
   float t = 0;
-  VertexBase v1, v2;
+  Vec3f v1, v2;
   GetExactCollisionCoords(p1, p2, &t, &v1, &v2);
   
   Orientation o1 = *(p1->GetOrientation());
@@ -682,16 +682,16 @@ float PoolBall::GetTmaxLimit(const PoolBall* pMoving, const PoolBall* pStationar
 
   Assert(pStationary->GetForwardVel() == 0);
 
-  const VertexBase& v0 = pMoving->m_prevOrientation.GetVertex();
-  const VertexBase& v1 = pMoving->m_orientation.GetVertex();
-  const VertexBase& v2 = pStationary->m_orientation.GetVertex();
+  const Vec3f& v0 = pMoving->m_prevOrientation.GetVertex();
+  const Vec3f& v1 = pMoving->m_orientation.GetVertex();
+  const Vec3f& v2 = pStationary->m_orientation.GetVertex();
 
-  float d1 = (v1 - v0).Length();
+  float d1 = sqrt((v1 - v0).SqLen());
   if (d1 < 0.00001f)
   {
     return 1.0f;
   }
-  float d2 = (v2 - v0).Length();
+  float d2 = sqrt((v2 - v0).SqLen());
   float r = d2 / d1;
 
   Assert(r >= 0);
@@ -711,8 +711,8 @@ void PoolBall::GetExactCollisionCoords(
     const PoolBall* p1, 
     const PoolBall* p2,
     float* pCollisionTime,
-    VertexBase* pResultV1, 
-    VertexBase* pResultV2)
+    Vec3f* pResultV1, 
+    Vec3f* pResultV2)
 {
   // TODO Reset forward vector too ? Maybe it changed if ball
   // hit a wall ?
@@ -759,8 +759,8 @@ if (p2->m_orientation == p2->m_prevOrientation)
 }
 #endif
 
-  VertexBase v10f = p1->m_prevOrientation.GetVertex();
-  VertexBase v20f = p2->m_prevOrientation.GetVertex(); 
+  Vec3f v10f = p1->m_prevOrientation.GetVertex();
+  Vec3f v20f = p2->m_prevOrientation.GetVertex(); 
   VertexD v10(v10f.x, v10f.y, v10f.z);
   VertexD v20(v20f.x, v20f.y, v20f.z);
 
@@ -877,9 +877,9 @@ Assert(t <= tmax);
   *pCollisionTime = t;
   
   VertexD v1 = GetNewPos(v10, dx1, dz1, accel1, vel1, t); 
-  *pResultV1 = VertexBase(v1.x, v1.y, v1.z); 
+  *pResultV1 = Vec3f(v1.x, v1.y, v1.z); 
   VertexD v2 = GetNewPos(v20, dx2, dz2, accel2, vel2, t); 
-  *pResultV2 = VertexBase(v2.x, v2.y, v2.z);
+  *pResultV2 = Vec3f(v2.x, v2.y, v2.z);
 }
 
 void PoolBall::HandleBallCollision(PoolBall* b)
@@ -1266,12 +1266,12 @@ std::cout << "Ball " << GetId()
     dx *= EXTRACT_VEL;
     dz *= EXTRACT_VEL;
 
-    VertexBase newFwdVec(m_vectorX * m_forwardVel, 0, m_vectorZ * m_forwardVel);
-    newFwdVec += VertexBase(dx, 0, dz);
+    Vec3f newFwdVec(m_vectorX * m_forwardVel, 0, m_vectorZ * m_forwardVel);
+    newFwdVec += Vec3f(dx, 0, dz);
     // Reverse of RecalcForwardVector
     //SetForwardVel(newFwdVec.Length());
     m_forwardVel = newFwdVec.Length();
-    newFwdVec.Normalize();
+    newFwdVec.Normalise();
     SetForwardVector(newFwdVec.x, newFwdVec.z); 
 #else
     // Bad old way - directly move balls away from each other.
@@ -1360,7 +1360,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
 
   Quaternion q;
   float a = (m_rollVel + naturalRollVel) * dt;
-  q.CreateFromAxisAngle(x, 0, z, a);
+  q.SetAxisAngle(a, Vec3f(x, 0, z));
   m_quat = q * m_quat; 
 
   // Update the forward/draw roll of the ball.
@@ -1446,7 +1446,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
   float yrv = m_englishVel * ENGLISH_TURN;
   SetYRotateVel(yrv);
   Quaternion qEnglish;
-  qEnglish.CreateFromAxisAngle(0, 1, 0, m_englishVel * dt);
+  qEnglish.SetAxisAngle(m_englishVel * dt, Vec3f(0, 1, 0));
   m_quat = qEnglish * m_quat;
 }
 
@@ -1528,7 +1528,7 @@ bool PoolBall::Load(File* pf)
     return false;
   }
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   m_pCollisionVol->CreateBoundingSphere(m);
 
   return true;
@@ -1693,14 +1693,14 @@ void PoolBall::RecalcCollisionVol()
   m_pCollisionVol->SetOrientation(m_orientation);
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   Assert(m_pCollisionVol.GetPtr());
   
   GetOrientation()->TransformMatrix(&m);
   m_pCollisionVol->StoreHeights(m);
 
   m_collisionVolume.Clear();
-  BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
   m_pCollisionVol->AddHeights(&m_collisionVolume, bs);
 }
 

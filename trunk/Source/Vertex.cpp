@@ -2,11 +2,11 @@
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: Vertex.cpp,v $
 Revision 1.4.8.4  2005/09/26 07:57:11  jay
-Add return value to Normalize() so we can try to find causes of
+Add return value to Normalise() so we can try to find causes of
 bad zero-length vectors
 
 Revision 1.4.8.3  2005/07/06 20:20:10  jay
-Test for 0 length in Normalize - possible Windows camera bug
+Test for 0 length in Normalise - possible Windows camera bug
 
 Revision 1.4.8.2  2005/06/04 22:28:30  jay
 Add option to set no of decimal places in ToString()
@@ -38,7 +38,8 @@ Added to repository
 
 namespace Amju
 {
-float SquareDist(const VertexBase& v1, const VertexBase& v2)
+
+float SquareDist(const Vec3f& v1, const Vec3f& v2)
 {
   float xdiff = v1.x - v2.x;
   float ydiff = v1.y - v2.y;
@@ -46,7 +47,7 @@ float SquareDist(const VertexBase& v1, const VertexBase& v2)
   return (xdiff * xdiff + ydiff * ydiff + zdiff * zdiff);
 }
 
-std::string ToString(const VertexBase& v, int digits /* = 2 */)
+std::string ToString(const Vec3f& v, int digits /* = 2 */)
 {
   std::string s;
   s += ToString(v.x, digits);
@@ -57,28 +58,31 @@ std::string ToString(const VertexBase& v, int digits /* = 2 */)
   return s;
 }
 
-std::ostream& operator<<(std::ostream& os, const VertexBase& v)
+std::ostream& operator<<(std::ostream& os, const Vec3f& v)
 {
   os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
   return os;
 }
 
-VertexBase::VertexBase() : x(0), y(0), z(0)
+/*
+Vec3f::Vec3f() : x(0), y(0), z(0)
 {
 }
 
-VertexBase::VertexBase(float x1, float y1, float z1) : x(x1), y(y1), z(z1)
+Vec3f::Vec3f(float x1, float y1, float z1) : x(x1), y(y1), z(z1)
 {
 }
+*/
 
-bool VertexBase::operator==(const VertexBase& rhs) const
+bool operator==(const Vec3f& lhs, const Vec3f& rhs) 
 {
-  return (fabs(x - rhs.x) < SMALLEST &&
-          fabs(y - rhs.y) < SMALLEST &&
-          fabs(z - rhs.z) < SMALLEST);
+  return (fabs(lhs.x - rhs.x) < SMALLEST &&
+          fabs(lhs.y - rhs.y) < SMALLEST &&
+          fabs(lhs.z - rhs.z) < SMALLEST);
 }
 
-bool VertexBase::operator<(const VertexBase& rhs) const
+/*
+bool Vec3f::operator<(const Vec3f& rhs) const
 {
     if (fabs(x - rhs.x) < SMALLEST)
     {
@@ -104,21 +108,21 @@ bool VertexBase::operator<(const VertexBase& rhs) const
     }
 }
 
-const VertexBase operator+(const VertexBase& v1, const VertexBase& v2)
+const Vec3f operator+(const Vec3f& v1, const Vec3f& v2)
 {
-  VertexBase v(v1);
+  Vec3f v(v1);
   v += v2;
   return v;
 }
 
-const VertexBase operator-(const VertexBase& v1, const VertexBase& v2)
+const Vec3f operator-(const Vec3f& v1, const Vec3f& v2)
 {
-  VertexBase v(v1);
+  Vec3f v(v1);
   v -= v2;
   return v;
 }
 
-VertexBase& VertexBase::operator+=(const VertexBase& rhs)
+Vec3f& Vec3f::operator+=(const Vec3f& rhs)
 {
     x += rhs.x;
     y += rhs.y;
@@ -126,7 +130,7 @@ VertexBase& VertexBase::operator+=(const VertexBase& rhs)
     return *this;
 }
 
-VertexBase& VertexBase::operator-=(const VertexBase& rhs)
+Vec3f& Vec3f::operator-=(const Vec3f& rhs)
 {
     x -= rhs.x;
     y -= rhs.y;
@@ -134,7 +138,7 @@ VertexBase& VertexBase::operator-=(const VertexBase& rhs)
     return *this;
 }
 
-VertexBase& VertexBase::operator*=(float s)
+Vec3f& Vec3f::operator*=(float s)
 {
     x *= s;
     y *= s;
@@ -142,7 +146,7 @@ VertexBase& VertexBase::operator*=(float s)
     return *this;
 }
 
-bool VertexBase::Normalize()
+bool Vec3f::Normalise()
 {
   float len = (float) sqrt(x * x + y * y + z * z);
 
@@ -150,7 +154,7 @@ bool VertexBase::Normalize()
   {
     // TODO TEMP TEST
     // Cause of Windows camera bug ?
-    std::cout << "Normalize: can't normalize zero length vector!\n";
+    std::cout << "Normalise: can't normalize zero length vector!\n";
     //Assert(0);
     return false;
   }
@@ -163,12 +167,13 @@ bool VertexBase::Normalize()
   return true;
 }
 
-float VertexBase::Length() const
+float Vec3f::Length() const
 {
   float dsq = x * x + y * y + z * z;
   float d = sqrt(dsq);
   return d;
 }
+*/
 
 SceneVertex::SceneVertex()
 {
@@ -180,7 +185,7 @@ SceneVertex::SceneVertex()
   m_normal[2] = 0;
 }
 
-SceneVertex::SceneVertex(float x, float y, float z) : VertexBase(x, y, z)
+SceneVertex::SceneVertex(float x, float y, float z) : Vec3f(x, y, z)
 {
   m_abs[0] = 0;
   m_abs[1] = 0;
@@ -190,7 +195,7 @@ SceneVertex::SceneVertex(float x, float y, float z) : VertexBase(x, y, z)
   m_normal[2] = 0;
 }
 
-SceneVertex::SceneVertex(const VertexBase& v) : VertexBase(v)
+SceneVertex::SceneVertex(const Vec3f& v) : Vec3f(v)
 {
   m_abs[0] = 0;
   m_abs[1] = 0;
@@ -274,7 +279,7 @@ void SceneVertex::SetNormal(float x, float y, float z)
   m_normal[2] = z;
   
   // Make sure length of normal vector is 1.
-  Geometry::Normalize(m_normal);
+  Geometry::Normalise(m_normal);
 }
 
 void SceneVertex::SetRelative(float x1, float y1, float z1)
@@ -294,8 +299,8 @@ void SceneVertex::SetAbsolute(float x, float y, float z)
 // Calculate the absolute values for the vertex from the relative ones.
 void SceneVertex::CalcAbsoluteCoord(const Matrix& m)
 {
-  VertexBase v(x, y, z);
-  VertexBase absolute = v * m;
+  Vec3f v(x, y, z);
+  Vec3f absolute = v * m;
 
   SetAbsolute(absolute.x, absolute.y, absolute.z);
 }
@@ -305,10 +310,10 @@ bool SceneVertex::CalcRelativeCoord(const Matrix& cm)
 {
   // Try to invert the transformation matrix. 
   Matrix inv;
-  if (cm.inverse(&inv))
+  if (cm.Inverse(&inv))
   {
-    VertexBase absolute(GetAbsX(), GetAbsY(), GetAbsZ());
-    VertexBase relative = absolute * inv;
+    Vec3f absolute(GetAbsX(), GetAbsY(), GetAbsZ());
+    Vec3f relative = absolute * inv;
     SetRelative(relative.x, relative.y, relative.z);
     return true;
   }

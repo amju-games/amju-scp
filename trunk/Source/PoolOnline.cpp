@@ -1555,7 +1555,7 @@ void PoolOnline::SetIsWaitingForObjectStates(bool b)
   m_isWaitingForObjectStates = b;
 }
 
-bool VertexCompare(const VertexBase& v1, const VertexBase& v2)
+bool VertexCompare(const Vec3f& v1, const Vec3f& v2)
 {
   float dx = fabs(v1.x - v2.x);
   float dy = fabs(v1.y - v2.y);
@@ -1607,8 +1607,8 @@ bool PoolOnline::SetObjectsStateFromXml(PXml xml)
       
       OnlineGameObject ogo(
         frame, objId, State(state), 
-        VertexBase(x, y, z), 
-        VertexBase(vel_x, vel_y, vel_z));
+        Vec3f(x, y, z), 
+        Vec3f(vel_x, vel_y, vel_z));
 
       m_objects.push_back(ogo);
 
@@ -1699,7 +1699,7 @@ bool PoolOnline::SetOnlineObjectState(GameObject* pObj)
   {
     // Don't send changes immediately - store them until the shot is
     // over. This is to reduce socket connections/threads/DB connections.
-    VertexBase vel; 
+    Vec3f vel; 
     pBall->GetForwardVector(&vel.x, &vel.z);
     vel *= pBall->GetForwardVel();
       
@@ -1726,8 +1726,8 @@ std::cout << "Added a change... Size of m_objectChangesToSend is now: "
       m_frameId, 
       pObj->GetId(), 
       pObj->GetState(), 
-      VertexBase(),
-      VertexBase() );
+      Vec3f(),
+      Vec3f() );
 
     m_objectChangesToSend.push_back(ogo);
     

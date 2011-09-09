@@ -111,7 +111,7 @@ void FreeMovingSolidGameObject::SetSolid(PSolidComponent pSolid)
   m_pSolid = pSolid;
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   CreateBoundingSphere(m);
 
   RecalcCollisionVol();
@@ -137,7 +137,7 @@ void FreeMovingSolidGameObject::Update()
   ControlUpdateThis();
 
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   CreateBoundingSphere(m);
 }
 
@@ -162,9 +162,9 @@ void FreeMovingSolidGameObject::SetProperties(
 void FreeMovingSolidGameObject::RecalcCollisionVol()
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   m_collisionVolume.Clear();
-  BoundingSphere bs(VertexBase(0, 0, 0), 1000); // big B.S.
+  BoundingSphere bs(Vec3f(0, 0, 0), 1000); // big B.S.
 
   // Load m_pCollisionVol to get a low-poly volume. If this is not
   // set up, use the Solid as the collision vol - this can be expensive

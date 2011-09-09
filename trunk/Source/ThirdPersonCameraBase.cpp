@@ -147,14 +147,14 @@ std::cout << "ZOOM: new zoom vel: " << m_zoomVel << "\n";
 #endif
 
     // Move away or towards the target, at the zoom vel.
-    VertexBase v = m_orientation.GetVertex() - m_lookAtPos;
-    v.Normalize();
+    Vec3f v = m_orientation.GetVertex() - m_lookAtPos;
+    v.Normalise();
     v *= m_zoomVel * dt;
 #ifdef ZOOM_DEBUG
 std::cout << "ZOOM add vec: " << ToString(v).c_str() << "\n";
 #endif
 
-    VertexBase v0 = m_orientation.GetVertex(); 
+    Vec3f v0 = m_orientation.GetVertex(); 
     v0 += v;
     m_orientation.SetVertex(v0);
   }
@@ -240,7 +240,7 @@ void ThirdPersonCameraBase::Draw()
             lookX, lookY, lookZ,
             0, 1.0, 0);
 
-  m_lookAtPos = VertexBase(lookX, lookY, lookZ);
+  m_lookAtPos = Vec3f(lookX, lookY, lookZ);
 }
 
 void ThirdPersonCameraBase::DrawRotation()
@@ -308,7 +308,7 @@ void ThirdPersonCameraBase::RotateCameraHoriz(float rot)
 {
   // Rotate the camera 'rot' degrees, in x-z plane, about the player 
   // character position.
-  const VertexBase& v = GetPlayer()->GetOrientation()->GetVertex();
+  const Vec3f& v = GetPlayer()->GetOrientation()->GetVertex();
   Camera::RotateCameraHoriz(rot, v);
 }
 
@@ -476,8 +476,8 @@ std::cout << "ZOOM IN!\n";
   // Only zoom in if the distance from the camera to the target is
   // greater than the min.
   static const float DIST_MIN = Engine::Instance()->GetConfigFloat("pool_zoom_min_dist");
-  VertexBase v = m_orientation.GetVertex() - m_lookAtPos;
-  if (v.Length() > DIST_MIN)
+  Vec3f v = m_orientation.GetVertex() - m_lookAtPos;
+  if (v.SqLen() > (DIST_MIN*DIST_MIN))
   { 
     m_zoomVel = -ZOOM_VEL; 
   }
@@ -487,7 +487,7 @@ std::cout << "ZOOM IN!\n";
     // a stop. By that time we will be much too close.
     m_zoomVel = 0;
 #ifdef _DEBUG
-std::cout  << "ZOOM IN: Can't zoom closer, dist to target is " << v.Length() << "\n";
+std::cout  << "ZOOM IN: Can't zoom closer, dist to target is " << sqrt(v.SqLen()) << "\n";
 #endif
   }
 }
@@ -502,15 +502,15 @@ std::cout << "ZOOM OUT!\n";
 
   // Stop zooming if we are too far away.
   static const float DIST_MAX = Engine::Instance()->GetConfigFloat("pool_zoom_max_dist");
-  VertexBase v = m_orientation.GetVertex() - m_lookAtPos;
-  if (v.Length() < DIST_MAX)
+  Vec3f v = m_orientation.GetVertex() - m_lookAtPos;
+  if (v.SqLen() < (DIST_MAX*DIST_MAX))
   { 
     m_zoomVel = ZOOM_VEL; 
   }
   else
   {
 #ifdef _DEBUG
-std::cout  << "ZOOM OUT: Can't zoom out, dist to target is " << v.Length() << "\n";
+std::cout  << "ZOOM OUT: Can't zoom out, dist to target is " << sqrt(v.SqLen()) << "\n";
 #endif
   }
 }

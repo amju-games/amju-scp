@@ -71,18 +71,18 @@ void Trajectory::BallTr::Draw()
 //  Engine::Instance()->PushColour(m_colour);
   for (unsigned int i = 0; i <  m_linesegs.size(); i++)
   {
-    const std::pair<VertexBase, VertexBase> seg = m_linesegs[i];
+    const std::pair<Vec3f, Vec3f> seg = m_linesegs[i];
 #define TR_DOTS
 #ifdef TR_DOTS
-    const VertexBase& v1 = seg.first;
-    const VertexBase& v2 = seg.second;
-    VertexBase vDiff = v2 - v1;
-    float len = vDiff.Length();
-    vDiff.Normalize();
+    const Vec3f& v1 = seg.first;
+    const Vec3f& v2 = seg.second;
+    Vec3f vDiff = v2 - v1;
+    float len = sqrt(vDiff.SqLen());
+    vDiff.Normalise();
     float t = 0;
     while (t < len)
     {
-      VertexBase v(v1);
+      Vec3f v(v1);
       v.x += vDiff.x * t;
       v.z += vDiff.z * t;
     
@@ -118,7 +118,7 @@ void Trajectory::Draw()
 /*
   for (Verts::iterator it = m_vertices.begin(); it != m_vertices.end(); ++it)
   {
-    VertexBase& v = *it;
+    Vec3f& v = *it;
     // Draw a billboard centred on v.
     //Orientation o(v.x, v.y, v.z, 0, 0, 0);
     //s_pBillBoard->SetOrientation(o);
@@ -138,7 +138,7 @@ void Trajectory::SetDeltaTime(float dt)
   m_deltaTime = dt;
 }
 
-void Trajectory::Recalc(const VertexBase& v0, float yRot, float vertVel, float horVel)
+void Trajectory::Recalc(const Vec3f& v0, float yRot, float vertVel, float horVel)
 {
   m_v0 = v0;
   m_yRot = yRot;
@@ -147,7 +147,7 @@ void Trajectory::Recalc(const VertexBase& v0, float yRot, float vertVel, float h
   Update();
 }
 
-void Trajectory::SetBallPos(const VertexBase& v)
+void Trajectory::SetBallPos(const Vec3f& v)
 {
   m_v0 = v;
 }
@@ -171,11 +171,11 @@ std::cout << "TRAJECTORY: orig dir: " << m_yRot << "\n";
 // Get the direction of the object ball.
 // The object ball is initially at rest. The Ghost Ball has collided
 // with it. Assume ghost ball is at the exact position of first contact.
-float GetObjectBallDir(const VertexBase& vObj, const VertexBase& vGhost)
+float GetObjectBallDir(const Vec3f& vObj, const Vec3f& vGhost)
 {
   // Get centre line
-  VertexBase vDiff = vObj - vGhost;
-  vDiff.Normalize();
+  Vec3f vDiff = vObj - vGhost;
+  vDiff.Normalise();
   // Get angle
   float yRads = atan2(vDiff.x, vDiff.z);
   float yDegs = RadToDeg(yRads);
@@ -184,7 +184,7 @@ float GetObjectBallDir(const VertexBase& vObj, const VertexBase& vGhost)
 
 void Trajectory::GetLineSegsForBall(
   int ballId, 
-  VertexBase v1, 
+  Vec3f v1, 
   float yRot)
 {
 #ifdef TR_DEBUG
@@ -204,12 +204,12 @@ std::cout << "TRAJECTORY: creating line segs for ball " << ballId << "\n";
   {
     // Test the capsule from v1 to some distance ahead, for collisions
     // with a ball.
-    VertexBase v3 = v1;
+    Vec3f v3 = v1;
     static const float CAPSULE_LENGTH = 50.0f; 
     v3.x += dx * CAPSULE_LENGTH;
     v3.z += dz * CAPSULE_LENGTH;
     int newBallId;
-    VertexBase vGhost;
+    Vec3f vGhost;
     if (FindClosestBallCollision(ballId, v1, v3, &newBallId, &vGhost))
     {
       // Found collision with ball.
@@ -228,7 +228,7 @@ std::cout << "Ball " << newBallId << " already in map m_trs..??\n";
 std::cout << "Find trajectory for new ball " << newBallId << "\n";
 #endif
         PPoolGameObject pGo = Engine::Instance()->GetGameObject(newBallId);
-        VertexBase vNewBallCentre = pGo->GetBoundingSphere()->GetCentre();
+        Vec3f vNewBallCentre = pGo->GetBoundingSphere()->GetCentre();
         // Get the new direction, from the new ball pos and the ghost
         //  ball pos. As the current vel is zero, the direction is along
         //  the centre line.
@@ -249,7 +249,7 @@ std::cout << "Find trajectory for new ball " << newBallId << "\n";
 #ifdef TR_DEBUG
 std::cout << "No ball collision, looking for wall collision...\n";
 #endif
-      VertexBase v2;
+      Vec3f v2;
       // Get point where we hit wall, v2; and new direction.
       if (FindWallCollision(ballId, v1, yRot, &v2, &yRot))
       {
@@ -278,9 +278,9 @@ std::cout << "NO wall collision!\n";
 
 void GetClosestWall(
   const std::vector<WallPoly>& walls, 
-  const VertexBase& v1,
-  const VertexBase& v2,
-  VertexBase* pHitPoint,
+  const Vec3f& v1,
+  const Vec3f& v2,
+  Vec3f* pHitPoint,
   float* pReflectDegs,
   float yRot)
 {
@@ -289,7 +289,7 @@ void GetClosestWall(
     float newYRot = 0;
     WallPoly* pClosest = 0;
     float bestDist = 999999.0f;
-    VertexBase bestIntersectPoint;
+    Vec3f bestIntersectPoint;
     unsigned int s = walls.size();
     for (unsigned int i = 0; i < s; i++)
     {
@@ -298,7 +298,7 @@ void GetClosestWall(
       float dsq = pWp->SqDist(v1);
       float d = sqrt(dsq);
 
-      VertexBase intersectPoint;
+      Vec3f intersectPoint;
 
 #ifdef TR_DEBUG
       bool gotIntPoint = pWp->IntersectGetPoint(v1, v2, &intersectPoint);
@@ -327,12 +327,12 @@ std::cout << "  ..checking wall "
 
 bool Trajectory::FindWallCollision(
   int ballId,
-  VertexBase v1,
+  Vec3f v1,
   float yRot,
-  VertexBase* pEndPoint,
+  Vec3f* pEndPoint,
   float* pReflectionDir)
 {
-  VertexBase v2(v1); // end of current line seg
+  Vec3f v2(v1); // end of current line seg
   // Only look ahead a small distance. 
   // TODO make this more efficient by looking ahead a long way.
   float t = 2.0f; 
@@ -352,7 +352,7 @@ bool Trajectory::FindWallCollision(
   {
     // Fill a HeightServer with wall polys including the one we just hit.
     HeightServer hs;
-    BoundingSphere bs(v2, (v1 - v2).Length());
+    BoundingSphere bs(v2, sqrt((v1 - v2).SqLen()));
     pLevel->GetScene()->AddHeights(&hs, bs);
 
     BoundingSphere bsBefore(v1, RADIUS);
@@ -409,7 +409,7 @@ void GetExactCollisionCoords(
   float dx, 
   float dz, 
   PoolBall* pObjBall, 
-  VertexBase* pVGhost)
+  Vec3f* pVGhost)
 {
   // Err... do we need to search for this position, or can we just 
   // work it out ?!??!
@@ -418,12 +418,12 @@ void GetExactCollisionCoords(
   // Binary chop position until the distance between the 2 balls is
   // 2 * the balls' radius.
   // No need to worry about vel/accel etc.
-  VertexBase v1 = pBall->GetBoundingSphere()->GetCentre();
-  VertexBase vObj = pObjBall->GetBoundingSphere()->GetCentre();
-  VertexBase vDiff = v1 - vObj;
+  Vec3f v1 = pBall->GetBoundingSphere()->GetCentre();
+  Vec3f vObj = pObjBall->GetBoundingSphere()->GetCentre();
+  Vec3f vDiff = v1 - vObj;
 
   // We will chop this max length until we get to 2R.
-  float len = vDiff.Length();
+  float len = sqrt(vDiff.SqLen());
 
   static double TWO_R = 0;
   if (TWO_R == 0)
@@ -440,14 +440,14 @@ void GetExactCollisionCoords(
   bool broke = false;
   int count = 0;
   float t = 0;
-  VertexBase vDir(dx, 0, dz);
+  Vec3f vDir(dx, 0, dz);
   while (count++ < 10) // TODO TEMP TEST
   {
     // Get new position at distance t
-    VertexBase v2 = v1;
+    Vec3f v2 = v1;
     v2.x += dx * t;
     v2.z += dz * t;
-    float dist = (v2 - vObj).Length();
+    float dist = sqrt((v2 - vObj).SqLen());
 
 #ifdef TR_DEBUG
 std::cout << "Trajectory chop: count: " << count << " dist: " << dist << "\n";
@@ -483,7 +483,7 @@ std::cout << " just right! Breaking after " << count << " loops, dist=" << dist 
     }
     dt *= 0.5f;
   }
-  VertexBase v2 = v1;
+  Vec3f v2 = v1;
   v2.x += dx * t;
   v2.z += dz * t;
   *pVGhost = v2;
@@ -494,10 +494,10 @@ std::cout << " Final ghost ball pos: " << ToString(*pVGhost) << "\n";
 
 bool Trajectory::FindClosestBallCollision(
   int ballId,
-  const VertexBase& v1,
-  const VertexBase& v2,
+  const Vec3f& v1,
+  const Vec3f& v2,
   int* pNewBallId,
-  VertexBase* pVGhost)
+  Vec3f* pVGhost)
 {
   static const float RADIUS = GetPoolBallRadius();
 
@@ -559,8 +559,8 @@ bool Trajectory::FindClosestBallCollision(
 std::cout << "TRAJECTORY: intersects ball " << p->GetNumber() << "\n";
 #endif
         // Get distance
-        VertexBase vDiff = v1 - bsBall.GetCentre();
-        float len = vDiff.Length();
+        Vec3f vDiff = v1 - bsBall.GetCentre();
+        float len = sqrt(vDiff.SqLen());
         if (len < bestLen)
         {
           bestLen = len;
@@ -582,10 +582,10 @@ std::cout << "TRAJECTORY: COLLISION FOUND: ball "
     // Get ghost ball centre. I.e. find first position along line
     //  v1-v2 where ball is intersected. 
     //float collisionTime = 0;
-    VertexBase resultV1, resultV2;
+    Vec3f resultV1, resultV2;
 
-    VertexBase vDiff = v1 - v2;
-    vDiff.Normalize();
+    Vec3f vDiff = v1 - v2;
+    vDiff.Normalise();
     float dx = vDiff.x;
     float dz = vDiff.z; 
     GetExactCollisionCoords(pBall, dx, dz, pBestBall, pVGhost);

@@ -51,53 +51,53 @@ void BillBoard::Draw()
 //  pr.Projection();
 //  m = m * pr;
 
-  VertexBase right(m.at(0), m.at(4), m.at(8));
-  right.Normalize();
-  VertexBase up;
+  Vec3f right(m[0], m[4], m[8]); //m.at(0), m.at(4), m.at(8));
+  right.Normalise();
+  Vec3f up;
 
   if (m_vertical)
   {
-    up = VertexBase(0, 1, 0);
+    up = Vec3f(0, 1, 0);
   }
   else
   {
-    up = VertexBase(m.at(1), m.at(5), m.at(9));
-    up.Normalize();
+    up = Vec3f(m[1], m[5], m[9]); //m.at(1), m.at(5), m.at(9));
+    up.Normalise();
   }
 
 /*
   // Get centre of billboard. As Billboards are SolidLeaves, we have an
   // orientation member.
-  //VertexBase PT = m_or.GetVertex();
-  VertexBase PT(0, 0, 0); // TODO TEMP TEST current orientation already in matrix,
+  //Vec3f PT = m_or.GetVertex();
+  Vec3f PT(0, 0, 0); // TODO TEMP TEST current orientation already in matrix,
    // because we got the ModelView matrix ?
 
-  VertexBase t; // temp
+  Vec3f t; // temp
 
   t = right;
   t *= -1;
   t -= up;
   t *= m_size;
 
-  VertexBase A = PT;
+  Vec3f A = PT;
   A += t;
 
   t = right;
   t -= up;
   t *= m_size;
-  VertexBase B = PT;
+  Vec3f B = PT;
   B += t;
 
   t = right;
   t += up;
   t *= m_size;
-  VertexBase C = PT;
+  Vec3f C = PT;
   C += t;
 
   t = up;
   t -= right;
   t *= m_size;
-  VertexBase D = PT;
+  Vec3f D = PT;
   D += t;
   
   AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING | AmjuGL::AMJU_BLEND);
@@ -127,10 +127,10 @@ void BillBoard::Draw()
 */
 
 
-  VertexBase v0 = ( up + right); v0 *= m_size;
-  VertexBase v1 = ( up - right); v1 *= m_size;
-  VertexBase v2 = (VertexBase()-up - right); v2 *= m_size;
-  VertexBase v3 = (VertexBase()-up + right); v3 *= m_size;
+  Vec3f v0 = ( up + right); v0 *= m_size;
+  Vec3f v1 = ( up - right); v1 *= m_size;
+  Vec3f v2 = (Vec3f()-up - right); v2 *= m_size;
+  Vec3f v3 = (Vec3f()-up + right); v3 *= m_size;
 
   AmjuGL::Vert verts[4] =
   {
@@ -254,7 +254,7 @@ void BillBoard::CreateBoundingSphere(const Matrix& cm)
   // This fixes bounding sphere for Billboards being way off.
   // The orientation is used in the calling function to transform
   // cm, so we don't use it again.
-  VertexBase v = VertexBase(0, 0, 0) * cm; //m_or.GetVertex() * cm;
+  Vec3f v = Vec3f(0, 0, 0) * cm; //m_or.GetVertex() * cm;
   m_bsphere.SetCentre(v);
   m_bsphere.SetRadius(m_size); 
 }

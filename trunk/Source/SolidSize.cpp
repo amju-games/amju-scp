@@ -15,11 +15,11 @@ namespace Amju
 void GetSolidSize(SolidComponent* p, float* pX, float* pY, float* pZ)
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   p->CreateBoundingSphere(m);
   p->StoreHeights(m);
   HeightServer hs;
-  p->AddHeights(&hs, BoundingSphere(VertexBase(0, 0, 0), 1000.0f));
+  p->AddHeights(&hs, BoundingSphere(Vec3f(0, 0, 0), 1000.0f));
   BoundingBox bb = hs.GetBoundingBox();
   float dx = bb.m_xmax - bb.m_xmin;
   if (dx < 0)
@@ -44,11 +44,11 @@ void GetSolidSize(SolidComponent* p, float* pX, float* pY, float* pZ)
 float GetSolidXSize(SolidComponent* p)
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   p->CreateBoundingSphere(m);
   p->StoreHeights(m);
   HeightServer hs;
-  p->AddHeights(&hs, BoundingSphere(VertexBase(0, 0, 0), 1000.0f));
+  p->AddHeights(&hs, BoundingSphere(Vec3f(0, 0, 0), 1000.0f));
   BoundingBox bb = hs.GetBoundingBox();
   float dx = bb.m_xmax - bb.m_xmin;
   if (dx < 0)
@@ -61,11 +61,11 @@ float GetSolidXSize(SolidComponent* p)
 float GetSolidYSize(SolidComponent* p)
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   p->CreateBoundingSphere(m);
   p->StoreHeights(m);
   HeightServer hs;
-  p->AddHeights(&hs, BoundingSphere(VertexBase(0, 0, 0), 1000.0f));
+  p->AddHeights(&hs, BoundingSphere(Vec3f(0, 0, 0), 1000.0f));
   BoundingBox bb = hs.GetBoundingBox();
   float dy = bb.m_ymax - bb.m_ymin;
   if (dy < 0)
@@ -78,11 +78,11 @@ float GetSolidYSize(SolidComponent* p)
 float GetSolidZSize(SolidComponent* p)
 {
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   p->CreateBoundingSphere(m);
   p->StoreHeights(m);
   HeightServer hs;
-  p->AddHeights(&hs, BoundingSphere(VertexBase(0, 0, 0), 1000.0f));
+  p->AddHeights(&hs, BoundingSphere(Vec3f(0, 0, 0), 1000.0f));
   BoundingBox bb = hs.GetBoundingBox();
   float dz = bb.m_zmax - bb.m_zmin;
   if (dz < 0)

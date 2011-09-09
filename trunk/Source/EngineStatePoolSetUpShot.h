@@ -205,7 +205,7 @@ protected:
 
   // POOL: Check new position for cue ball is ok.
   // (Checks that ball can move from current pos to newpos.)
-  bool CueBallPosOk(const VertexBase& newpos);
+  bool CueBallPosOk(const Vec3f& newpos);
 
   void MoveCueStart();
   void MoveCueFinish();
@@ -317,7 +317,7 @@ protected:
   // any other player.
   // We need to store these vectors so we can restore the players
   // to their original positions when we leave this state.
-  std::vector<VertexBase> s_avoidVec; 
+  std::vector<Vec3f> s_avoidVec; 
 
   // True when mouse button clicked - then reset until next time.
   // This is used so we only get the cue contact pos. when the mouse button is
@@ -329,7 +329,7 @@ protected:
   bool m_placeBallMode;
 
   // Position of mouse cursor in 3D space.
-  VertexBase m_mousePos;
+  Vec3f m_mousePos;
 
   // Show or hide trajectory (the white dots showing ball paths)
   bool m_showTrajectory;

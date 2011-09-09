@@ -101,7 +101,7 @@ std::cout << "Bomb " << GetId() << " exploding now!\n";
 #endif
 
     const BoundingSphere& bs = *(GetBoundingSphere());
-    const VertexBase& v = bs.GetCentre();
+    const Vec3f& v = bs.GetCentre();
     m_blastWave.Reset(v);
     m_explosion.Reset(v);
 

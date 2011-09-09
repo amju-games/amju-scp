@@ -187,7 +187,7 @@ std::cout << "Birds Eye View: Table: " << pTable->GetName()
 #endif
 
     // Use r as height 
-    VertexBase v = pTable->GetBoundingSphere()->GetCentre();
+    Vec3f v = pTable->GetBoundingSphere()->GetCentre();
     v.y = r * 1.5f;
     v.z += 0.01f; // avoid div by 0 ???
     s_pBirdsEyeCam->SetOrientation(Orientation(v.x, v.y, v.z, 0, 90.0f, 0));
@@ -823,7 +823,7 @@ std::cout << "**** NEW BIG TEXT ***** " << text << "\n";
       Assert(0 &&  "Failed to load big text explosion");
     }
   }
-  VertexBase v(0, 5.0f, 0); // TODO
+  Vec3f v(0, 5.0f, 0); // TODO
   s_pBigTextExpl->Reset(v);
 }
 }

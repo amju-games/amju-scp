@@ -30,7 +30,7 @@ class Capsule
 friend std::string ToString(const Capsule&);
 
 public:
-  Capsule(const VertexBase& v1, const VertexBase& v2, float radius);
+  Capsule(const Vec3f& v1, const Vec3f& v2, float radius);
 
   bool IsSphere() const;
 
@@ -42,8 +42,8 @@ public:
   // TODO Intersection with other solids
 
 protected:
-  VertexBase m_v1;
-  VertexBase m_v2;
+  Vec3f m_v1;
+  Vec3f m_v2;
   float m_radius; 
 };
 }

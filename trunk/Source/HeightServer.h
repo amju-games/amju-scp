@@ -57,7 +57,7 @@ public:
   ~Plane() {}
 
   // Add a vertex to the plane. 0 <= i < 3
-  void AddVertex(const VertexBase& v, unsigned int i);
+  void AddVertex(const Vec3f& v, unsigned int i);
 
   // Get values for coeffiecients a, b, c, d in plane equation.
   void CreateCoefficients();
@@ -71,9 +71,9 @@ public:
   bool IsHeightPoly() const;
 
   void GetNormal(float pResult[3]) const;
-  VertexBase GetNormal() const;
+  Vec3f GetNormal() const;
 
-  const VertexBase& GetVertex(unsigned int i) const { return m_vertices[i]; }
+  const Vec3f& GetVertex(unsigned int i) const { return m_vertices[i]; }
 
   // Get an edge. There are as many edges as vertices.
   Geom2d::Line2d GetEdge(unsigned int i) const;
@@ -90,7 +90,7 @@ public:
   };
 
   // Get the position type for a point in relation to this Plane.
-  PositionType ClassifyPoint(const VertexBase& v) const;
+  PositionType ClassifyPoint(const Vec3f& v) const;
 
   float a() const { return m_a; }
   float b() const { return m_b; }
@@ -99,7 +99,7 @@ public:
 
 protected:
   // Vertices making up the poly.
-  VertexBase m_vertices[3];
+  Vec3f m_vertices[3];
 
   // Plane equation is ax + by + cz + d = 0 - these are the coefficients.
   // We get them using vertex (x, y, z) info.
@@ -140,13 +140,13 @@ public:
     const BoundingSphere& bsAfter) const;
 
   // Get squared dist from given point to this wall.
-  float SqDist(const VertexBase&) const;
+  float SqDist(const Vec3f&) const;
 
   // Find out if line intersects this wall, and if so the intersect point.
   bool IntersectGetPoint(
-    const VertexBase& v1,
-    const VertexBase& v2,
-    VertexBase* pIntersectPoint);
+    const Vec3f& v1,
+    const Vec3f& v2,
+    Vec3f* pIntersectPoint);
 
 protected:
   // Returns true if this wall polygon intersects the sphere. This is used to
@@ -265,7 +265,7 @@ public:
   bool Intersects(const Mgc::Segment3& seg, float radius) const;
 
   // As above, but uses two vertices instead of Line Segment.
-  bool Intersects(const VertexBase& v1, const VertexBase& v2, float radius) const;
+  bool Intersects(const Vec3f& v1, const Vec3f& v2, float radius) const;
 
   // Check for collision with (near-)horizontal walls which are not floors.
   // This is a special case as the normal collision detection works in x-z plane.

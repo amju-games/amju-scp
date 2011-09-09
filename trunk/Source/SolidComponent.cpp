@@ -76,8 +76,8 @@ PSolidComponent SolidComponent::LoadSolid(const std::string& name)
 }
 
 bool SolidComponent::LineIntersects(
-  const VertexBase& v1, 
-  const VertexBase& v2,
+  const Vec3f& v1, 
+  const Vec3f& v2,
   float r) const
 {
   Mgc::Segment3 seg;

@@ -146,21 +146,21 @@ std::cout << "OPPONENT HAS TAKEN SHOT!\n";
 
     // Make sure data is rounded, removing any conversion errors.
     // This also sets the cue ball pos to the rounded position.
-    VertexBase v(s.m_cueX, s.m_cueY, s.m_cueZ);
+    Vec3f v(s.m_cueX, s.m_cueY, s.m_cueZ);
     pInfo->m_golfStroke.SetCueBallPos(v);
 
     Round(pInfo);
 
     // Set the cue ball position
 /*
-    VertexBase v(s.m_cueX, s.m_cueY, s.m_cueZ);
+    Vec3f v(s.m_cueX, s.m_cueY, s.m_cueZ);
     Orientation o = *(GetBall()->GetOrientation());
     o.SetVertex(v);
     GetBall()->SetOrientation(o);
 */
 
 /*
-    VertexBase v(s.m_cueX, s.m_cueY, s.m_cueZ);
+    Vec3f v(s.m_cueX, s.m_cueY, s.m_cueZ);
 std::cout << "PoolBehaviourOnline: Setting cue ball pos to " << ToString(v).c_str() << "\n";
 std::cout << "??? cueX: " << s.m_cueX 
   << " cueY: " << s.m_cueY 
@@ -169,7 +169,7 @@ std::cout << "??? cueX: " << s.m_cueX
 
     // Point the player in the direction of the shot
     Orientation oPlayer(*(GetBall()->GetOrientation()));
-    VertexBase v1 = oPlayer.GetVertex();
+    Vec3f v1 = oPlayer.GetVertex();
     oPlayer.SetXRot(0);
     oPlayer.SetYRot(0);
     oPlayer.SetZRot(0);

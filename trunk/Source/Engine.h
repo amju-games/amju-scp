@@ -42,7 +42,6 @@ Added to repository
 #include "Camera.h"
 #include "Colour.h"
 #include "DayNightSky.h"
-#include "Keymap.h"
 #include "ProgressCaller.h"
 #include "LoadResult.h"
 #include "SpecialEvent.h"
@@ -322,13 +321,6 @@ public:
   // Keyboard input.
   void OnKey(char key, bool down);
   
-  // Get the Keymap - used for displaying keys, also could be used to configure.
-  Keymap* GetKeymap() { return &m_keymap; }
-  
-  // Show keys flag.
-  bool GetShowKeys() const { return m_showKeys; }
-  void SetShowKeys(bool b) { m_showKeys = b; }
-
   // Special Key combination pressed, or some OS-specific event has occurred.
   // This is called from OS-specific event handlers.
   void OnSpecialEvent(SpecialEvent*);
@@ -566,9 +558,6 @@ private:
   // Zone for which joystick values are treated as zero.
   float m_joystickZeroZone;
 
-  // Maps keys (characters) to Engine functions, allowing configurable keys.
-  Keymap m_keymap;
-
   // Colour stack. Pushing a colour onto the stack modulates the colour
   // underneath. This lets us build up the final colour from Fade, ambient
   // colour etc.
@@ -578,13 +567,8 @@ private:
   bool m_frozen; // if true, message queue is frozen
   float m_frozenTime; // stored Elapsed Time
 
-  // If true, show keys, so user knows what to press.
-  bool m_showKeys;
-
   // The sky, sun and moon
   DayNightSky m_dayNightSky;
-  // Lensflare, drawn if the sun is in view.
-//  Lensflare m_lensflare;
 
   // Special Message Recipients: SoundPlayer, CutScenePlayer, etc.
   SpecialRecipientMap m_specialRecipients;

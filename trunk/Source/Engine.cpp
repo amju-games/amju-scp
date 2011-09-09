@@ -124,7 +124,6 @@ Added to repository
 #include "Player.h"
 #include "File.h"
 #include "Mouse.h"
-#include "KeymapPrinter.h"
 #include "PoolCourseManager.h"
 #include "StringUtils.h"
 #include "Font.h"
@@ -234,8 +233,6 @@ Engine::Engine()
 
   m_frozen = false;
   m_frozenTime = 0;
-
-  m_showKeys = false;
 
   m_pPlayer = new Player;
 
@@ -808,10 +805,10 @@ bool Engine::Load()
         ReportError("Failed to load key printer.");
         return false;
       }
-      */
       // Help user: show what keys do what.
       bool showkeys = (GetConfigValue("show_keys") == "y");
       SetShowKeys(showkeys);
+      */
     }
     ++count;
     return false;
@@ -1493,10 +1490,10 @@ void Engine::Draw()
   // Tell TextWriter to write any scrolling text over everything.
   GetTextWriter()->DrawScrollingItems();
 
-  if (m_showKeys && m_pCurrentState->ShowControls())
-  {
-    TheKeymapPrinter::Instance()->Draw(20, 0.5);
-  }
+  //if (m_showKeys && m_pCurrentState->ShowControls())
+  //{
+  //  TheKeymapPrinter::Instance()->Draw(20, 0.5);
+  //}
 
   // TODO currently this asserts if you leave a room (via a portal) when the
   // room is underwater and the destination isn't.

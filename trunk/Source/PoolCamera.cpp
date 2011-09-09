@@ -105,9 +105,9 @@ void PoolCamera::GoDirectlyBehindCueNow(float degs)
   // Keep the current height.
    
   // Current vec 
-  VertexBase vec = m_orientation.GetVertex() - m_lookAtPos;
+  Vec3f vec = m_orientation.GetVertex() - m_lookAtPos;
   vec.y = 0; // just get distance in (x, z)
-  float len = vec.Length();
+  float len = sqrt(vec.SqLen());
   // Set new orientation
   m_orientation.SetYRot(degs);
   float rads = DegToRad(degs);
@@ -125,15 +125,15 @@ void PoolCamera::Update()
   if (m_poolPullBackVel != 0)
   {
     // Don't pull back further if max distance reached
-    if (m_orientation.GetVertex().Length() < m_behindMax)
+    if (m_orientation.GetVertex().SqLen() < (m_behindMax*m_behindMax))
     {
       const float deltaTime = Engine::Instance()->GetDeltaTime();
       // Move the camera backwards.
       // Move in a line from origin through the position, 
       // away from the origin.
-      VertexBase vec = m_orientation.GetVertex();
+      Vec3f vec = m_orientation.GetVertex();
       //  not:  - m_pPlayer->GetOrientation()->GetVertex();
-      vec.Normalize();
+      vec.Normalise();
 
       float unitsFwd = m_poolPullBackVel * deltaTime;
       float addX = unitsFwd * vec.x;

@@ -39,7 +39,7 @@ std::string ToString(const Capsule& c)
   return s;
 }
 
-Capsule::Capsule(const VertexBase& v1, const VertexBase& v2, float radius) :
+Capsule::Capsule(const Vec3f& v1, const Vec3f& v2, float radius) :
   m_v1(v1), m_v2(v2), m_radius(radius)
 {
 }
@@ -68,15 +68,11 @@ bool Capsule::Intersects(const BoundingSphere& rhs) const
   float dsq = 0;
   if (c1Sphere)
   {
-    float len = (m_v1 - rhs.GetCentre()).Length();
-    dsq = len * len;
-#ifdef CAP_SPHERE
-//std::cout << "NB Capsule is also a sphere. Dist between centres: " << len << "\n";
-#endif
+    dsq = (m_v1 - rhs.GetCentre()).SqLen();
   }
   else 
   {
-    const VertexBase& v = rhs.GetCentre();
+    const Vec3f& v = rhs.GetCentre();
     dsq = Mgc::SqrDistance(Mgc::Vector3(v.x, v.y, v.z), line1);
 #ifdef CAP_SPHERE
 //std::cout << " MGC: Dist SQ between lines: " << dsq << ": dist: " << sqrt(dsq) << "\n";
@@ -133,8 +129,7 @@ bool Capsule::Intersects(const Capsule& rhs) const
   }
   else // c1Sphere && c2Sphere
   {
-    float len = (m_v1 - rhs.m_v1).Length();
-    dsq = len * len;
+    dsq = (m_v1 - rhs.m_v1).SqLen();
   }
 
 #ifdef CAPSULE_DEBUG

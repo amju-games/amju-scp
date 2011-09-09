@@ -211,11 +211,11 @@ std::string PoolBehaviour::ValidShot::ToString()
 
 void PoolBehaviour::ValidShot::Draw()
 {
-  VertexBase vCue = GetBall()->GetBoundingSphere()->GetCentre();
+  Vec3f vCue = GetBall()->GetBoundingSphere()->GetCentre();
   // Rail/bounce shot ? If so draw line from cue ball to rail
   if (m_shotType == RAIL_POT || m_shotType == RAIL_HIT)
   {
-    VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
 /*
     glBegin(GL_LINES);
       glVertex3f(vCue.x, DRAW_Y, vCue.z);
@@ -239,8 +239,8 @@ void PoolBehaviour::ValidShot::Draw()
   // Draw line from object ball to pocket
   if (m_pPocket)
   {
-    VertexBase vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
-    VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    Vec3f vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
 /*
     glBegin(GL_LINES);
       glVertex3f(vPoc.x, DRAW_Y, vPoc.z);
@@ -252,8 +252,8 @@ void PoolBehaviour::ValidShot::Draw()
   // Draw lines from object ball to all visible pockets
   for (unsigned int i = 0; i < m_pockets.size(); i++)
   {
-    VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
-    VertexBase vPoc = m_pockets[i]->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    Vec3f vPoc = m_pockets[i]->GetBoundingSphere()->GetCentre();
 /*
     glLineWidth(1);
     glBegin(GL_LINES);
@@ -272,11 +272,11 @@ void PoolBehaviour::Draw()
   {
     m_rails[i].Draw();
   }
-  VertexBase vCue = GetBall()->GetBoundingSphere()->GetCentre();
+  Vec3f vCue = GetBall()->GetBoundingSphere()->GetCentre();
   // Rail/bounce shot ? If so draw line from cue ball to rail
   if (m_isBounceShot)
   {
-    VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
     glBegin(GL_LINES);
       glVertex3f(vCue.x, DRAW_Y, vCue.z);
       glVertex3f(m_railPos.x, DRAW_Y, m_railPos.y);
@@ -305,8 +305,8 @@ void PoolBehaviour::Draw()
   // Draw line from object ball to pocket
   if (m_pPocket)
   {
-    VertexBase vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
-    VertexBase vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    Vec3f vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
     glBegin(GL_LINES);
       glVertex3f(vPoc.x, DRAW_Y, vPoc.z);
       glVertex3f(vObj.x, DRAW_Y, vObj.z);
@@ -337,15 +337,15 @@ std::cout << "RAILS: none created, not enough pockets: " << num << "\n";
   }
   for (int i = 0; i < num - 1; i++)
   {
-    VertexBase v1 = m_pockets[i]->GetBoundingSphere()->GetCentre();
-    VertexBase v2 = m_pockets[i + 1]->GetBoundingSphere()->GetCentre();
+    Vec3f v1 = m_pockets[i]->GetBoundingSphere()->GetCentre();
+    Vec3f v2 = m_pockets[i + 1]->GetBoundingSphere()->GetCentre();
     Geom2d::Point2d pt1(v1.x, v1.z);
     Geom2d::Point2d pt2(v2.x, v2.z);
     Geom2d::Line2d lineseg(pt1, pt2);
     m_rails.push_back(Rail(lineseg, i));
   }  
-  VertexBase v1 = m_pockets[num - 1]->GetBoundingSphere()->GetCentre();
-  VertexBase v2 = m_pockets[0]->GetBoundingSphere()->GetCentre();
+  Vec3f v1 = m_pockets[num - 1]->GetBoundingSphere()->GetCentre();
+  Vec3f v2 = m_pockets[0]->GetBoundingSphere()->GetCentre();
   Geom2d::Point2d pt1(v1.x, v1.z);
   Geom2d::Point2d pt2(v2.x, v2.z);
   Geom2d::Line2d lineseg(pt1, pt2);
@@ -417,8 +417,8 @@ std::cout << "Bounce rejected, multiple " << multiple << " too great.\n";
   // Found 2 perpendiculars to the same line: they should be parallel.
   Geom2d::Point2d test1 = cue - pt1;
   Geom2d::Point2d test2 = obj - pt2;
-  test1.Normalize();
-  test2.Normalize();
+  test1.Normalise();
+  test2.Normalise();
   float dp = fabs(Geom2d::DotProduct(test1, test2));
   if (dp != 1.0f)
   {
@@ -465,12 +465,12 @@ std::cout << "Bounce shot rejected, too close to pocket.\n";
   // i.e. PERP_DIST.
   // Get line from pt1 to cue, Normalise, mult by PERP_DIST, add to pt1.
   Geom2d::Point2d fixpt1 = cue - pt1;
-  fixpt1.Normalize();
+  fixpt1.Normalise();
   fixpt1 *= PERP_DIST;
   pt1 = pt1 + fixpt1;
 
   Geom2d::Point2d fixpt2 = obj - pt2;
-  fixpt2.Normalize();
+  fixpt2.Normalise();
   fixpt2 *= PERP_DIST;
   pt2 = pt2 + fixpt2;
 
@@ -646,8 +646,8 @@ void PoolBehaviour::OnActivated()
 }
 
 bool PoolBehaviour::IsLos(
-  const VertexBase& v1,
-  const VertexBase& v2, 
+  const Vec3f& v1,
+  const Vec3f& v2, 
   float r,
   PoolGameObject* p1, 
   PoolGameObject* p2,
@@ -761,8 +761,8 @@ PoolBehaviour::Pockets PoolBehaviour::GetLosPockets(PoolBall* pb)
   for (unsigned int i = 0; i < m_pockets.size(); i++)
   {
     PoolHole* pPocket = m_pockets[i];
-    VertexBase v1 = pb->GetBoundingSphere()->GetCentre();
-    VertexBase v2 = pPocket->GetBoundingSphere()->GetCentre();
+    Vec3f v1 = pb->GetBoundingSphere()->GetCentre();
+    Vec3f v2 = pPocket->GetBoundingSphere()->GetCentre();
     v2.y = v1.y; // pockets are lower than balls
     if (IsLos(v1, v2, radius, pb, 0))
     {
@@ -795,14 +795,14 @@ void PoolBehaviour::FindPockets()
   }
 }
         
-float GetCutAngle(const VertexBase& vCue, const VertexBase& vObj, const VertexBase& vPocket)
+float GetCutAngle(const Vec3f& vCue, const Vec3f& vObj, const Vec3f& vPocket)
 {
-  VertexBase line1 = vCue - vObj;
-  VertexBase line2 = vObj - vPocket;
+  Vec3f line1 = vCue - vObj;
+  Vec3f line2 = vObj - vPocket;
   Geom2d::Vec2d v21(line1.x, line1.z);
-  v21.Normalize(); // necessary 
+  v21.Normalise(); // necessary 
   Geom2d::Vec2d v22(line2.x, line2.z);
-  v22.Normalize();
+  v22.Normalise();
   float dp = Geom2d::DotProduct(v21, v22);
 
   float rads = acos(dp);
@@ -810,7 +810,7 @@ float GetCutAngle(const VertexBase& vCue, const VertexBase& vObj, const VertexBa
   return degs;
 }
 
-VertexBase PoolBehaviour::GetPlaceCueBallPos() const
+Vec3f PoolBehaviour::GetPlaceCueBallPos() const
 {
   return m_placeCueBallPos;
 }
@@ -837,7 +837,7 @@ std::cout << "CALC PLACE CUE BALL:\n";
 
   // Rank each position. If the current rank is higher than the best,
   // it becomes the new best.
-  VertexBase vBestPos;
+  Vec3f vBestPos;
   float bestPosRank = 0; 
 
   ValidBalls vb = GetValidBalls();
@@ -850,8 +850,8 @@ std::cout << "CALC PLACE CUE BALL:\n";
 
     for (unsigned int j = 0; j < pockets.size(); j++)
     {
-      VertexBase vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
-      VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
+      Vec3f vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
+      Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
       vPocket.y = vObj.y; // Just get Y-values the same for LOS test.
 
 #ifdef CALC_PLACE_DEBUG
@@ -863,14 +863,14 @@ std::cout << "..considering ball " << vb[i]->GetNumber()
       // the pocket to the object ball.
       // Find out if this candidate pos has LOS, and if so, rank this
       // shot.
-      VertexBase vCue; // candidate position
+      Vec3f vCue; // candidate position
       // Distance: random, between 2 extremes.
       float r = 
         (float)rand() / (float)RAND_MAX * (PLACE_MAX_DIST - PLACE_MIN_DIST) +
         PLACE_MIN_DIST;
 
-      VertexBase vDiff = vObj - vPocket;
-      vDiff.Normalize();
+      Vec3f vDiff = vObj - vPocket;
+      vDiff.Normalise();
       vDiff *= r;
       vCue = vObj + vDiff;
 
@@ -904,7 +904,7 @@ std::cout << "Best place cue ball pos found - can pot a ball!\n";
   // Try to find a pos where we can at least hit a valid ball.
   for (unsigned int i = 0; i < vb.size(); i++)
   {
-    VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
 
 #ifdef CALC_PLACE_DEBUG
 std::cout << "..considering ball " << vb[i]->GetNumber() 
@@ -920,9 +920,9 @@ std::cout << "..considering ball " << vb[i]->GetNumber()
         (float)rand() / (float)RAND_MAX * (PLACE_MAX_DIST - PLACE_MIN_DIST) +
         PLACE_MIN_DIST;
 
-      VertexBase vDiff(sin(rad), 0, cos(rad));
+      Vec3f vDiff(sin(rad), 0, cos(rad));
       vDiff *= r;
-      VertexBase vCue = vObj;
+      Vec3f vCue = vObj;
       vCue += vDiff;      
 
 #ifdef CALC_PLACE_DEBUG
@@ -933,7 +933,7 @@ std::cout << "..angle: " << a << " dist: " << r << " pos: "
       bool isLos = IsLos(vObj, vCue, radius, pCueBall, vb[i],  false);
       if (isLos)
       {
-        float distCueToObj = (vCue - vObj).Length();
+        float distCueToObj = sqrt((vCue - vObj).SqLen());
         float rank = 1000.0f - distCueToObj;
 #ifdef CALC_PLACE_DEBUG
 std::cout << " ..LOS ok! Rank is: " << rank << "\n";
@@ -1044,7 +1044,7 @@ std::cout << "AI: No valid balls, so nothing to aim at!!\n";
 
   // vCue is the cue ball position.
   FreeMovingGameObject* pCueBall = GetBall();
-  VertexBase vCue = pCueBall->GetBoundingSphere()->GetCentre();
+  Vec3f vCue = pCueBall->GetBoundingSphere()->GetCentre();
 
   m_placeCueBallPos = vCue;
   if (GetRules()->PlayerMayPlaceCueBall() &&
@@ -1078,8 +1078,8 @@ std::cout << "CALC PLACE BALL: Found this pos: "
 
     for (unsigned int j = 0; j < pockets.size(); j++)
     {
-      VertexBase vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
-      VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
+      Vec3f vPocket = pockets[j]->GetBoundingSphere()->GetCentre();
+      Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
       vPocket.y = vCue.y;
       vObj.y = vCue.y;
       bool bounce = false; // shot bounces off a rail ?
@@ -1156,9 +1156,9 @@ std::cout << "CALC PLACE BALL: Found this pos: "
   m_hVel = best.m_hVel;
 
   // Get direction to face
-  VertexBase v3 = m_ghostBall.GetCentre();
+  Vec3f v3 = m_ghostBall.GetCentre();
   v3 -= vCue;
-  v3.Normalize();
+  v3.Normalise();
   m_yRot = RadToDeg(atan2(v3.x, v3.z));
 
   Engine::Instance()->GetGameState()->GetCurrentPlayerInfo()->m_golfStroke =
@@ -1167,9 +1167,9 @@ std::cout << "CALC PLACE BALL: Found this pos: "
 }
 
 bool PoolBehaviour::CalcPotShot(
-  const VertexBase& vCue,
-  const VertexBase& vObj,
-  const VertexBase& vPocket,
+  const Vec3f& vCue,
+  const Vec3f& vObj,
+  const Vec3f& vPocket,
   float radius,
   float* pRank,
   BoundingSphere* pGhostBs,
@@ -1178,8 +1178,8 @@ bool PoolBehaviour::CalcPotShot(
 {
   FreeMovingGameObject* pCueBall = GetBall();
 
-  VertexBase vDiff = vObj - vPocket;
-  vDiff.Normalize();
+  Vec3f vDiff = vObj - vPocket;
+  vDiff.Normalise();
   vDiff *= (2.0f * radius);
   BoundingSphere ghostBs(vObj + vDiff, radius); 
 
@@ -1195,8 +1195,8 @@ bool PoolBehaviour::CalcPotShot(
   // RANK The shot:
   // Evaluator: distance from cue ball to obj ball
   // Evaluator: distance from obj ball to pocket
-  float distCueToObj = (vCue - ghostBs.GetCentre()).Length();
-  float distObjToPocket = (ghostBs.GetCentre() - vPocket).Length();
+  float distCueToObj = sqrt((vCue - ghostBs.GetCentre()).SqLen());
+  float distObjToPocket = sqrt((ghostBs.GetCentre() - vPocket).SqLen());
 
   static const float POT_RANK_REWARD = Engine::Instance()->
     GetConfigFloat("pool_pot_rank_reward");
@@ -1216,7 +1216,7 @@ bool PoolBehaviour::CalcPotShot(
 }
 
 bool PoolBehaviour::CalcAnyValidShot(
-  const VertexBase& vCue,
+  const Vec3f& vCue,
   float radius,
   float* pRank,
   BoundingSphere* pGhostBs)
@@ -1234,7 +1234,7 @@ bool PoolBehaviour::CalcAnyValidShot(
       
   for (unsigned int i = 0; i < vb.size(); i++)
   {
-    VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
 
     // Direct LOS (i.e. no rail bounce) from cue ball to object ball 
     // bounding circle ?
@@ -1247,7 +1247,7 @@ showDebugOut = true;
 
     if (isLos)
     {
-      float distCueToObj = (vCue - vObj).Length();
+      float distCueToObj = sqrt((vCue - vObj).SqLen());
       float rank = 1000.0f - distCueToObj;
 
       // v.1.1: Move the target (ghost) ball around randomly ??
@@ -1279,7 +1279,7 @@ if (!found)
 }
 
 bool PoolBehaviour::CalcValidBounceShot(
-  const VertexBase& vCue,
+  const Vec3f& vCue,
   float radius,
   float* pRank,
   BoundingSphere* pGhostBs)
@@ -1306,7 +1306,7 @@ std::cout << "Try to find valid bounce shot...\n";
     // TODO We really want to search for valid shots to the circle
     // surrounding this ball.
 
-    VertexBase vObj = vb[j]->GetBoundingSphere()->GetCentre();
+    Vec3f vObj = vb[j]->GetBoundingSphere()->GetCentre();
     Geom2d::Point2d objPt(vObj.x, vObj.z);
     Geom2d::Point2d perpPt1, perpPt2;
  
@@ -1316,7 +1316,7 @@ std::cout << "Try to find valid bounce shot...\n";
       Geom2d::Point2d ghostRailPos;
       if (m_rails[i].Bounce(cuePt, objPt, &ghostRailPos, &perpPt1, &perpPt2))
       {
-        VertexBase v1(ghostRailPos.x, vCue.y, ghostRailPos.y);
+        Vec3f v1(ghostRailPos.x, vCue.y, ghostRailPos.y);
         // Reduce radius slightly because we don't want the object ball to count
         // as an obstruction unless it's really in the way.
         bool isLos = IsLos(v1, vCue, radius - 0.1f, pCueBall, 0);
@@ -1378,9 +1378,9 @@ std::cout << " Ball: " << vb[j]->GetId() << " number: " << vb[j]->GetNumber() <<
 }
 
 bool PoolBehaviour::CalcBouncePotShot(
-  const VertexBase& vCue,
-  const VertexBase& vObj,
-  const VertexBase& vPocket,
+  const Vec3f& vCue,
+  const Vec3f& vObj,
+  const Vec3f& vPocket,
   float radius,
   float* pRank,
   BoundingSphere* pGhostBs,
@@ -1392,8 +1392,8 @@ bool PoolBehaviour::CalcBouncePotShot(
   Geom2d::Point2d pocketPt(vPocket.x, vPocket.z);
 
   // Get the real ghost ball position given the pocket and object ball.
-  VertexBase vDiff = vObj - vPocket;
-  vDiff.Normalize();
+  Vec3f vDiff = vObj - vPocket;
+  vDiff.Normalise();
   vDiff *= (2.0f * radius);
   BoundingSphere ghostBs(vObj + vDiff, radius); 
 
@@ -1420,7 +1420,7 @@ bool PoolBehaviour::CalcBouncePotShot(
       // You can hit the ghost ball with the cue ball if you aim at
       // ghostRailPos. But we must check LOS from cue ball to ghostRailPos,
       // and from ghostRailPos to the ghost Ball.
-      VertexBase v1(ghostRailPos.x, vCue.y, ghostRailPos.y);
+      Vec3f v1(ghostRailPos.x, vCue.y, ghostRailPos.y);
       bool isLos = IsLos(v1, vCue, radius, pCueBall, 0);
       if (!isLos)
       {
@@ -1492,15 +1492,15 @@ void PoolBehaviour::CalcJumpShot(
   ValidBalls vb = GetValidBalls();
   // vCue is the cue ball position.
   FreeMovingGameObject* pCueBall = GetBall();
-  VertexBase vCue = pCueBall->GetBoundingSphere()->GetCentre();
+  Vec3f vCue = pCueBall->GetBoundingSphere()->GetCentre();
       
   // Find the closest object ball
   int closest = -1;
   float bestDist = 99999.0f;
   for (unsigned int i = 0; i < vb.size(); i++)
   {
-    VertexBase vObj = vb[i]->GetBoundingSphere()->GetCentre();
-    float distCueToObj = (vCue - vObj).Length();
+    Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
+    float distCueToObj = sqrt((vCue - vObj).SqLen());
     if (distCueToObj < bestDist)
     {
       bestDist = distCueToObj;
@@ -1512,10 +1512,10 @@ void PoolBehaviour::CalcJumpShot(
 
   m_pTargetObject = vb[closest];
   *pGhostBall = *(vb[closest]->GetBoundingSphere());
-  VertexBase v3 = vb[closest]->GetBoundingSphere()->GetCentre();
+  Vec3f v3 = vb[closest]->GetBoundingSphere()->GetCentre();
   v3 -= vCue;
-  float dist = v3.Length();
-  v3.Normalize();
+  float dist = sqrt(v3.SqLen());
+  v3.Normalise();
   // Get direction to face
   m_yRot = RadToDeg(atan2(v3.x, v3.z));
   static const float JUMP_SHOT_H_MULT = Engine::Instance()->

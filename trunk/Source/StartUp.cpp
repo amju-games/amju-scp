@@ -64,7 +64,7 @@ void StartUp()
 #endif
 
 #if defined (MACOSX)
-//  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
+  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
 #endif
 
   GlueFile* gf = new GlueFileMem;
@@ -73,12 +73,6 @@ void StartUp()
   {
     ReportError("Failed to open data glue file");
   }
-
-  // Set up music glue file
-#if defined (MACOSX)
-  // TODO remove from reusable main in all platforms ?
-  TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
-#endif
 
   GlueFile* pMusicGlueFile = new GlueFileMem;
   if (pMusicGlueFile->OpenGlueFile(MUSIC_GLUE_FILE, true)) // true = read only 

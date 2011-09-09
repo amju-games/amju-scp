@@ -139,7 +139,7 @@ void FreeMovingGameObject::SetOrientation(const Orientation& o)
   // This caused hard-to-find bug - this should hopefully fix other
   // bizarre behaviour.
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   CreateBoundingSphere(m);
 
   RecalcForwardVector();

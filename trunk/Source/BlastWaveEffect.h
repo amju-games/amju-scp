@@ -27,7 +27,7 @@ public:
   void Init(PoolTexture* pBb, float speed, float maxTime, float xtilt, float ztilt);
 
   virtual bool Load(const std::string& filename);
-  virtual void Reset(const VertexBase& centre);
+  virtual void Reset(const Vec3f& centre);
   virtual void Draw();
 
   bool IsDead() const;
@@ -39,7 +39,7 @@ protected:
   float m_time;
   float m_size;
   bool m_dead;
-  VertexBase m_centre;
+  Vec3f m_centre;
   float m_xtilt, m_ztilt; // rotation about x and z axes
 };
 }

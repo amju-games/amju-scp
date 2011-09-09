@@ -35,7 +35,7 @@ public:
   // Default sphere - unit radius at origin.
   BoundingSphere();
   // Sphere is defined by a vertex and a radius.
-  BoundingSphere(VertexBase v, float radius);
+  BoundingSphere(Vec3f v, float radius);
 
   // Draw sphere - used for debugging.
   void Draw();
@@ -47,10 +47,10 @@ public:
   // volume.
   BoundingSphere& operator+=(const BoundingSphere& s);
 
-  void SetCentre(const VertexBase& v);
+  void SetCentre(const Vec3f& v);
   void SetRadius(float r);
 
-  const VertexBase& GetCentre() const;
+  const Vec3f& GetCentre() const;
   float GetRadius() const;
 
   // Get the x, y, z of the centre.
@@ -65,8 +65,8 @@ public:
   // r is the line segment radius - so this is really a capsule.
   bool Intersects(const Mgc::Segment3& seg, float r) const;
 
-  // As above, but using 2 VertexBases as the segment end points.
-  bool Intersects(const VertexBase& v1, const VertexBase& v2, float r) const;
+  // As above, but using 2 Vec3fs as the segment end points.
+  bool Intersects(const Vec3f& v1, const Vec3f& v2, float r) const;
 
   // Load b. sphere from a file.
   bool Load(File* pf);
@@ -76,7 +76,7 @@ public:
 #endif
 
 protected:
-  VertexBase m_v;
+  Vec3f m_v;
   float m_r;
 
   static bool s_draw;

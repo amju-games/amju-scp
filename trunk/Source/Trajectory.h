@@ -40,44 +40,44 @@ public:
 
   void Draw();
   void SetDeltaTime(float);
-  void Recalc(const VertexBase& v0, float yRot, float vertVel, float horVel);
+  void Recalc(const Vec3f& v0, float yRot, float vertVel, float horVel);
   void Clear();
   void SetMaxPoints(int m) { m_maxPoints = m; }
   int GetMaxPoints() const { return m_maxPoints; }
   void Update();
-  void SetBallPos(const VertexBase& );
+  void SetBallPos(const Vec3f& );
 
 protected:
   void GetLineSegsForBall(
     int ballId, 
-    VertexBase v1,
+    Vec3f v1,
     float yRot);
 
   bool FindClosestBallCollision(
     int ballId, // ID of the current ball
-    const VertexBase& v1, 
-    const VertexBase& v2,
+    const Vec3f& v1, 
+    const Vec3f& v2,
     int* pBallId, // ID of the new ball we just collided with
-    VertexBase* pVGhost);
+    Vec3f* pVGhost);
 
   bool FindWallCollision(
     int ballId,
-    VertexBase v1,
+    Vec3f v1,
     float yRot,
-    VertexBase* pEndPoint, 
+    Vec3f* pEndPoint, 
     float* pReflectionDir);
 
 protected:
   float m_deltaTime;
 
-//  typedef std::vector<VertexBase> Verts;
+//  typedef std::vector<Vec3f> Verts;
 //  Verts m_vertices;
 
   static SharedPtr<SolidComponent> s_pBillBoard;
 
   int m_maxPoints;
 
-  VertexBase m_v0;
+  Vec3f m_v0;
   float m_yRot;
   float m_vertVel;
   float m_horVel;
@@ -87,7 +87,7 @@ protected:
   {
     void Draw();
 
-    typedef std::vector<std::pair<VertexBase, VertexBase> > Segs;
+    typedef std::vector<std::pair<Vec3f, Vec3f> > Segs;
     Segs m_linesegs;
     Colour m_colour;
     int m_ballId;

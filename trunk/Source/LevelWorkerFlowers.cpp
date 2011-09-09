@@ -104,7 +104,7 @@ bool LevelWorkerFlowers::AddFeature(Level* pLevel)
       //  the sphere, then get the height.
       float y = 0;
       float r = 10.0f; // TODO CONFIG
-      BoundingSphere bs(VertexBase(o1.GetX(), y, o1.GetZ()), r);
+      BoundingSphere bs(Vec3f(o1.GetX(), y, o1.GetZ()), r);
       HeightServer hs;
       pLevel->GetHeightServer(&hs, bs);
       if (!hs.GetHeight(o1.GetX(), o1.GetZ(), &y))
@@ -120,7 +120,7 @@ bool LevelWorkerFlowers::AddFeature(Level* pLevel)
       pSolid->SetOrientation(o1);
 /*
       Matrix m;
-      m.identity();
+      m.SetIdentity();
       o1.TransformMatrix(&m);
       pSolid->StoreHeights(m);
 */

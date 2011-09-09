@@ -126,9 +126,9 @@ void DayNightSky::Update()
     m_s = -sin(m_timeOfDay / 24.0f * pi*2);
     m_c = -cos(m_timeOfDay / 24.0f * pi*2);
 
-    m_sunpos = VertexBase(m_s * 400, m_c * 400 - 100, 0);
-    m_moonpos = VertexBase(0, -m_c * 400 - 100, m_s * 400);
-    m_sunsparklepos = VertexBase(m_s * 350, m_c * 350 - 100, 0);
+    m_sunpos = Vec3f(m_s * 400, m_c * 400 - 100, 0);
+    m_moonpos = Vec3f(0, -m_c * 400 - 100, m_s * 400);
+    m_sunsparklepos = Vec3f(m_s * 350, m_c * 350 - 100, 0);
 
 /*
     // Shooting star
@@ -144,7 +144,7 @@ void DayNightSky::Update()
         m_shootStarTimer = 2.0f; //(float)rand() / (float)RAND_MAX * 10.0f + 3.0f;
         // Get start pos and velocity for the shooting star.
         m_shootstarAngle = (float)rand() / (float)RAND_MAX * 360.0f;
-        m_shootstarpos = VertexBase(-200, 200, 200);
+        m_shootstarpos = Vec3f(-200, 200, 200);
       }
     }
     else
@@ -154,7 +154,7 @@ void DayNightSky::Update()
       float y = m_shootstarpos.y;
       y -= d * 40.0f;
       float z = m_shootstarpos.z;
-      m_shootstarpos = VertexBase(x, y, z);
+      m_shootstarpos = Vec3f(x, y, z);
 
       if (x > 200.0f)
       {

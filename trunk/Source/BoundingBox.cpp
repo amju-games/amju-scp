@@ -172,7 +172,7 @@ bool BoundingBox::Intersects(const BoundingBox& b) const
 bool BoundingBox::Intersects(const BoundingSphere& bs) const
 {
   // Quick, inaccurate: make a cube around the sphere.
-  const VertexBase v = bs.GetCentre();
+  const Vec3f v = bs.GetCentre();
   const float x = v.x;
   const float y = v.y;
   const float z = v.z;
@@ -187,7 +187,7 @@ BoundingSphere BoundingBox::GetBoundingSphere() const
   float ay = (m_ymin + m_ymax) * 0.5f;
   float az = (m_zmin + m_zmax) * 0.5f;
   BoundingSphere bs;
-  bs.SetCentre(VertexBase(ax, ay, az));
+  bs.SetCentre(Vec3f(ax, ay, az));
   float r = m_xmin - ax;
   if (fabs(m_ymax - ay) > r)
   {
@@ -203,7 +203,7 @@ BoundingSphere BoundingBox::GetBoundingSphere() const
 
 void BoundingBox::SetFromSphere(const BoundingSphere& s)
 {
-  const VertexBase v = s.GetCentre();
+  const Vec3f v = s.GetCentre();
   float x = v.x;
   float y = v.y;
   float z = v.z;
@@ -292,8 +292,8 @@ void BoundingBox::SetFromSolid(SolidComponent* p)
 /*
 void BoundingBox::Transform(const Matrix& m)
 {
-  VertexBase vmin(m_xmin, m_ymin, m_zmin);
-  VertexBase vmax(m_xmax, m_ymax, m_zmax);
+  Vec3f vmin(m_xmin, m_ymin, m_zmin);
+  Vec3f vmax(m_xmax, m_ymax, m_zmax);
   vmin = vmin * m;
   vmax = vmax * m;
   m_xmin = vmin.x;
@@ -319,13 +319,13 @@ void BoundingBox::RotateY(float ydegs)
 {
   // TODO speed up with 2*2 matrix
   Matrix m;
-  m.identity();
-  m.rotatey(DegToRad(ydegs));
+  m.SetIdentity();
+  m.RotateY(DegToRad(ydegs));
 
-  VertexBase v1(m_xmin, 0, m_zmin);
-  VertexBase v2(m_xmax, 0, m_zmin);
-  VertexBase v3(m_xmax, 0, m_zmax);
-  VertexBase v4(m_xmin, 0, m_zmax);
+  Vec3f v1(m_xmin, 0, m_zmin);
+  Vec3f v2(m_xmax, 0, m_zmin);
+  Vec3f v3(m_xmax, 0, m_zmax);
+  Vec3f v4(m_xmin, 0, m_zmax);
 
   v1 = v1 * m;
   v2 = v2 * m;

@@ -142,7 +142,7 @@ void BallController::RollDownSlope(FreeMovingGameObject* p)
   }
 
   // Get the normal of the ground poly we are on.
-  VertexBase normal = pHp->GetNormal();
+  Vec3f normal = pHp->GetNormal();
 
   if (fabs(normal.x) < SMALLEST && fabs(normal.z) < SMALLEST)
   {
@@ -154,8 +154,8 @@ void BallController::RollDownSlope(FreeMovingGameObject* p)
   Geom2d::Vec2d v1(normal.x, normal.z); // convert wall normal to 2D
   float mag = v1.Magnitude();
 
-  // Normalize this (x, z) vector and find its angle.
-  v1.Normalize();
+  // Normalise this (x, z) vector and find its angle.
+  v1.Normalise();
   float ar = atan2(v1.x, v1.y);
 
   // Ground slopes in this direction

@@ -75,7 +75,7 @@ public:
 
   // Return translation component of Orientation. 
   // Undefined if no orientation is defined for the object!
-  virtual VertexBase GetPosition() const;
+  virtual Vec3f GetPosition() const;
 
   // Game Objects have a location.
   virtual bool HasLocation() const { return true; }

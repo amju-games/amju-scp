@@ -159,16 +159,16 @@ void Orientation::TransformMatrix(Matrix* m) const
     Matrix tr; // transformation matrix.
     // NB This is a problem if release Matrix ctor doesn't reset all elements!
     
-    tr.translate(m_trx, m_try, m_trz);
+    tr.Translate(Vec3f(m_trx, m_try, m_trz));
     (*m) = tr * (*m);
     
-    tr.rotatex(degToRad(m_rx));
+    tr.RotateX(degToRad(m_rx));
     (*m) = tr * (*m);
     
-    tr.rotatey(degToRad(m_ry));
+    tr.RotateY(degToRad(m_ry));
     (*m) = tr * (*m);
     
-    tr.rotatez(degToRad(m_rz));
+    tr.RotateZ(degToRad(m_rz));
     (*m) = tr * (*m);
 }
 
@@ -230,12 +230,12 @@ Orientation operator-(const Orientation& lhs, const Orientation& rhs)
   return o;
 }
 
-VertexBase Orientation::GetVertex() const
+Vec3f Orientation::GetVertex() const
 {
-  return VertexBase(m_trx, m_try, m_trz);
+  return Vec3f(m_trx, m_try, m_trz);
 }
 
-void Orientation::SetVertex(const VertexBase& v)
+void Orientation::SetVertex(const Vec3f& v)
 {
   m_trx = v.x;
   m_try = v.y;

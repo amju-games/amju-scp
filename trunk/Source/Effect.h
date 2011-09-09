@@ -10,13 +10,12 @@ Added to repository
 #define SCHMICKEN_EFFECT_H_INCLUDED
 
 #include "SharedPtr.h"
+#include <Vec3.h>
 #include <string>
 #include <vector>
 
 namespace Amju
 {
-class VertexBase;
-
 class Effect : public Shareable
 {
 public:
@@ -27,7 +26,7 @@ public:
   virtual void Draw() = 0;
 
   // Reset the effect, giving the centre coord of the effect.
-  virtual void Reset(const VertexBase& centre) = 0;
+  virtual void Reset(const Vec3f& centre) = 0;
 
 public:
   std::string GetName() const { return m_name; }

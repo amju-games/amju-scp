@@ -59,6 +59,7 @@ LeafData* LeafServer::Get(const std::string& leafname)
   // Load the leaf data, and add it to the map.
   // Open the file and get the leaf type. 
 
+#ifndef USE_LEAFDATA3
   File* pFile = 0;
   // Try to open a binary file first. If this fails, fall back to text file.
   File textFile;
@@ -84,10 +85,15 @@ LeafData* LeafServer::Get(const std::string& leafname)
     }
     pFile = &textFile;
   }
+#endif //  USE_LEAFDATA3
 
   LeafData* pld = new LeafData(leafname);
 
+#ifdef USE_LEAFDATA3
+  if (!pld->Load(leafname))
+#else
   if (!pld->Load(pFile))
+#endif
   {
     return 0;
   }

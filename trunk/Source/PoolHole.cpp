@@ -207,7 +207,7 @@ bool PoolHole::Load(File* pf)
   // The target is just below the top centre of the solid.
   BoundingSphere bs;
   // Assume height of hole solid is 1.0
-  VertexBase v(x, y, z);
+  Vec3f v(x, y, z);
   bs.SetCentre(v);
 
   bs.SetRadius(radius); 
@@ -247,7 +247,7 @@ void PoolHole::HandleObjectCollision(PoolGameObject* pObj)
   }
 }
 
-VertexBase PoolHole::GetTargetVertex() const
+Vec3f PoolHole::GetTargetVertex() const
 {
   return m_target.GetBoundingSphere()->GetCentre();
 }
@@ -395,8 +395,8 @@ std::cout << "PLAYER GETS BONUS\n";
   // this pocket, i.e. where the bonuses are. 
   // If the distance between the lines is lower than some limit,
   // opacity is proportional to the distance.
-  VertexBase v1 = GetBall()->GetBoundingSphere()->GetCentre();
-  VertexBase v2 = EngineStatePoolBase::SGetCamera()->
+  Vec3f v1 = GetBall()->GetBoundingSphere()->GetCentre();
+  Vec3f v2 = EngineStatePoolBase::SGetCamera()->
     GetOrientation()->GetVertex();
   Mgc::Segment3 line1;
   line1.Origin() = Mgc::Vector3(v1.x, v1.y, v1.z);
@@ -405,7 +405,7 @@ std::cout << "PLAYER GETS BONUS\n";
   float d1z = v2.z - v1.z;
   line1.Direction() = Mgc::Vector3(d1x, d1y, d1z);
 
-  VertexBase v3 = GetBoundingSphere()->GetCentre();
+  Vec3f v3 = GetBoundingSphere()->GetCentre();
   Mgc::Segment3 line2;
   line2.Origin() = Mgc::Vector3(v3.x, v3.y, v3.z);
   line2.Direction() = Mgc::Vector3(0, 20.0f, 0);

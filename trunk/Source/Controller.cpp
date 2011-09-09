@@ -123,13 +123,13 @@ std::cout << "CONTROLLER: EXTRACTING obj " << pCharacter->GetId() << " from wall
   float d = sqrt(dsq);
 
   // Do this in 2D, i.e. in the x-z plane.
-  VertexBase n;
+  Vec3f n;
   // Get avg normal for all walls, not just the 0th wall
   for (unsigned int i = 0; i < walls.size(); i++)
   {
     n += walls[i].GetNormal();
   }
-  n.Normalize(); 
+  n.Normalise(); 
   float r = bsBefore.GetRadius();
   if (r <= d)
   {
@@ -187,9 +187,9 @@ void Controller::OnHitWalls(
 float Controller::GetReflectionDegs(float incidenceDegs, const WallPoly* pWp)
 {
   // Get normalized wall normal in x-z plane only.
-  VertexBase normal = pWp->GetNormal();
+  Vec3f normal = pWp->GetNormal();
   Geom2d::Vec2d v1(normal.x, normal.z); // convert wall normal to 2D
-  v1.Normalize();
+  v1.Normalise();
 
   // Get angle of normal, to compare with angle of incidence.
   float nAngle = atan2(v1.x, v1.y);
@@ -279,14 +279,8 @@ void Controller::Slide(
   *resultx = newx;
   *resultz = newz;
 
-  VertexBase normal = pWp->GetNormal();
-  if (!normal.Normalize())
-  {
-#ifdef NORM_DEBUG
-std::cout << "CONTROLLER: Normalize failed: bad wall poly ?\n";
-#endif
-    return;
-  }
+  Vec3f normal = pWp->GetNormal();
+  normal.Normalise();
 
   // Get the distance moved. Move back this far (max).
   // The distance we move back depends on the angle the movement direction
@@ -308,19 +302,19 @@ std::cout << "CONTROLLER: dist zero, can't normalize\n";
   // between -1 (hit wall head on) to 0 (sliding parallel to the wall).
   Geom2d::Vec2d v1(normal.x, normal.z); // convert wall normal to 2D
   Geom2d::Vec2d v2(dx, dz); // player direction 2D vector
-  if (!v1.Normalize())
+  if (!v1.Normalise())
   {
 #ifdef NORM_DEBUG
-std::cout << "Normalize failed: V1\n";
+std::cout << "Normalise failed: V1\n";
 std::cout << "Object: " << pCharacter->GetId() << " (" << pCharacter->GetTypeName() << ")\n";
 Assert(0);
 #endif
   }
  
-  if (!v2.Normalize())
+  if (!v2.Normalise())
   {
 #ifdef NORM_DEBUG
-std::cout << "Normalize failed: V2\n";
+std::cout << "Normalise failed: V2\n";
 std::cout << "Object: " << pCharacter->GetId() << " (" << pCharacter->GetTypeName() << ")\n";
 Assert(0);
 #endif
@@ -410,7 +404,7 @@ bool operator() (const WallPoly& wp)
   // Test each vertex.
   for (int i = 0; i < 3; i++)
   {
-    const VertexBase& v = wp.GetVertex(i);
+    const Vec3f& v = wp.GetVertex(i);
     float x = v.x;
     float y = v.y;
     float z = v.z;
@@ -453,7 +447,7 @@ bool operator() (const WallPoly& wp)
       std::cout << "Poly: ";
       for (int j = 0; j < 3; j++)
       {
-        const VertexBase& v = wp.GetVertex(j);
+        const Vec3f& v = wp.GetVertex(j);
         std::cout << "(" << v.x << ", " << v.y << ", " << v.z << ") ";
       }
       std::cout << "\n";
@@ -478,7 +472,7 @@ bool operator() (const WallPoly& wp)
   std::cout << "Removing: ";
   for (int j = 0; j < 3; j++)
   {
-    const VertexBase& v = wp.GetVertex(j);
+    const Vec3f& v = wp.GetVertex(j);
     std::cout << "(" << v.x << ", " << v.y << ", " << v.z << ") ";
   }
   std::cout << " ball Height: " << m_ballH;
@@ -514,7 +508,7 @@ void Controller::HandleWallCollision(
 
   // Make sure the b.sphere is updated.
   Matrix m;
-  m.identity();
+  m.SetIdentity();
   pCharacter->CreateBoundingSphere(m);
 
   // Object height has been recalculated using vertical vel. in Recalculate() above.

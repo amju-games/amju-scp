@@ -56,14 +56,14 @@ Added to repository
 
 namespace Amju
 {
-bool LosExists(const VertexBase& v1, const VertexBase& v2)
+bool LosExists(const Vec3f& v1, const Vec3f& v2)
 {
   PLevel pLevel = LevelServer::Instance()->GetCurrentLevel();
   bool los = !pLevel->GetScene()->LineIntersects(v1, v2, 0.5f);
   return los;
 }
 
-bool DistanceIsOk(const VertexBase& v1, const VertexBase& v2)
+bool DistanceIsOk(const Vec3f& v1, const Vec3f& v2)
 {
   // Returns true if the distance between the verts is not too
   // large.
@@ -159,13 +159,13 @@ void PoolSetUpShotBehaviour::CalcShot()
   m_pTargetObject = 0;
 
   // Work out the angle we should be pointing in.
-  VertexBase vPlayer = GetActivePlayer()->GetOrientation()->GetVertex();
+  Vec3f vPlayer = GetActivePlayer()->GetOrientation()->GetVertex();
   // Get up off the floor so it doesn't interfere with LOS tests.
   vPlayer.y += 2.0f;
 
-  VertexBase vHole = pHole->GetTargetVertex();
+  Vec3f vHole = pHole->GetTargetVertex();
   vHole.y += 2.0f;
-  VertexBase vAimAt = vHole;
+  Vec3f vAimAt = vHole;
 
   bool found = false;
 
@@ -192,8 +192,8 @@ void PoolSetUpShotBehaviour::CalcShot()
       {
         // Is the distance from player to this bonus better than
         // the current best distance ?
-        VertexBase vBonus = pB->GetOrientation()->GetVertex();
-        float dist = (vBonus - vPlayer).Length();
+        Vec3f vBonus = pB->GetOrientation()->GetVertex();
+        float dist = sqrt((vBonus - vPlayer).SqLen());
         if (dist < bestDist)
         {
           bool los = LosExists(vPlayer, vBonus);
@@ -216,7 +216,7 @@ void PoolSetUpShotBehaviour::CalcShot()
     // Still can't find anything to aim at!
     // Just aim at some random point ???
     vAimAt = vPlayer; 
-    vAimAt += VertexBase(1.0f, 1.0f, 1.0f); 
+    vAimAt += Vec3f(1.0f, 1.0f, 1.0f); 
   }
 
 #ifdef DEBUG_SHOW_DEMO_CALC
@@ -240,7 +240,7 @@ void PoolSetUpShotBehaviour::CalcShot()
   //float dx = vPlayer.x - vAimAt.x;
   //float dz = vPlayer.z - vAimAt.z;
   //float distsq = dx * dx + dz * dz;
-  float dist = (vPlayer - vAimAt).Length();
+  float dist = sqrt((vPlayer - vAimAt).SqLen());
  
   static const float velMult = 
     Engine::Instance()->GetConfigFloat("golf_ball_vel_test");

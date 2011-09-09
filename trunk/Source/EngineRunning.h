@@ -14,7 +14,6 @@ Added to repository
 #include "SolidComponent.h"
 #include "TexturedQuad.h"
 #include "CharacterGameObject.h"
-#include "Score.h"
 #include "Colour.h"
 #include "PowerGuage.h"
 #include "ControlStyle.h"
@@ -141,9 +140,6 @@ protected:
 
   // Player health icon overlay - probably a heart ?
   TexturedQuad m_heart;
-
-  // on-screen player score
-  Score m_score;
 
   // Window size in pixels. This is held in the Engine, storing it here as well
   // is a speed optimization.

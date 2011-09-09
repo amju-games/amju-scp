@@ -25,7 +25,7 @@ namespace Amju
 {
 namespace Geometry
 {
-float GetXZAngle(const VertexBase& v1, const VertexBase& v2)
+float GetXZAngle(const Vec3f& v1, const Vec3f& v2)
 {
   float dx = v2.x - v1.x;
   float dz = v2.z - v1.z;
@@ -35,7 +35,7 @@ float GetXZAngle(const VertexBase& v1, const VertexBase& v2)
   return rDegs;
 }
 
-void Normalize(float r[3])
+void Normalise(float r[3])
 {
   const float len = (float) sqrt(r[0]*r[0]+r[1]*r[1]+r[2]*r[2]);
   if (len != 0.0f)
@@ -53,15 +53,15 @@ void CrossProduct(float v1[3], float v2[3], float result[3])
   result[2] = v1[0]*v2[1]-v2[0]*v1[1];
 }
 
-float DotProduct(const VertexBase& v1, const VertexBase& v2)
+float DotProduct(const Vec3f& v1, const Vec3f& v2)
 {
   return v1.x * v2.x + v1.y * v2.y  + v1.z * v2.z;
 }
 
-void MakeNormal(const VertexBase& v1,
-                          const VertexBase& v2,
-                          const VertexBase& v3,
-                          VertexBase* pResult)
+void MakeNormal(const Vec3f& v1,
+                          const Vec3f& v2,
+                          const Vec3f& v3,
+                          Vec3f* pResult)
 {
   float t1[3];
   float t2[3];
@@ -76,8 +76,8 @@ void MakeNormal(const VertexBase& v1,
 
   float r[3];
   CrossProduct(t1, t2, r);
-  Normalize(r);
-  *pResult = VertexBase(r[0], r[1], r[2]);
+  Normalise(r);
+  *pResult = Vec3f(r[0], r[1], r[2]);
 }
 
 void MakeNormal(const float v1[3], 
@@ -97,7 +97,7 @@ void MakeNormal(const float v1[3],
     t2[2] = v2[2]-v3[2];
 
     CrossProduct(t1, t2, r);
-    Normalize(r);
+    Normalise(r);
 }
 } // Geometry
 } // Schmicken

@@ -49,7 +49,7 @@ protected:
   int m_previousSelectedObjectId;
 
   // Coord of last unit cube picked by calling PickSpaceDraw().
-  VertexBase m_lastGoodCoord;
+  Vec3f m_lastGoodCoord;
 
   typedef std::map<Colour, int> ColourMap;
   ColourMap m_colourMap;

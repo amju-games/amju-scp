@@ -169,8 +169,8 @@ void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
     SceneVertex& sv = m_theVertices[i];
     sv.CalcAbsoluteCoord(m);
 
-    VertexBase v(sv.x, sv.y, sv.z);
-    VertexBase absolute = v * m;
+    Vec3f v(sv.x, sv.y, sv.z);
+    Vec3f absolute = v * m;
     poly.AddVertex(absolute, i);
   }
 

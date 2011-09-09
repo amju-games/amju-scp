@@ -64,8 +64,8 @@ public:
   float GetZ() const { return m_trz; }
 
   // Get the vertex.
-  VertexBase GetVertex() const;
-  void SetVertex(const VertexBase&);
+  Vec3f GetVertex() const;
+  void SetVertex(const Vec3f&);
 
   float GetXRot() const { return m_rx; }
   float GetYRot() const { return m_ry; }
