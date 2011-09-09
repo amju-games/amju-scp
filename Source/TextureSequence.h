@@ -17,11 +17,11 @@ namespace Amju
 {
 // Loads a texture which consists of a sequence of sub-textures.
 // Examples are fonts and explosion sequences.
-class TextureSequence : public Shareable
+class PoolTextureSequence : public Shareable
 {
 public:
-  TextureSequence();
-  ~TextureSequence();
+  PoolTextureSequence();
+  ~PoolTextureSequence();
 
   bool Load(
     const std::string& texturename, 

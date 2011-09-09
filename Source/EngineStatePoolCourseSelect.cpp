@@ -354,13 +354,13 @@ void EngineStatePoolCourseSelect::DrawOverlays()
         TexturedQuad& tq = m_costTqs[type - 1];
 
         tq.Draw(t - 1.5f, l + 1.5f, t, l + w - 1.5f);
-        static Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
+        static PoolFont* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
         std::string coststr = ToString(cost);
         pFont->PrintNoBlend(l + w * 0.5f - 0.25f * coststr.length(), 
           t - 1.0f, coststr.c_str());
       }
 
-      static Font* pFont = 
+      static PoolFont* pFont = 
         Engine::Instance()->GetTextWriter()->GetDefaultFont();
       float s = pFont->GetSize();
       pFont->SetSize(0.6f);

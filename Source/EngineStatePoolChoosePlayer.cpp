@@ -287,7 +287,7 @@ void EngineStatePoolChoosePlayer::Draw()
 
 void EngineStatePoolChoosePlayer::DrawOverlays()
 {
-  Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
+  PoolFont* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
   const float size = pFont->GetSize();
 
   AmjuGL::PushAttrib(AmjuGL::AMJU_BLEND);

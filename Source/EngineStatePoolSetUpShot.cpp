@@ -1519,7 +1519,7 @@ void EngineStatePoolSetUpShot::DrawOverlays()
   // Show number of players online
   if (false) // TODO
   {
-    Font* pFont = Engine::Instance()->GetTextWriter()->GetDefaultFont();
+    PoolFont* pFont = Engine::Instance()->GetTextWriter()->GetDefaultFont();
     float s = pFont->GetSize();
     pFont->SetSize(s * 0.75f);
     Engine::Instance()->PushColour(0, 0, 0, 1.0f);

@@ -1006,11 +1006,19 @@ bool Engine::OnCursorEvent(const CursorEvent& ce)
 
 bool Engine::OnMouseButtonEvent(const MouseButtonEvent& mbe)
 {
-//std::cout << "Got MB event\n";
   if (mbe.button == AMJU_BUTTON_MOUSE_LEFT)
   {
     MouseButton(mbe.isDown, false, false);  
   }
+  else if (mbe.button == AMJU_BUTTON_MOUSE_RIGHT)
+  {
+    MouseRButton(mbe.isDown, false, false);  
+  }
+  else //if (mbe.button == AMJU_BUTTON_MOUSE_MIDDLE)
+  {
+    MouseMidButton(mbe.isDown, false, false);  
+  }
+
   return true;
 }
 
@@ -1049,8 +1057,6 @@ bool Engine::OnButtonEvent(const ButtonEvent& be)
 
 void Engine::OnKey(char key, bool down)
 {
-  // Pass the key to the current state, which can be a "key configure" state.
-  // Or the default behaviour will pass the key to the Engine's KeyMap.
   m_pCurrentState->OnKey(key, down);
 }
 

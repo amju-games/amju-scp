@@ -22,11 +22,11 @@ New Text system using Fonts
 
 namespace Amju
 {
-Font::Font(const std::string& name) : m_name(name)
+PoolFont::PoolFont(const std::string& name) : m_name(name)
 {
 }
 
-bool Font::Load(File* pf)
+bool PoolFont::Load(File* pf)
 {
   // Get the Point Size. This is not really a point size because it depends 
   // on the dimensions of the window!
@@ -128,23 +128,23 @@ std::cout << "FONT: Successfully loaded " << m_name.c_str() << "\n";
   return true;
 }
 
-float Font::GetSize() const
+float PoolFont::GetSize() const
 {
   return m_size;
 }
 
-void Font::SetSize(float s)
+void PoolFont::SetSize(float s)
 {
   m_size = s;
 }
 
-float Font::GetCharacterWidth(char c)
+float PoolFont::GetCharacterWidth(char c)
 {
   float f = m_charWidths[c];
   return f;
 }
 
-float Font::GetTextWidth(const std::string& s)
+float PoolFont::GetTextWidth(const std::string& s)
 {
   float f = 0;
   int chars = s.size();
@@ -155,7 +155,7 @@ float Font::GetTextWidth(const std::string& s)
   return f;
 }
 
-void Font::PrintNoBlend(float x, float y, const char* text)
+void PoolFont::PrintNoBlend(float x, float y, const char* text)
 {
     if (!text)
     {
@@ -198,7 +198,7 @@ void Font::PrintNoBlend(float x, float y, const char* text)
     AmjuGL::PopAttrib();
 }
 
-bool FontManager::Init()
+bool PoolFontManager::Init()
 {
   // Get font info filename. This file contains info for all fonts.
   std::string fontInfo = Engine::Instance()->GetConfigValue("fonts");
@@ -222,7 +222,7 @@ bool FontManager::Init()
       return false;
     }
 
-    SharedPtr<Font> pFont = new Font(fontName);
+    SharedPtr<PoolFont> pFont = new PoolFont(fontName);
     if (!pFont->Load(&f))
     {
       f.ReportError("Failed to load font info.");
@@ -238,13 +238,13 @@ std::cout << "FONT MANAGER: no fonts found!\n";
   }
 
   // Loaded all fonts. The first font is the default.
-  SharedPtr<Font> pDefault = m_fonts.begin()->second;
+  SharedPtr<PoolFont> pDefault = m_fonts.begin()->second;
   Engine::Instance()->GetTextWriter()->SetDefaultFont(pDefault.GetPtr());
 
   return true;
 }
 
-Font* FontManager::GetFont(const std::string& fontName)
+PoolFont* PoolFontManager::GetFont(const std::string& fontName)
 {
   return m_fonts[fontName].GetPtr();
 }

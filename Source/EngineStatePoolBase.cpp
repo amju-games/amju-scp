@@ -478,7 +478,7 @@ void EngineStatePoolBase::DrawBonusesLeft()
 
   heart.Draw(HEART_TOP, HEART_LEFT, HEART_TOP + HEART_HEIGHT, HEART_LEFT + HEART_WIDTH);
 
-  Font* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
+  PoolFont* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
   float size = pFont->GetSize();
   std::string s = ToString(numBonuses);
   float left = HEART_LEFT + 0.7f - 0.125f * s.length();

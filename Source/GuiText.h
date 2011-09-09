@@ -18,7 +18,7 @@ Add new GuiElements for future use
 
 namespace Amju
 {
-class Font;
+class PoolFont;
 
 // A GuiElement displaying some text.
 class GuiText : public GuiElement
@@ -30,10 +30,10 @@ public:
   virtual void MouseButton(bool, bool, bool);
 
   void SetText(const std::string& s);
-  void SetFont(Font* pFont);
+  void SetFont(PoolFont* pFont);
 
 protected:
-  Font* m_pFont;
+  PoolFont* m_pFont;
   typedef std::vector<std::string> Strings;
   Strings m_strings;
 };
