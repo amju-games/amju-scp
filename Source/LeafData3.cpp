@@ -15,6 +15,8 @@ Added to repository
 #include "LeafRenderer.h"
 #include "TextureServer.h"
 #include "TextureMethodFactory.h"
+#include <CollisionMesh.h>
+#include <StringUtils.h>
 #include "SchAssert.h"
 
 using namespace std;
@@ -46,6 +48,8 @@ LeafData::~LeafData()
 
 void LeafData::Clear()
 {
+  Assert(0);
+
   // Delete polygons allocated in Load().
   for (PolyVector::iterator it = m_polygons.begin();
        it != m_polygons.end(); ++it)
@@ -58,6 +62,7 @@ void LeafData::Clear()
 
 void LeafData::SetTexture(PoolTexture* pTexture)
 {
+  Assert(0);
   Assert(m_pTextureMethod.GetPtr());
   if (m_pTextureMethod.GetPtr()) // TODO unnecessary check
   {
@@ -67,6 +72,7 @@ void LeafData::SetTexture(PoolTexture* pTexture)
 
 PoolTexture* LeafData::GetTexture()
 {
+  Assert(0);
   Assert(m_pTextureMethod.GetPtr());
   if (m_pTextureMethod.GetPtr())
   {
@@ -77,6 +83,7 @@ PoolTexture* LeafData::GetTexture()
 
 void LeafData::CreatePolygonDisplayList()
 {
+/*
   // Draw each polygon making up the solid.
   for (PolyVector::iterator it = m_polygons.begin();
        it != m_polygons.end(); 
@@ -85,10 +92,12 @@ void LeafData::CreatePolygonDisplayList()
     Polygon* pPoly = *it;
     pPoly->Draw();
   }
+*/
 }
 
 void LeafData::CreateDisplayList()
 {
+/*
   if (!m_isVisible)
   {
     return;
@@ -122,12 +131,16 @@ void LeafData::CreateDisplayList()
   // Except that this creates probs for anything that needs to know the
   // size, abs coords etc of the leaf :-(
   //Clear();
+*/
 }
 
 void LeafData::ExecuteDisplayList()
 {
-  CreateDisplayList();
+  Assert(0);
 /*
+  m_obj.Draw();
+
+  CreateDisplayList();
   if (m_displayList != -1)
   {
     glCallList(m_displayList);
@@ -137,6 +150,7 @@ void LeafData::ExecuteDisplayList()
 
 bool LeafData::HasTextureCoords() const
 {
+  Assert(0);
   if (m_pTextureMethod.GetPtr())
   {
     return m_pTextureMethod->HasTextureCoords();
@@ -146,6 +160,7 @@ bool LeafData::HasTextureCoords() const
 
 void LeafData::SetTexGenMode() const
 {
+  Assert(0);
   Assert(m_pTextureMethod.GetPtr());
   m_pTextureMethod->SetTexGenMode();
 }
@@ -283,8 +298,44 @@ bool LeafData::LoadVisibleFlag(File* pf)
   return true;
 }
 
+bool LeafData::Load(const std::string& filename)
+{
+  std::string objname = GetFileNoExt(filename) + ".obj";
+std::cout << "Loading " << objname << "... ";
+  if (!m_obj.Load(objname))
+  {
+std::cout << "Oh no, failed\n";
+    return false;
+  }
+  // TODO populate polygon vec from obj mesh, for collisions
+  CollisionMesh cm;
+  m_obj.CalcCollisionMesh(&cm);
+  const CollisionMesh::Tris& tris = cm.GetAllTris();
+  unsigned int numtris = tris.size();
+  m_polygons.reserve(numtris);
+
+  for (CollisionMesh::Tris::const_iterator it = tris.begin(); it != tris.end(); ++it)
+  {
+    const Tri& tri = *it;
+    Polygon* poly = new Polygon; // Dear god
+    for (int i = 0; i < 3; i++)
+    {
+      Vec3f v = tri.m_verts[i];
+      poly->AddVertex(SceneVertex(v));
+    }
+    m_polygons.push_back(poly);
+  }
+
+std::cout << " loaded " << objname << " OK!\n";
+  return true;
+}
+
 bool LeafData::Load(File* pf)
 {
+  Assert(0);
+  return false;
+
+/*
   Clear();
 
   if (pf->GetVer() < 7)
@@ -327,15 +378,20 @@ bool LeafData::Load(File* pf)
   CreateNormals();
 
   return true;
+*/
 }
 
 void LeafData::AddPolygon(Polygon* pPoly)
 {
+  Assert(0);
   m_polygons.push_back(pPoly);
 }
 
 void LeafData::CreateSmoothNormals()
 {
+  Assert(0);
+
+
   // Smoothing
   // ---------
   // For each vertex in each poly, find any other polys with a vertex that's the same
@@ -390,6 +446,8 @@ void LeafData::CreateSmoothNormals()
 
 void LeafData::CreateNormals()
 {
+  Assert(0);
+
   for (unsigned int i = 0; i < m_polygons.size(); i++)
   {
     m_polygons[i]->SetPerpendicularNormals();
@@ -467,15 +525,21 @@ bool LeafData::Save(File* jf)
 
 void LeafData::Draw()
 {
+  m_obj.Draw();
+
+/*
   Assert(s_pLeafRenderer);
   if (s_pLeafRenderer)
   {
     s_pLeafRenderer->Draw(this);
   }
+*/
 }
 
 bool LeafData::DeletePolygon(Polygon* p)
 {
+  Assert(0);
+
   for (PolyVector::iterator it = m_polygons.begin();
        it != m_polygons.end(); 
        ++it)
@@ -528,11 +592,14 @@ void LeafData::RecalculateAbsoluteCoords(const Matrix& cm)
 
 void LeafData::MakeDisplayList()
 {
+  Assert(0);
+/*
   Assert(s_pLeafRenderer);
   if (s_pLeafRenderer)
   {
     s_pLeafRenderer->Init(this);
   }
+*/
 }
 }
 

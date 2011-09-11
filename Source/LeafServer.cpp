@@ -17,6 +17,8 @@ Added to repository
 
 using namespace std;
 
+#define USE_LEAFDATA3
+
 namespace Amju
 {
 LeafServer* LeafServer::Instance()
