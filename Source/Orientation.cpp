@@ -20,6 +20,7 @@ Added to repository
 #include "Common.h"
 #include "File.h"
 #include "Matrix.h"
+#include <DegRad.h>
 #include "SchAssert.h"
 #include "StringUtils.h"
 
@@ -152,8 +153,6 @@ bool Orientation::Save(File* jf)
 }
 #endif
 
-float degToRad(float deg) { return deg / (float)(180.0 * pi); }
-
 void Orientation::TransformMatrix(Matrix* m) const
 {
     Matrix tr; // transformation matrix.
@@ -162,13 +161,13 @@ void Orientation::TransformMatrix(Matrix* m) const
     tr.Translate(Vec3f(m_trx, m_try, m_trz));
     (*m) = tr * (*m);
     
-    tr.RotateX(degToRad(m_rx));
+    tr.RotateX(DegToRad(m_rx));
     (*m) = tr * (*m);
     
-    tr.RotateY(degToRad(m_ry));
+    tr.RotateY(DegToRad(m_ry));
     (*m) = tr * (*m);
     
-    tr.RotateZ(degToRad(m_rz));
+    tr.RotateZ(DegToRad(m_rz));
     (*m) = tr * (*m);
 }
 
