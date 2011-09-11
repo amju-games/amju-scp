@@ -1360,7 +1360,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
 
   Quaternion q;
   float a = (m_rollVel + naturalRollVel) * dt;
-  q.SetAxisAngle(a, Vec3f(x, 0, z));
+  q.SetAxisAngle(DegToRad(a), Vec3f(x, 0, z));
   m_quat = q * m_quat; 
 
   // Update the forward/draw roll of the ball.
@@ -1446,7 +1446,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
   float yrv = m_englishVel * ENGLISH_TURN;
   SetYRotateVel(yrv);
   Quaternion qEnglish;
-  qEnglish.SetAxisAngle(m_englishVel * dt, Vec3f(0, 1, 0));
+  qEnglish.SetAxisAngle(DegToRad(m_englishVel * dt), Vec3f(0, 1, 0));
   m_quat = qEnglish * m_quat;
 }
 

@@ -17,6 +17,7 @@ Added to repository
 #include <iostream>
 #include "Common.h"
 #include "RotateHelper.h"
+#include <DegRad.h>
 
 namespace Amju
 {
@@ -59,7 +60,7 @@ bool RotateHelper(
 
   float b = asin(s);
 
-  float bdegs = b * (float)(180.0 / pi); // for debugging
+  float bdegs = RadToDeg(b); //// * (float)(180.0 / pi); // for debugging
   // bdegs is in range -90 to 90 - i.e. only 180 degrees of values.
   bdegs += 90; // now in range 0 - 180
   // Get the other 180 degrees
