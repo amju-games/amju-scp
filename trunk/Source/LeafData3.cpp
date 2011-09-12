@@ -48,8 +48,6 @@ LeafData::~LeafData()
 
 void LeafData::Clear()
 {
-  Assert(0);
-
   // Delete polygons allocated in Load().
   for (PolyVector::iterator it = m_polygons.begin();
        it != m_polygons.end(); ++it)
