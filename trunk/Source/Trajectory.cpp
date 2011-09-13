@@ -29,6 +29,7 @@ Added to repository
 #endif
 
 #include <iostream>
+#include <algorithm>
 #include "Common.h"
 #include "AngleCompare.h"
 #include "Trajectory.h"
@@ -437,7 +438,7 @@ void GetExactCollisionCoords(
   // Start half-way between the balls.
   float dt = len * 0.5f;
 
-  bool broke = false;
+  //bool broke = false;
   int count = 0;
   float t = 0;
   Vec3f vDir(dx, 0, dz);
@@ -475,7 +476,7 @@ std::cout << " ..distance too small\n";
     }
     else
     {
-      broke = true;
+      //broke = true;
 #ifdef TR_DEBUG
 std::cout << " just right! Breaking after " << count << " loops, dist=" << dist << "\n";
 #endif

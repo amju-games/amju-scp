@@ -211,11 +211,11 @@ std::string PoolBehaviour::ValidShot::ToString()
 
 void PoolBehaviour::ValidShot::Draw()
 {
-  Vec3f vCue = GetBall()->GetBoundingSphere()->GetCentre();
+  //Vec3f vCue = GetBall()->GetBoundingSphere()->GetCentre();
   // Rail/bounce shot ? If so draw line from cue ball to rail
   if (m_shotType == RAIL_POT || m_shotType == RAIL_HIT)
   {
-    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    //Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
 /*
     glBegin(GL_LINES);
       glVertex3f(vCue.x, DRAW_Y, vCue.z);
@@ -239,8 +239,8 @@ void PoolBehaviour::ValidShot::Draw()
   // Draw line from object ball to pocket
   if (m_pPocket)
   {
-    Vec3f vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
-    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    //Vec3f vPoc = m_pPocket->GetBoundingSphere()->GetCentre();
+    //Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
 /*
     glBegin(GL_LINES);
       glVertex3f(vPoc.x, DRAW_Y, vPoc.z);
@@ -252,8 +252,8 @@ void PoolBehaviour::ValidShot::Draw()
   // Draw lines from object ball to all visible pockets
   for (unsigned int i = 0; i < m_pockets.size(); i++)
   {
-    Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
-    Vec3f vPoc = m_pockets[i]->GetBoundingSphere()->GetCentre();
+    //Vec3f vObj = m_pTargetObject->GetBoundingSphere()->GetCentre();
+    //Vec3f vPoc = m_pockets[i]->GetBoundingSphere()->GetCentre();
 /*
     glLineWidth(1);
     glBegin(GL_LINES);
@@ -1082,7 +1082,7 @@ std::cout << "CALC PLACE BALL: Found this pos: "
       Vec3f vObj = vb[i]->GetBoundingSphere()->GetCentre();
       vPocket.y = vCue.y;
       vObj.y = vCue.y;
-      bool bounce = false; // shot bounces off a rail ?
+      //bool bounce = false; // shot bounces off a rail ?
       BoundingSphere ghostRailBs; // for bounce shot, the ghost ball on rail
 
       rank = 0; 
@@ -1109,7 +1109,7 @@ std::cout << "CALC PLACE BALL: Found this pos: "
         validshot.m_hVel = hVel;
         m_validShots.push_back(validshot);
 
-        bounce = true;
+        //bounce = true;
       }
     }
   }

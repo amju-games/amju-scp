@@ -106,11 +106,11 @@ void GuiTextButton::DrawImpl()
   {
     //c = 0.5f; // TODO CONFIG
   }
-  float a = 1.0f;
-  if (!IsEnabled())
-  {
-    a = 0.5f; // TODO CONFIG
-  }
+  //float a = 1.0f;
+  //if (!IsEnabled())
+  //{
+  //  a = 0.5f; // TODO CONFIG
+  //}
 
   PoolFont* pFont = m_pFont;
   if (!pFont)

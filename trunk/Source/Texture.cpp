@@ -42,6 +42,9 @@ Added to repository
 #include "SchAssert.h"
 #include <LoadPng.h>
 #include <TextureUtils.h>
+#ifdef GEKKO
+#include <string.h> // memset
+#endif
 
 using namespace std;
 

@@ -17,7 +17,12 @@
 #include "PolyDrawOpenGL.h"
 #include "PolyLoader.h"
 #include "PoolGameState.h"
+
+#ifdef MACOSX
+// TODO sort this out
 #include <BassSoundPlayer.h>
+#endif
+
 #include <iostream>
 #include <AmjuGLWindowInfo.h>
 #include <AmjuFinal.h>
@@ -130,9 +135,11 @@ void StartUp()
 
   ConfigHack(); // set config from auto-generated source file.
 
+#ifdef MACOSX
   std::string root = "./"; //GetRoot();
   std::cout << "Root is " << root.c_str() << "\n";
   File::SetRoot(root, "/");
+#endif
 
 #ifdef _DEBUG
 std::cout << "main(): got root\n";
@@ -146,9 +153,9 @@ std::cout << "main(): got root\n";
   {
     std::cout << "Couldn't load font.\n";
   }
-  LeafData::SetRenderer(new LeafRenderOpenGL);
-  Amju::Polygon::SetDrawer(new PolyDrawOpenGL);
-  Amju::Polygon::SetLoader(new PolyLoader);
+  //LeafData::SetRenderer(new LeafRenderOpenGL);
+  //Amju::Polygon::SetDrawer(new PolyDrawOpenGL);
+  //Amju::Polygon::SetLoader(new PolyLoader);
 
   TheGame::Instance()->SetCurrentState(engine);	
 

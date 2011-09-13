@@ -797,7 +797,7 @@ bool EngineStatePoolSetUpShot::AddShotAngle(float rot)
 // around the cue ball.
 ////    Orientation oPlayer(*(GetActivePlayer()->GetOrientation()));
 
-    Vec3f v1 = oPlayer.GetVertex();
+    //Vec3f v1 = oPlayer.GetVertex();
 
     oPlayer.SetXRot(0);
     oPlayer.SetYRot(0);
