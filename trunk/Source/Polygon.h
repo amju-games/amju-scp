@@ -2,7 +2,7 @@
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: Polygon.h,v $
 Revision 1.1.10.1  2007/07/15 21:56:58  Administrator
-DEBUG mode: Each Plane stores the name of the leaf which created it.
+DEBUG mode: Each HSTri stores the name of the leaf which created it.
 This is for debugging HeightServer issues, where you want to know where
 a poly has come from.
 

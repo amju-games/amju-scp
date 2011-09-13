@@ -563,7 +563,7 @@ void Controller::HandleWallCollision(
   // than one wall, when visually it's the same wall.
   //unsigned int wallsNonUnique = walls.size();
 
-  std::sort(walls.begin(), walls.end(), PlaneLessThan());
+  std::sort(walls.begin(), walls.end(), HSTriLessThan());
   walls.erase(std::unique(walls.begin(), walls.end()), walls.end());
   //unsigned int wallsUnique = walls.size();
 
@@ -652,7 +652,7 @@ std::cout << "WALL COLLISION: 1 wall\n";
     bool collided = pCharacterHeightServer->Intersects(bsBefore, bsAfterSlide, &wallsAfter);
     if (collided)
     {
-      std::sort(wallsAfter.begin(), wallsAfter.end(), PlaneLessThan());
+      std::sort(wallsAfter.begin(), wallsAfter.end(), HSTriLessThan());
       wallsAfter.erase(std::unique(wallsAfter.begin(), wallsAfter.end()), wallsAfter.end());
       //unsigned int wallsUnique = wallsAfter.size();
 /*

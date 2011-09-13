@@ -367,7 +367,7 @@ bool Trajectory::FindWallCollision(
       Assert(0);
     }
     // Get unique walls
-    std::sort(walls.begin(), walls.end(), PlaneLessThan());
+    std::sort(walls.begin(), walls.end(), HSTriLessThan());
     walls.erase(std::unique(walls.begin(), walls.end()), walls.end());
 
     // Find the closest wall.

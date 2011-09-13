@@ -2,7 +2,7 @@
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: HeightServer.h,v $
 Revision 1.1.10.4  2007/07/15 21:56:57  Administrator
-DEBUG mode: Each Plane stores the name of the leaf which created it.
+DEBUG mode: Each HSTri stores the name of the leaf which created it.
 This is for debugging HeightServer issues, where you want to know where
 a poly has come from.
 
@@ -41,20 +41,20 @@ namespace Amju
 {
 class BoundingSphere;
 
-class Plane
+class HSTri
 {
-  friend struct PlaneLessThan;
+  friend struct HSTriLessThan;
 
 public:
 
 #ifdef _DEBUG
   // Store name of leaf contributing this poly for debugging
-  Plane(const char* leaf);
+  HSTri(const char* leaf);
 #else
-  Plane();
+  HSTri();
 #endif
 
-  ~Plane() {}
+  ~HSTri() {}
 
   // Add a vertex to the plane. 0 <= i < 3
   void AddVertex(const Vec3f& v, unsigned int i);
@@ -79,17 +79,17 @@ public:
   Geom2d::Line2d GetEdge(unsigned int i) const;
 
   // Equality: two planes are equal if their coefficients are equal.
-  bool operator==(const Plane& rhs) const;
+  bool operator==(const HSTri& rhs) const;
 
   // Classify Point - from Flipcode collision detection tutorial
   // -----------------------------------------------------------
-  // Possible positions of a point in relation to the Plane.
+  // Possible positions of a point in relation to the HSTri.
   enum PositionType
   {  
     FRONT, BACK, COINCIDE
   };
 
-  // Get the position type for a point in relation to this Plane.
+  // Get the position type for a point in relation to this HSTri.
   PositionType ClassifyPoint(const Vec3f& v) const;
 
   float a() const { return m_a; }
@@ -101,7 +101,7 @@ protected:
   // Vertices making up the poly.
   Vec3f m_vertices[3];
 
-  // Plane equation is ax + by + cz + d = 0 - these are the coefficients.
+  // HSTri equation is ax + by + cz + d = 0 - these are the coefficients.
   // We get them using vertex (x, y, z) info.
   // Normal to plane is (m_a, m_b, m_c).
   float m_a, m_b, m_c, m_d;
@@ -111,21 +111,21 @@ protected:
 #endif
 };
 
-struct PlaneLessThan
+struct HSTriLessThan
 {
-  bool operator()(const Plane& lhs, const Plane& rhs);
+  bool operator()(const HSTri& lhs, const HSTri& rhs);
 };
 
-class WallPoly : public Plane
+class WallPoly : public HSTri
 {
 public:
 #ifdef _DEBUG
-  WallPoly(const char* leaf) : Plane(leaf) {}
+  WallPoly(const char* leaf) : HSTri(leaf) {}
 #else
-  WallPoly() : Plane() {}
+  WallPoly() : HSTri() {}
 #endif
 
-  WallPoly(const Plane& p);
+  WallPoly(const HSTri& p);
 
   ~WallPoly() {}
 
@@ -157,10 +157,10 @@ protected:
   bool Intersects(const BoundingSphere& b) const;
 };
 
-class HeightPoly : public Plane
+class HeightPoly : public HSTri
 {
 public:
-  HeightPoly(const Plane& p);
+  HeightPoly(const HSTri& p);
 
   // Call once all vertices have been added to create a rectangle which 
   // encloses the plan view of the plane poly.
@@ -274,7 +274,7 @@ public:
     const BoundingSphere& bsAfter) const;
 
   // Insert a plane polygon.
-  void InsertPoly(const Plane& p); 
+  void InsertPoly(const HSTri& p); 
 
   // for testing, draw the polys on screen.
 #if defined(HS_DEBUG)
@@ -287,8 +287,8 @@ public:
   int GetNumWallPolys() const { return m_wallPolys.size(); }
 
   // Get wall and height polys.
-  const Plane* GetWallPoly(int i) const;
-  const Plane* GetHeightPoly(int i) const;
+  const HSTri* GetWallPoly(int i) const;
+  const HSTri* GetHeightPoly(int i) const;
 
   void Clear();
 

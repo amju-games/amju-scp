@@ -2,7 +2,7 @@
 Amju Games source code (c) Copyright Jason Colman 2004
 $Log: HeightServer.cpp,v $
 Revision 1.1.10.4  2007/07/15 21:56:56  Administrator
-DEBUG mode: Each Plane stores the name of the leaf which created it.
+DEBUG mode: Each HSTri stores the name of the leaf which created it.
 This is for debugging HeightServer issues, where you want to know where
 a poly has come from.
 
@@ -61,13 +61,13 @@ HeightServer::~HeightServer()
 {
 }
 
-const Plane* HeightServer::GetWallPoly(int i) const
+const HSTri* HeightServer::GetWallPoly(int i) const
 {
   Assert(i < GetNumWallPolys());
   return &m_wallPolys[i];
 }
 
-const Plane* HeightServer::GetHeightPoly(int i) const
+const HSTri* HeightServer::GetHeightPoly(int i) const
 {
   Assert(i < GetNumHeightPolys());
   return &m_heightPolys[i];
@@ -367,7 +367,7 @@ void HeightServer::AddHeightPoly(const HeightPoly& hp)
   m_heightPolys.push_back(hp);
 }
 
-void HeightServer::InsertPoly(const Plane& p)
+void HeightServer::InsertPoly(const HSTri& p)
 {
   // Decide which vector the plane should go in.
   if (p.IsHeightPoly())
@@ -421,7 +421,7 @@ void HeightServer::Clear()
 
 // ----------------------------------------------------------------------------
 
-HeightPoly::HeightPoly(const Plane& p) : Plane(p)
+HeightPoly::HeightPoly(const HSTri& p) : HSTri(p)
 {
   m_xmin = m_zmin = m_xmax = m_zmax = 0.0;
 }
@@ -536,7 +536,7 @@ bool HeightPoly::BoxesIntersect(const HeightPoly& hp) const
 
 // ----------------------------------------------------------------------------
 
-WallPoly::WallPoly(const Plane& p) : Plane(p)
+WallPoly::WallPoly(const HSTri& p) : HSTri(p)
 {
 }
 
@@ -712,30 +712,30 @@ bool WallPoly::Intersects(const BoundingSphere& bs) const
 // ----------------------------------------------------------------------------
 
 #ifdef _DEBUG
-Plane::Plane(const char* leafName) : m_leafName(leafName)
+HSTri::HSTri(const char* leafName) : m_leafName(leafName)
 {
   m_a = m_b = m_c = m_d = 0;
 }
 #else
-Plane::Plane()
+HSTri::HSTri()
 {
   m_a = m_b = m_c = m_d = 0;
 }
 #endif
 
-void Plane::GetNormal(float pResult[3]) const
+void HSTri::GetNormal(float pResult[3]) const
 {
   pResult[0] = m_a;
   pResult[1] = m_b;
   pResult[2] = m_c;
 }
 
-Vec3f Plane::GetNormal() const
+Vec3f HSTri::GetNormal() const
 {
   return Vec3f(m_a, m_b, m_c);
 }
 
-Geom2d::Line2d Plane::GetEdge(unsigned int i) const
+Geom2d::Line2d HSTri::GetEdge(unsigned int i) const
 {
   Assert(i < 3);
 
@@ -748,7 +748,7 @@ Geom2d::Line2d Plane::GetEdge(unsigned int i) const
                         Geom2d::Point2d(m_vertices[0].x, m_vertices[0].z));
 }
 
-void Plane::AddVertex(const Vec3f& v, unsigned int i)
+void HSTri::AddVertex(const Vec3f& v, unsigned int i)
 {
   Assert(i < 3);
   m_vertices[i] = v; 
@@ -761,7 +761,7 @@ void Plane::AddVertex(const Vec3f& v, unsigned int i)
   }
 }
 
-void Plane::CreateCoefficients()
+void HSTri::CreateCoefficients()
 {
   //Assert(m_vertices.size() >= 3);
   // Get a, b, c of plane equation by taking the normal given by the first 
@@ -782,7 +782,7 @@ void Plane::CreateCoefficients()
           m_c * m_vertices[0].z;
 }
 
-bool Plane::IsHeightPoly() const
+bool HSTri::IsHeightPoly() const
 {
   // We want to return true if the plane faces upwards, and is more horizontal 
   // than vertical.
@@ -791,7 +791,7 @@ bool Plane::IsHeightPoly() const
 }
 
 #if defined(HS_DEBUG)
-void Plane::Draw() const
+void HSTri::Draw() const
 {
   AmjuGL::Disable(AmjuGL::AMJU_TEXTURE_2D);
   glBegin(GL_LINES);
@@ -830,16 +830,16 @@ void Plane::Draw() const
 }
 #endif
 
-bool Plane::operator==(const Plane& rhs) const
+bool HSTri::operator==(const HSTri& rhs) const
 {
-  // Plane equality means the coefficients of the plane equations are the same.
+  // HSTri equality means the coefficients of the plane equations are the same.
   return (fabs(m_a - rhs.m_a) < SMALLEST  &&  
           fabs(m_b - rhs.m_b) < SMALLEST  &&  
           fabs(m_c - rhs.m_c) < SMALLEST  &&  
           fabs(m_d - rhs.m_d) < SMALLEST);
 }
 
-Plane::PositionType Plane::ClassifyPoint(const Vec3f& v) const
+HSTri::PositionType HSTri::ClassifyPoint(const Vec3f& v) const
 {
   // From Flipcode collision detection tutorial
   float f = Geometry::DotProduct(GetNormal(), v) + m_d;
@@ -854,7 +854,7 @@ Plane::PositionType Plane::ClassifyPoint(const Vec3f& v) const
   return COINCIDE;
 }
 
-bool PlaneLessThan::operator()(const Plane& lhs, const Plane& rhs)
+bool HSTriLessThan::operator()(const HSTri& lhs, const HSTri& rhs)
 {
   if (lhs.m_a < (rhs.m_a - SMALLEST))
   {
