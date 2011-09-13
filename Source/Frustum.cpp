@@ -26,7 +26,7 @@ Frustum* Frustum::Instance()
   return &f;
 }
 
-float	frustum[6][4];		// Holds The Current Frustum Plane Equations
+float	frustum[6][4];		// Holds The Current Frustum HSTri Equations
 // Currently a global - ok as we don't have more than one frustum.
 
 // Test If A Sphere Is In The Frustum
@@ -41,7 +41,7 @@ bool SphereInFrustum( float x, float y, float z, float radius )
 }
 
 
-void ExtractFrustum()									// Extracts The Current View Frustum Plane Equations
+void ExtractFrustum()									// Extracts The Current View Frustum HSTri Equations
 {
 	float	proj[16];									// For Grabbing The PROJECTION Matrix
 	float	modl[16];									// For Grabbing The MODELVIEW Matrix

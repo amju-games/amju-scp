@@ -17,7 +17,7 @@ Added to repository
 #include "Texture.h"
 #include "Engine.h"
 #include "Md2Model.h"
-#include "HeightServer.h" // Plane
+#include "HeightServer.h" // HSTri
 
 using namespace std;
 

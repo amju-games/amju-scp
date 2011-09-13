@@ -8,7 +8,7 @@ Revision 1.1.10.2  2007/07/25 07:48:43  jay
 Fix SCENE_EDITOR/DEBUG defines
 
 Revision 1.1.10.1  2007/07/15 21:56:58  Administrator
-DEBUG mode: Each Plane stores the name of the leaf which created it.
+DEBUG mode: Each HSTri stores the name of the leaf which created it.
 This is for debugging HeightServer issues, where you want to know where
 a poly has come from.
 
@@ -159,9 +159,9 @@ void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
 {
 #ifdef _DEBUG
   // Convert each vertex to absolute coords; store in Height Server.
-  Plane poly(m_pLeaf ? m_pLeaf->GetName().c_str() : "<unknown>");
+  HSTri poly(m_pLeaf ? m_pLeaf->GetName().c_str() : "<unknown>");
 #else
-  Plane poly;
+  HSTri poly;
 #endif
 
   for (unsigned int i = 0; i < m_theVertices.size(); i++)

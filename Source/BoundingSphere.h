@@ -14,7 +14,7 @@ Added to repository
 
 namespace Amju
 {
-class Plane;
+class HSTri;
 class SolidLeaf;
 class File;
 
