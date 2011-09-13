@@ -16,6 +16,7 @@ Added to repository
 #include "ConfigFile.h"
 #include "File.h"
 #include "Tokeniser.h"
+#include <StringUtils.h>
 #include <iostream>
 
 using namespace std;
@@ -120,7 +121,7 @@ float ConfigFile::GetFloat(const std::string& key) const
   {
     return 0;
   }
-  return (float)atof(it->second.c_str());
+  return ToFloat(it->second.c_str());
 }
 
 bool ConfigFile::Exists(const std::string& key) const

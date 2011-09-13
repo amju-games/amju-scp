@@ -45,7 +45,7 @@ bool Point2d::operator==(const Point2d& rhs) const
 
 bool Line2d::operator==(const Line2d& rhs) const
 {
-  return (pt1 == rhs.pt1 && pt2 == rhs.pt2  ||  pt1 == rhs.pt2 && pt2 == rhs.pt1); 
+  return ((pt1 == rhs.pt1 && pt2 == rhs.pt2)  ||  (pt1 == rhs.pt2 && pt2 == rhs.pt1)); 
 }
 
 Point2d Point2d::operator+(const Point2d& rhs) const

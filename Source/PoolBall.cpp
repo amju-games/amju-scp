@@ -815,7 +815,7 @@ std::cout << "EXACT: **** Finding exact collision point for " << p1->GetId() << 
   // Initially dt is half of tmax.
   double dt = tmax * 0.5;
 
-  bool broke = false;
+  //bool broke = false;
   int count = 0;
   while (count++ < 20) // TODO TEMP TEST  
   {
@@ -842,7 +842,7 @@ std::cout << "EXACT: dist: " << dist << "     ";
     }
     else
     {
-      broke = true;
+      //broke = true;
 #ifdef EXACT_DEBUG
 std::cout << "EXACT: breaking after " << count << " loops, dist=" << dist << "\n";
 #endif

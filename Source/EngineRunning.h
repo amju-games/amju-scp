@@ -61,12 +61,12 @@ public:
   virtual void MouseButton(bool down, bool ctrl, bool shift);
 
   void SetControlStyle(ControlStyle* pCs);
-  enum ControlStyleEnum {ROTATE_KEYS, MOUSE_PICK, JOYSTICK, DIRECTIONAL_KEYS};
+  enum ControlStyleEnum { AMJU_ROTATE_KEYS,  AMJU_MOUSE_PICK,  AMJU_JOYSTICK,  AMJU_DIRECTIONAL_KEYS};
   void SetControlStyle(ControlStyleEnum cs);
   void SetControlStyleFromConfig();
 
   void SetCameraStyle(Camera* pCam);
-  enum CameraEnum {BIRDS_EYE, FOLLOW, FIRST_PERSON, FIXED};
+  enum CameraEnum { AMJU_BIRDS_EYE,  AMJU_FOLLOW,  AMJU_FIRST_PERSON,  AMJU_FIXED};
   void SetCameraStyle(CameraEnum c);
   void SetCameraStyleFromConfig();
 

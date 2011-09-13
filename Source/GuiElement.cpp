@@ -459,12 +459,12 @@ void GuiElement::DrawToolTipText()
   }
   // Work out if we should draw the text to the left or right of this
   // element.
-  bool left = false;
+  //bool left = false;
    
   float x = m_absLeft;
   if (x > 15.0f) // TODO CONFIG
   {
-    left = true;
+    //left = true;
     float w = pFont->GetTextWidth(m_toolTipText[0]);
 
 #ifdef _DEBUG

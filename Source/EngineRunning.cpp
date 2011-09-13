@@ -83,21 +83,21 @@ void EngineRunning::SetControlStyle(ControlStyleEnum cs)
 
   switch (cs)
   {
-  case ROTATE_KEYS:
+  case AMJU_ROTATE_KEYS:
     //GetEngine()->GetEngineState()->Set("control_style", "rkeys");
     //SetControlStyle(new ControlStyleRotateKeys);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::KEYS);
     break;
-  case DIRECTIONAL_KEYS:
+  case AMJU_DIRECTIONAL_KEYS:
     //GetEngine()->GetEngineState()->Set("control_style", "dirkeys");
     //SetControlStyle(new ControlStyleDirectionalKeys);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::KEYS);
     break;
-  case MOUSE_PICK:
+  case AMJU_MOUSE_PICK:
     //GetEngine()->GetEngineState()->Set("control_style", "mouse");
     //SetControlStyle(new ControlStyleMousePickBase);
     break;
-  case JOYSTICK:
+  case AMJU_JOYSTICK:
     //GetEngine()->GetEngineState()->Set("control_style", "joystick");
     //SetControlStyle(new ControlStyleJoystick);
     //TheKeymapPrinter::Instance()->SetMode(KeymapPrinter::JOYSTICK);
@@ -114,24 +114,24 @@ void EngineRunning::SetControlStyleFromConfig()
     //  keyboard control style.
     if (GetEngine()->IsJoystickEnabled())
     {
-      SetControlStyle(JOYSTICK);
+      SetControlStyle(AMJU_JOYSTICK);
     }
     else
     {
-      SetControlStyle(ROTATE_KEYS);
+      SetControlStyle(AMJU_ROTATE_KEYS);
     }
   }
   else if (s == "mouse")
   {
-    SetControlStyle(MOUSE_PICK);
+    SetControlStyle(AMJU_MOUSE_PICK);
   }
   else if (s == "rkeys")
   {
-    SetControlStyle(ROTATE_KEYS);
+    SetControlStyle(AMJU_ROTATE_KEYS);
   }
   else if (s == "dirkeys")
   {
-    SetControlStyle(DIRECTIONAL_KEYS);
+    SetControlStyle(AMJU_DIRECTIONAL_KEYS);
   }
 }
 
@@ -152,25 +152,25 @@ void EngineRunning::SetCameraStyle(CameraEnum c)
 
   switch (c)
   {
-  case FOLLOW:
+  case AMJU_FOLLOW:
     GetEngine()->GetGameState()->Set("camera_style", "follow");
     SetCameraStyle(new ThirdPersonCamera2);
     m_firstPerson = false;
     break;
 
-  case BIRDS_EYE:
+  case AMJU_BIRDS_EYE:
     GetEngine()->GetGameState()->Set("camera_style", "birds_eye");
     SetCameraStyle(new ThirdPersonCamera2);
     m_firstPerson = false;
     break;
 
-  case FIRST_PERSON:
+  case AMJU_FIRST_PERSON:
     GetEngine()->GetGameState()->Set("camera_style", "amju_cam");
     SetCameraStyle(new FirstPersonCamera);
     m_firstPerson = true;
     break;
 
-  case FIXED:
+  case AMJU_FIXED:
     GetEngine()->GetGameState()->Set("camera_style", "fixed");
     SetCameraStyle(new ThirdPersonCameraFixed);
     m_firstPerson = false;
@@ -184,15 +184,15 @@ void EngineRunning::SetCameraStyleFromConfig()
   std::string s = GetEngine()->GetGameState()->Get("camera_style");
   if (s == "follow")
   {
-    SetCameraStyle(FOLLOW);
+    SetCameraStyle(AMJU_FOLLOW);
   }
   else if (s == "amju_cam")
   {
-    SetCameraStyle(FIRST_PERSON);
+    SetCameraStyle(AMJU_FIRST_PERSON);
   }
   else if (s == "fixed")
   {
-    SetCameraStyle(FIXED);
+    SetCameraStyle(AMJU_FIXED);
   }
 }
 
