@@ -33,10 +33,6 @@ Added to repository
 #include <list>
 #include <vector>
 
-#ifdef _DEBUG
-//#define HS_DEBUG
-#endif
-
 namespace Amju
 {
 class BoundingSphere;
@@ -47,14 +43,7 @@ class HSTri
 
 public:
 
-#ifdef _DEBUG
-  // Store name of leaf contributing this poly for debugging
-  HSTri(const char* leaf);
-#else
   HSTri();
-#endif
-
-  ~HSTri() {}
 
   // Add a vertex to the plane. 0 <= i < 3
   void AddVertex(const Vec3f& v, unsigned int i);
@@ -106,9 +95,6 @@ protected:
   // Normal to plane is (m_a, m_b, m_c).
   float m_a, m_b, m_c, m_d;
 
-#ifdef _DEBUG
-  std::string m_leafName;
-#endif
 };
 
 struct HSTriLessThan
@@ -119,11 +105,7 @@ struct HSTriLessThan
 class WallPoly : public HSTri
 {
 public:
-#ifdef _DEBUG
-  WallPoly(const char* leaf) : HSTri(leaf) {}
-#else
   WallPoly() : HSTri() {}
-#endif
 
   WallPoly(const HSTri& p);
 

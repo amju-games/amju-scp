@@ -22,10 +22,6 @@ Added to repository
   
 */
 
-#if defined(WIN32)
-#pragma warning(disable: 4786)
-#endif
-
 #include <algorithm>
 #include "HeightServer.h"
 #include "Common.h"
@@ -39,12 +35,6 @@ Added to repository
 #include "Mgc/MgcDist3DLinTri.h"
 // Mgc dist from point to triangle
 #include "Mgc/MgcDist3DVecTri.h"
-
-extern "C"
-{
-//#include "Gpc/gpc.h" // Polygon clipping code - it's in C.
-// Here we are using the GPC to get the Union of 2 polys.
-}
 #include "SchAssert.h"
 
 using namespace std;
@@ -711,17 +701,10 @@ bool WallPoly::Intersects(const BoundingSphere& bs) const
 
 // ----------------------------------------------------------------------------
 
-#ifdef _DEBUG
-HSTri::HSTri(const char* leafName) : m_leafName(leafName)
-{
-  m_a = m_b = m_c = m_d = 0;
-}
-#else
 HSTri::HSTri()
 {
   m_a = m_b = m_c = m_d = 0;
 }
-#endif
 
 void HSTri::GetNormal(float pResult[3]) const
 {

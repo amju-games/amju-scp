@@ -239,8 +239,7 @@ void BoundingBox::SetFromLeaf(SolidLeaf* pLeaf)
   for (int i = 0; i < numPolys; i++)
   {
     Polygon* pPoly = pLeaf->GetPolygon(i);
-    int numVertices =  pPoly->Vertices();
-    for (int j = 0; j < numVertices; j++)
+    for (int j = 0; j < 3; j++)
     {
       const SceneVertex& sv = const_cast<const Polygon*>(pPoly)->GetVertex(j);
       // **** NB ****

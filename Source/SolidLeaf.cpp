@@ -91,8 +91,9 @@ bool SolidLeaf::Load(const std::string& filename)
 
 void SolidLeaf::CreateDisplayList()
 {
+  Assert(0);
   Assert(m_pLeafData);
-  m_pLeafData->CreateDisplayList();
+//  m_pLeafData->CreateDisplayList();
 }
 
 void SolidLeaf::StoreHeights(const Matrix& m)
@@ -176,43 +177,52 @@ int SolidLeaf::GetNumberOfPolygons() const
 
 Polygon* SolidLeaf::GetPolygon(int index)
 {
+  // Currently called from BoundingBox::SetFromLeaf. TODO 
+//  Assert(0);
+
   if (index >= GetNumberOfPolygons())
     return 0;
 
-  return m_pLeafData->m_polygons[index];
+  return &m_pLeafData->m_polygons[index];
 }
 
 void SolidLeaf::AddPolygon(Polygon* p)
 {
+  Assert(0);
+
   if (!m_pLeafData)
   {
     m_pLeafData = new LeafData(GetName()); 
   }
   Assert(m_pLeafData);
-  m_pLeafData->m_polygons.push_back(p);
+  m_pLeafData->m_polygons.push_back(*p);
 }
 
 bool SolidLeaf::DeletePolygon(Polygon* p)
 {
+  Assert(0);
   if (!m_pLeafData)
   {
     return false; 
   }
-  return m_pLeafData->DeletePolygon(p);
+  return 0; //m_pLeafData->DeletePolygon(p);
 }
 
 void SolidLeaf::SetTexture(PoolTexture* pTexture)
 {
-  m_pLeafData->SetTexture(pTexture);
+  Assert(0);
+//  m_pLeafData->SetTexture(pTexture);
 }
 
 PoolTexture* SolidLeaf::GetTexture() 
 { 
+  Assert(0);
+
   if (!m_pLeafData)
   {
     return 0;
   }
-  return m_pLeafData->GetTexture(); 
+  return 0; //m_pLeafData->GetTexture(); 
 }
 
 TextureMethod* SolidLeaf::GetTextureMethod()
@@ -282,7 +292,7 @@ bool SolidLeaf::IsSolid() const
 
 void SolidLeaf::CreateNormals(bool smooth)
 {
-  m_pLeafData->SetSmoothNormals(smooth);
-  m_pLeafData->CreateNormals();
+//  m_pLeafData->SetSmoothNormals(smooth);
+//  m_pLeafData->CreateNormals();
 }
 }
