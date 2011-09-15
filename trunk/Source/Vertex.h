@@ -33,50 +33,8 @@ bool operator==(const Vec3f& v1, const Vec3f& v2);
 std::ostream& operator<<(std::ostream&, const Vec3f&);
 std::string ToString(const Vec3f& v, int decimalPlaces = 2);
 
-/*
-class Vec3f
-{
-  friend std::ostream& operator<<(std::ostream&, const Vec3f&);
-
-  friend const Vec3f operator+(const Vec3f& v1, const Vec3f& v2);
-  friend const Vec3f operator-(const Vec3f& v1, const Vec3f& v2);
-  friend std::string ToString(const Vec3f& v, int decimalPlaces = 2);
-
-public:
-  Vec3f();
-  Vec3f(float x, float y, float z);
-
-//  inline float x() const { return x; }
-//  inline float y() const { return y; }
-//  inline float z() const { return z; }
-
-  bool operator==(const Vec3f& rhs) const;
-  bool operator!=(const Vec3f& rhs) const { return !operator==(rhs); }
-
-  // Less-than, for STL.
-  bool operator<(const Vec3f& rhs) const;
-
-  Vec3f& operator+=(const Vec3f& rhs);
-  Vec3f& operator-=(const Vec3f& rhs);
-  Vec3f& operator*=(float s);
-
-  // Returns false if length is zero; else returns true, and length 
-  // will be 1.0.
-  bool Normalize();
-
-  // "Snap to Grid": set x, y and z to nearest multiple of 'snap'.
-  void SnapTo(float snap);
-
-  float Length() const;
-
-public:
-  float x, y, z;
-};
-*/
-
 class File;
 class HeightServer;
-class Matrix;
 
 class SceneVertex : public Vec3f
 {

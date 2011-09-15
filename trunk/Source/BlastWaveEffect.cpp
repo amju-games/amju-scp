@@ -110,7 +110,7 @@ void BlastWaveEffect::Draw()
   const float z1 = m_centre.z + m_size;
   const float z2 = m_centre.z - m_size;
   const float y = m_centre.y;
-
+/*
   Polygon poly;
 
   poly.AddVertex(SceneVertex(x1, y, z1));
@@ -147,6 +147,7 @@ void BlastWaveEffect::Draw()
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_WRITE);
   AmjuGL::PopAttrib();
+*/
 }
 
 void BlastWaveEffect::Reset(const Vec3f& centre)

@@ -23,51 +23,13 @@ Added to repository
 
 #include "Polygon.h"
 #include "Vertex.h"
-#include "File.h"
 #include "Geometry.h"
-#include "TextureServer.h"
 #include "HeightServer.h"
-#include "PolyLoader.h"
-#include "PolyDrawer.h"
-#include "SolidLeaf.h" // Leafdata
 #include "SchAssert.h"
 
 namespace Amju
 {
-PolyDrawer* Polygon::s_polyDrawer = 0;
-PolyLoader* Polygon::s_polyLoader = 0;
-
 Polygon::Polygon() 
-#if defined(SCENE_EDITOR) || defined(_DEBUG)
-  : m_pLeaf(0)
-#endif
-{
-}
-
-#if defined(SCENE_EDITOR) || defined(_DEBUG)
-Polygon::Polygon(LeafData* pParent) : m_pLeaf(pParent)
-{
-  Init();
-}
-
-Polygon::Polygon(SolidLeaf* pLeaf)
-{
-  Assert(pLeaf);
-  m_pLeaf = pLeaf->m_pLeafData;
-  Init();
-}
-#endif
-
-#ifdef SCENE_EDITOR
-const Matrix& Polygon::GetMatrix() const
-{
-  Assert(m_pLeaf);
-  return m_pLeaf->GetMatrix(); 
-}
-
-#endif
-
-void Polygon::Init()
 {
 }
 
@@ -85,19 +47,10 @@ SceneVertex* Polygon::GetVertex(int index)
   return &m_theVertices[index];
 }
 
+/*
 void Polygon::InsertVertex(const SceneVertex& vertex, int index)
 {
-  VertexVector::iterator it = m_theVertices.begin();
-  for (int i = 0; i < index; i++)
-  {
-    ++it;
-  }
-  m_theVertices.insert(it, vertex);
-}
-
-void Polygon::Draw()
-{
-  GetDrawer()->Draw(this);
+  m_theVertices[index] = vertex;
 }
 
 void Polygon::SetPerpendicularNormals()
@@ -154,17 +107,12 @@ bool Polygon::Save(File* pf)
   return GetLoader()->Save(pf, this);
 }
 #endif
+*/
 
 void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
 {
-#ifdef _DEBUG
-  // Convert each vertex to absolute coords; store in Height Server.
-  HSTri poly(m_pLeaf ? m_pLeaf->GetName().c_str() : "<unknown>");
-#else
   HSTri poly;
-#endif
-
-  for (unsigned int i = 0; i < m_theVertices.size(); i++)
+  for (unsigned int i = 0; i < 3; i++)
   {
     SceneVertex& sv = m_theVertices[i];
     sv.CalcAbsoluteCoord(m);
@@ -179,7 +127,7 @@ void Polygon::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
 
 void Polygon::RecalculateAbsoluteCoords(const Matrix& cm)
 {
-  for (unsigned int i = 0; i < m_theVertices.size(); i++)
+  for (unsigned int i = 0; i < 3; i++)
   {
     SceneVertex& sv = m_theVertices[i];
     sv.CalcAbsoluteCoord(cm);

@@ -23,7 +23,7 @@ namespace Amju
 class HeightServer;
 class LeafRenderer;
 
-typedef std::vector<Polygon* > PolyVector;
+typedef std::vector<Polygon> PolyVector;
 
 class LeafData
 {

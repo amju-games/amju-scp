@@ -30,32 +30,19 @@ class SolidLeaf;
 
 class Polygon
 {
-  friend class PolyDrawMFC;
-  friend class PolyDrawOpenGL;
-  friend class PolyLoader;
-
 public:
-  // The object which draws all polygons.
-  static void SetDrawer(PolyDrawer* p) { s_polyDrawer = p; }
-  static PolyDrawer* GetDrawer() { return s_polyDrawer; }
-
-  // The object which loads all polygons.
-  static void SetLoader(PolyLoader* p) { s_polyLoader = p; } 
-  static PolyLoader* GetLoader() { return s_polyLoader; }
-
-  // No owner - so so matrix will be available for this poly.
   Polygon();
 
   ~Polygon();
 
-  void Draw();
+  //void Draw();
 
-  bool Load(File* pf, bool hasTexCoords); 
+  //bool Load(File* pf, bool hasTexCoords); 
 
   // Return the number of vertices for this polygon.
-  int Vertices() const { return m_theVertices.size(); }
+////  int Vertices() const { return m_theVertices.size(); }
 
-  // Return a vertex.
+  // Return a vertex.  TODO eliminate this
   const SceneVertex& GetVertex(int index) const;
   SceneVertex* GetVertex(int index);
 
@@ -66,61 +53,26 @@ public:
 
   // Used to redo absolute coords when an orientation changes. 
   // Uses matrix stored after call to StoreAbsoluteCoords() above.
+  // TODO Can we get rid of this, it seems to do nothing
   void RecalculateAbsoluteCoords(const Matrix& cm);
 
   // Add a new vertex to back of vector. 
   // In both cases the vertex is copied.
-  void AddVertex(const SceneVertex& vertex);
-  void AddTexVertex(const TexVertex& tv);
+  //void AddVertex(const SceneVertex& vertex);
+  //void AddTexVertex(const TexVertex& tv);
 
   // Insert a vertex in a specific position.
   // The new vertex goes in position (index). So if index is zero, the new 
   // vertex is first in the vector.
   // Intended for SceneEditor, but currently unused.
-  void InsertVertex(const SceneVertex& vertex, int index);
+  //void InsertVertex(const SceneVertex& vertex, int index);
 
   // Set all vertex normals to the forward-facing perpendicular to the plane.
-  void SetPerpendicularNormals();
+  //void SetPerpendicularNormals();
 
-protected:
-  static PolyDrawer* s_polyDrawer;
-  static PolyLoader* s_polyLoader;
-
-  void Init();
-
-  typedef std::vector<SceneVertex> VertexVector;
-  VertexVector m_theVertices;
-
-  // Vector of texture coords. This may be empty, but if not, the number of
-  // elements must match the number of elements in the vector of vertices.
-  typedef std::vector<TexVertex> TexVertVector;
-  TexVertVector m_textureVerts;
-
-
-#if defined(SCENE_EDITOR) || defined(_DEBUG)
-public:
-  // All Polygons point back to their owning parent. This can be set by
-  // specifying a Leaf or the actual Leaf Data.
-  // The pointer to parent is actually only used by SceneEditor. 
-  // TODO We don't need this pointer usually, so remove it.
-  // Maybe a derived class - PolyWithParent, or template ?
-  Polygon(LeafData* pParent);
-  Polygon(SolidLeaf* pLeaf);
-
-
-  bool Save(File*);
-
-  
-  // Transformation matrix we used to get absolute coords.
-  // This is used in SceneEditor to recalculate absolute coords when
-  // a relative coord is changed.
-  const Matrix& GetMatrix() const; 
-
-protected:
-  // Each polygon points back to its Leaf Data parent.
-  // This is required only by SceneEditor.
-  LeafData* m_pLeaf;
-#endif
+//protected:
+  //typedef std::vector<SceneVertex> VertexVector;
+  SceneVertex m_theVertices[3];
 
 };
 }

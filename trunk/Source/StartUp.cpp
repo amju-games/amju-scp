@@ -11,11 +11,6 @@
 #include <Localise.h>
 #include <ReportError.h>
 #include <Screen.h>
-#include "LeafData.h"
-#include "LeafRenderOpenGL.h"
-#include "Polygon.h"
-#include "PolyDrawOpenGL.h"
-#include "PolyLoader.h"
 #include "PoolGameState.h"
 
 #ifdef MACOSX
