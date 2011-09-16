@@ -2112,6 +2112,10 @@ bool EngineStatePoolSetUpShot::Load()
 
   // Get time to display help messages
   m_maxHelpTime = Engine::Instance()->GetConfigFloat("golf_help_time");
+
+  // TODO Platform-specific help text
+  std::string helpFile = Engine::Instance()->GetConfigValue("golf_help_file_mac1");
+/*
   // Get the messages
   // This default file is for mac and windows, 3 button mouse
   std::string helpFile = Engine::Instance()->GetConfigValue("golf_help_file");
@@ -2120,7 +2124,7 @@ bool EngineStatePoolSetUpShot::Load()
   // TODO Check for one-button mouse
   helpFile = Engine::Instance()->GetConfigValue("golf_help_file_mac1");
 #endif
-
+*/
   File f2;
   // Prepend language directory.
   std::string lang = Engine::Instance()->GetConfigValue("language");
