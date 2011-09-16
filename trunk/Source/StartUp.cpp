@@ -60,7 +60,7 @@ void StartUp()
 {
 #ifdef GEKKO
   // TODO Better to put this in library main() if we can get the app's directory
-  File::SetRoot("/apps/amju_ww/data/", "/");
+  File::SetRoot("/apps/amju_scp/data/", "/");
 #endif
 
 #if defined (MACOSX)
