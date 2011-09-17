@@ -234,7 +234,7 @@ std::cout << "GetPlayerName: m_numPlayers == 2, go back to Choose state\n";
   }
 }
 
-#define KEY_DEBUG
+//#define KEY_DEBUG
 void EngineStatePoolGetPlayerName::OnKey(char key, bool down)
 {
   // TODO handle backspace 
@@ -323,7 +323,7 @@ void EngineStatePoolGetPlayerName::SetActive(bool active)
     m_maxTime = 12000.0f;
     m_time = 0;
     // Get last player name TODO
-    m_text = ""; 
+    m_text = "player " + ToString(ThePlayerNames::Instance()->GetNumNames() + 1); 
     m_pos = m_text.size();
     MakeText();
 
