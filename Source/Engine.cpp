@@ -130,6 +130,9 @@ Added to repository
 #include "Number3d.h"
 #include <Timer.h>
 #include <Screen.h>
+#ifdef GEKKO
+#include <CursorManager.h>
+#endif
 #include "SchAssert.h"
 
 #if defined(SCENE_EDITOR)
@@ -267,6 +270,9 @@ int Engine::GetWindowY() const
 
 void Engine::Draw2d()
 {
+#ifdef GEKKO
+  TheCursorManager::Instance()->Draw();
+#endif
 }
 
 Player* Engine::GetPlayer()
@@ -1027,10 +1033,12 @@ bool Engine::OnButtonEvent(const ButtonEvent& be)
   switch (be.button)
   {
   case AMJU_BUTTON_A:
-    Green(be.isDown);
+    MouseButton(be.isDown, false, false);
+    // Not: Green(be.isDown);
     break;
   case AMJU_BUTTON_B:
-    Blue(be.isDown);
+    MouseRButton(be.isDown, false, false);
+    // Not: Blue(be.isDown);
     break;
   case AMJU_BUTTON_C:
     Red(be.isDown);
