@@ -11,6 +11,9 @@
 #include <Localise.h>
 #include <ReportError.h>
 #include <Screen.h>
+#ifdef GEKKO
+#include <CursorManager.h>
+#endif
 #include "PoolGameState.h"
 
 #ifdef MACOSX
@@ -103,7 +106,6 @@ void StartUp()
   TheSceneNodeFactory::Instance()->Add(SceneNode::NAME, &SceneNode::Create);
   TheSceneNodeFactory::Instance()->Add(SceneMesh::NAME, &SceneMesh::Create);
 	
-  TheCursorManager::Instance()->Load();
 	
   TheResourceManager::Instance()->LoadResourceGroup("2dtext-group");
   TheHud::Instance()->Load();
@@ -119,10 +121,12 @@ void StartUp()
   TheGame::Instance()->SetCurrentState(TheGSLogo::Instance());	
 #endif
 */
+
+#ifdef GEKKO
+  TheCursorManager::Instance()->Load();
+#endif
+
   Engine::Instance()->ChangeState(EsLogo::Name, Engine::IMMEDIATE);
-
-  // From MacGlutMain 
-
 
   Engine* engine = Engine::Instance();
   engine->GetGameState()->SetName("gs.cfg");
@@ -148,9 +152,6 @@ std::cout << "main(): got root\n";
   {
     std::cout << "Couldn't load font.\n";
   }
-  //LeafData::SetRenderer(new LeafRenderOpenGL);
-  //Amju::Polygon::SetDrawer(new PolyDrawOpenGL);
-  //Amju::Polygon::SetLoader(new PolyLoader);
 
   TheGame::Instance()->SetCurrentState(engine);	
 
