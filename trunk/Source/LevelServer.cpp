@@ -67,7 +67,7 @@ std::cout << "LevelServer: " << levelFile.c_str() << " isUser: " << isUser
 
   if (m_mruList.find(levelFile) != m_mruList.end())
   {
-#ifdef _DEBUG
+#ifdef LEVEL_LOAD_DEBUG
 std::cout << "LevelServer: " << levelFile.c_str() << " is cached!\n";
 #endif
 
@@ -108,6 +108,7 @@ std::cout << "LevelServer: " << levelFile.c_str() << " is cached!\n";
     }
     else
     {
+#ifdef BINARY_LEVEL_FILES
       pf = new File;
       // Attempt to open binary file first
       std::string binfile = StripPath(levelFile);
@@ -119,11 +120,12 @@ std::cout << "LevelServer: " << levelFile.c_str() << " is cached!\n";
 
       if (pf->OpenRead(binfile, true))
       {
-#ifdef _DEBUG
+#ifdef LEVEL_LOAD_DEBUG
         pf->ReportError("Opened binary level file.");
 #endif
       }
       else
+#endif // BINARY_LEVEL_FILES
       {
         pf = new File;
         // Remove 'b' from end of level file if it exists
@@ -138,7 +140,7 @@ std::cout << "LevelServer: " << levelFile.c_str() << " is cached!\n";
           pf->ReportError("Couldn't open level factory file.");
           return false;
         }
-#ifdef _DEBUG
+#ifdef LEVEL_LOAD_DEBUG
 std::cout << "LevelServer: Opened level file " << notbinfile.c_str() << "\n";
 #endif
       }
