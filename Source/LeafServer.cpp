@@ -100,7 +100,9 @@ LeafData* LeafServer::Get(const std::string& leafname)
     return 0;
   }
 
+#ifdef LEAF_SERVER_DEBUG 
 std::cout << "Loaded file ok: " << leafname << "\n";
+#endif
 
   // Add the leaf data to the map of created leaf data objects.
   if (!StoreDuplicates())

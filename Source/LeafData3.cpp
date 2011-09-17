@@ -54,10 +54,17 @@ void LeafData::SetTextureMethod(TextureMethod* pTm)
 bool LeafData::Load(const std::string& filename)
 {
   std::string objname = GetFileNoExt(filename) + ".obj";
+
+#ifdef LEAFDATA_DEBUG
 std::cout << "Loading " << objname << "... ";
+#endif
+
   if (!m_obj.Load(objname))
   {
+#ifdef LEAFDATA_DEBUG
 std::cout << "Oh no, failed\n";
+#endif
+
     return false;
   }
   // TODO populate polygon vec from obj mesh, for collisions
@@ -79,7 +86,10 @@ std::cout << "Oh no, failed\n";
     m_polygons.push_back(poly);
   }
 
+#ifdef LEAFDATA_DEBUG
 std::cout << " loaded " << objname << " OK!\n";
+#endif
+
   return true;
 }
 
@@ -99,11 +109,6 @@ void LeafData::StoreAbsoluteCoords(Matrix m, HeightServer* pHs)
     Polygon* pPoly = &(*it);
     pPoly->StoreAbsoluteCoords(m, pHs);
   }
-
-#if defined(SCENE_EDITOR)
-  // matrix not be required except by Editor
-  m_matrix = m;
-#endif
 }
 
 void LeafData::RecalculateAbsoluteCoords(const Matrix& cm)
@@ -115,11 +120,6 @@ void LeafData::RecalculateAbsoluteCoords(const Matrix& cm)
     Polygon* pPoly = &(*it);
     pPoly->RecalculateAbsoluteCoords(cm);
   }
-
-#if defined(SCENE_EDITOR)
-  // matrix not be required except by Editor
-  m_matrix = cm;
-#endif
 }
 
 }
