@@ -164,6 +164,10 @@ void Frustum::Create()
 
 bool Frustum::Contains(const BoundingSphere& bs) const
 {
+#ifdef GEKKO
+  return true; // TODO Wii culling too much - fix this properly
+#endif
+
   if (bs.GetRadius() == 0)
   {
     //Engine::Instance()->ReportError("Bad Sphere radius.");
