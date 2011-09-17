@@ -166,8 +166,8 @@ void FileCheckState::DrawOverlays()
     // Extra large splash screen
     tq.Draw(5, 0, 10, 25);
 
-    e->GetTextWriter()->Print(0, 0, "Amju Super Cool Pool v.2.1.0");
-    e->GetTextWriter()->Print(0, 1, "© Copyright 2005-2007 Amju Games");
+    e->GetTextWriter()->Print(0, 0, "Amju Super Cool Pool v.3-0.1");
+    e->GetTextWriter()->Print(0, 1, "© Copyright 2005-2011 Amju Games");
     e->GetTextWriter()->Print(0, 2, "Please visit www.amju.com for updates and more games!");        
 
 #ifdef SHOW_FULLSCREEN_TEXT
