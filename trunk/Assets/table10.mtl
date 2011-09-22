@@ -1,0 +1,4 @@
+# j.c. convert leaf file to obj
+newmtl table10
+map_Kd black8.png
+flags 1

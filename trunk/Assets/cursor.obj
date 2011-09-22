@@ -1,0 +1,16 @@
+# j.c. convert leaf file to obj
+# Verts
+v 0.100000 0.200000 -1.000000
+v -0.100000 0.200000 -1.000000
+v -0.100000 0.200000 1.000000
+v 0.100000 0.200000 1.000000
+# UVs
+# Normals
+vn 0.000000 1.000000 0.000000
+# Material
+mtllib cursor.mtl
+usemtl cursor
+# Faces
+f 1//1 2//1 3//1 
+f 1//1 3//1 4//1 
+# eof

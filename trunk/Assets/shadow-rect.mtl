@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl shadow-rect
+map_Kd shadow.png

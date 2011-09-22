@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl head2_coll_2
+map_Kd oct_t.png

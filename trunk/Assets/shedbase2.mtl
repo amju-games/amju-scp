@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl shedbase2
+map_Kd shed2_4.png

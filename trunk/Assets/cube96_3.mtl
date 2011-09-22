@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl cube96_3
+map_Kd t.png

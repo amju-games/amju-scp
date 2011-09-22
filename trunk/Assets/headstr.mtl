@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl headstr
+map_Kd texture1.png
