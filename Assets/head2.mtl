@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl head2
+map_Kd head2.png

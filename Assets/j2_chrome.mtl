@@ -1,0 +1,3 @@
+# j.c. convert leaf file to obj
+newmtl j2_chrome
+map_Kd chrome1.png
