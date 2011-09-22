@@ -62,7 +62,7 @@ int Level::GetRoomId() const
   {
     return m_pRoom->GetId();
   }
-#ifdef _DEBUG
+#ifdef ROOM_ID_DEBUG
   Engine::Instance()->ReportError("No room set for level.");
 #endif
   return -1;
