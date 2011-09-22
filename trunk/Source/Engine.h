@@ -36,7 +36,6 @@ Added to repository
 #include "Message.h"
 #include "GameObject.h"
 #include "SpecialRecipient.h"
-#include "SoundPlayer.h"
 #include "MessageQueue.h"
 #include "Earthquake.h"
 #include "Camera.h"
@@ -495,7 +494,7 @@ private:
   StateStack m_stateStack;
 
   // Point to platform-specific instance.
-  PSoundPlayer m_pSoundPlayer;
+  //PSoundPlayer m_pSoundPlayer;
 
   // Fading: this affects everything drawn, including overlays.
   bool m_isFading; // true if currently fading.
