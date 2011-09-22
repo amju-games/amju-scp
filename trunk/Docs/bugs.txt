@@ -1,0 +1,143 @@
+Critical
+========
+
+Wii release: needs meta.xml and logo
+
+//**Balls in pockets not recognised**
+//- Almost certainly, it's because we are using .obj and there is no "solidity" flag, so pockets can't
+// have visible but non-collidable faces
+// - Add proprietary line to mtl file: flags, so space for more without changing file format again. 
+// - table10.obj should be visible but not solid.
+
+// Collisions etc broken. Trying to find the reveision that broke it.
+// It was Orientation.cpp, bad conversion from rad to deg, r40
+
+//Crash on exit - Engine is created before EventPoller, then Engine dtor accesses EventPoller after 
+//it has been destroyed. Could use loki idea of Phoenix Singleton.
+
+// Options/pause menu crash -- was null sound player 
+
+//Wii hang on startup
+// - If we use Console, it seems to be working fine! But nothing displayed when AmjuGLGCube is used. No response to buttons, maybe is hanging when initialising AmjuGL ? 
+// - Log file ? Call Assert ?? or call exit() 
+// Solved: was calling Viewport (in CreateWindow) before Init().... now has an assert which will prevent this
+
+//Wii doesn't respond to buttons, so you can't do anything!
+//Wii needs to show cursor -- move CursorManager to amjulib?
+
+//Wii: Saving player data to wrong dir -- fix Directory 
+
+Wii and iphone: can't enter player name!!!
+-> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
+
+//iphone crashes on startup. Could be humungous mem usage ?
+//Any way of remotely debugging without creating xcode project ?
+//Poss to run in simulator, maybe by changing compiler flags ??
+//"console" iphone build so we can run from cmd line on device
+// -- was bad directory
+
+iphone: bad viewport
+
+iphone: must ask device for screen size
+
+iphone: UI: Use only "left mouse button"
+ - critical as iphone users only have one 'mouse button'
+
+Cue pos (english, top spin, etc) uses picking and reads from back buffer!
+Place ball
+Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
+
+Wii: use title-safe area 
+
+//wii glue file is missing something, and wii build does complain about a missing file
+//...but it seems to work ok!
+
+
+Efficiency
+==========
+
+iphone + wii: make sure no _DEBUG, -O2, etc. 
+
+iphone - strip dead code - set compiler flag
+
+iphone bad framerate -- too many polys
+
+//make sure binary obj format has numbers of verts, tris, etc. So we can reserve vector sizes up front.
+// Yes it does!
+
+Fix "Polygons"...
+ - all on heap! -- done, 
+ - vector of SceneVertex! - done, array of 3 now
+ - bogus "absolute" coords should be removed
+
+GetNumberOfPolygons() -- probably this is being called for a really crappy reason.
+Don't care about nuber of scene polys - or can count in AmjuGL.
+
+Pngs were upside-down. Either textures are being flipped somewhere or UVs (v coord) are being flipped ??
+Flipped img, prob doing that twice for some (all) imgs ?!?
+TODO Fix MD2 v-coord - md2 images are upside down but v-coord is flipped!?!?!?!!
+
+//** WTF, Leaf files are 12MB!!!!!! **
+//Del unused -- use GlueFile report, what happened to that ? Maybe compiled out.
+//Urgently use Obj instead
+
+// More efficient drawing - now using .obj
+//Use binary obj format
+
+Memory use
+ - Will prob  need to load levels on demand..?? OK on Wii apparently, although start up delay is an issue
+
+Wii: no VFC!!! When it was on, bits of scene and balls disappeared - I'm guessing projection matrix.
+
+//Remove unused crap from Assets
+//Convert leaf to obj, or at least .leafb.  -- DONE! But still loose ends as a result
+Convert amju2 to amju2b ??
+iphone reduced size textures
+
+iphone + wii mipmapping ???
+
+
+Cosmetic
+========
+
+No audio
+
+Wii: Ball textures wrong, numbers missing!?! What up with the UVs ?
+Wii: Can't play .it music
+
+Wii: std::couts are visible!! These must *all* be #ifdef'd
+
+Shadows, trees look wrong, because pngs now need to contain alpha channel. But may be simplest to just remove trees especially, and maybe table shadow..?
+
+Attract mode can get stuck on 'crazy' version with block in the way. This also causes other probs so delete this type of room.
+
+Trajectory billboards only face camera from one angle!
+
+No lighting now!
+Lighting is not the same as raw OpenGL, so some bits look too dark.
+
+Some .leaf meshses had auto-gen UVs. The .objs have bogus UVs. Need to UV map them!
+
+Some meshes are supposed to be sphere-mapped.
+
+MD2 Model: for ASCP we should freeze at the end of non-looping anims
++ Marin height wrong (also Amju ?)
+
+Localisation
+ - Don't use hard coded text on images
+ - Use Localise for all text
+
+
+
+Bugs remaining from last release
+================================
+
+ - Amju skirt z fighting
+
+ - Pause state crashes from menu or in-game
+  ... because no sound player - there is prob something else going on too.
+
+ - Foul message wrong if cue ball potted (player name changes when next player becomes active ?)
+
+ - 8 ball: no explanatory message if you lose by potting the 8-ball too soon
+
