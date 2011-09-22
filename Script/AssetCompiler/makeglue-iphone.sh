@@ -1,6 +1,6 @@
 # Create glue file
 
-export PLATFORM=Mac
+export PLATFORM=iphone
 export THIS_DIR=`pwd`
 export TOP_DIR=$THIS_DIR/../..
 export COMPILED_ASSETS=$TOP_DIR/Build/CompiledAssets
