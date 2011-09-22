@@ -59,7 +59,7 @@ bool LeafData::Load(const std::string& filename)
 std::cout << "Loading " << objname << "... ";
 #endif
 
-  if (!m_obj.Load(objname))
+  if (!m_obj.Load(objname, true)) // true => is binary
   {
 #ifdef LEAFDATA_DEBUG
 std::cout << "Oh no, failed\n";
