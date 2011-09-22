@@ -17,7 +17,6 @@
 #include "PoolGameState.h"
 
 #ifdef MACOSX
-// TODO sort this out
 #include <BassSoundPlayer.h>
 #endif
 
@@ -26,9 +25,8 @@
 #include <AmjuFinal.h>
 
 #ifdef MACOSX
-// TODO
 #define GLUE_FILE "data-Mac.glue"
-#define MUSIC_GLUE_FILE "music-win.glue"
+#define MUSIC_GLUE_FILE "music-Mac.glue"
 #endif
 
 #ifdef WIN32
@@ -61,6 +59,10 @@ const char * APPLICATION_NAME = "Amju Super Cool Pool";
 
 void StartUp()
 {
+#if defined(IPHONE) && defined(AMJU_CONSOLE)
+  File::SetRoot("/Applications/Amju_SCP.app/", "/");
+#endif
+
 #ifdef GEKKO
   // TODO Better to put this in library main() if we can get the app's directory
   File::SetRoot("/apps/amju_scp/data/", "/");
@@ -72,9 +74,11 @@ void StartUp()
 
   GlueFile* gf = new GlueFileMem;
   gf->SetPrintUnusedInDtor(true);
+
   if (!FileImplGlue::OpenGlueFile(GLUE_FILE, gf))
   {
     ReportError("Failed to open data glue file");
+    return; // TODO false;
   }
 
   GlueFile* pMusicGlueFile = new GlueFileMem;
@@ -85,6 +89,7 @@ void StartUp()
   else
   {
     ReportError("Failed to open music glue file");
+    return; // TODO false;
   }
 
 /*
