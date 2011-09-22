@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <app version="1">
+    <name>Amju Super Cool Pool</name>
+    <coder>Jason Colman</coder>
+    <version>0.1</version>
+    <release_date>4/7/2009</release_date>
+    <short_description>The coolest pool game ever!</short_description>
+    <long_description>I R long description</long_description>
+  </app>
