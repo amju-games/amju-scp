@@ -108,12 +108,10 @@ Added to repository
 #include "Level.h"
 #include "TextWriter.h"
 #include "TextureServer.h"
-#include "SoundPlayer.h"
 #include "CharacterManager.h"
 #include "Controller.h"
 #include "LevelServer.h"
 #include "PoolGameState.h"
-#include "SoundServer.h"
 #include "ClientSocket.h"
 #include "HeightServer.h"
 #include "Shadow.h"
@@ -140,6 +138,7 @@ Added to repository
 #endif
 
 #define USE_AMJULIB_TIMER
+//#define STATE_NAME_DEBUG
 
 using namespace std;
 
@@ -202,8 +201,6 @@ Engine::Engine()
   m_elapsedSecs = 0;
   m_oldElapsedSecs = 0;
   m_deltaTime = 0;
-
-  m_pSoundPlayer = 0; // Created in OS-specific code.
 
   m_isFading = false;
   m_fade = 0;
@@ -298,7 +295,7 @@ LoadResult Engine::LoadEngineStates()
   static EngineStateMap::iterator it = m_engineStateMap.begin(); 
 
   PEngineState pState = it->second;
-#ifdef _DEBUG
+#ifdef LOAD_STATE_DEBUG
   std::cout << "Loading state: " << it->first.c_str() << ": " << pState.GetPtr() << "\n";
 #endif    
   Assert(pState.GetPtr());
@@ -313,7 +310,7 @@ LoadResult Engine::LoadEngineStates()
 
   if (it == m_engineStateMap.end())
   {
-#ifdef _DEBUG
+#ifdef LOAD_STATE_DEBUG
 std::cout << "Loaded all engine states ok.\n";
 #endif
     return LoadResult::OK; // finished loading
@@ -1277,39 +1274,34 @@ void Engine::SetElapsedTime(double secs)
 
 bool Engine::PlayWav(const string& file, float volume)
 {
-  if (m_pSoundPlayer.GetPtr())
-  {
-    // Prepend the data directory
-    string fullpath = File::GetRoot();//GetConfigValue("data_dir");
+  // Prepend the data directory
+  string fullpath = File::GetRoot();//GetConfigValue("data_dir");
 
-    //fullpath += GetConfigValue("slash");
-    fullpath += file;
-    return m_pSoundPlayer->PlayWav(fullpath, volume);
-  }
+  //fullpath += GetConfigValue("slash");
+  fullpath += file;
+  return GetSoundPlayer()->PlayWav(fullpath, volume);
+
   return false;
 }
 
 bool Engine::PlaySong(const string& file)
 {
-  if (m_pSoundPlayer.GetPtr())
-  {
-    // Prepend the data directory
-    string fullpath = File::GetRoot();
-    fullpath += file;
+  // Prepend the data directory
+  string fullpath = File::GetRoot();
+  fullpath += file;
 
-    static string lastplayed;
-    bool success = true;
-    if (file != lastplayed)
-    {
+  static string lastplayed;
+  bool success = true;
+  if (file != lastplayed)
+  {
 #ifdef _DEBUG
 std::cout << "SONG CHANGE: Last song: " << lastplayed 
   << " this: " << file << "\n";
 #endif
-      StopSong();
+    StopSong();
 
-      success = m_pSoundPlayer->PlaySong(fullpath);
-      lastplayed = file;
-    }
+    success = GetSoundPlayer()->PlaySong(file);
+    lastplayed = file;
 
     return success;
   }
@@ -1318,10 +1310,7 @@ std::cout << "SONG CHANGE: Last song: " << lastplayed
 
 void Engine::StopSong()
 {
-  if (m_pSoundPlayer.GetPtr())
-  {
-    m_pSoundPlayer->StopSong();
-  }
+  GetSoundPlayer()->StopSong();
 }
 
 void Engine::CallbackSongFinished(const std::string& file)
@@ -1436,10 +1425,7 @@ void Engine::Update()
 {
   UpdateMessageQueue();
 
-  if (m_pSoundPlayer.GetPtr())
-  {
-    m_pSoundPlayer->Update();
-  }
+  GetSoundPlayer()->Update();
 
   m_pCurrentState->Update();
 
@@ -1560,9 +1546,7 @@ void Engine::Fade()
   static bool first = true;
   if (first)
   {
-    {
-      maxVol = GetSoundPlayer()->GetSongMaxVolume();
-    }
+    maxVol = GetSoundPlayer()->GetSongMaxVolume();
     first = false;
   }
   // TODO doesn't work for volume adjust.
@@ -1899,5 +1883,5 @@ void Engine::SetEarthquake(float activeSeconds, float severity)
   m_earthquake.SetActive(activeSeconds, severity);
 }
 
-} // Schmicken
+} // namespace
 
