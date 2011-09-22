@@ -34,7 +34,6 @@ Add exit functions, which go to Nag Mode if unregistered.
 #include "Engine.h"
 #include "EngineStatePoolSetUpShotNag.h"
 #include "PoolMisc.h"
-#include "SoundPlayer.h"
 
 #ifdef MACOSX
 #include <Carbon/carbon.h>
