@@ -369,6 +369,9 @@ Added to repository
 #include "TimePeriod.h"
 #include "PlayerNames.h"
 #include "EsPoolOnlineAccept2.h"
+#include <Unproject.h>
+#include <Line3.h>
+#include <Screen.h>
 
 //#define SHOOT_BUTTON
 
@@ -1245,7 +1248,8 @@ void EngineStatePoolSetUpShot::Draw()
   // TODO differentiate between l-drag and r-drag
   if (IsBirdsEye() && m_drag)
   {
-    getPos = true;
+    // disallow
+    // getPos = true;
   }
 /*
   // Don't place ball if mouse is above Place Ball Button.
@@ -1272,10 +1276,11 @@ void EngineStatePoolSetUpShot::Draw()
     {
       GetBall()->Draw();
     }
+
+    // Get 3D position from 2D cursor pos
+
 /*
-    TODO Get 3D position from 2D cursor pos
-
-
+old: read depth from depth buffer!
     GLint viewport[4]; 
     glGetIntegerv(GL_VIEWPORT,viewport);
     y=viewport[3]-y;   
@@ -1283,16 +1288,38 @@ void EngineStatePoolSetUpShot::Draw()
     GLfloat wx=x,wy;
     static GLfloat wz = 0;
     glReadPixels(x,y,1,1,GL_DEPTH_COMPONENT,GL_FLOAT,&wz);
-//std::cout << "SET UP SHOT: WZ: " << wz << "\n";
-
     wy=y;
     glGetDoublev(AmjuGL::AMJU_MODELVIEW_MATRIX_MATRIX,modelview);
     glGetDoublev(AmjuGL::AMJU_PROJECTION_MATRIX_MATRIX,projection);
     double ox, oy, oz;
     gluUnProject(wx,wy,wz,modelview,projection,viewport,&ox,&oy,&oz);
+//std::cout << "SET UP SHOT: WZ: " << wz << "\n";
 */
-    Vec3f newpos; //(ox, oy, oz);
+
+// New: unproject at depth 0 and depth 1, giving two points on a line. Find intersection of line and
+// plane of table top, y=<table height>, giving (x, z) coord
+
+    Vec3f near, far;
+    Vec2f mouse(Mouse::s_mousex, Mouse::s_mousey); 
+    // Convert to -1..1 
+    mouse.x = (float)mouse.x / (float)Screen::X() * 2.0f - 1.0f;
+    mouse.y = 1.0f - (float)mouse.y / (float)Screen::Y() * 2.0f; // invert y
+    Assert(mouse.x >= -1.0f);
+    Assert(mouse.x <= 1.0f);
+    Assert(mouse.y >= -1.0f);
+    Assert(mouse.y <= 1.0f);
+ 
+    Unproject(mouse, 0, &near);
+    Unproject(mouse, 1.0f, &far); // TODO These might be the wrong way round 
+    // Given the y value for the table, Work out value for t in parametric line eq.
+    float tableY = 10.0f; // TODO TEMP TEST - how to get real table height??
+    float t = (tableY - near.y) / (far.y - near.y);
+    Assert(t >= 0);
+    Assert(t <= 1.0f); // table should be somewhere between near and far!
+    Vec3f newpos = LineSeg(near, far).GetPoint(t); 
+
     // store mouse position for moving cue in birds-eye mode
+    // TODO Don't allow cue movement in birds eye mode
     m_mousePos = newpos; 
 
     // If in place ball mode, we move the ball to the coords pointed to.
@@ -2926,12 +2953,14 @@ void EngineStatePoolSetUpShot::MousePos(int x, int y)
     }
   }
 
+/*
   if (!m_drag)
   {
     oldx = x;
     oldy = y;
     return;
   }
+*/
 
   int xdiff = x - oldx;
 #ifdef MOUSE_DIFF_DEBUG
@@ -2950,6 +2979,24 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
   int ydiff = y - oldy;
   oldx = x;
   oldy = y;
+
+// TODO
+//#ifdef IPHONE  
+//std::cout << "Y diff: " << ydiff << "\n";
+  if (ydiff > 10 && m_drag)
+  {
+//std::cout << "WHOOOAAAA!\n";
+    TakeShotStart();
+  }
+//#endif
+  
+  // NB Moved from above, is this ok ?
+  if (!m_drag)
+  {
+    oldx = x;
+    oldy = y;
+    return;
+  }
 
   // Try to avoid Birds Eye View cue wobble
   if (m_pCameraButton->IsSelected())
@@ -3116,6 +3163,16 @@ void EngineStatePoolSetUpShot::MouseButton(bool down, bool ctrl, bool shift)
 #ifdef SET_UP_SHOT_DEBUG
 std::cout << "LEFT MOUSE BUTTON " << (down ? "down" : "up") << "\n";
 #endif
+
+// TODO
+//#ifdef IPHONE
+  if (!down && s_cue.IsSwingMode()) // in take shot mode ?
+  {
+std::cout << "WHOOOAAAA! TAKING SHOT!!!!\n";
+    TakeShotFinish();
+    // return ???
+  }
+//#endif
 
   // Don't call if help turned off, you still get Clicked notifications
   if (m_showHelpText)
