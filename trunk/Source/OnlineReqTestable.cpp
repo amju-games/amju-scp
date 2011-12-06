@@ -25,7 +25,7 @@ OnlineReqTestable::OnlineReqTestable(
 
 void OnlineReqTestable::SetTestData(const std::string& rawHtml)
 {
-  m_httpResult.SetString(rawHtml);
+  m_httpResult.AppendData((const unsigned char*)rawHtml.c_str(), rawHtml.size());
 }
 
 void OnlineReqTestable::SetTestDataFromFile(const std::string& filename)
