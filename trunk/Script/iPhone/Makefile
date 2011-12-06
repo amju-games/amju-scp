@@ -13,6 +13,9 @@ RUNDIR 		:=	../../Build/CompiledAssets
 APP_DIR		:= 	$(BUILD)/$(NICE_NAME).app
 
 
+EXTRA_CFLAGS    :=       -g -O0 -D_DEBUG 
+#-DAMJU_CONSOLE
+
 LIBS	:= \
 	$(AMJULIB_IPHONE_SCRIPT_PATH)/../../Build/iPhoneBuild/amjulib.a \
 	-framework UIKit \
@@ -49,6 +52,7 @@ setup:
 	chmod +r "$(APP_DIR)/music-iphone.glue"; \
 	make sign
 
-run:
-	scp -r $(APP_DIR) root@192.168.0.3:/Applications/
+upload:
+	make setup
+	scp -r $(APP_DIR) root@192.168.201.36:/Applications/
 

@@ -3,7 +3,7 @@ echo "Copying to SD card...."
 # NB Need double quotes around name, then double quotes *again* when we use $SD_DIR!!
 # http://hintsforums.macworld.com/archive/index.php/t-45007.html
 
-export SD_DIR="/Volumes/NO NAME/apps"
+export SD_DIR="/Volumes/Aa/apps"
 export APP_NAME='amju_scp'
 export FULL="$SD_DIR"/$APP_NAME
 
