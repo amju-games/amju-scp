@@ -1275,7 +1275,7 @@ void Engine::SetElapsedTime(double secs)
 bool Engine::PlayWav(const string& file, float volume)
 {
   // Prepend the data directory
-  string fullpath = File::GetRoot();//GetConfigValue("data_dir");
+  string fullpath; // = File::GetRoot();//GetConfigValue("data_dir");
 
   //fullpath += GetConfigValue("slash");
   fullpath += file;
@@ -1284,11 +1284,16 @@ bool Engine::PlayWav(const string& file, float volume)
   return false;
 }
 
-bool Engine::PlaySong(const string& file)
+bool Engine::PlaySong(const string& f)
 {
   // Prepend the data directory
-  string fullpath = File::GetRoot();
-  fullpath += file;
+//  string fullpath = File::GetRoot();
+//  fullpath += file;
+
+  std::string file = f;
+#ifdef GEKKO
+  file = Replace(f, ".it", ".mod");
+#endif
 
   static string lastplayed;
   bool success = true;
