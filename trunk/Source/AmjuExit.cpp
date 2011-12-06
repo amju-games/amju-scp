@@ -92,9 +92,18 @@ void ReallyExit()
 #ifdef WIN32
   PostQuitMessage(0); 
 #endif
+
 #ifdef MACOSX
   MacPostQuitEvent();
 #endif 
+
+#ifdef GEKKO
+  exit(0);
+#endif
+
+#ifdef IPHONE
+  exit(0);
+#endif
 }
 
 
