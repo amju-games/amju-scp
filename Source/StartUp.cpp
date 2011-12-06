@@ -46,8 +46,15 @@
 
 namespace Amju
 {
-static const int WIDTH = 640; // TODO
+#ifdef IPHONE
+// But TODO what about different res devices
+static const int WIDTH = 480; 
+static const int HEIGHT = 320;
+
+#else
+static const int WIDTH = 640; 
 static const int HEIGHT = 480;
+#endif
 
 static const char* GAME_CFG = "game.cfg";
 
@@ -151,6 +158,10 @@ std::cout << "main(): got root\n";
 
   engine->LoadConfigFile(GAME_CFG);
   engine->InitGl();
+
+  // This doesn't work, screen size is not known yet!!!
+  // But the idea is that we get the device resolution so we can work on iphone, ipad, etc. etc.
+  //engine->SetViewport(Screen::X(), Screen::Y()); 
   engine->SetViewport(WIDTH, HEIGHT);
 
   if (!engine->LoadFont())
