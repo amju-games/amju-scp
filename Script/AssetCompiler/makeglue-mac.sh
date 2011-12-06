@@ -28,11 +28,11 @@ cp $SRC_DIR/*.md2 $DEST_DIR
 #cp $SRC_DIR/*.obj $DEST_DIR
 #cp $SRC_DIR/*.mtl $DEST_DIR
 
-cp $SRC_DIR/*.mod $DEST_DIR
-cp $SRC_DIR/*.wav $DEST_DIR
+#cp $SRC_DIR/*.it $DEST_DIR
+#cp $SRC_DIR/*.wav $DEST_DIR
 
 # TODO Convert text files to binary
-. makeobjsbin.sh
+. makeobjsbin-mac.sh
 
 
 cd $DEST_DIR

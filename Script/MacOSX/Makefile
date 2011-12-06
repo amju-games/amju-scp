@@ -20,6 +20,7 @@ LIBS	:= \
 	-lstdc++ -lm 
 
 EXTRA_CFLAGS	:=	-g -O0 -D_DEBUG 
+#-DHS_DEBUG
 #-DPOOL_ONLINE
 
 include $(AMJULIB_MAC_SCRIPT_PATH)/GenMakefile
