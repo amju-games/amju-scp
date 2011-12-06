@@ -94,7 +94,9 @@ void CharacterMd2::Draw()
   // Work out the point between the current and next frame, for interpolation.
   // But don't if we are frozen.
   float between = 0;
+  
   if (!m_isFrozen)
+  //if (!CurrentActionFreezes())
   {
     Assert(m_animtime >= 0);
     Assert(m_animtime <= 0.1f);
@@ -105,8 +107,14 @@ void CharacterMd2::Draw()
     }
   }
 
+  // Pool hack
+  AmjuGL::PushMatrix();
+  static const float FLOOR = Engine::Instance()->GetConfigFloat("pool_char_floor");
+  AmjuGL::Translate(0, FLOOR, 0);
+
   // One -> zero based ???
   m_pModel->DrawAnim((Md2Model::Animation)m_animation, m_frame - 1, between);
+  AmjuGL::PopMatrix();
 }
 
 bool CharacterMd2::CurrentActionRepeats() const
@@ -216,16 +224,20 @@ void CharacterMd2::Recalculate()
     return;
   }
 
-  // Get next action on queue. If empty, do default action.
-  m_frame = 1;
-
   // Assume this action doesn't repeat.
   // If this is a Death animation, freeze on the last frame.
   if (CurrentActionFreezes())
   {
+std::cout << "Frozen!\n";
     // Dead, so now the frame number never changes.
-    m_frame = m_pModel->GetAnimationSize((Md2Model::Animation)m_animation); 
+    m_frame--; // = m_pModel->GetAnimationSize((Md2Model::Animation)m_animation + 1); 
+    m_isFrozen = true;
     return;
+  }
+  else
+  {
+    // Get next action on queue. If empty, do default action.
+    m_frame = 1;
   }
 
 /*
@@ -276,6 +288,7 @@ void CharacterMd2::SetAction(int actionId)
 {
   if (actionId != m_animation)
   {
+    m_isFrozen = false;
     m_animation = actionId;
     m_frame = 1;
 
