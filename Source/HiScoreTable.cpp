@@ -197,7 +197,8 @@ void SingleHiScoreTable::HiScoreUrlThread::Work()
 //std::cout << "In thread: URL for hi scores: " << m_url << "\n";
 
   HttpClient h;
-  h.Get(m_url, HttpClient::GET); 
+  HttpResult res;
+  h.Get(m_url, HttpClient::GET, &res); 
   std::cout << "Url thread has now finished.\n";
 }
 }
