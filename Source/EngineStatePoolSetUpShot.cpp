@@ -449,7 +449,7 @@ void EngineStatePoolSetUpShot::SetShowTrajectory(bool b)
     s_pTrajectory->Recalc(vBall, m_shotYRotate, 0 /*m_shotVerticalVel*/, hvel); 
   }
 
-#ifdef _DEBUG
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "Show trajectory: flag is now: " << m_showTrajectory << "\n";
 #endif
 }
@@ -472,11 +472,15 @@ void EngineStatePoolSetUpShot::OnShootSelected()
 
     e->s_cue.SetAutoTakeShot(true);
 
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "TAKE SHOT START\n";
+#endif
   }
   else
   {
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "TAKE SHOT: s_shootSelected == true\n";
+#endif
   }
   s_shootSelected = true; 
 
@@ -491,7 +495,10 @@ void EngineStatePoolSetUpShot::OnShoot()
     (Engine::Instance()->GetEngineState(
     EngineStatePoolSetUpShot::Name).GetPtr());
   
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "ON SHOOT, s_shotSelected == false\n";
+#endif
+
   //e->SetShotPower(0.5f);
   e->SetShotParams();
 //  e->s_cue.SetAutoTakeShot(true);
@@ -709,7 +716,7 @@ std::cout << "TAKE SHOT: Mouse button released, set swing vel to: " << s << "\n"
     s_cue.SetSwingMode(false); 
     m_shotIsActive = false; // bug 338 fix, camera stuck 
 
-#ifdef _DEBUG
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "TakeShotFinish: cancelling shot because swing power is " 
   << s << "\n";
 #endif
@@ -721,7 +728,7 @@ std::cout << "TakeShotFinish: cancelling shot because swing power is "
       // doesn't directly affect the cue ball vel. Set in SetShotParams().
     s_cue.SetAutoTakeShot(true);
 
-#ifdef _DEBUG
+#ifdef SET_UP_SHOT_DEBUG
 std::cout << "TakeShotFinish: taking shot, swing power is " 
   << s << "\n";
 #endif
@@ -1098,8 +1105,9 @@ std::cout << "Current player: "
 void EngineStatePoolSetUpShot::OnNewLevel()
 {
 #ifdef SET_UP_SHOT_DEBUG
-  std::cout << "OnNewLevel\n";
+std::cout << "OnNewLevel\n";
 #endif
+
   EngineStatePoolBase::OnNewLevel();
 
   ResetPlayerFlags();

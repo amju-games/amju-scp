@@ -107,7 +107,6 @@ void StartUp()
   }
 
   // Add resource loaders
-  TheResourceManager::Instance()->AddLoader("bmpa", BmpALoader);
   TheResourceManager::Instance()->AddLoader("obj", ObjLoader);
   TheResourceManager::Instance()->AddLoader("font", FontLoader);
   TheResourceManager::Instance()->AddLoader("mod", BinaryResourceLoader);
@@ -135,7 +134,7 @@ void StartUp()
 */
 
 #ifdef GEKKO
-  TheCursorManager::Instance()->Load();
+  TheCursorManager::Instance()->Load(Vec2f(0.025f, -0.08f)); // position hotspot
 #endif
 
   Engine::Instance()->ChangeState(EsLogo::Name, Engine::IMMEDIATE);
