@@ -54,5 +54,5 @@ setup:
 
 upload:
 	make setup
-	scp -r $(APP_DIR) root@192.168.201.36:/Applications/
+	scp -r $(APP_DIR) root@192.168.0.3:/Applications/
 
