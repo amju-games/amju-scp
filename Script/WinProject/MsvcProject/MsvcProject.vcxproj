@@ -83,6 +83,9 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ExecutablePath)</ExecutablePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -120,7 +123,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -167,7 +170,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -280,7 +283,6 @@
     <Library Include="..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Windows\v7.0A\Lib\WSock32.Lib" />
     <Library Include="..\..\..\..\..\..\..\SDL\lib\SDL.lib" />
     <Library Include="..\..\..\..\..\..\..\SDL\lib\SDL_mixer.lib" />
-    <Library Include="..\..\..\..\amjulib\Build\Debug\AmjuLibMsvc.lib" />
     <Library Include="..\..\..\..\amjulib\Source\SoundBass\Bass2.3\Win\bass.lib" />
     <Library Include="..\..\..\..\amjulib\Source\SoundBass\Bass2.3\Win\bassmidi.lib" />
   </ItemGroup>
@@ -363,7 +365,6 @@
     <ClCompile Include="..\..\..\Source\EngineStateText.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStateTimerText.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStateTitle.cpp" />
-    <ClCompile Include="..\..\..\Source\EngineStateTitle2.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStateWorldDemoHiScores.cpp" />
     <ClCompile Include="..\..\..\Source\EsLogo.cpp" />
     <ClCompile Include="..\..\..\Source\EsPoolDeclined.cpp" />
@@ -387,7 +388,6 @@
     <ClCompile Include="..\..\..\Source\Fsm.cpp" />
     <ClCompile Include="..\..\..\Source\Function.cpp" />
     <ClCompile Include="..\..\..\Source\FunctionBlocker.cpp" />
-    <ClCompile Include="..\..\..\Source\FunctionCtrlPoints.cpp" />
     <ClCompile Include="..\..\..\Source\FunctionFactory.cpp" />
     <ClCompile Include="..\..\..\Source\FunctionRotate.cpp" />
     <ClCompile Include="..\..\..\Source\FunctionSimple.cpp" />
@@ -415,13 +415,9 @@
     <ClCompile Include="..\..\..\Source\HeightServer.cpp" />
     <ClCompile Include="..\..\..\Source\HelpText.cpp" />
     <ClCompile Include="..\..\..\Source\HiScoreTable.cpp" />
-    <ClCompile Include="..\..\..\Source\Interpolate.cpp" />
     <ClCompile Include="..\..\..\Source\Intersection.cpp" />
-    <ClCompile Include="..\..\..\Source\Keymap.cpp" />
-    <ClCompile Include="..\..\..\Source\KeymapPrinter.cpp" />
     <ClCompile Include="..\..\..\Source\Launcher.cpp" />
-    <ClCompile Include="..\..\..\Source\LeafData.cpp" />
-    <ClCompile Include="..\..\..\Source\LeafRenderOpenGL.cpp" />
+    <ClCompile Include="..\..\..\Source\LeafData3.cpp" />
     <ClCompile Include="..\..\..\Source\LeafServer.cpp" />
     <ClCompile Include="..\..\..\Source\Level.cpp" />
     <ClCompile Include="..\..\..\Source\LevelFactory.cpp" />
@@ -444,7 +440,6 @@
     <ClCompile Include="..\..\..\Source\Lighting.cpp" />
     <ClCompile Include="..\..\..\Source\LogFile.cpp" />
     <ClCompile Include="..\..\..\Source\main.cpp" />
-    <ClCompile Include="..\..\..\Source\Matrix.cpp" />
     <ClCompile Include="..\..\..\Source\Menu.cpp" />
     <ClCompile Include="..\..\..\Source\MenuCommand.cpp" />
     <ClCompile Include="..\..\..\Source\Message.cpp" />
@@ -467,9 +462,7 @@
     <ClCompile Include="..\..\..\Source\Player.cpp" />
     <ClCompile Include="..\..\..\Source\PlayerMessage.cpp" />
     <ClCompile Include="..\..\..\Source\PlayerNames.cpp" />
-    <ClCompile Include="..\..\..\Source\PolyDrawOpenGL.cpp" />
     <ClCompile Include="..\..\..\Source\Polygon.cpp" />
-    <ClCompile Include="..\..\..\Source\PolyLoader.cpp" />
     <ClCompile Include="..\..\..\Source\PoolBall.cpp" />
     <ClCompile Include="..\..\..\Source\PoolBehaviour.cpp" />
     <ClCompile Include="..\..\..\Source\PoolBehaviourOnline.cpp" />
@@ -496,7 +489,6 @@
     <ClCompile Include="..\..\..\Source\PowerGuage.cpp" />
     <ClCompile Include="..\..\..\Source\ProgressCaller.cpp" />
     <ClCompile Include="..\..\..\Source\PulsatingBillboard.cpp" />
-    <ClCompile Include="..\..\..\Source\Quaternion.cpp" />
     <ClCompile Include="..\..\..\Source\Room.cpp" />
     <ClCompile Include="..\..\..\Source\RotateHelper.cpp" />
     <ClCompile Include="..\..\..\Source\Round.cpp" />
@@ -505,7 +497,6 @@
     <ClCompile Include="..\..\..\Source\RulesTrickShot.cpp" />
     <ClCompile Include="..\..\..\Source\RulesUk.cpp" />
     <ClCompile Include="..\..\..\Source\RulesUs8Ball.cpp" />
-    <ClCompile Include="..\..\..\Source\Score.cpp" />
     <ClCompile Include="..\..\..\Source\Shadow.cpp" />
     <ClCompile Include="..\..\..\Source\ShotLog.cpp" />
     <ClCompile Include="..\..\..\Source\SimpleCamera.cpp" />
@@ -518,7 +509,6 @@
     <ClCompile Include="..\..\..\Source\SolidSize.cpp" />
     <ClCompile Include="..\..\..\Source\SortScene.cpp" />
     <ClCompile Include="..\..\..\Source\SoundFxManager.cpp" />
-    <ClCompile Include="..\..\..\Source\SoundServer.cpp" />
     <ClCompile Include="..\..\..\Source\StartUp.cpp" />
     <ClCompile Include="..\..\..\Source\StateStrings.cpp" />
     <ClCompile Include="..\..\..\Source\StopBehaviour.cpp" />
@@ -533,7 +523,6 @@
     <ClCompile Include="..\..\..\Source\TextLeaf.cpp" />
     <ClCompile Include="..\..\..\Source\TextMenu.cpp" />
     <ClCompile Include="..\..\..\Source\Texture.cpp" />
-    <ClCompile Include="..\..\..\Source\TextureAnimation.cpp" />
     <ClCompile Include="..\..\..\Source\TexturedQuad.cpp" />
     <ClCompile Include="..\..\..\Source\TextureMethod.cpp" />
     <ClCompile Include="..\..\..\Source\TextureMethodFactory.cpp" />
@@ -544,10 +533,8 @@
     <ClCompile Include="..\..\..\Source\ThirdPersonCamera2.cpp" />
     <ClCompile Include="..\..\..\Source\ThirdPersonCameraBase.cpp" />
     <ClCompile Include="..\..\..\Source\ThirdPersonCameraFixed.cpp" />
-    <ClCompile Include="..\..\..\Source\ThirdPersonCameraFollow.cpp" />
     <ClCompile Include="..\..\..\Source\Tokeniser.cpp" />
     <ClCompile Include="..\..\..\Source\Trajectory.cpp" />
-    <ClCompile Include="..\..\..\Source\Variable.cpp" />
     <ClCompile Include="..\..\..\Source\Vertex.cpp" />
     <ClCompile Include="..\..\..\Source\VisibleGameObject.cpp" />
   </ItemGroup>
