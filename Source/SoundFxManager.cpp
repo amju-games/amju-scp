@@ -19,7 +19,7 @@ namespace Amju
 {
 void SingleSoundFxManager::PlayWav(const char* wav, float vol)
 {
-  float t = Engine::Instance()->GetElapsedTime();
+  float t = (float)Engine::Instance()->GetElapsedTime();
 
   WavMap::iterator it = m_wavs.find(wav);
   if (it == m_wavs.end())

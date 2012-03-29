@@ -235,7 +235,7 @@ bool EngineStatePoolChoosePlayer::Load()
     return false;
   } 
   m_pBackButton->SetSize(SIZE_W, SIZE_H);
-  m_pBackButton->SetRelPos(4.0 * SPACE_H + 3.0f, x1);
+  m_pBackButton->SetRelPos(4.0f * SPACE_H + 3.0f, x1);
   m_pBackButton->SetCommand(&OnPlayerChooseCancel);
 
   // Load player buttons. The Textured quad is the same for each one,

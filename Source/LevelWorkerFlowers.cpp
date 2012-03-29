@@ -81,7 +81,7 @@ bool LevelWorkerFlowers::AddFeature(Level* pLevel)
     Orientation o;
     // DON'T use the CubeMap.
     // Reduce area by radius, so we don't try to plant flowers in the air!
-    if (!GetOrientation(pLevel->GetPlayAreaSize() - m_radius, &o))
+    if (!GetOrientation(pLevel->GetPlayAreaSize() - (int)m_radius, &o))
     {
       Assert(0);
       return false; // play area too small

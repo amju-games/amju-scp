@@ -65,11 +65,11 @@ bool EngineMenuState::Load()
     return false;
   }
 */
-  float x = atof(GetEngine()->GetConfigValue("file_bg_x").c_str());
-  float y = atof(GetEngine()->GetConfigValue("file_bg_y").c_str());
+  float x = Engine::Instance()->GetConfigFloat("file_bg_x");
+  float y = Engine::Instance()->GetConfigFloat("file_bg_y");
   m_pScroller = new TextureScrollAttrib(x, y, 0); 
 
-  float menuz = atof(GetEngine()->GetConfigValue("menu_z").c_str());
+  float menuz = Engine::Instance()->GetConfigFloat("menu_z");
   m_pCam->SetOrientation(Orientation(0, 0, menuz, 0, 180, 0));
 
   // TODO Work out widest menu item and adjust z accordingly

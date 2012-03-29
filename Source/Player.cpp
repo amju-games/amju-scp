@@ -40,7 +40,7 @@ void Player::FellFromHeight(float heightFallenFrom)
   CharacterGameObject::FellFromHeight(heightFallenFrom);
 
   // Decide how badly damaged we are from the fall.
-  float heightDamage = atof(Engine::Instance()->GetConfigValue("player_height_damage").c_str());
+  float heightDamage = Engine::Instance()->GetConfigFloat("player_height_damage");
   if (heightDamage == 0)
   {
     heightDamage = 1.0f;
@@ -77,7 +77,7 @@ bool Player::Load(File* pf)
   }
 
   // Set up player bounciness (doesn't use player file :-( )
-  float bounce = atof(Engine::Instance()->GetConfigValue("player_bounce").c_str());
+  float bounce = Engine::Instance()->GetConfigFloat("player_bounce");
   SetBounceDampen(bounce);
 
   return true;

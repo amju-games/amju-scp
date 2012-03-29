@@ -140,9 +140,9 @@ void EngineStatePlayerStats::Draw()
     AmjuGL::PopMatrix();
 
     // draw a character
-    static const float x = atof(GetEngine()->GetConfigValue("title_character_x").c_str());
-    static const float y = atof(GetEngine()->GetConfigValue("title_character_y").c_str());
-    static const float z = atof(GetEngine()->GetConfigValue("title_character_z").c_str());
+    static const float x = Engine::Instance()->GetConfigFloat("title_character_x");
+    static const float y = Engine::Instance()->GetConfigFloat("title_character_y");
+    static const float z = Engine::Instance()->GetConfigFloat("title_character_z");
 
     AmjuGL::PushMatrix();
     AmjuGL::Translate(x - 1.5f, y, z); 
@@ -160,9 +160,9 @@ void EngineStatePlayerStats::DrawOverlays()
   EngineStateText::DrawOverlays();
   m_pOkButton->Draw();
 
-  static float left = atof(Engine::Instance()->GetConfigValue("name_left").c_str());
-  static float top = atof(Engine::Instance()->GetConfigValue("name_top").c_str());
-  static float z = atof(Engine::Instance()->GetConfigValue("name_z").c_str());
+  static float left = Engine::Instance()->GetConfigFloat("name_left");
+  static float top = Engine::Instance()->GetConfigFloat("name_top");
+  static float z = Engine::Instance()->GetConfigFloat("name_z");
 
   // Draw "ok" text over ok button  
   AmjuGL::PushMatrix();

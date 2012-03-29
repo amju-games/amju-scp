@@ -51,9 +51,9 @@ ThirdPersonCamera2::ThirdPersonCamera2() :
 void ThirdPersonCamera2::GetConfigValues()
 {
   Engine* e = Engine::Instance();
-  m_pullbackVel = atof(e->GetConfigValue("cam_pullback_vel").c_str());
+  m_pullbackVel = e->GetConfigFloat("cam_pullback_vel");
   // Min period between resets
-  m_minResetTime = atof(e->GetConfigValue("cam_min_reset_time").c_str());
+  m_minResetTime = e->GetConfigFloat("cam_min_reset_time");
 
   ThirdPersonCameraBase::GetConfigValues();
 }
@@ -181,7 +181,7 @@ void ThirdPersonCamera2::PullBack()
   float dz = m_orientation.GetZ() - pPO->GetZ();
   float theta = atan2(dz, dx);  // TODO errr... shurely should be dx, dz ??
   // Convert rads to degs, and fix 90 degree offset
-  theta = -theta * 180.0f / pi - 90.0f;
+  theta = -theta * 180.0f / (float)pi - 90.0f;
   m_orientation.SetYRot(theta);
 
   m_behind = sqrt(dx * dx + dz * dz);
@@ -290,7 +290,7 @@ void ThirdPersonCamera2::RecalcNotIdle()
   float dz = m_orientation.GetZ() - pPO->GetZ();
   float theta = atan2(dz, dx); // TODO ????? s/b dx, dz ????
   // Convert rads to degs, and fix 90 degree offset
-  theta = -theta * 180.0f / pi - 90;
+  theta = -theta * 180.0f / (float)pi - 90;
 
   m_behind = sqrt(dx * dx + dz * dz);
 

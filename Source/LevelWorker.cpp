@@ -72,7 +72,7 @@ bool LevelWorker::GetOrientation(
   Orientation* pResult)
 {
   // Space between positions.
-  int gridSpacing = (int)Engine::Instance()->GetConfigFloat("level_grid_spacing");
+  float gridSpacing = Engine::Instance()->GetConfigFloat("level_grid_spacing");
   // gridSize is number of different positions in x and z on each side of the 
   // origin. I.e. area side length is 2 * absPlayAreaSize.
   float gridSize = (float)absPlayAreaSize / (float)gridSpacing;
@@ -173,7 +173,7 @@ bool LevelWorker::GetOrientation(
   // objects do not intersect.
 
   // Space between positions.
-  static int gridSpacing = (int)Engine::Instance()->GetConfigFloat("level_grid_spacing");
+  static float gridSpacing = Engine::Instance()->GetConfigFloat("level_grid_spacing");
 
   // gridSize is number of different positions in x and z on each side of the 
   // origin. I.e. area side length is 2 * absPlayAreaSize.

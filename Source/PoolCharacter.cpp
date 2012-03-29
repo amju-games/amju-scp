@@ -233,8 +233,8 @@ std::cout << "SET ACTION GO\n";
   // Also we should move to the side, because the character is to the side of
   // the cue, which lies on the centre line.
   yRotate += 90.0f; // + or - ?
-  float sidex = sin((double)yRotate / 180.0 * pi);
-  float sidez = cos((double)yRotate / 180.0 * pi);
+  float sidex = (float)sin((double)yRotate / 180.0 * pi);
+  float sidez = (float)cos((double)yRotate / 180.0 * pi);
   static const float DIST_MULT2 = Engine::Instance()->GetConfigFloat(
     "pool_char_dist_mult2");
   v1.x += sidex * DIST_MULT2;

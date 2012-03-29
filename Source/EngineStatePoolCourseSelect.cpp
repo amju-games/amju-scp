@@ -305,7 +305,7 @@ void EngineStatePoolCourseSelect::DrawOverlays()
       static const float h = 4.5f;
       static const float w = 4.5f;
       
-      float t = 5.5 + i * 4.6f;
+      float t = 5.5f + i * 4.6f;
       float b = t + h;
       float l = 3.0f + j * 4.6f;
 

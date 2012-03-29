@@ -217,9 +217,9 @@ void EngineStatePoolBase::AddExtraHearts(int playerId, int numHearts)
 
 void EngineStatePoolBase::Init()
 {
-  s_left = atof(Engine::Instance()->GetConfigValue("name_left").c_str());
-  s_top = atof(Engine::Instance()->GetConfigValue("name_top").c_str());
-  s_z = atof(Engine::Instance()->GetConfigValue("name_z").c_str());
+  s_left = Engine::Instance()->GetConfigFloat("name_left");
+  s_top = Engine::Instance()->GetConfigFloat("name_top");
+  s_z = Engine::Instance()->GetConfigFloat("name_z");
 
   s_pTrajectory = new Trajectory;
   Trajectory::Init();

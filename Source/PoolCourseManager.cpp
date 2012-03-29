@@ -208,7 +208,7 @@ bool SinglePoolCourseManager::IsRoomOkForOnline(
   TrialUnlockMap::const_iterator it = 
     m_trialUnlock.find(std::make_pair(levelId, roomId));
   int bits = it->second;
-  return bits & ONLINE_OK;
+  return (bits & ONLINE_OK) != 0;
 }
 }
 

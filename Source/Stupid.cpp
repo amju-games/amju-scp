@@ -366,7 +366,7 @@ void Stupid::HandleObjectCollision(PoolGameObject* pObj)
     Engine::Instance()->GetConfigValue("golf_wav_7")); // bonus points
 
   // TODO TEMP TEST
-  float severity = atof(Engine::Instance()->GetConfigValue("quake_severity").c_str());
+  float severity = Engine::Instance()->GetConfigFloat("quake_severity");
   Engine::Instance()->GetEarthquake().SetActive(0.5f, severity); 
 
   // Fade out, so the explosion will be visible.

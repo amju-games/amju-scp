@@ -46,7 +46,7 @@ void ParticleSystem::Draw()
       // Recalc orientation for the particle. We use a function, with the particle
       // ID modifying the time parameter, so the particles will not all have the 
       // same orientation.
-      float t = Engine::Instance()->GetElapsedTime();
+      float t = (float)Engine::Instance()->GetElapsedTime();
 
       m_pFunc->SetTime(t + i * 0.02f);
       m_pFunc->Recalc(pParticle->GetOrientation());

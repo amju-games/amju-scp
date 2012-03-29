@@ -30,7 +30,7 @@ bool Number3d::Init()
   {
     // Get the name
     char buf[10];
-    sprintf(buf, "num_%d", i);
+    sprintf_s(buf, "num_%d", i);
     // Look up name in config file to get Component filename.
     std::string filename = Engine::Instance()->GetConfigValue(buf);
     PSolidComponent pComp = SolidComponent::LoadSolid(filename);
@@ -41,7 +41,7 @@ bool Number3d::Init()
     s_digits[i] = pComp;
   }
 
-  s_digitWidth = atof(Engine::Instance()->GetConfigValue("num_width").c_str());
+  s_digitWidth = Engine::Instance()->GetConfigFloat("num_width");
   return true;
 }
 

@@ -47,8 +47,12 @@ void LogFile::Log(const std::string& s, bool prependTime)
     // TODO totally not thread safe - use _r versions instead
     time_t now;
     time(&now);
-    tm* pTm = localtime(&now);
-    std::string t = asctime(pTm);
+    tm myTm;
+    localtime_s(&myTm, &now);
+    static const int BUF_SIZE = 100;
+    char buf[BUF_SIZE];
+    asctime_s(buf, BUF_SIZE, &myTm);
+    std::string t = buf;
     t = Replace(t, "\n", "");
     t += ": ";
     t += s; 

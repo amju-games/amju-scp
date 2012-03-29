@@ -46,7 +46,7 @@ bool LevelWorkerAddCharacters::AddFeature(Level* pLevel)
     //float s = 2.0f; // box size
     //BoundingBox bb(0, s, 0, s, 0, s);
 
-    Orientation initialOr(i * 2, 13, i * 2, 0, 0, 0);
+    Orientation initialOr((float)(i * 2), 13, (float)(i * 2), 0, 0, 0);
 
     // GOLF
     CharacterGameObject* pCharacter = new PoolCharacter;
