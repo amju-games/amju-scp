@@ -543,7 +543,7 @@ void Engine::SetTextWriter(TextWriter* pTextWriter)
 float Engine::GetConfigFloat(const Cfg::Key& key) const
 {
   string s = GetConfigValue(key);
-  float f = atof(s.c_str());
+  float f = (float)atof(s.c_str());
   return f;
 }
 
@@ -718,10 +718,10 @@ bool Engine::LoadConfigFile(const std::string& configFileName)
   // This path will be prepended to everything loaded.
   //File::SetRoot(dataDir, m_config.GetValue("slash"));
 
-  m_maxDeltaTime = atof(GetConfigValue("max_delta_t").c_str());
+  m_maxDeltaTime = (float)atof(GetConfigValue("max_delta_t").c_str());
 
   m_joystickEnabled = (GetConfigValue("joystick") == "y");
-  m_joystickZeroZone = atof(GetConfigValue("joystick_zero_zone").c_str());
+  m_joystickZeroZone = (float)atof(GetConfigValue("joystick_zero_zone").c_str());
 
   return true;
 }
@@ -799,7 +799,7 @@ bool Engine::Load()
       // Get gravity string; convert to float and set value.
       // TODO this should be in level
       string g_str = m_config.GetValue("gravity");
-      float g = atof(g_str.c_str());
+      float g = (float)atof(g_str.c_str());
       FreeMovingGameObject::SetGlobalGravity(g);
       TextFactory::Instance()->Init();
       /*
@@ -1001,8 +1001,8 @@ std::cout << "Loading golf courses...\n";
 bool Engine::OnCursorEvent(const CursorEvent& ce)
 {
   // Convert from -1..1 to  screen space
-  int x = (ce.x + 1) * Screen::X() / 2;
-  int y = (1 - ce.y) * Screen::Y() / 2;  // invert
+  int x = (int)((ce.x + 1.0f) * (float)Screen::X() / 2.0f);
+  int y = (int)((1.0f - ce.y) * (float)Screen::Y() / 2.0f);  // invert
   MousePos(x, y);
   return true;
 }
@@ -1258,7 +1258,7 @@ void Engine::SetElapsedTime(double secs)
   m_oldElapsedSecs = m_elapsedSecs;
   m_elapsedSecs = secs;
 
-  m_deltaTime = (float)m_elapsedSecs - m_oldElapsedSecs;
+  m_deltaTime = (float)m_elapsedSecs - (float)m_oldElapsedSecs;
 
   if (m_deltaTime > m_maxDeltaTime)
   {
@@ -1715,7 +1715,7 @@ void Engine::Fps()
   m_pCurrentState->ClearScrollText();
 
   char buf[10];
-  sprintf(buf, "%d", fps);
+  sprintf_s(buf, "%d", fps);
   // Bottom left corner ?
   GetTextWriter()->Print(0.0, 15.0f, buf);
 }
@@ -1751,7 +1751,7 @@ void Engine::SendGameMessage(PMessage m)
   }
 #endif
 
-  m->SetRealTime(GetElapsedTime()); // adds any delay
+  m->SetRealTime((float)GetElapsedTime()); // adds any delay
   m_messageQueue.Push(m);
 }
 
@@ -1760,7 +1760,7 @@ void Engine::Freeze(bool b)
   m_frozen = b;
   if (m_frozen)
   {
-    m_frozenTime = GetElapsedTime();
+    m_frozenTime = (float)GetElapsedTime();
   }
   else
   {

@@ -41,11 +41,11 @@ bool Number2d::Init()
     char buf[20];
 
     // Look up name in config file to get .BMP filename.
-    sprintf(buf, "num2d_%d", i);
+    sprintf_s(buf, "num2d_%d", i);
     std::string filename = Engine::Instance()->GetConfigValue(buf);
     
     // Get alpha .BMP filename
-    sprintf(buf, "num2d_%d_alpha", i);
+    sprintf_s(buf, "num2d_%d_alpha", i);
     std::string alphaname = Engine::Instance()->GetConfigValue(buf);
 
     TexturedQuad* pQuad = new TexturedQuad;

@@ -90,7 +90,7 @@ void EsLogo::Draw()
   }
 
   float rem = m_time - LOGO_TIME * (int)(m_time / LOGO_TIME);
-  float c = sin(rem / LOGO_TIME * pi);
+  float c = sin(rem / LOGO_TIME * (float)pi);
   Engine::Instance()->PushColour(c, c, c, 1.0f);
 
   m_bg.Draw(-1.0f, -5.0f, 20.0f, 30.0f); 

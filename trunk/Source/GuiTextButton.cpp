@@ -131,7 +131,7 @@ void GuiTextButton::DrawImpl()
   }
   pFont->SetSize(size * scale);
   // Centre horizontally
-  float left = m_absLeft + m_width * 0.5f - m_textWidth * 1.85 * m_fontSize;
+  float left = m_absLeft + m_width * 0.5f - m_textWidth * 1.85f * m_fontSize;
 
   // Centre vertically TODO CONFIG
   // For m_fontSize = 0.5, pos is m_absTop (- a tiny bit)

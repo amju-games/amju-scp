@@ -78,7 +78,7 @@ void GuiSendable::Update()
           m_yVel = -BOUNCE_VEL;
           m_xVel = 0;
           float r = (float)rand() / (float)RAND_MAX;
-          m_bounceTime = BOUNCE_TIME + BOUNCE_TIME * 0.5 * r;
+          m_bounceTime = BOUNCE_TIME + BOUNCE_TIME * 0.5f * r;
           m_animateTimeRemaining = m_bounceTime;
         }
         break;

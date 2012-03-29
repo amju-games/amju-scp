@@ -91,18 +91,18 @@ void ThirdPersonCameraBase::Reset()
 void ThirdPersonCameraBase::GetConfigValues()
 {
   Engine* e = Engine::Instance();
-  m_behindMin       = atof(e->GetConfigValue("cam_behind_min").c_str());
-  m_behindMax       = atof(e->GetConfigValue("cam_behind_max").c_str());
-  m_idleSwingTime   = atof(e->GetConfigValue("cam_idle_swing_t").c_str());
-  m_swingVel        = atof(e->GetConfigValue("cam_idle_swing_vel").c_str());
-  m_idleRaiseTime   = atof(e->GetConfigValue("cam_idle_raise_t").c_str());
-  m_raiseVel        = atof(e->GetConfigValue("cam_raise_v").c_str());
-  m_heightMax       = atof(e->GetConfigValue("cam_height_max").c_str());
-  m_heightMin       = atof(e->GetConfigValue("cam_height_min").c_str());
-  m_quickSwingVel   = atof(e->GetConfigValue("cam_quick_swing_v").c_str());
-  m_lowerVel        = atof(e->GetConfigValue("cam_lower_v").c_str());
-  m_lookAbove       = atof(e->GetConfigValue("cam_look_above").c_str());
-  m_dropExtraHeight = atof(e->GetConfigValue("cam_drop_extra").c_str());
+  m_behindMin       = e->GetConfigFloat("cam_behind_min");
+  m_behindMax       = e->GetConfigFloat("cam_behind_max");
+  m_idleSwingTime   = e->GetConfigFloat("cam_idle_swing_t");
+  m_swingVel        = e->GetConfigFloat("cam_idle_swing_vel");
+  m_idleRaiseTime   = e->GetConfigFloat("cam_idle_raise_t");
+  m_raiseVel        = e->GetConfigFloat("cam_raise_v");
+  m_heightMax       = e->GetConfigFloat("cam_height_max");
+  m_heightMin       = e->GetConfigFloat("cam_height_min");
+  m_quickSwingVel   = e->GetConfigFloat("cam_quick_swing_v");
+  m_lowerVel        = e->GetConfigFloat("cam_lower_v");
+  m_lookAbove       = e->GetConfigFloat("cam_look_above");
+  m_dropExtraHeight = e->GetConfigFloat("cam_drop_extra");
   m_minAbsHeight    = e->GetConfigFloat("cam_min_abs_height");
   m_maxAbsHeight    = e->GetConfigFloat("cam_max_abs_height");
 }

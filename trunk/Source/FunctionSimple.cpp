@@ -275,21 +275,21 @@ void FunctionSimple::Recalc(Orientation* pOrientation)
   Assert(pOrientation);
   if (m_periodSecsX > SMALLEST)
   {
-    float x = sin((m_time + m_periodOffsetX) / m_periodSecsX * 2.0f * pi) *
+    float x = sin((m_time + m_periodOffsetX) / m_periodSecsX * 2.0f * (float)pi) *
                 m_multiplierX + m_offsetX;
     pOrientation->SetX(x);
   }
 
   if (m_periodSecsY > SMALLEST)
   {
-    float y = sin((m_time + m_periodOffsetY) / m_periodSecsY * 2.0f * pi) * 
+    float y = sin((m_time + m_periodOffsetY) / m_periodSecsY * 2.0f * (float)pi) * 
                 m_multiplierY + m_offsetY;
     pOrientation->SetY(y);
   }
 
   if (m_periodSecsZ > SMALLEST)
   {
-    float z = sin((m_time + m_periodOffsetZ) / m_periodSecsZ * 2.0f * pi) * 
+    float z = sin((m_time + m_periodOffsetZ) / m_periodSecsZ * 2.0f * (float)pi) * 
                 m_multiplierZ + m_offsetZ;
     pOrientation->SetZ(z);
   }

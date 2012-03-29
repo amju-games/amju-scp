@@ -306,8 +306,8 @@ void GuiElement::Draw()
     return;
   }
 
-  float windowX = Engine::Instance()->GetWindowX();
-  float windowY = Engine::Instance()->GetWindowY();
+  float windowX = (float)Engine::Instance()->GetWindowX();
+  float windowY = (float)Engine::Instance()->GetWindowY();
 
 #ifdef MOUSE_ON_SCREEN_DEBUG
   // Mouse cursor within window ?

@@ -63,9 +63,9 @@ bool EngineStatePoolText::Load()
     return false;
   }
 
-  m_bihLeft = atof(Engine::Instance()->GetConfigValue("score_left").c_str());
-  m_bihTop = atof(Engine::Instance()->GetConfigValue("score_top").c_str());
-  m_bihZ = atof(Engine::Instance()->GetConfigValue("score_z").c_str());
+  m_bihLeft = Engine::Instance()->GetConfigFloat("score_left");
+  m_bihTop = Engine::Instance()->GetConfigFloat("score_top");
+  m_bihZ = Engine::Instance()->GetConfigFloat("score_z");
 
   return true;
 }

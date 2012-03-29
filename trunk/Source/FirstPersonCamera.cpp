@@ -50,7 +50,7 @@ void FirstPersonCamera::Draw()
   // Get a point ahead of the player.
   // Fix 90 degree offset; convert to rads.
   float cameraYRotation = 
-    (m_orientation.GetYRot() - m_yRotOffset - 90.0f) / 180.0f * pi;
+    (m_orientation.GetYRot() - m_yRotOffset - 90.0f) / 180.0f * (float)pi;
 
   // Do some trig to get a point in front of the camera, which is in the 
   // direction we want to look.
@@ -58,7 +58,7 @@ void FirstPersonCamera::Draw()
   float dx = (float)(behind * cos(double(cameraYRotation)));
   float dz = -(float)(behind * sin(double(cameraYRotation)));
 
-  float cameraXRotation = (m_orientation.GetXRot() - m_xRotOffset) / 180.0f * pi;
+  float cameraXRotation = (m_orientation.GetXRot() - m_xRotOffset) / 180.0f * (float)pi;
   float dy = (float)(behind * sin(double(cameraXRotation)));
   // Get x, y, z of some point in front of us.
   float x = m_orientation.GetX() + dx;
@@ -142,7 +142,7 @@ void FirstPersonCamera::OnMouseDrag(int xdiff, int ydiff)
   // TODO m_dragCtrl test is frequired
 
   // Up/down => rotate around x-axis in first-person mode.
-  if (fabs(ydiff) < SMALLEST_DIFF)
+  if (fabs((float)ydiff) < SMALLEST_DIFF)
   {
     m_xVel = 0;
   } 
@@ -156,7 +156,7 @@ void FirstPersonCamera::OnMouseDrag(int xdiff, int ydiff)
   }
 
   // Left/right => rotate about y-axis in first person mode
-  if (fabs(xdiff) < SMALLEST_DIFF)
+  if (fabs((float)xdiff) < SMALLEST_DIFF)
   {
     m_yVel = 0;
   } 

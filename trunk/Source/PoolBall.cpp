@@ -629,7 +629,7 @@ void PoolBall::SetPositionAtTime(float t)
   VertexD v1 = GetNewPos(v10, dx1, dz1, accel1, vel1, t); 
 
   Orientation o = *(GetOrientation());
-  o.SetVertex(Vec3f(v1.x, v1.y, v1.z));
+  o.SetVertex(Vec3f((float)v1.x, (float)v1.y, (float)v1.z));
 
   // Update previous position data
   //m_prevOrientation = m_orientation;
@@ -874,12 +874,12 @@ Assert(t <= tmax);
 }
 #endif
 
-  *pCollisionTime = t;
+  *pCollisionTime = (float)t;
   
   VertexD v1 = GetNewPos(v10, dx1, dz1, accel1, vel1, t); 
-  *pResultV1 = Vec3f(v1.x, v1.y, v1.z); 
+  *pResultV1 = Vec3f((float)v1.x, (float)v1.y, (float)v1.z); 
   VertexD v2 = GetNewPos(v20, dx2, dz2, accel2, vel2, t); 
-  *pResultV2 = Vec3f(v2.x, v2.y, v2.z);
+  *pResultV2 = Vec3f((float)v2.x, (float)v2.y, (float)v2.z);
 }
 
 void PoolBall::HandleBallCollision(PoolBall* b)
@@ -923,14 +923,14 @@ std::cout << "COLLISION: Exact pos 1: " << ToString(this->GetBoundingSphere()->G
       // TODO should set this just once
       static const double acc = Engine::Instance()->GetConfigFloat("golf_ball_accel"); 
       Assert(acc != 0);
-      SetForwardAccel(acc);
-      b->SetForwardAccel(acc);
+      SetForwardAccel((float)acc);
+      b->SetForwardAccel((float)acc);
  
       // Set intersect vel positive, so we can extract ourselves from intersecting
       // balls even if our vel decelerates to zero.
       static const double INTERSECT_VEL = 
         Engine::Instance()->GetConfigFloat("pool_intersect_vel");
-      m_intersectVel = INTERSECT_VEL;
+      m_intersectVel = (float)INTERSECT_VEL;
     }
 }
 
@@ -1142,13 +1142,13 @@ void PoolBall::Recalculate()
 
     //m_prevOrientation = m_orientation;
     SetPrevOrientation(m_orientation);
-    m_orientation.SetX(m_x);
-    m_orientation.SetZ(m_z);
+    m_orientation.SetX((float)m_x);
+    m_orientation.SetZ((float)m_z);
 
     // Get the new Y-value if it exists on the current HeightPoly.
     if (m_pHeightPoly)
     {
-      float newY = m_pHeightPoly->GetY(m_x, m_z);
+      float newY = m_pHeightPoly->GetY((float)m_x, (float)m_z);
       if (newY < y + 0.9f && newY > y - 0.9f)
       {
         // New height seems to be valid.
@@ -1160,11 +1160,11 @@ void PoolBall::Recalculate()
       // Try to get a valid HeightPoly. Go for the highest poly within range
       // of current player height.
       m_pHeightPoly = GetHeightServer()->
-        GetHeightPoly(m_x, y + 0.9f, y - 0.9f, m_z);
+        GetHeightPoly((float)m_x, y + 0.9f, y - 0.9f, (float)m_z);
     }
     // End of Forward()
 
-  float degs = (double)m_yRotateVel * (double)deltaTime;
+  float degs = (float)((double)m_yRotateVel * (double)deltaTime);
   RotateY(degs);
 
   // Calculate new height if we're falling.
@@ -1350,7 +1350,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
   static float r = GetBoundingSphere()->GetRadius();
   // angular vel is forward vel / radius.
   float naturalRollVel = RadToDeg(GetForwardVel() / r);
-  float yr = atan2(m_vectorX, m_vectorZ); 
+  float yr = (float)atan2(m_vectorX, m_vectorZ); 
 
   static const float NINETY_DEGREES = DegToRad(90.0f);
   yr += NINETY_DEGREES; 
@@ -1396,8 +1396,8 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
       m_rollPause = false;
 
       // Need to do vector addition of current vector + draw/roll vector
-      float dx = m_vectorX * m_forwardVel;
-      float dz = m_vectorZ * m_forwardVel;
+      float dx = (float)m_vectorX * m_forwardVel;
+      float dz = (float)m_vectorZ * m_forwardVel;
       dx += m_rollDx * m_rollApplyVel;
       dz += m_rollDz * m_rollApplyVel;
 
@@ -1417,7 +1417,7 @@ std::cout << "Ball out of bounds... online replay so NOT setting state.\n";
       static const double acc = Engine::Instance()->GetConfigFloat(
         "golf_ball_accel"); 
       Assert(acc != 0);
-      SetForwardAccel(acc);
+      SetForwardAccel((float)acc);
     }
   }
 
@@ -1561,7 +1561,7 @@ void PoolBall::OnRoomEntry()
 
   static const double INTERSECT_VEL = 
     Engine::Instance()->GetConfigFloat("pool_intersect_vel");
-  m_intersectVel = INTERSECT_VEL;
+  m_intersectVel = (float)INTERSECT_VEL;
 //  m_intersectVel = 0;
   m_intersectBalls.clear();
 

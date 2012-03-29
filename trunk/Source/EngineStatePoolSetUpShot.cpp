@@ -1307,8 +1307,8 @@ old: read depth from depth buffer!
 // New: unproject at depth 0 and depth 1, giving two points on a line. Find intersection of line and
 // plane of table top, y=<table height>, giving (x, z) coord
 
-    Vec3f near, far;
-    Vec2f mouse(Mouse::s_mousex, Mouse::s_mousey); 
+    Vec3f nearplane, farplane;
+    Vec2f mouse((float)Mouse::s_mousex, (float)Mouse::s_mousey); 
     // Convert to -1..1 
     mouse.x = (float)mouse.x / (float)Screen::X() * 2.0f - 1.0f;
     mouse.y = 1.0f - (float)mouse.y / (float)Screen::Y() * 2.0f; // invert y
@@ -1317,14 +1317,14 @@ old: read depth from depth buffer!
     Assert(mouse.y >= -1.0f);
     Assert(mouse.y <= 1.0f);
  
-    Unproject(mouse, 0, &near);
-    Unproject(mouse, 1.0f, &far); // TODO These might be the wrong way round 
+    Unproject(mouse, 0, &nearplane);
+    Unproject(mouse, 1.0f, &farplane); // TODO These might be the wrong way round 
     // Given the y value for the table, Work out value for t in parametric line eq.
     float tableY = 10.0f; // TODO TEMP TEST - how to get real table height??
-    float t = (tableY - near.y) / (far.y - near.y);
+    float t = (tableY - nearplane.y) / (farplane.y - nearplane.y);
     Assert(t >= 0);
     Assert(t <= 1.0f); // table should be somewhere between near and far!
-    Vec3f newpos = LineSeg(near, far).GetPoint(t); 
+    Vec3f newpos = LineSeg(nearplane, farplane).GetPoint(t); 
 
     // store mouse position for moving cue in birds-eye mode
     // TODO Don't allow cue movement in birds eye mode
@@ -2269,17 +2269,17 @@ void PlayerMoveAwayFrom(PoolGameObject* p1, PoolGameObject* p2)
 
   float alternativeDirection[] = 
   { 
-    M_PI * 0.1f, 
-    M_PI * 0.2f, 
-    M_PI * 0.3f, 
-    M_PI * 0.4f, 
-    M_PI * 0.5f, 
+    (float)M_PI * 0.1f, 
+    (float)M_PI * 0.2f, 
+    (float)M_PI * 0.3f, 
+    (float)M_PI * 0.4f, 
+    (float)M_PI * 0.5f, 
 
-    -M_PI * 0.1f, 
-    -M_PI * 0.2f,
-    -M_PI * 0.3f, 
-    -M_PI * 0.4f, 
-    -M_PI * 0.5f 
+    (float)-M_PI * 0.1f, 
+    (float)-M_PI * 0.2f,
+    (float)-M_PI * 0.3f, 
+    (float)-M_PI * 0.4f, 
+    (float)-M_PI * 0.5f 
   };
   static const int lastAlternative = sizeof(alternativeDirection)/sizeof(float);
 
@@ -2978,7 +2978,7 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
 #ifdef WIN32
   // Windows feature: if you drag the mouse off the left side of the 
   // window, the diff is around 65535!
-  if (fabs(xdiff) > 600)
+  if (fabs((float)xdiff) > 600)
   {
     xdiff = 0;
   }

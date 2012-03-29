@@ -359,14 +359,14 @@ bool EngineRunning::Load()
   */
 
   // Run speed
-  m_maxForwardVel = atof(GetEngine()->GetConfigValue("player_fwd_vel_run").c_str());
+  m_maxForwardVel = Engine::Instance()->GetConfigFloat("player_fwd_vel_run");
   // Walk speed
-  m_walkForwardVel = atof(GetEngine()->GetConfigValue("player_fwd_vel_walk").c_str());
+  m_walkForwardVel = Engine::Instance()->GetConfigFloat("player_fwd_vel_walk");
   // Acceleration from walking to running speed
-  m_playerAccel = atof(GetEngine()->GetConfigValue("player_walk_accel").c_str());
+  m_playerAccel = Engine::Instance()->GetConfigFloat("player_walk_accel");
 
   m_currentMaxForwardVel = m_maxForwardVel;
-  m_playerRotateVel = atof(GetEngine()->GetConfigValue("player_rot_vel").c_str());
+  m_playerRotateVel = Engine::Instance()->GetConfigFloat("player_rot_vel");
 
   // Blast wave centred on player
   /*
@@ -457,7 +457,8 @@ void EngineRunning::DrawHeart(int position)
   int col = position % 5;
   int row = position / 5;
 
-  m_heart.Draw(13 - row * 2, 1 + col * 2, 15 - row * 2, 3 + col * 2); // t, l, b, r
+  m_heart.Draw((float)(13 - row * 2), (float)(1 + col * 2), 
+    (float)(15 - row * 2), (float)(3 + col * 2)); // t, l, b, r
 }
 
 void EngineRunning::DrawOverlays()
@@ -606,7 +607,7 @@ void EngineRunning::ShowStats()
   int drawnPolys = m_scenePolys;
 
   char buf[100];
-  sprintf(buf, "Polygons: %d, drawn: %d", totalPolys, drawnPolys);
+  sprintf_s(buf, "Polygons: %d, drawn: %d", totalPolys, drawnPolys);
   
   GetEngine()->GetTextWriter()->ScrollPrint(buf);
   //sprintf(buf, "Action: %s", GetPlayer()->GetCharacter()->GetActionName().c_str());

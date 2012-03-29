@@ -132,7 +132,7 @@ void ThirdPersonCamera::RecalcNotIdle()
 */
   float theta = atan2(dz, dx);
   // Convert
-  theta = -theta * 180.0f / pi - 90;
+  theta = -theta * 180.0f / (float)pi - 90;
   m_orientation.SetYRot(theta);
 
 /*
@@ -310,7 +310,7 @@ void ThirdPersonCamera::RecalcSwing(float swingVel)
 
   // Fix 90 degree offset; convert to rads.
   float cameraYRotation = 
-    (m_orientation.GetYRot() - 90.0f) / 180.0f * pi;
+    (m_orientation.GetYRot() - 90.0f) / 180.0f * (float)pi;
 
   // Do some trig to get the camera position.
   float dx = (float)(m_behind * cos(double(cameraYRotation)));

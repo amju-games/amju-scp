@@ -301,8 +301,8 @@ void FreeMovingGameObject::Forward(float units)
   float z = m_orientation.GetZ();
   const float y = m_orientation.GetY();
 
-  x += (double)units * m_vectorX;
-  z += (double)units * m_vectorZ;
+  x += (float)((double)units * m_vectorX);
+  z += (float)((double)units * m_vectorZ);
 
   //m_prevOrientation = m_orientation;
   SetPrevOrientation(m_orientation);
@@ -575,10 +575,10 @@ void FreeMovingGameObject::Recalculate()
     // Moving forward, decelerating - ok.
   }
 
-  float units = (double)m_forwardVel * (double)deltaTime;
+  float units = m_forwardVel * deltaTime;
   Forward(units);
 
-  float degs = (double)m_yRotateVel * (double)deltaTime;
+  float degs = m_yRotateVel * deltaTime;
   RotateY(degs);
 
   // Calculate new height if we're falling.
