@@ -30,7 +30,12 @@ bool Number3d::Init()
   {
     // Get the name
     char buf[10];
+#ifdef WIN32
     sprintf_s(buf, "num_%d", i);
+#else
+    sprintf(buf, "num_%d", i);
+#endif
+
     // Look up name in config file to get Component filename.
     std::string filename = Engine::Instance()->GetConfigValue(buf);
     PSolidComponent pComp = SolidComponent::LoadSolid(filename);

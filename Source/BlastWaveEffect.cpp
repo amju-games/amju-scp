@@ -105,12 +105,12 @@ void BlastWaveEffect::Draw()
 
   m_size += m_speed * deltaTime;
 
+/*
   const float x1 = m_centre.x + m_size;
   const float x2 = m_centre.x - m_size;
   const float z1 = m_centre.z + m_size;
   const float z2 = m_centre.z - m_size;
   const float y = m_centre.y;
-/*
   Polygon poly;
 
   poly.AddVertex(SceneVertex(x1, y, z1));

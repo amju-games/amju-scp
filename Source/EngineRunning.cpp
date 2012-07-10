@@ -607,8 +607,12 @@ void EngineRunning::ShowStats()
   int drawnPolys = m_scenePolys;
 
   char buf[100];
+#ifdef WIN32
   sprintf_s(buf, "Polygons: %d, drawn: %d", totalPolys, drawnPolys);
-  
+#else
+  sprintf(buf, "Polygons: %d, drawn: %d", totalPolys, drawnPolys);
+#endif
+ 
   GetEngine()->GetTextWriter()->ScrollPrint(buf);
   //sprintf(buf, "Action: %s", GetPlayer()->GetCharacter()->GetActionName().c_str());
   //GetEngine()->GetTextWriter()->ScrollPrint(buf);

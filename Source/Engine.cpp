@@ -131,6 +131,7 @@ Added to repository
 #ifdef GEKKO
 #include <CursorManager.h>
 #endif
+#include <EventPoller.h>
 #include "SchAssert.h"
 
 #if defined(SCENE_EDITOR)
@@ -161,6 +162,18 @@ const int   POWER_UP_SPEED = -773;
 const int   EARTHQUAKE_SERVER = -772;
 const int   POWER_UP_AMMO = -771;
 
+
+//bool GSMainListener::OnCursorEvent(const CursorEvent& ce)
+//{
+//  return Engine::Instance()->OnCursorEvent(ce);
+//}
+
+//bool GSMainListener::OnMouseButtonEvent(const MouseButtonEvent& mbe)
+//{
+//  return Engine::Instance()->OnMouseButtonEvent(mbe);
+//}
+
+
 // We can declare this non-member function as extern in other files, avoiding
 // having to include Engine.h.
 void ReportError(const string& error)
@@ -187,7 +200,7 @@ std::cout << "Creating singleton: Engine\n";
 #endif
 
     t = new Engine;
-    atexit(Destroy);
+    //atexit(Destroy);
   }
   return t;
 }
@@ -243,6 +256,8 @@ Engine::Engine()
   RegisterEngineState("null", new EngineStateNull);
   SetState(GetEngineState("null"));
 #endif
+
+  TheEventPoller::Instance()->AddListener(this); 
 }
 
 Engine::~Engine()
@@ -1715,7 +1730,11 @@ void Engine::Fps()
   m_pCurrentState->ClearScrollText();
 
   char buf[10];
+#ifdef WIN32
   sprintf_s(buf, "%d", fps);
+#else
+  sprintf(buf, "%d", fps);
+#endif
   // Bottom left corner ?
   GetTextWriter()->Print(0.0, 15.0f, buf);
 }
