@@ -19,8 +19,9 @@ Added to repository
 #include "File.h"
 #include "Camera.h"
 #include "TextureServer.h"
-#include "SchAssert.h"
 #include <math.h>
+#include <Matrix.h>
+#include <AmjuAssert.h>
 
 using namespace std;
 

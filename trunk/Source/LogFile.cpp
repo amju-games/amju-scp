@@ -43,6 +43,7 @@ void LogFile::Log(const std::string& s, bool prependTime)
 
   if (prependTime)
   {
+#ifdef WIN32
     // Get time/date 
     // TODO totally not thread safe - use _r versions instead
     time_t now;
@@ -57,6 +58,9 @@ void LogFile::Log(const std::string& s, bool prependTime)
     t += ": ";
     t += s; 
     f.Write(t);
+#else
+    f.Write(s);
+#endif
   }
   else
   {

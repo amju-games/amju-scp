@@ -46,6 +46,7 @@ Added to repository
 #include "SpecialEvent.h"
 #include <GameState.h>
 #include <SoundManager.h>
+#include <EventListener.h>
 
 namespace Amju
 {
@@ -57,7 +58,17 @@ class ClientReceiveThread;
 class TextWriter;
 class Player;
 
-class Engine : public ProgressCaller, public GameState
+
+// Event listener for Engine: GameStates are no longer EventListeners.
+//class GSMainListener : public EventListener
+//{
+//public:
+//  virtual bool OnCursorEvent(const CursorEvent&);
+//  virtual bool OnMouseButtonEvent(const MouseButtonEvent&);
+//};
+
+
+class Engine : public ProgressCaller, public GameState, public EventListener
 {
 public:
   static Engine* Instance(); // Singleton

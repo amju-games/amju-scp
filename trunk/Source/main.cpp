@@ -9,6 +9,11 @@
 #ifndef IPHONE
 
 #define AMJU_USE_OPENGL
+
+#ifdef MACOSX
+#define AMJU_USE_GLUT
+#endif
+
 //#define AMJU_USE_DX11
 
 #include <main.h>
