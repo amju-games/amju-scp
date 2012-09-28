@@ -263,7 +263,6 @@
 		693D488415AB81A000B84D5C /* Trajectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D471515AB81A000B84D5C /* Trajectory.cpp */; };
 		693D488515AB81A000B84D5C /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D471715AB81A000B84D5C /* Vertex.cpp */; };
 		693D488615AB81A000B84D5C /* VisibleGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D471915AB81A000B84D5C /* VisibleGameObject.cpp */; };
-		693D488815AB81FA00B84D5C /* libAmjulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D488715AB81FA00B84D5C /* libAmjulib.a */; };
 		693D48E615AC3C5B00B84D5C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D48E515AC3C5B00B84D5C /* AudioToolbox.framework */; };
 		693D48EA15AC3C6A00B84D5C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D48E915AC3C6A00B84D5C /* CFNetwork.framework */; };
 		693D490215AC3C7D00B84D5C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D490115AC3C7D00B84D5C /* SystemConfiguration.framework */; };
@@ -812,7 +811,6 @@
 		693D471815AB81A000B84D5C /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = ../../Source/Vertex.h; sourceTree = SOURCE_ROOT; };
 		693D471915AB81A000B84D5C /* VisibleGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VisibleGameObject.cpp; path = ../../Source/VisibleGameObject.cpp; sourceTree = SOURCE_ROOT; };
 		693D471A15AB81A000B84D5C /* VisibleGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VisibleGameObject.h; path = ../../Source/VisibleGameObject.h; sourceTree = SOURCE_ROOT; };
-		693D488715AB81FA00B84D5C /* libAmjulib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAmjulib.a; path = "../../../amjulib/Script/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator/libAmjulib.a"; sourceTree = SOURCE_ROOT; };
 		693D48E515AC3C5B00B84D5C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		693D48E915AC3C6A00B84D5C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		693D490115AC3C7D00B84D5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -832,7 +830,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
-				693D488815AB81FA00B84D5C /* libAmjulib.a in Frameworks */,
 				693D48E615AC3C5B00B84D5C /* AudioToolbox.framework in Frameworks */,
 				693D48EA15AC3C6A00B84D5C /* CFNetwork.framework in Frameworks */,
 				693D490215AC3C7D00B84D5C /* SystemConfiguration.framework in Frameworks */,
@@ -1431,7 +1428,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				693D488715AB81FA00B84D5C /* libAmjulib.a */,
 				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
 				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -1816,6 +1812,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/Users/jay/projects/amjulib/Source/**";
+				LIBRARY_SEARCH_PATHS = "/Users/jay/projects/amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator";
+				OTHER_LDFLAGS = "-lAmjulib";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
