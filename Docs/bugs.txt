@@ -1,7 +1,44 @@
 Critical
 ========
 
-Wii release: needs meta.xml and logo
+FIXED: CreateWindow is called first, to create the context, then Init() is called.
+
+Non glut main is ok for Wii but not for Windows GL/DX. The order of Init/CreateWindow is one way round for Wii, the other for GL/DX. On Mac it's ok because we are using GLUT. We want the order to always be the same for all platforms.
+GLUTmain	Init, CreateWindow
+NonGLUTmain	Init, CW
+Test for Wii, Win/GL, Win/DX9, Win/DX11
+iPhone		Init <CW not called at all!>
+For nonglutmain/OpenGL and DX, problem is that context is not created yet - this is done in CreateWindow. For glut, the context already exists. For iPhone, CreateWindow is not even called - the ObjC boilerplate code creates the context.
+For Wii, Init does everything, CW is empty.
+NB Init is pointless, just use the ctor! ==> Aha, there is no ctor: AmjuGL consists only of static funcs. BUT impls have ctors and can do their initialisation there.
+
+AmjuGLOpenGL::CreateWindow is a mess - there is a version in glutmain that does nothing, another in AmjuGLOpenGL/ which uses SDL to create OpenGL window.
+I.e. the CreateWindow function must be chosen in game-specific code, maybe even at run time if we choose the AmjuGL impl at run time. But making it virtual in AmjuGL is no good, as there is more than one possibility for a given impl. Valid ways of doing it would be loki-style policy; or stand-alone funcs.
+
+Wii: missing snd files cause PAUSE
+Try afconvert to make snd files ??
+E.g. from iphone projects book:
+afconvert -f caff -d LEI16 {IN} {OUT}
+afconvert -f caff -d LEI16@22050 {IN} {OUT}
+
+Wii: assert: EngineStatePoolSetUpShot.cpp:1317
+Pressed B button when in place ball mode I think ?
+
+iphone save data dir: currently is not saving
+
+iphone load time - is using GlueFileMem :-( 
+Depends which file type is taking the most time. E.g. maybe reducing png sizes would help
+
+iphone frame rate -- smaller ball meshes, smaller textures, no trees, etc.
+
+iphone screen size/res is hard coded, TODO Get from device
+
+Wii release: needs meta.xml 
+and wiibrew page -- add some screenshots
+make release -- script
+download link
+request add to Home brew browser
+//and logo
 
 //**Balls in pockets not recognised**
 //- Almost certainly, it's because we are using .obj and there is no "solidity" flag, so pockets can't
@@ -27,27 +64,32 @@ Wii release: needs meta.xml and logo
 
 //Wii: Saving player data to wrong dir -- fix Directory 
 
-Wii and iphone: can't enter player name!!!
--> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
-
 //iphone crashes on startup. Could be humungous mem usage ?
 //Any way of remotely debugging without creating xcode project ?
 //Poss to run in simulator, maybe by changing compiler flags ??
 //"console" iphone build so we can run from cmd line on device
 // -- was bad directory
 
-iphone: bad viewport
-
-iphone: must ask device for screen size
-
 iphone: UI: Use only "left mouse button"
- - critical as iphone users only have one 'mouse button'
+ --> detect 'flick' gesture, use this to control shot strength. So if y diff is a lot more than x diff, go to TakeShot mode.
+EngineStatePoolSetUpShot.cpp:2990 - sets Take Shot mode on "L Mouse button" if y diff is high.
+TODO Test on device, what should y diff value be ? (should this be x diff as screen is rotated?)
+-- Can't aim shot but can take it!
+Then make sure this is disabled for other platforms
 
 Cue pos (english, top spin, etc) uses picking and reads from back buffer!
-Place ball
+//Place ball
 Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
 
 Wii: use title-safe area 
+
+Wii: displaying mouse diff info, causing jitter
+
+Wii: no sound or music
+
+Wii + others: shadow textures don't have alpha channel
+
+Error msg about missing high scores ?
 
 //wii glue file is missing something, and wii build does complain about a missing file
 //...but it seems to work ok!
@@ -56,11 +98,16 @@ Wii: use title-safe area
 Efficiency
 ==========
 
-iphone + wii: make sure no _DEBUG, -O2, etc. 
+// AmjuGL set viewport - make sure we cache last setting -- OK
+
+level0.amju2 (+ presumably the others) has multiple copies of sortscene! Is this as bad as it looks!?!?
+-- No I think it's OK: each level file contains 4 "rooms"
+
+release: make sure no _DEBUG, -O2, etc. 
 
 iphone - strip dead code - set compiler flag
 
-iphone bad framerate -- too many polys
+iphone bad framerate and music stutters -- too many polys ? Try non-debug
 
 //make sure binary obj format has numbers of verts, tris, etc. So we can reserve vector sizes up front.
 // Yes it does!
@@ -84,9 +131,6 @@ TODO Fix MD2 v-coord - md2 images are upside down but v-coord is flipped!?!?!?!!
 // More efficient drawing - now using .obj
 //Use binary obj format
 
-Memory use
- - Will prob  need to load levels on demand..?? OK on Wii apparently, although start up delay is an issue
-
 Wii: no VFC!!! When it was on, bits of scene and balls disappeared - I'm guessing projection matrix.
 
 //Remove unused crap from Assets
@@ -94,24 +138,60 @@ Wii: no VFC!!! When it was on, bits of scene and balls disappeared - I'm guessin
 Convert amju2 to amju2b ??
 iphone reduced size textures
 
-iphone + wii mipmapping ???
+iphone + wii mipmapping ??? Also DX ?!
+
+
+Audio
+=====
+Music plays on iphone but is choppy. If this can't be fixed, will have to not have music.
+
+Check sound effects on iphone: May need to change WAV format. - cashreg, foul (rubber ducky), click ok
+
+Wii: check if music plays: No music!
+
+Wii: convert wav to required format and check.
 
 
 Cosmetic
 ========
 
-No audio
+hiscores.cfg message in loading screen
 
-Wii: Ball textures wrong, numbers missing!?! What up with the UVs ?
-Wii: Can't play .it music
+iphone: buttons don't respond properly. The first touch/release selects, then another is needed to click..!?!
+
+iphone UI: buttons should be a lot bigger.
+
+Wii/iphone buttons which don't make sense, e.g. change player name.
+Options: full screen is not required. In fact could probably do without options menu at all.
+
+Wii and iphone: can't enter player name!!!
+-> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
+
+Use new logo look, i.e. on black background
+
+Wii: would be nice to have Controls page showing wiimote buttons
+
+iPhone: Controls page showing pictures of swipes/gestures
+
+Positioning cue ball: put cue ball in closest legal position to cursor pos, rather than 'sticking' at last known good pos.
+
+//Wii: Ball textures wrong, numbers missing!?! What up with the UVs ?
+//Hmm, a few files have negative UVs: milk-geo (i.e. the ball mesh), also head and ear - i.e. spooky head parts
+//-- Oh, we are using GX_CLAMP in AmjuGL-GCube
+// FIXED
 
 Wii: std::couts are visible!! These must *all* be #ifdef'd
+Especially some x diff and y diff values printed every frame in EngineStatePoolSetUpShot..?
 
-Shadows, trees look wrong, because pngs now need to contain alpha channel. But may be simplest to just remove trees especially, and maybe table shadow..?
+//Shadows, trees look wrong, because pngs now need to contain alpha channel. But may be simplest to just remove trees especially, and maybe table shadow..?
+//TODO: Merge wgold2.png and tree4_a.png, same for shadows
+
+What is drawing the tree and under-table shadows ???
+See tree-shadows.comp, unused/shadow-*.leaf shows textures used
 
 Attract mode can get stuck on 'crazy' version with block in the way. This also causes other probs so delete this type of room.
 
-Trajectory billboards only face camera from one angle!
+Trajectory billboards only face camera from one angle! ?? -> don't seem to be able to reproduce, check again
 
 No lighting now!
 Lighting is not the same as raw OpenGL, so some bits look too dark.
@@ -120,13 +200,19 @@ Some .leaf meshses had auto-gen UVs. The .objs have bogus UVs. Need to UV map th
 
 Some meshes are supposed to be sphere-mapped.
 
-MD2 Model: for ASCP we should freeze at the end of non-looping anims
-+ Marin height wrong (also Amju ?)
+//MD2 Model: for ASCP we should freeze at the end of non-looping anims
+
+// Marin height wrong (also Amju ?)
 
 Localisation
  - Don't use hard coded text on images
  - Use Localise for all text
 
+//Wii: Quit buttons don't work
+// - Try now, AmjuExit didn't have code path for GEKKO
+
+Wii Home button should pause, not quit
+ - but probably best to have this as is for now
 
 
 Bugs remaining from last release
@@ -134,8 +220,8 @@ Bugs remaining from last release
 
  - Amju skirt z fighting
 
- - Pause state crashes from menu or in-game
-  ... because no sound player - there is prob something else going on too.
+// - Pause state crashes from menu or in-game
+//  ... because no sound player - there is prob something else going on too.
 
  - Foul message wrong if cue ball potted (player name changes when next player becomes active ?)
 
