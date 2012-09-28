@@ -17,6 +17,7 @@ LIBS	:= \
 	-framework GLUT \
 	-framework Carbon \
 	-framework IOKit \
+	-lcurl \
 	-lstdc++ -lm 
 
 EXTRA_CFLAGS	:=	-g -O0 -D_DEBUG 
