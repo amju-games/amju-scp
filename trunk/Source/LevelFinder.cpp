@@ -23,16 +23,20 @@ LevelFinder::LevelFileList LevelFinder::GetLevelFiles()
 
   LevelFileList files;
 
-  std::vector<std::string> filenames;
+  DirEnts dirents;  
 
   // Get predefined levels
   // Use Glue File if it is enabled.
-  Dir(File::GetRoot(), &filenames, true); 
+  Dir(File::GetRoot(), &dirents, true); 
   // Copy matching filenames to files result.
-  std::vector<std::string>::iterator it;
-  for (it = filenames.begin(); it != filenames.end(); ++it)
+  DirEnts::iterator it;
+  for (it = dirents.begin(); it != dirents.end(); ++it)
   {
-    files.push_back(LevelFile(*it, false));
+    DirEnt& de = *it;
+    if (!de.m_isDir)
+    {
+      files.push_back(LevelFile(de.m_name, false));
+    }
   }
 
   // Get User levels
