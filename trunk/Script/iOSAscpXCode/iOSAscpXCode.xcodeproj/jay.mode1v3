@@ -266,7 +266,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
@@ -275,13 +274,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>82</integer>
-									<integer>1</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1214}, {355, 760}}</string>
+							<string>{{0, 0}, {355, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -328,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>693D498515ACC0D000B84D5C</string>
+										<string>693D4C4315B4253000B84D5C</string>
 										<key>history</key>
 										<array>
 											<string>693D494F15AC770400B84D5C</string>
@@ -538,7 +536,6 @@
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>693D488D15AB822100B84D5C</string>
-		<string>/Users/jay/projects/amju-scp/Script/iOSAscpXCode/iOSAscpXCode.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>1 58 1440 819 0 0 1440 878 </string>
