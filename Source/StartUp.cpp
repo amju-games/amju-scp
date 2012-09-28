@@ -60,7 +60,7 @@ static const char* GAME_CFG = "game.cfg";
 
 void ConfigHack();
 
-AmjuGLWindowInfo w(WIDTH, HEIGHT, false);
+AmjuGLWindowInfo w(WIDTH, HEIGHT, false, "Amju Super Cool Pool");
 
 const char * APPLICATION_NAME = "Amju Super Cool Pool";
 

@@ -25,7 +25,8 @@ OnlineReqTestable::OnlineReqTestable(
 
 void OnlineReqTestable::SetTestData(const std::string& rawHtml)
 {
-  m_httpResult.AppendData((const unsigned char*)rawHtml.c_str(), rawHtml.size());
+// TODO, this has been removed from amjulib!
+//  m_httpResult.AppendData((const unsigned char*)rawHtml.c_str(), rawHtml.size());
 }
 
 void OnlineReqTestable::SetTestDataFromFile(const std::string& filename)
