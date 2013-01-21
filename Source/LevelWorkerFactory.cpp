@@ -110,21 +110,16 @@ LevelWorker* CreateLwName()
 
 SingleLevelWorkerFactory::SingleLevelWorkerFactory()
 {
-  RegisterFactoryFunction("add_room", CreateLwAddRoom);
-  RegisterFactoryFunction("add_stupids", CreateLwAddStupids);
-//  RegisterFactoryFunction("add_crates", CreateLwAddCrates);
-  RegisterFactoryFunction("add_trees", CreateLwAddTrees);
-//  RegisterFactoryFunction("add_sheds", CreateLwAddSheds);
-  RegisterFactoryFunction("add_bonuses", CreateLwAddBonuses);
-  RegisterFactoryFunction("music", CreateLwMusic);
-//  RegisterFactoryFunction("terrain", CreateLwTerrain);
-  RegisterFactoryFunction("ball", CreateLwBall);
-  RegisterFactoryFunction("characters", CreateLwChars);
-  RegisterFactoryFunction("game_objects", CreateLwGos);
-  RegisterFactoryFunction("flowers", CreateLwFlowers);
-  RegisterFactoryFunction("name", CreateLwName);
-//  RegisterFactoryFunction("boundary", CreateLwBoundary);
-//  RegisterFactoryFunction("water", CreateLwAddWater);
+  Add("add_room", CreateLwAddRoom);
+  Add("add_stupids", CreateLwAddStupids);
+  Add("add_trees", CreateLwAddTrees);
+  Add("add_bonuses", CreateLwAddBonuses);
+  Add("music", CreateLwMusic);
+  Add("ball", CreateLwBall);
+  Add("characters", CreateLwChars);
+  Add("game_objects", CreateLwGos);
+  Add("flowers", CreateLwFlowers);
+  Add("name", CreateLwName);
 }
 }
 
