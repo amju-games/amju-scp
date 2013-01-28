@@ -64,7 +64,7 @@ AmjuGLWindowInfo w(WIDTH, HEIGHT, false, "Amju Super Cool Pool");
 
 const char * APPLICATION_NAME = "Amju Super Cool Pool";
 
-void StartUp()
+void StartUpBeforeCreateWindow()
 {
 #if defined(IPHONE) && defined(AMJU_CONSOLE)
   File::SetRoot("/Applications/Amju_SCP.app/", "/");
@@ -137,9 +137,9 @@ void StartUp()
   TheCursorManager::Instance()->Load(Vec2f(0.025f, -0.08f)); // position hotspot
 #endif
 
-  Engine::Instance()->ChangeState(EsLogo::Name, Engine::IMMEDIATE);
-
   Engine* engine = Engine::Instance();
+  engine->ChangeState(EsLogo::Name, Engine::IMMEDIATE);
+
   engine->GetGameState()->SetName("gs.cfg");
   engine->GetGameState()->Load();
 
@@ -158,6 +158,13 @@ std::cout << "main(): got root\n";
   engine->LoadConfigFile(GAME_CFG);
   engine->InitGl();
 
+  TheGame::Instance()->SetCurrentState(engine);	
+
+}
+
+void StartUpAfterCreateWindow()
+{
+  Engine* engine = Engine::Instance();
   // This doesn't work, screen size is not known yet!!!
   // But the idea is that we get the device resolution so we can work on iphone, ipad, etc. etc.
   //engine->SetViewport(Screen::X(), Screen::Y()); 
@@ -167,8 +174,6 @@ std::cout << "main(): got root\n";
   {
     std::cout << "Couldn't load font.\n";
   }
-
-  TheGame::Instance()->SetCurrentState(engine);	
 
 }
 }
