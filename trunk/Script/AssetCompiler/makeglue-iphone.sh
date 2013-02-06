@@ -32,7 +32,7 @@ cp $SRC_DIR/*.mod $DEST_DIR
 cp $SRC_DIR/*.wav $DEST_DIR
 
 # TODO Convert text files to binary
-. makeobjsbin.sh
+. makeobjsbin-iphone.sh
 
 
 cd $DEST_DIR
