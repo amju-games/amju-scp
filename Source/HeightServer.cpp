@@ -502,12 +502,12 @@ bool HeightPoly::IsInBox(float xmin, float xmax, float zmin, float zmax) const
 
   // If the four points given fall outside the box it may still intersect the
   // box!
-  if (xmin < m_xmin && xmax > m_xmax && (zmax > m_zmin && zmax < m_zmax || zmin > m_zmin && zmin < m_zmax))
+  if (xmin < m_xmin && xmax > m_xmax && ((zmax > m_zmin && zmax < m_zmax) || (zmin > m_zmin && zmin < m_zmax)))
   {
     return true;
   }
 
-  if (zmin < m_zmin && zmax > m_zmax && (xmax > m_xmin && xmax < m_xmax || xmin > m_xmin && xmin < m_xmax))
+  if (zmin < m_zmin && zmax > m_zmax && ((xmax > m_xmin && xmax < m_xmax) || (xmin > m_xmin && xmin < m_xmax)))
   {
     return true;
   }
