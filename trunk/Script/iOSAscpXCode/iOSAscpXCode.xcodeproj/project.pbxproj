@@ -13,6 +13,7 @@
 		2514C27C10084DCA00A42282 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* Shader.vsh */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		690B10F9171DC2B80024BB22 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690B10F8171DC2B80024BB22 /* Default-568h@2x.png */; };
 		693D471B15AB81A000B84D5C /* AmjuExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D442315AB819F00B84D5C /* AmjuExit.cpp */; };
 		693D471C15AB81A000B84D5C /* AngleCompare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D442515AB819F00B84D5C /* AngleCompare.cpp */; };
 		693D471D15AB81A000B84D5C /* Attrib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D442715AB819F00B84D5C /* Attrib.cpp */; };
@@ -267,7 +268,6 @@
 		693D48EA15AC3C6A00B84D5C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D48E915AC3C6A00B84D5C /* CFNetwork.framework */; };
 		693D490215AC3C7D00B84D5C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693D490115AC3C7D00B84D5C /* SystemConfiguration.framework */; };
 		693D492015AC69D200B84D5C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 693D491D15AC69D200B84D5C /* icon.png */; };
-		693D492115AC69D200B84D5C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 693D491E15AC69D200B84D5C /* Info.plist */; };
 		693D492215AC69D200B84D5C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693D491F15AC69D200B84D5C /* MainWindow.xib */; };
 		693D494115AC767800B84D5C /* data-iphone.glue in Resources */ = {isa = PBXBuildFile; fileRef = 693D493F15AC767800B84D5C /* data-iphone.glue */; };
 		693D494215AC767800B84D5C /* music-iphone.glue in Resources */ = {isa = PBXBuildFile; fileRef = 693D494015AC767800B84D5C /* music-iphone.glue */; };
@@ -282,6 +282,8 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iOSAscpXCode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSAscpXCode_Prefix.pch; sourceTree = "<group>"; };
+		690B10F8171DC2B80024BB22 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		690B10FA171EC09A0024BB22 /* libbass.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbass.a; path = "../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free/libbass.a"; sourceTree = "<group>"; };
 		693D442315AB819F00B84D5C /* AmjuExit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AmjuExit.cpp; path = ../../Source/AmjuExit.cpp; sourceTree = SOURCE_ROOT; };
 		693D442415AB819F00B84D5C /* AmjuExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmjuExit.h; path = ../../Source/AmjuExit.h; sourceTree = SOURCE_ROOT; };
 		693D442515AB819F00B84D5C /* AngleCompare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AngleCompare.cpp; path = ../../Source/AngleCompare.cpp; sourceTree = SOURCE_ROOT; };
@@ -474,7 +476,6 @@
 		693D44E315AB819F00B84D5C /* ExplosionEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplosionEffect.h; path = ../../Source/ExplosionEffect.h; sourceTree = SOURCE_ROOT; };
 		693D44E415AB819F00B84D5C /* ExtraDir.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtraDir.cpp; path = ../../Source/ExtraDir.cpp; sourceTree = SOURCE_ROOT; };
 		693D44E515AB819F00B84D5C /* ExtraDir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtraDir.h; path = ../../Source/ExtraDir.h; sourceTree = SOURCE_ROOT; };
-		693D44E615AB819F00B84D5C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Factory.h; path = ../../Source/Factory.h; sourceTree = SOURCE_ROOT; };
 		693D44E715AB819F00B84D5C /* FallDownController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FallDownController.cpp; path = ../../Source/FallDownController.cpp; sourceTree = SOURCE_ROOT; };
 		693D44E815AB819F00B84D5C /* FallDownController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FallDownController.h; path = ../../Source/FallDownController.h; sourceTree = SOURCE_ROOT; };
 		693D44E915AB819F00B84D5C /* FileCheckState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileCheckState.cpp; path = ../../Source/FileCheckState.cpp; sourceTree = SOURCE_ROOT; };
@@ -815,7 +816,6 @@
 		693D48E915AC3C6A00B84D5C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		693D490115AC3C7D00B84D5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		693D491D15AC69D200B84D5C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../amjulib/Assets/iPhone/icon.png; sourceTree = SOURCE_ROOT; };
-		693D491E15AC69D200B84D5C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../amjulib/Assets/iPhone/Info.plist; sourceTree = SOURCE_ROOT; };
 		693D491F15AC69D200B84D5C /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../../../amjulib/Assets/iPhone/MainWindow.xib; sourceTree = SOURCE_ROOT; };
 		693D493F15AC767800B84D5C /* data-iphone.glue */ = {isa = PBXFileReference; lastKnownFileType = file; name = "data-iphone.glue"; path = "../../Build/CompiledAssets/data-iphone.glue"; sourceTree = SOURCE_ROOT; };
 		693D494015AC767800B84D5C /* music-iphone.glue */ = {isa = PBXFileReference; lastKnownFileType = file; name = "music-iphone.glue"; path = "../../Build/CompiledAssets/music-iphone.glue"; sourceTree = SOURCE_ROOT; };
@@ -1034,7 +1034,6 @@
 				693D44E315AB819F00B84D5C /* ExplosionEffect.h */,
 				693D44E415AB819F00B84D5C /* ExtraDir.cpp */,
 				693D44E515AB819F00B84D5C /* ExtraDir.h */,
-				693D44E615AB819F00B84D5C /* Factory.h */,
 				693D44E715AB819F00B84D5C /* FallDownController.cpp */,
 				693D44E815AB819F00B84D5C /* FallDownController.h */,
 				693D44E915AB819F00B84D5C /* FileCheckState.cpp */,
@@ -1395,6 +1394,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				690B10FA171EC09A0024BB22 /* libbass.a */,
+				690B10F8171DC2B80024BB22 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				2514C27610084DB600A42282 /* Shaders */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -1419,7 +1420,6 @@
 				693D493F15AC767800B84D5C /* data-iphone.glue */,
 				693D494015AC767800B84D5C /* music-iphone.glue */,
 				693D491D15AC69D200B84D5C /* icon.png */,
-				693D491E15AC69D200B84D5C /* Info.plist */,
 				693D491F15AC69D200B84D5C /* MainWindow.xib */,
 			);
 			name = Resources;
@@ -1491,10 +1491,10 @@
 				2514C27B10084DCA00A42282 /* Shader.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* Shader.vsh in Resources */,
 				693D492015AC69D200B84D5C /* icon.png in Resources */,
-				693D492115AC69D200B84D5C /* Info.plist in Resources */,
 				693D492215AC69D200B84D5C /* MainWindow.xib in Resources */,
 				693D494115AC767800B84D5C /* data-iphone.glue in Resources */,
 				693D494215AC767800B84D5C /* music-iphone.glue in Resources */,
+				690B10F9171DC2B80024BB22 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1770,11 +1770,25 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSAscpXCode_Prefix.pch;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					LANDSCAPE,
+					_DEBUG,
+					IPHONE,
+					AMJU_USE_BASS,
+				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "iOSAscpXCode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../amjulib/Script/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/\"",
+					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/Network/curl/lib-ios\"",
+				);
+				OTHER_LDFLAGS = "-lAmjulib";
+				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
+					"-lAmjulib",
+					"-lbass",
 				);
 				PRODUCT_NAME = iOSAscpXCode;
 			};
@@ -1787,11 +1801,23 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSAscpXCode_Prefix.pch;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					LANDSCAPE,
+					IPHONE,
+					AMJU_USE_BASS,
+				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "iOSAscpXCode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../amjulib/Script/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/\"",
+					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free\"",
+					"\"$(SRCROOT)/../../../amjulib/Source/Network/curl/lib-ios\"",
+				);
+				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
+					"-lAmjulib",
+					"-lbass",
 				);
 				PRODUCT_NAME = iOSAscpXCode;
 				VALIDATE_PRODUCT = YES;
