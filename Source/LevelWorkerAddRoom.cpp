@@ -48,7 +48,7 @@ bool LevelWorkerAddRoom::Load(File* pf)
     if (!pRoom->Load(roomFileName))
     {
       std::string err = "Failed to load room: ";
-      err == roomFileName;
+      err += roomFileName;
       pf->ReportError(err);
       return false;
     }
