@@ -11,6 +11,7 @@
 #include <Localise.h>
 #include <ReportError.h>
 #include <Screen.h>
+#include <Directory.h>
 #ifdef GEKKO
 #include <CursorManager.h>
 #endif
@@ -66,8 +67,10 @@ const char * APPLICATION_NAME = "Amju Super Cool Pool";
 
 void StartUpBeforeCreateWindow()
 {
-#if defined(IPHONE) && defined(AMJU_CONSOLE)
-  File::SetRoot("/Applications/Amju_SCP.app/", "/");
+#if defined(IPHONE)
+  std::string dataDir = GetDataDir();
+  std::cout << "Data Dir: " << dataDir << "\n";
+  File::SetRoot(dataDir, "/");
 #endif
 
 #ifdef GEKKO
