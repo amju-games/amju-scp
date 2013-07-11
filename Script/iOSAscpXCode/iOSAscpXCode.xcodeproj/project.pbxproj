@@ -13,6 +13,8 @@
 		2514C27C10084DCA00A42282 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* Shader.vsh */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		6905A792178F2DD9008EDC93 /* libAmjulib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6905A791178F2DD9008EDC93 /* libAmjulib.a */; };
+		6905A793178F2E06008EDC93 /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690B10FA171EC09A0024BB22 /* libbass.a */; };
 		690B10F9171DC2B80024BB22 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690B10F8171DC2B80024BB22 /* Default-568h@2x.png */; };
 		693D471B15AB81A000B84D5C /* AmjuExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D442315AB819F00B84D5C /* AmjuExit.cpp */; };
 		693D471C15AB81A000B84D5C /* AngleCompare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 693D442515AB819F00B84D5C /* AngleCompare.cpp */; };
@@ -282,6 +284,7 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iOSAscpXCode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSAscpXCode_Prefix.pch; sourceTree = "<group>"; };
+		6905A791178F2DD9008EDC93 /* libAmjulib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAmjulib.a; path = "../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphoneos/libAmjulib.a"; sourceTree = "<group>"; };
 		690B10F8171DC2B80024BB22 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		690B10FA171EC09A0024BB22 /* libbass.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbass.a; path = "../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free/libbass.a"; sourceTree = "<group>"; };
 		693D442315AB819F00B84D5C /* AmjuExit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AmjuExit.cpp; path = ../../Source/AmjuExit.cpp; sourceTree = SOURCE_ROOT; };
@@ -826,6 +829,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6905A793178F2E06008EDC93 /* libbass.a in Frameworks */,
+				6905A792178F2DD9008EDC93 /* libAmjulib.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
@@ -1394,6 +1399,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				6905A791178F2DD9008EDC93 /* libAmjulib.a */,
 				690B10FA171EC09A0024BB22 /* libbass.a */,
 				690B10F8171DC2B80024BB22 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -1765,6 +1771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Colman (84B44NBTUW)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1780,17 +1787,13 @@
 				INFOPLIST_FILE = "iOSAscpXCode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/\"",
-					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free\"",
-					"\"$(SRCROOT)/../../../amjulib/Source/Network/curl/lib-ios\"",
 				);
-				OTHER_LDFLAGS = "-lAmjulib";
-				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
-					"-lAmjulib",
-					"-lbass",
-				);
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = "";
 				PRODUCT_NAME = iOSAscpXCode;
+				PROVISIONING_PROFILE = "E2ECAEDF-910A-4A55-B278-11948A2C579D";
 			};
 			name = Debug;
 		};
@@ -1798,6 +1801,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Colman (84B44NBTUW)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSAscpXCode_Prefix.pch;
@@ -1810,16 +1814,12 @@
 				INFOPLIST_FILE = "iOSAscpXCode-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/\"",
-					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../amjulib/Source/SoundBass/Bass2.4/iPhone/mp3-free\"",
-					"\"$(SRCROOT)/../../../amjulib/Source/Network/curl/lib-ios\"",
 				);
-				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = (
-					"-lAmjulib",
-					"-lbass",
-				);
+				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = "";
 				PRODUCT_NAME = iOSAscpXCode;
+				PROVISIONING_PROFILE = "E2ECAEDF-910A-4A55-B278-11948A2C579D";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1838,8 +1838,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/Users/jay/projects/amjulib/Source/**";
-				LIBRARY_SEARCH_PATHS = "/Users/jay/projects/amjulib/Build/iOSAmjulibXCode/Amjulib/build/Debug-iphonesimulator";
-				OTHER_LDFLAGS = "-lAmjulib";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
