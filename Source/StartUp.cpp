@@ -47,7 +47,7 @@
 
 namespace Amju
 {
-#ifdef IPHONE
+#ifdef AMJU_IOS
 // But TODO what about different res devices
 static const int WIDTH = 480; 
 static const int HEIGHT = 320;
@@ -167,11 +167,18 @@ std::cout << "main(): got root\n";
 
 void StartUpAfterCreateWindow()
 {
+  Texture::SetDefaultFilter(AmjuGL::AMJU_TEXTURE_NEAREST);
+  Texture::SetDefaultWrapMode(AmjuGL::AMJU_TEXTURE_CLAMP);
+
   Engine* engine = Engine::Instance();
-  // This doesn't work, screen size is not known yet!!!
+
+  // This is no good, screen size is not known yet!!!
   // But the idea is that we get the device resolution so we can work on iphone, ipad, etc. etc.
-  //engine->SetViewport(Screen::X(), Screen::Y()); 
-  engine->SetViewport(WIDTH, HEIGHT);
+
+#ifndef AMJU_IOS
+  Screen::SetSize(WIDTH, HEIGHT);
+  engine->SetViewport(Screen::X(), Screen::Y());
+#endif
 
   if (!engine->LoadFont())
   {

@@ -1463,6 +1463,15 @@ void Engine::Update()
 
 void Engine::Draw()
 {
+  // TODO Sort this out
+  static bool first = true;
+  if (first)
+  {
+    first = false;
+    m_viewportX = Screen::X();
+    m_viewportY = Screen::Y();
+  }
+
   Assert(m_pCurrentState.GetPtr());
 
   m_numFrames++;
