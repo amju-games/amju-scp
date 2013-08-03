@@ -1,15 +1,9 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: BillBoard.h,v $
-Revision 1.1  2004/09/08 15:42:45  jay
-Added to repository
-  
-*/
-
 #if !defined(BILLBOARD_H_INCLUDED)
 #define BILLBOARD_H_INCLUDED
 
+#include <TriList.h>
 #include "SolidLeaf.h"
+
 namespace Amju
 {
 class PoolTexture;
@@ -38,6 +32,7 @@ public:
   void SetVertical(bool vertical) { m_vertical = vertical; }
 
 protected:
+  RCPtr<TriListDynamic> m_triList;
   PoolTexture* m_pTexture;
   // The size is the size from the origin to the edge, i.e. like the radius.
   float m_size;

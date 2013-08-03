@@ -1,30 +1,9 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: BasicShadow.h,v $
-Revision 1.5  2007/11/24 22:31:00  jay
-Use a private Polygon class to draw Shadows; we should remove Polygon
-from AmjuGL
+#ifndef ASCP_BASIC_SHADOW_H_INCLUDED
+#define ASCP_BASIC_SHADOW_H_INCLUDED
 
-Revision 1.4  2007/11/13 21:33:10  jay
-Remove all OpenGL calls from game code
-
-Revision 1.3  2007/11/10 13:19:22  jay
-LeafData: different version for game/Scene Ed
-
-Revision 1.2  2006/11/16 09:22:13  jay
-Set height range for floor polys, so we don't cast shadows on floors which
-are too high
-
-Revision 1.1  2004/09/08 15:42:44  jay
-Added to repository
-  
-*/
-
-#if !defined(SCHMICKEN_BASIC_SHADOW_H_INCLUDED)
-#define SCHMICKEN_BASIC_SHADOW_H_INCLUDED
-
+#include <AmjuGL.h>
+#include <TriList.h>
 #include "Shadow.h"
-#include "AmjuGL.h"
 
 namespace Amju
 {
@@ -106,7 +85,8 @@ protected:
     //typedef std::vector<Vert> Verts;
     //AmuGL::Verts m_verts;
     // Create tris as verts added
-    AmjuGL::Tris m_tris;
+////    AmjuGL::Tris m_tris;
+    RCPtr<TriListStatic> m_triList;
 
     std::vector<AmjuGL::Vert> m_verts;
  };
