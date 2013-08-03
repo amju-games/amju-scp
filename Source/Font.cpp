@@ -157,6 +157,9 @@ float PoolFont::GetTextWidth(const std::string& s)
 
 void PoolFont::PrintNoBlend(float x, float y, const char* text)
 {
+  return;
+  
+  
     if (!text)
     {
         return;

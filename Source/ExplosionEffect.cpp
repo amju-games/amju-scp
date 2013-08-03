@@ -1,18 +1,3 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: ExplosionEffect.cpp,v $
-Revision 1.1.10.1  2006/04/11 17:00:20  jay
-Add Kill() to immediately kill effect
-
-Revision 1.1  2004/09/08 15:42:38  jay
-Added to repository
-  
-*/
-
-#if defined(WIN32)
-#pragma warning(disable: 4786)
-#endif
-
 #include "ExplosionEffect.h"
 #include "Engine.h"
 #include "File.h"
@@ -95,6 +80,8 @@ void ExplosionEffect::Init(
 
 void ExplosionEffect::Draw()
 {
+return; // TODO TEMP TEST
+
   // Disable lighting for the particles.
   AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING);
   AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
