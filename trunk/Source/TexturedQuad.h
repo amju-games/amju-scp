@@ -1,18 +1,8 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: TexturedQuad.h,v $
-Revision 1.1.10.1  2005/03/31 22:53:16  jay
-Added Save() for SCENE_EDITOR
-
-Revision 1.1  2004/09/08 15:42:59  jay
-Added to repository
-  
-*/
-
 #if !defined(TEXTURED_QUAD_H_INCLUDED)
 #define TEXTURED_QUAD_H_INCLUDED
 
 #include <string>
+#include <TriList.h>
 
 namespace Amju
 {
@@ -48,6 +38,7 @@ protected:
   PoolTexture* m_pTex;
   // Set area of texture which is drawn.
   float m_areaTop, m_areaLeft, m_areaBottom, m_areaRight;
+  RCPtr<TriListDynamic> m_triList;
 };
 }
 #endif
