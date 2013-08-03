@@ -76,6 +76,8 @@ TextWriter::~TextWriter()
 
 void TextWriter::PrintNoBlend(float x, float y, const char *text, PoolFont* pFont)
 {
+  return; // TODO TEMP TEST
+  
     if (pFont == 0)
     {
         pFont = GetDefaultFont();
@@ -85,6 +87,8 @@ void TextWriter::PrintNoBlend(float x, float y, const char *text, PoolFont* pFon
 
 void TextWriter::Print(float x, float y, const char *text, PoolFont* pFont)
 {
+  return; // TODO TEMP TEST 
+  
     AmjuGL::PushAttrib(AmjuGL::AMJU_BLEND);
 
     ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
