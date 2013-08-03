@@ -17,7 +17,7 @@
 #endif
 #include "PoolGameState.h"
 
-#ifdef MACOSX
+#ifdef AMJU_USE_BASS
 #include <BassSoundPlayer.h>
 #endif
 
@@ -40,7 +40,7 @@
 #define MUSIC_GLUE_FILE "music-wii.glue"
 #endif
 
-#ifdef IPHONE
+#ifdef AMJU_IOS
 #define GLUE_FILE "data-iphone.glue"
 #define MUSIC_GLUE_FILE "music-iphone.glue"
 #endif
@@ -78,7 +78,7 @@ void StartUpBeforeCreateWindow()
   File::SetRoot("/apps/amju_scp/data/", "/");
 #endif
 
-#if defined (MACOSX)
+#if defined (AMJU_USE_BASS)
   TheSoundManager::Instance()->SetImpl(new BassSoundPlayer);
 #endif
 
@@ -167,8 +167,8 @@ std::cout << "main(): got root\n";
 
 void StartUpAfterCreateWindow()
 {
-  Texture::SetDefaultFilter(AmjuGL::AMJU_TEXTURE_NEAREST);
-  Texture::SetDefaultWrapMode(AmjuGL::AMJU_TEXTURE_CLAMP);
+  Texture::SetDefaultFilter(AmjuGL::AMJU_TEXTURE_NICE);
+  Texture::SetDefaultWrapMode(AmjuGL::AMJU_TEXTURE_WRAP);
 
   Engine* engine = Engine::Instance();
 
