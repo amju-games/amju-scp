@@ -1,18 +1,3 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: BillBoard.cpp,v $
-Revision 1.1  2004/09/08 15:42:45  jay
-Added to repository
-  
-*/
-
-// This source code originally written by JASON COLMAN 2000-2003. 
-// You may use it as you wish, at your own risk!  jason@amju.com.
-
-#if defined(WIN32)
-#pragma warning(disable: 4786)
-#endif
-
 #include "BillBoard.h"
 #include "CompositeFactory.h"
 #include "SolidComponent.h"
@@ -66,68 +51,6 @@ void BillBoard::Draw()
     up.Normalise();
   }
 
-/*
-  // Get centre of billboard. As Billboards are SolidLeaves, we have an
-  // orientation member.
-  //Vec3f PT = m_or.GetVertex();
-  Vec3f PT(0, 0, 0); // TODO TEMP TEST current orientation already in matrix,
-   // because we got the ModelView matrix ?
-
-  Vec3f t; // temp
-
-  t = right;
-  t *= -1;
-  t -= up;
-  t *= m_size;
-
-  Vec3f A = PT;
-  A += t;
-
-  t = right;
-  t -= up;
-  t *= m_size;
-  Vec3f B = PT;
-  B += t;
-
-  t = right;
-  t += up;
-  t *= m_size;
-  Vec3f C = PT;
-  C += t;
-
-  t = up;
-  t -= right;
-  t *= m_size;
-  Vec3f D = PT;
-  D += t;
-  
-  AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING | AmjuGL::AMJU_BLEND);
-
-  AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
-  //////////glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
-
-  glBegin(GL_QUADS);
-  
-  TexVertex(0, 0).DrawVertex();
-  SceneVertex(A).DrawVertex();
-
-  TexVertex(1, 0).DrawVertex();
-  SceneVertex(B).DrawVertex();
-
-  TexVertex(1, 1).DrawVertex();
-  SceneVertex(C).DrawVertex();
-
-  TexVertex(0, 1).DrawVertex();
-  SceneVertex(D).DrawVertex();
-
-  glEnd();
-
-  //////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  AmjuGL::PopAttrib();
-*/
-
-
   Vec3f v0 = ( up + right); v0 *= m_size;
   Vec3f v1 = ( up - right); v1 *= m_size;
   Vec3f v2 = (Vec3f()-up - right); v2 *= m_size;
@@ -156,9 +79,14 @@ void BillBoard::Draw()
   AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ); // TODO have a member flag
   AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
   AmjuGL::PushMatrix();
-//  AmjuGL::MultMatrix(m_combined); // NB combined
-//  m_texture->UseThisTexture();
-  AmjuGL::DrawTriList(tris);
+
+  if (!m_triList)
+  {
+    m_triList = (TriListDynamic*)AmjuGL::Create(TriListDynamic::DRAWABLE_TYPE_ID);
+  }
+  m_triList->Set(tris);
+  AmjuGL::Draw(m_triList);
+
   AmjuGL::PopMatrix();
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
 }
