@@ -94,7 +94,7 @@ void OnlineWaitCancel()
 
 bool EngineStatePoolOnlineWait::Load()
 {
-  m_pCancelButton = new GuiButton;
+  m_pCancelButton = new PoolGuiButton;
   if (!m_pCancelButton->Load("pool-online-table-cancel-button.txt"))
   {
     ReportError("Failed to load online table cancel button");

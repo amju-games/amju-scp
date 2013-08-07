@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiCommandHandler.h,v $
+$Log: PoolGuiCommandHandler.h,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -15,14 +15,14 @@ Added to repository
 
 namespace Amju
 {
-class GuiElement;
+class PoolGuiElement;
 
-class GuiCommand : public RefCounted
+class PoolGuiCommand : public RefCounted
 {
 public:
-  GuiCommand() : m_pGui(0) {}
+  PoolGuiCommand() : m_pPoolGui(0) {}
 
-  virtual ~GuiCommand() {}
+  virtual ~PoolGuiCommand() {}
 
   // Execute the command. Return true if the command executed successfully
   // and should be added to the undo stack.
@@ -31,20 +31,20 @@ public:
 
   // Set/get the GUI element which the user clicks on to execute this
   // command.
-  void SetGuiElement(GuiElement* p) { m_pGui = p; }
-  GuiElement* GetGuiElement() { return m_pGui; }
+  void SetPoolGuiElement(PoolGuiElement* p) { m_pPoolGui = p; }
+  PoolGuiElement* GetPoolGuiElement() { return m_pPoolGui; }
 
 protected:
-  // The Gui element which owns this Command and fires it when required.
-  GuiElement* m_pGui;
+  // The PoolGui element which owns this Command and fires it when required.
+  PoolGuiElement* m_pPoolGui;
 };
-typedef RCPtr<GuiCommand> PCommand;
+typedef RCPtr<PoolGuiCommand> PCommand;
 
 // See Command pattern.
-class SingleGuiCommandHandler
+class SinglePoolGuiCommandHandler
 {
 public:
-  SingleGuiCommandHandler();
+  SinglePoolGuiCommandHandler();
   void Undo();
   void Redo();
   bool CanUndo() const;
@@ -58,7 +58,7 @@ protected:
   Commands::iterator m_it;
 };
 
-typedef Singleton<SingleGuiCommandHandler> GuiCommandHandler;
+typedef Singleton<SinglePoolGuiCommandHandler> PoolGuiCommandHandler;
 }
 
 #endif

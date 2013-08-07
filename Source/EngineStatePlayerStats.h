@@ -28,7 +28,7 @@ namespace Amju
 // The stats are shown as guages, with a label identifying each
 // guage.
 // The guages may be read-only or the user may be able to change
-// them - use a draggable GuiElement for this.
+// them - use a draggable PoolGuiElement for this.
 class EngineStatePlayerStats : public EngineStateText
 {
 public:
@@ -63,7 +63,7 @@ protected:
 
 protected:
   // OK button - player clicks when done with stats.
-  PGuiElement m_pOkButton;
+  PPoolGuiElement m_pOkButton;
   // 3D ok text
   PSolidComponent m_pOkText;
 

@@ -323,7 +323,7 @@ bool EngineStatePlayerStats::Load()
 
   // Set up GUI button
   // "OK" button
-  m_pOkButton = new GuiButton;
+  m_pOkButton = new PoolGuiButton;
   // TODO Have a unique file
   std::string okButtonFile = GetEngine()->GetConfigValue("golf_start_button");
   if (!m_pOkButton->Load(okButtonFile))

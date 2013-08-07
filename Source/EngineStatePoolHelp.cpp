@@ -112,7 +112,7 @@ bool EngineStatePoolHelp::Load()
     return false;
   }
   
-  m_pOkButton = new GuiButton;
+  m_pOkButton = new PoolGuiButton;
   if (!m_pOkButton->Load("pool-ok-button.txt"))
   {
     ReportError("Help state: failed to load ok button.");
@@ -123,7 +123,7 @@ bool EngineStatePoolHelp::Load()
   m_pOkButton->SetCommand(&OnHelpOkButton);
   
   /*
-  m_pScrollUpButton = new GuiButton;
+  m_pScrollUpButton = new PoolGuiButton;
   if (!m_pScrollUpButton->Load("pool-up-button.txt"))
   {
     ReportError("Help state: failed to load scroll up button.");
@@ -133,7 +133,7 @@ bool EngineStatePoolHelp::Load()
   m_pScrollUpButton->SetRelPos(0, 20.0f); // TODO TEMP TEST
   m_pScrollUpButton->SetCommand(&OnScrollUpButton);
   
-  m_pScrollDownButton = new GuiButton;
+  m_pScrollDownButton = new PoolGuiButton;
   if (!m_pScrollDownButton->Load("pool-down-button.txt"))
   {
     ReportError("Help state: failed to load scroll down button.");

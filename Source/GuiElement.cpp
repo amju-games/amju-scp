@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiElement.cpp,v $
+$Log: PoolGuiElement.cpp,v $
 Revision 1.1.10.9  2007/03/09 21:48:55  jay
 Copy latest GUI library from trunk
 
@@ -77,9 +77,9 @@ Added to repository
 
 namespace Amju
 {
-TexturedQuad GuiElement::s_bg;
+TexturedQuad PoolGuiElement::s_bg;
 
-bool GuiElement::Init()
+bool PoolGuiElement::Init()
 {
   static bool first = true;
   if (!first)
@@ -98,7 +98,7 @@ bool GuiElement::Init()
   return true;
 }
 
-GuiElement::GuiElement()
+PoolGuiElement::PoolGuiElement()
 {
   m_relTop = 0;
   m_relLeft = 0;
@@ -120,7 +120,7 @@ GuiElement::GuiElement()
   m_isCancel = false;
 }
 
-void GuiElement::OnKey(char c)
+void PoolGuiElement::OnKey(char c)
 {
   // Handle ESC
   if (c == 27 /* ESC */ && IsCancel())
@@ -129,37 +129,37 @@ void GuiElement::OnKey(char c)
   }
 }
 
-bool GuiElement::IsCancel() const
+bool PoolGuiElement::IsCancel() const
 {
   return m_isCancel;
 }
 
-void GuiElement::SetIsCancel(bool isCancel)
+void PoolGuiElement::SetIsCancel(bool isCancel)
 {
   m_isCancel = isCancel;
 }
 
-bool GuiElement::IsPlayerSelectable() const
+bool PoolGuiElement::IsPlayerSelectable() const
 {
   return m_isPlayerSelectable;
 }
 
-void GuiElement::SetIsPlayerSelectable(bool isSelectable)
+void PoolGuiElement::SetIsPlayerSelectable(bool isSelectable)
 {
   m_isPlayerSelectable = isSelectable;
 }
 
-void GuiElement::SetCheckMouseOver(bool b)
+void PoolGuiElement::SetCheckMouseOver(bool b)
 {
   m_checkMouseOver = b;
 }
 
-bool GuiElement::GetCheckMouseOver() const
+bool PoolGuiElement::GetCheckMouseOver() const
 {
   return m_checkMouseOver;
 }
 
-void GuiElement::SetRelPos(float top, float left)
+void PoolGuiElement::SetRelPos(float top, float left)
 {
   m_relTop = top;
   m_relLeft = left;
@@ -178,51 +178,51 @@ void GuiElement::SetRelPos(float top, float left)
   }
 }
 
-void GuiElement::GetRelPos(float* pTop, float* pLeft)
+void PoolGuiElement::GetRelPos(float* pTop, float* pLeft)
 {
   *pTop = m_relTop;
   *pLeft = m_relLeft;
 }
 
-void GuiElement::SetAbsPos(float top, float left)
+void PoolGuiElement::SetAbsPos(float top, float left)
 {
   m_absTop = top;
   m_absLeft = left;
 }
 
-void GuiElement::GetAbsPos(float* pTop, float* pLeft)
+void PoolGuiElement::GetAbsPos(float* pTop, float* pLeft)
 {
   *pTop = m_absTop;
   *pLeft = m_absLeft;
 }
 
-void GuiElement::SetSize(float w, float h)
+void PoolGuiElement::SetSize(float w, float h)
 {
   m_width = w;
   m_height = h;
 }
 
-void GuiElement::GetSize(float* pWidth, float* pHeight) const
+void PoolGuiElement::GetSize(float* pWidth, float* pHeight) const
 {
   *pWidth = m_width;
   *pHeight = m_height;
 }
 
-float GuiElement::GetWidth() const
+float PoolGuiElement::GetWidth() const
 {
   return m_width;
 }
 
-float GuiElement::GetHeight() const
+float PoolGuiElement::GetHeight() const
 {
   return m_height;
 }
 
-void GuiElement::MousePos(int x, int y)
+void PoolGuiElement::MousePos(int x, int y)
 {
 }
 
-void GuiElement::MouseButton(bool down, bool ctrl, bool shift)
+void PoolGuiElement::MouseButton(bool down, bool ctrl, bool shift)
 {
   if (!IsVisible())
   {
@@ -249,7 +249,7 @@ void GuiElement::MouseButton(bool down, bool ctrl, bool shift)
   Mouse::s_mouseDown = down;
 }
 
-bool GuiElement::IsEnabled() const
+bool PoolGuiElement::IsEnabled() const
 {
   // Traverse parent, grandparent etc to find any disabled ancestor
   if (!m_isEnabled)
@@ -263,22 +263,22 @@ bool GuiElement::IsEnabled() const
   return true;
 }
 
-void GuiElement::SetEnabled(bool b)
+void PoolGuiElement::SetEnabled(bool b)
 {
   m_isEnabled = b;
 }
 
-bool GuiElement::IsSelected() const
+bool PoolGuiElement::IsSelected() const
 {
   return m_downSelected;
 }
 
-bool GuiElement::IsMouseOver() const
+bool PoolGuiElement::IsMouseOver() const
 {
   return m_isSelected;
 }
 
-void GuiElement::DrawNoCheckMouseOver()
+void PoolGuiElement::DrawNoCheckMouseOver()
 {
   static const float GUI_SELECT_OFFSET = Engine::Instance()->GetConfigFloat("gui_select_offset");
 
@@ -297,7 +297,7 @@ void GuiElement::DrawNoCheckMouseOver()
   }
 }
 
-void GuiElement::Draw()
+void PoolGuiElement::Draw()
 {
   static const float GUI_SELECT_OFFSET = Engine::Instance()->GetConfigFloat("gui_select_offset");
 
@@ -449,7 +449,7 @@ std::cout << "Checkmouse: " << checkMouse << "\n";
   }
 }
 
-void GuiElement::DrawToolTipText()
+void PoolGuiElement::DrawToolTipText()
 {
   static PoolFont* pFont = TheFontManager::Instance()->GetFont("tooltip");
 
@@ -489,24 +489,24 @@ std::cout << "TOOLTIP: width: " << w << " for text: " << m_toolTipText[0]
   }
 }
 
-bool GuiElement::CanDrag()
+bool PoolGuiElement::CanDrag()
 {
   return m_canDrag;
 }
 
-void GuiElement::DrawBg() const
+void PoolGuiElement::DrawBg() const
 {
   s_bg.Draw(m_absTop, m_absLeft, m_height + m_absTop, m_width + m_absLeft);
 }
 
-void GuiElement::PlayClickWav()
+void PoolGuiElement::PlayClickWav()
 {
   static const std::string wavFile = Engine::Instance()->GetConfigValue(
     "gui_element_click_wav");
   Engine::Instance()->PlayWav(wavFile);
 }
 
-void GuiElement::OnClicked()
+void PoolGuiElement::OnClicked()
 {
   if (m_pCommandFunc)
   {
@@ -516,7 +516,7 @@ void GuiElement::OnClicked()
   else if (m_pCommand.GetPtr())
   {
     PlayClickWav();
-    GuiCommandHandler::Instance()->DoNewCommand(m_pCommand);
+    PoolGuiCommandHandler::Instance()->DoNewCommand(m_pCommand);
   }
   else if (m_pParent)
   {
@@ -526,35 +526,35 @@ void GuiElement::OnClicked()
   }
 }
 
-void GuiElement::DrawImpl()
+void PoolGuiElement::DrawImpl()
 {
 }
 
-void GuiElement::SetCommand(GuiCommand* pCommand)
+void PoolGuiElement::SetCommand(PoolGuiCommand* pCommand)
 {
   m_pCommand = pCommand;
-  m_pCommand->SetGuiElement(this);
+  m_pCommand->SetPoolGuiElement(this);
 
   m_pCommandFunc = 0;
 }
 
-void GuiElement::SetCommand(CommandFunc f)
+void PoolGuiElement::SetCommand(CommandFunc f)
 {
   m_pCommandFunc = f;
   m_pCommand = 0;
 }
 
-void GuiElement::SetParent(GuiElement* p)
+void PoolGuiElement::SetParent(PoolGuiElement* p)
 {
   m_pParent = p;
 }
 
-GuiElement* GuiElement::GetParent()
+PoolGuiElement* PoolGuiElement::GetParent()
 {
   return m_pParent;
 }
 
-void GuiElement::SetVisible(bool visible)
+void PoolGuiElement::SetVisible(bool visible)
 {
   if (!visible)
   {
@@ -564,12 +564,12 @@ void GuiElement::SetVisible(bool visible)
   m_isVisible = visible;
 }
 
-bool GuiElement::IsVisible() const
+bool PoolGuiElement::IsVisible() const
 {
   return m_isVisible;
 }
 
-bool GuiElement::Load(const std::string& filename)
+bool PoolGuiElement::Load(const std::string& filename)
 {
   File f;
   if (!f.OpenRead(filename))
@@ -585,7 +585,7 @@ bool GuiElement::Load(const std::string& filename)
   return true;
 }
 
-bool GuiElement::LoadToolTipText(File* pf)
+bool PoolGuiElement::LoadToolTipText(File* pf)
 {
 #ifdef NO_TOOL_TIPS
   return true;

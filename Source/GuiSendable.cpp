@@ -11,7 +11,7 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-GuiSendable::GuiSendable()
+PoolGuiSendable::PoolGuiSendable()
 {
   m_bounceState = 0;
   m_animateTimeRemaining = 0;
@@ -21,7 +21,7 @@ GuiSendable::GuiSendable()
   m_yVel = 0;
 }
 
-void GuiSendable::SendToNewPos(float newX, float newY, float time)
+void PoolGuiSendable::SendToNewPos(float newX, float newY, float time)
 {
   m_bounceState = 0;
   m_animateTimeRemaining = time;
@@ -40,7 +40,7 @@ void GuiSendable::SendToNewPos(float newX, float newY, float time)
 #endif
 }
 
-void GuiSendable::Update()
+void PoolGuiSendable::Update()
 {
   if (m_animateTimeRemaining > 0 && m_bounceState < 3)
   {
@@ -107,11 +107,11 @@ void GuiSendable::Update()
   }
 }
 
-void GuiSendable::DrawImpl()
+void PoolGuiSendable::DrawImpl()
 {
   Update();
 
-  GuiComposite::DrawImpl();
+  PoolGuiComposite::DrawImpl();
 }
 
 }

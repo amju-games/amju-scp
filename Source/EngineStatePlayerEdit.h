@@ -44,8 +44,8 @@ public:
   void SetName(const std::string& name);
 
 protected:
-  PGuiElement m_pOkButton;
-  PGuiElement m_pBackButton;
+  PPoolGuiElement m_pOkButton;
+  PPoolGuiElement m_pBackButton;
   std::string m_errorText;
   std::string m_oldName; // name we are changing
 };

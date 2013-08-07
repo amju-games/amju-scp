@@ -64,10 +64,10 @@ protected:
 
 protected:
   // Static buttons etc, drawn by all demo states.
-  static PGuiElement s_startButton;
-  static PGuiElement s_exitButton;
-  static PGuiElement s_registerButton;
-  static PGuiElement s_buynowButton;
+  static PPoolGuiElement s_startButton;
+  static PPoolGuiElement s_exitButton;
+  static PPoolGuiElement s_registerButton;
+  static PPoolGuiElement s_buynowButton;
   
 };
 }

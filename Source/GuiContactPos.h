@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2005
-$Log: GuiContactPos.h,v $
+$Log: PoolGuiContactPos.h,v $
 Revision 1.1.2.2  2006/08/14 17:50:20  jay
 Rename "Pool"
 
@@ -38,10 +38,10 @@ namespace Amju
 // mouse cursor.
 // NB This works differently from other GUI Elements - currently it isn't
 // in the class tree.
-class GuiContactPos : public RefCounted
+class PoolGuiContactPos : public RefCounted
 {
 public:
-  GuiContactPos();
+  PoolGuiContactPos();
 
   bool Load();
   void Draw();
@@ -83,7 +83,7 @@ protected:
   bool m_isEnabled;
 
   // Set if mouse cursor is on the GUI.
-  bool m_mouseInGuiArea;
+  bool m_mouseInPoolGuiArea;
 
   static float SIZE;
   static float LEFT;

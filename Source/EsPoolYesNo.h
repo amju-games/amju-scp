@@ -28,8 +28,8 @@ public:
   void AddQ(const std::string& s);
 
 protected:
-  PGuiElement m_pYesButton;
-  PGuiElement m_pNoButton;
+  PPoolGuiElement m_pYesButton;
+  PPoolGuiElement m_pNoButton;
   std::string m_yesFilename;
   std::string m_noFilename;
   float m_firstLineY;

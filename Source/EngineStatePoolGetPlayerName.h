@@ -76,8 +76,8 @@ protected:
   // Text entry box 
   TexturedQuad m_textboxTq;
 
-  PGuiElement m_pOkButton;
-  PGuiElement m_pBackButton;
+  PPoolGuiElement m_pOkButton;
+  PPoolGuiElement m_pBackButton;
 };
 }
 

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiComposite.cpp,v $
+$Log: PoolGuiComposite.cpp,v $
 Revision 1.1.10.2  2007/03/09 21:48:55  jay
 Copy latest GUI library from trunk
 
@@ -25,12 +25,12 @@ Added to repository
 
 namespace Amju
 {
-GuiComposite::GuiComposite()
+PoolGuiComposite::PoolGuiComposite()
 {
   m_canDrag = true; // top level composites are draggable
 }
 
-void GuiComposite::DrawImpl()
+void PoolGuiComposite::DrawImpl()
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -39,7 +39,7 @@ void GuiComposite::DrawImpl()
   }
 }
 
-bool GuiComposite::Load(File* pf)
+bool PoolGuiComposite::Load(File* pf)
 {
   int numChildren = 0;
   if (!pf->GetInteger(&numChildren))
@@ -49,7 +49,7 @@ bool GuiComposite::Load(File* pf)
   }
   for (int i = 0; i < numChildren; i++)
   {
-    RCPtr<GuiElement> pTb = GuiFactory::Instance()->Create(pf);
+    RCPtr<PoolGuiElement> pTb = PoolGuiFactory::Instance()->Create(pf);
     if (!pTb->Load(pf))
     {
       pf->ReportError("Failed to load GUI child.");
@@ -60,7 +60,7 @@ bool GuiComposite::Load(File* pf)
   return true;
 }
 
-void GuiComposite::OnKey(char c)
+void PoolGuiComposite::OnKey(char c)
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -69,7 +69,7 @@ void GuiComposite::OnKey(char c)
   }
 }
 
-void GuiComposite::OnPlusUp(bool down)
+void PoolGuiComposite::OnPlusUp(bool down)
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -78,7 +78,7 @@ void GuiComposite::OnPlusUp(bool down)
   }
 }
 
-void GuiComposite::OnPlusDown(bool down)
+void PoolGuiComposite::OnPlusDown(bool down)
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -87,7 +87,7 @@ void GuiComposite::OnPlusDown(bool down)
   }
 }
 
-void GuiComposite::OnPlusLeft(bool down) 
+void PoolGuiComposite::OnPlusLeft(bool down) 
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -96,7 +96,7 @@ void GuiComposite::OnPlusLeft(bool down)
   }
 }
 
-void GuiComposite::OnPlusRight(bool down) 
+void PoolGuiComposite::OnPlusRight(bool down) 
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -105,7 +105,7 @@ void GuiComposite::OnPlusRight(bool down)
   }
 }
 
-void GuiComposite::MousePos(int x, int y)
+void PoolGuiComposite::MousePos(int x, int y)
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -114,7 +114,7 @@ void GuiComposite::MousePos(int x, int y)
   }
 }
 
-void GuiComposite::MouseButton(bool down, bool ctrl, bool shift)
+void PoolGuiComposite::MouseButton(bool down, bool ctrl, bool shift)
 {
   if (!IsVisible())
   {
@@ -128,7 +128,7 @@ void GuiComposite::MouseButton(bool down, bool ctrl, bool shift)
   }
 }
 
-bool GuiComposite::IsSelected() const
+bool PoolGuiComposite::IsSelected() const
 {
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -141,7 +141,7 @@ bool GuiComposite::IsSelected() const
   return false;
 }
 
-bool GuiComposite::CanDrag()
+bool PoolGuiComposite::CanDrag()
 {
   // This composite can be dragged if it is selected, and no children
   // are selected, and the drag flag is set.
@@ -152,25 +152,25 @@ bool GuiComposite::CanDrag()
   return false;
 }
 
-void GuiComposite::AddChild(GuiElement* p)
+void PoolGuiComposite::AddChild(PoolGuiElement* p)
 {
   m_children.push_back(p);
   p->SetParent(this);
 }
 
-int GuiComposite::GetNumberOfChildren() const
+int PoolGuiComposite::GetNumberOfChildren() const
 {
   return m_children.size();
 }
 
-RCPtr<GuiElement> GuiComposite::GetChild(int i)
+RCPtr<PoolGuiElement> PoolGuiComposite::GetChild(int i)
 {
   return m_children[i];
 }
 
-void GuiComposite::SetRelPos(float top, float left)
+void PoolGuiComposite::SetRelPos(float top, float left)
 {
-  GuiElement::SetRelPos(top, left);
+  PoolGuiElement::SetRelPos(top, left);
   // Set the absolute pos of each child.
   int size = m_children.size();
   for (int i = 0; i < size; i++)
@@ -181,9 +181,9 @@ void GuiComposite::SetRelPos(float top, float left)
   }
 }
 
-void GuiComposite::SetAbsPos(float top, float left)
+void PoolGuiComposite::SetAbsPos(float top, float left)
 {
-  GuiElement::SetAbsPos(top, left);
+  PoolGuiElement::SetAbsPos(top, left);
   int size = m_children.size();
   for (int i = 0; i < size; i++)
   {

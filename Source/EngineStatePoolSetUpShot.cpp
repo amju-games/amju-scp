@@ -418,12 +418,12 @@ void EngineStatePoolSetUpShot::CancelShot()
 
 void EngineStatePoolSetUpShot::MoveContactPosStart()
 {
-  m_pContactGui->SetEnabled(true);
+  m_pContactPoolGui->SetEnabled(true);
 }
 
 void EngineStatePoolSetUpShot::MoveContactPosFinish()
 {
-  m_pContactGui->SetEnabled(false);
+  m_pContactPoolGui->SetEnabled(false);
 }
 
 void EngineStatePoolSetUpShot::SetShotPower(float f)
@@ -1217,7 +1217,7 @@ void EngineStatePoolSetUpShot::DrawOverlays()
     m_pCameraButton->Draw();
 
     // GUI for setting cue/ball contact pos.
-    m_pContactGui->Draw();
+    m_pContactPoolGui->Draw();
 
 #ifdef SHOOT_BUTTON
     m_pShootButton->Draw();
@@ -1374,7 +1374,7 @@ void EngineStatePoolSetUpShot::SetActive(bool active)
   // Reset the cue contact pos.
   // TODO Check that the contact pos does not cause the cue to intersect
   // balls or table. If it does, raise the cue elevation and contact pos.
-  m_pContactGui->ResetContactPos();
+  m_pContactPoolGui->ResetContactPos();
   s_cue.Reset();
   if (s_cue.SetContactPos(0, 0)) // TODO find a valid position
   {
@@ -1680,7 +1680,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pArrow = SolidComponent::LoadSolid(arrowSolid);
 
   // "Go" button => show flyby from hole to player
-  m_pPlaceBallButton = new GuiButton;
+  m_pPlaceBallButton = new PoolGuiButton;
   std::string goButtonFile = GetEngine()->GetConfigValue("golf_go_button");
   if (!m_pPlaceBallButton->Load(goButtonFile))
   {
@@ -1697,7 +1697,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pPlaceBallButton->SetCommand(&OnPlaceBall);
 
   // Menu button
-  m_pMenuButton = new GuiButton;
+  m_pMenuButton = new PoolGuiButton;
   std::string menuButtonFile = GetEngine()->GetConfigValue("golf_menu_button");
   if (!m_pMenuButton->Load(menuButtonFile))
   {
@@ -1708,7 +1708,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pMenuButton->SetCommand(&OnMenuButton);
 
   // Help button
-  m_pHelpButton = new GuiButton;
+  m_pHelpButton = new PoolGuiButton;
   std::string helpButtonFile = GetEngine()->GetConfigValue("help_button");
   if (!m_pHelpButton->Load(helpButtonFile))
   {
@@ -1718,7 +1718,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pHelpButton->SetRelPos(BUTTON_TOP + 0.0f * BUTTON_SPACE, BUTTON_LEFT);
   m_pHelpButton->SetCommand(&OnHelpButton);
 
-  m_pCameraButton = new GuiButton; 
+  m_pCameraButton = new PoolGuiButton; 
   std::string cameraFile = GetEngine()->GetConfigValue("golf_camera_file");
   if (!m_pCameraButton->Load(cameraFile))
   {
@@ -1738,7 +1738,7 @@ bool EngineStatePoolSetUpShot::Load()
   static const float PRAC_BTN_SIZE = BUTTON_SIZE * mult; 
   static const float PRAC_BTN_SPACE = BUTTON_SPACE * mult;
 
-  m_pUndoButton = new GuiButton;
+  m_pUndoButton = new PoolGuiButton;
   std::string undoFile = GetEngine()->GetConfigValue("pool_undo_button");
   if (!m_pUndoButton->Load(undoFile))
   {
@@ -1749,7 +1749,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pUndoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 4.0f * PRAC_BTN_SPACE); 
   m_pUndoButton->SetCommand(&OnUndo);
  
-  m_pRedoButton = new GuiButton;
+  m_pRedoButton = new PoolGuiButton;
   std::string redoFile = GetEngine()->GetConfigValue("pool_redo_button");
   if (!m_pRedoButton->Load(redoFile))
   {
@@ -1760,7 +1760,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pRedoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 6.0f * PRAC_BTN_SPACE); 
   m_pRedoButton->SetCommand(&OnRedo);
 
-  m_pTrajectoryButton = new GuiButton;
+  m_pTrajectoryButton = new PoolGuiButton;
   std::string trajectoryFile = GetEngine()->GetConfigValue("pool_traj_btn");
   if (!m_pTrajectoryButton->Load(trajectoryFile))
   {
@@ -1771,7 +1771,7 @@ bool EngineStatePoolSetUpShot::Load()
   m_pTrajectoryButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 0.0f * PRAC_BTN_SPACE);
   m_pTrajectoryButton->SetCommand(&OnTrajectory);
   
-  m_pShootButton = new GuiButton;
+  m_pShootButton = new PoolGuiButton;
 #ifdef SHOOT_BUTTON
   if (!m_pShootButton->Load("pool-shoot-button.txt"))
   {
@@ -1861,7 +1861,7 @@ bool EngineStatePoolSetUpShot::Load()
     m_helpText.push_back(s);
   }
   // Close Help button
-  m_pCloseHelp = new GuiButton;
+  m_pCloseHelp = new PoolGuiButton;
   std::string closeButtonFile = 
     GetEngine()->GetConfigValue("golf_close_help");
   if (!m_pCloseHelp->Load(closeButtonFile))
@@ -1884,15 +1884,15 @@ bool EngineStatePoolSetUpShot::Load()
 */
 
   // POOL: Load cue ball contact gui.
-  m_pContactGui = new GuiContactPos;
-  if (!m_pContactGui->Load())
+  m_pContactPoolGui = new PoolGuiContactPos;
+  if (!m_pContactPoolGui->Load())
   {
     ReportError("Failed to load contact GUI.");
     return false;
   }
 
   // Load place ball "done" button
-  m_pPlaceBallDoneButton = new GuiButton;
+  m_pPlaceBallDoneButton = new PoolGuiButton;
   if (!m_pPlaceBallDoneButton->Load("place-ball-done-button.txt"))
   {
     ReportError("Failed to load place ball done button");
@@ -2516,7 +2516,7 @@ void EngineStatePoolSetUpShot::SetShotParams()
 
   float drawRoll = 0;
   float english = 0;
-  m_pContactGui->GetContactPos(&english, &drawRoll);
+  m_pContactPoolGui->GetContactPos(&english, &drawRoll);
   Assert(english >= -1.0f);
   Assert(english <= 1.0f);
   Assert(drawRoll >= -1.0f);
@@ -2616,21 +2616,21 @@ void EngineStatePoolSetUpShot::MousePos(int x, int y)
 
   GetCamera()->MousePos(x, y);
   
-  if (m_pContactGui->IsEnabled())
+  if (m_pContactPoolGui->IsEnabled())
   {
     // Store old contact pos in case new pos is invalid.
     float oldcpx, oldcpy;
-    m_pContactGui->GetContactPos(&oldcpx, &oldcpy);
+    m_pContactPoolGui->GetContactPos(&oldcpx, &oldcpy);
 
-    m_pContactGui->MousePos(x, y);
+    m_pContactPoolGui->MousePos(x, y);
     float cpx, cpy;
-    m_pContactGui->GetContactPos(&cpx, &cpy);
+    m_pContactPoolGui->GetContactPos(&cpx, &cpy);
     // Is the new contact pos valid ? It isn't if the cue now intersects
     // the table or a ball.
     if (!s_cue.SetContactPos(-cpx, -cpy))
     {
       // New pos is bad - restore old contact pos
-      m_pContactGui->SetContactPos(oldcpx, oldcpy);
+      m_pContactPoolGui->SetContactPos(oldcpx, oldcpy);
     }
   }
 
@@ -2689,7 +2689,7 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
   {
     // POOL Don't move the cue left/right/up/down if swing mode OR
     // contact pos mode
-    if (!s_cue.IsSwingMode() && !m_pContactGui->IsEnabled())
+    if (!s_cue.IsSwingMode() && !m_pContactPoolGui->IsEnabled())
     {
       Mouse::SetCursor(Mouse::FINGER);
 
@@ -3059,7 +3059,7 @@ void EngineStatePoolSetUpShot::OnKey(char key, bool down)
   // Contact GUI - if enabled, moving the mouse moves the contact spot.
   if (key == 'a' || key == 'A')
   {
-    m_pContactGui->SetEnabled(down);
+    m_pContactPoolGui->SetEnabled(down);
   }
 */
 }

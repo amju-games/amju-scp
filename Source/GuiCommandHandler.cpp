@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiCommandHandler.cpp,v $
+$Log: PoolGuiCommandHandler.cpp,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -14,12 +14,12 @@ Added to repository
 
 namespace Amju
 {
-SingleGuiCommandHandler::SingleGuiCommandHandler()
+SinglePoolGuiCommandHandler::SinglePoolGuiCommandHandler()
 {
   m_it = m_commands.end();
 }
 
-void SingleGuiCommandHandler::Undo()
+void SinglePoolGuiCommandHandler::Undo()
 {
   if (!CanUndo())
   {
@@ -29,7 +29,7 @@ void SingleGuiCommandHandler::Undo()
   (*m_it)->Undo();
 }
 
-void SingleGuiCommandHandler::Redo()
+void SinglePoolGuiCommandHandler::Redo()
 {
   if (!CanRedo())
   {
@@ -39,19 +39,19 @@ void SingleGuiCommandHandler::Redo()
   ++m_it;
 }
 
-bool SingleGuiCommandHandler::CanUndo() const
+bool SinglePoolGuiCommandHandler::CanUndo() const
 {
   bool b = (m_it != m_commands.begin() && m_commands.size() > 0);
   return b;
 }
 
-bool SingleGuiCommandHandler::CanRedo() const
+bool SinglePoolGuiCommandHandler::CanRedo() const
 {
   bool b = (m_it != m_commands.end() && m_commands.size() > 0);
   return b;
 }
 
-void SingleGuiCommandHandler::DoNewCommand(PCommand p)
+void SinglePoolGuiCommandHandler::DoNewCommand(PCommand p)
 {
   if (!p.GetPtr())
   {

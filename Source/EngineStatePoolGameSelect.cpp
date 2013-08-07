@@ -365,7 +365,7 @@ bool EngineStatePoolGameSelect::Load()
     return false;
   }
 
-  m_pOnePlayerButton = new GuiButton;
+  m_pOnePlayerButton = new PoolGuiButton;
   std::string onePlayerFile = GetEngine()->GetConfigValue("golf_1p_button");
   if (!m_pOnePlayerButton->Load(onePlayerFile))
   {
@@ -390,7 +390,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pOnePlayerButton->SetRelPos(y + SPACE_H, x1); 
   m_pOnePlayerButton->SetCommand(&OnOnePlayer); 
 
-  m_pTwoPlayerButton = new GuiButton;
+  m_pTwoPlayerButton = new PoolGuiButton;
   std::string twoPlayerFile = GetEngine()->GetConfigValue("golf_2p_button");
   if (!m_pTwoPlayerButton->Load(twoPlayerFile)) 
   {
@@ -401,7 +401,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pTwoPlayerButton->SetRelPos(y + SPACE_H * 2.0f, x1); 
   m_pTwoPlayerButton->SetCommand(&OnTwoPlayer); 
 
-  m_pOnePlayerPractiseButton = new GuiButton;
+  m_pOnePlayerPractiseButton = new PoolGuiButton;
   std::string practiseFile = GetEngine()->GetConfigValue("pool_prac_button");
   if (!m_pOnePlayerPractiseButton->Load(practiseFile))
   {
@@ -412,7 +412,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pOnePlayerPractiseButton->SetRelPos(y, x1); 
   m_pOnePlayerPractiseButton->SetCommand(&OnOnePlayerPractise); 
  
-  m_pTwoPlayerOnlineButton = new GuiButton;
+  m_pTwoPlayerOnlineButton = new PoolGuiButton;
   std::string twoPlayerOnlineFile = 
     GetEngine()->GetConfigValue("pool_2p_online_button");
   if (!m_pTwoPlayerOnlineButton->Load(twoPlayerOnlineFile)) 
@@ -424,7 +424,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pTwoPlayerOnlineButton->SetRelPos(y + SPACE_H * 3.0f, x1); 
   m_pTwoPlayerOnlineButton->SetCommand(&OnTwoPlayerOnline); 
 
-  m_pQuitButton = new GuiButton;
+  m_pQuitButton = new PoolGuiButton;
   std::string menuQuitFile = GetEngine()->GetConfigValue("menu_quit_button");
   if (!m_pQuitButton->Load(menuQuitFile))
   {
@@ -435,7 +435,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pQuitButton->SetRelPos(y + SPACE_H * 5.0f, x1); 
   m_pQuitButton->SetCommand(&OnExitClicked); // TODO + confirm ?
 
-  m_pOptionsButton = new GuiButton;
+  m_pOptionsButton = new PoolGuiButton;
   if (!m_pOptionsButton->Load("menu-options-button.txt"))
   {
     ReportError("Failed to load main menu options button");
@@ -445,7 +445,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pOptionsButton->SetRelPos(y + SPACE_H * 3.0f, x1);
   m_pOptionsButton->SetCommand(&OnOptions);
 
-  m_pEditNamesButton = new GuiButton;
+  m_pEditNamesButton = new PoolGuiButton;
   if (!m_pEditNamesButton->Load("menu-edit-names-button.txt"))
   {
     ReportError("Failed to load main menu edit names button");
@@ -456,7 +456,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pEditNamesButton->SetCommand(&OnEditNames);
 
   // "Register" button
-  m_pRegButton = new GuiButton;
+  m_pRegButton = new PoolGuiButton;
   if (!m_pRegButton->Load("menu-reg-button.txt")) 
   {
     return false;
@@ -466,7 +466,7 @@ bool EngineStatePoolGameSelect::Load()
   m_pRegButton->SetCommand(&OnRegisterClicked);
 
   // Buy now button
-  m_pBuyButton = new GuiButton;
+  m_pBuyButton = new PoolGuiButton;
   if (!m_pBuyButton->Load("menu-buy-button.txt"))
   {
     return false;

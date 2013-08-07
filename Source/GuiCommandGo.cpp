@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiCommandGo.cpp,v $
+$Log: PoolGuiCommandGo.cpp,v $
 Revision 1.1.2.3  2006/08/30 21:12:16  Administrator
 Get Pool to build in MSVC
 
@@ -25,7 +25,7 @@ Added to repository
 
 namespace Amju
 {
-bool GuiCommandGo::Do()
+bool PoolGuiCommandGo::Do()
 {
   Engine::Instance()->ChangeState(EngineStatePoolShowShot::Name, Engine::IMMEDIATE);
   return false; // no undo

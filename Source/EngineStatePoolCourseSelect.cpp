@@ -223,7 +223,7 @@ bool EngineStatePoolCourseSelect::Load()
     "course_select_btn_y");
 
   // "Back to player select" button
-  m_pSelectButton = new GuiButton;
+  m_pSelectButton = new PoolGuiButton;
   std::string selectButtonFile = GetEngine()->GetConfigValue(
     "player_select_button");
   if (!m_pSelectButton->Load(selectButtonFile))
@@ -235,7 +235,7 @@ bool EngineStatePoolCourseSelect::Load()
   m_pSelectButton->SetCommand(&OnBackToPlayerSelect);
 
   // Use same GUI file for next and back buttons
-  m_pNextButton = new GuiButton;
+  m_pNextButton = new PoolGuiButton;
   std::string more2Button = GetEngine()->GetConfigValue("more2_button");
   if (!m_pNextButton->Load(more2Button))
   {
@@ -246,7 +246,7 @@ bool EngineStatePoolCourseSelect::Load()
   m_pNextButton->SetRelPos(BUTTON_Y, BUTTON_X2);
   m_pNextButton->SetCommand(&OnNext);
  
-  m_pBackButton = new GuiButton;
+  m_pBackButton = new PoolGuiButton;
   std::string more1Button = GetEngine()->GetConfigValue("more1_button");
   if (!m_pBackButton->Load(more1Button))
   {
@@ -406,7 +406,7 @@ void EngineStatePoolCourseSelect::DrawOverlays()
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
 }
 
-class CourseSelectCommand : public GuiCommand
+class CourseSelectCommand : public PoolGuiCommand
 {
 public:
   CourseSelectCommand(int i) : m_hole(i) {}
@@ -475,7 +475,7 @@ std::cout << "In GetThumbnails...\n";
     TexturedQuad tq;
     tq.Load(imageName, "thumb-a.png");
 
-    GuiButton* pGb = new GuiButton;
+    PoolGuiButton* pGb = new PoolGuiButton;
     pGb->SetFromQuad(tq);
     pGb->SetCommand(new CourseSelectCommand(i));
     

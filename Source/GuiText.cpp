@@ -1,11 +1,11 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2006
-$Log: GuiText.cpp,v $
+$Log: PoolGuiText.cpp,v $
 Revision 1.1.2.4  2007/03/09 21:48:56  jay
 Copy latest GUI library from trunk
 
 Revision 1.2  2006/01/16 13:27:55  jay
-Add new GuiElements for future use
+Add new PoolGuiElements for future use
 
 */
 
@@ -15,11 +15,11 @@ Add new GuiElements for future use
 
 namespace Amju
 {
-GuiText::GuiText() : m_pFont(0)
+PoolGuiText::PoolGuiText() : m_pFont(0)
 {
 }
 
-void GuiText::DrawImpl()
+void PoolGuiText::DrawImpl()
 {
 #ifdef TEXT_DRAW_DEBUG
 std::cout << "GuiText::DrawImpl\n";
@@ -40,22 +40,22 @@ std::cout << "GuiText::DrawImpl\n";
   }
 }
 
-void GuiText::MousePos(int, int) 
+void PoolGuiText::MousePos(int, int) 
 {
 }
 
-void GuiText::MouseButton(bool, bool, bool)
+void PoolGuiText::MouseButton(bool, bool, bool)
 {
 }
 
-void GuiText::SetText(const std::string& s)
+void PoolGuiText::SetText(const std::string& s)
 {
   // TODO Split text so it wraps in rectangle.
   m_strings.clear();
   m_strings.push_back(s);
 }
 
-void GuiText::SetFont(PoolFont* pFont)
+void PoolGuiText::SetFont(PoolFont* pFont)
 {
   m_pFont = pFont;
 }

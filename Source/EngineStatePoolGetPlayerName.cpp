@@ -274,8 +274,8 @@ bool EngineStatePoolGetPlayerName::Load()
   }
 
   // Create OK and Back buttons.
-  m_pOkButton = new GuiButton;
-  m_pBackButton = new GuiButton; 
+  m_pOkButton = new PoolGuiButton;
+  m_pBackButton = new PoolGuiButton; 
 
   static const float x1 = Engine::Instance()->GetConfigFloat(
     "pool_get_button_x1");

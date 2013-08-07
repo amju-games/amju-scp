@@ -192,7 +192,7 @@ std::cout << "Disable player 1 choice: " << m_player1Choice << "\n";
   // m_currentPlayer = 0;
 }
 
-class PlayerSelectCommand : public GuiCommand
+class PlayerSelectCommand : public PoolGuiCommand
 {
 public:
   PlayerSelectCommand(int i): m_num(i) {}
@@ -228,7 +228,7 @@ bool EngineStatePoolChoosePlayer::Load()
   static const float SPACE_H = Engine::Instance()->GetConfigFloat(
     "pool_choose_button_h_space");
 
-  m_pBackButton = new GuiButton;
+  m_pBackButton = new PoolGuiButton;
   std::string backFile = "choose-player-cancel.txt"; // TODO CONFIG
   if (!m_pBackButton->Load(backFile))
   {
@@ -243,15 +243,15 @@ bool EngineStatePoolChoosePlayer::Load()
   for (int i = 0; i < MAX_PLAYERS; i++)
   {
     PlayerButton pb;
-    GuiElement* pGuiButton = new GuiButton;
-    if (!pGuiButton->Load(std::string("pool-player-button.txt")))
+    PoolGuiElement* pPoolGuiButton = new PoolGuiButton;
+    if (!pPoolGuiButton->Load(std::string("pool-player-button.txt")))
     {
       return false;
     } 
-    pGuiButton->SetSize(SIZE_W, SIZE_H);
-    pGuiButton->SetRelPos(i * SPACE_H + 3.0f, x1);
-    pGuiButton->SetCommand(new PlayerSelectCommand(i));
-    pb.m_pButton = pGuiButton;
+    pPoolGuiButton->SetSize(SIZE_W, SIZE_H);
+    pPoolGuiButton->SetRelPos(i * SPACE_H + 3.0f, x1);
+    pPoolGuiButton->SetCommand(new PlayerSelectCommand(i));
+    pb.m_pButton = pPoolGuiButton;
 
     pb.m_y = i * SPACE_H + 3.2f; // TODO TEMP TEST
     pb.m_name = "New name ";

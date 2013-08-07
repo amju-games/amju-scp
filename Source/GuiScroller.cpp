@@ -7,7 +7,7 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-GuiScroller::GuiScroller()
+PoolGuiScroller::PoolGuiScroller()
 {
   m_xVel = 0;
   m_yVel = 0;
@@ -15,13 +15,13 @@ GuiScroller::GuiScroller()
   m_yAccel = 0;
 }
 
-void GuiScroller::DrawImpl()
+void PoolGuiScroller::DrawImpl()
 {
   Update();
-  GuiComposite::DrawImpl();
+  PoolGuiComposite::DrawImpl();
 }
 
-void GuiScroller::Update()
+void PoolGuiScroller::Update()
 {
   float dt = Engine::Instance()->GetDeltaTime();
   m_xVel += dt * m_xAccel;
@@ -60,7 +60,7 @@ void GuiScroller::Update()
   }
 }
 
-void GuiScroller::Scroll(GuiScroller::ScrollDir dir, float distance, float time)
+void PoolGuiScroller::Scroll(PoolGuiScroller::ScrollDir dir, float distance, float time)
 {
   static const float VEL = Engine::Instance()->GetConfigFloat("scroll-vel");
   static const float ACCEL = Engine::Instance()->GetConfigFloat("scroll-accel");

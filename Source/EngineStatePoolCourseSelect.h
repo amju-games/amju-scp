@@ -54,16 +54,16 @@ protected:
 protected:
   PSolidComponent m_pGreetText;
 
-  PGuiElement m_pSelectButton;
-  PGuiElement m_pNextButton;
-  PGuiElement m_pBackButton;
+  PPoolGuiElement m_pSelectButton;
+  PPoolGuiElement m_pNextButton;
+  PPoolGuiElement m_pBackButton;
   PSolidComponent m_pText; // "game select" text
   PSolidComponent m_pNextText;
   PSolidComponent m_pBackText;
 
   // Thumbnails for current course
   // Double-clickable
-  PGuiElement m_thumbnails[18];
+  PPoolGuiElement m_thumbnails[18];
 
   static int s_currentCourse;
 

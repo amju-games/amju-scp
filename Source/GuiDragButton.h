@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiDragButton.h,v $
+$Log: PoolGuiDragButton.h,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -20,10 +20,10 @@ Added to repository
 
 namespace Amju
 {
-class GuiDragButton : public GuiButton
+class PoolGuiDragButton : public PoolGuiButton
 {
 public:
-  GuiDragButton();
+  PoolGuiDragButton();
   void SetDragArea(float minx, float maxx, float miny, float maxy);
   virtual void MousePos(int x, int y);
 

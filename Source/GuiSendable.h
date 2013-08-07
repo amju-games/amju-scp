@@ -9,10 +9,10 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-class GuiSendable : public GuiComposite
+class PoolGuiSendable : public PoolGuiComposite
 {
 public:
-  GuiSendable();
+  PoolGuiSendable();
   virtual void DrawImpl();
 
   void SendToNewPos(float newX, float newY, float time);

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiFactory.cpp,v $
+$Log: PoolGuiFactory.cpp,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -16,7 +16,7 @@ Added to repository
 
 namespace Amju
 {
-GuiElement* SingleGuiFactory::Create(File* pf)
+PoolGuiElement* SinglePoolGuiFactory::Create(File* pf)
 {
   std::string s;
   if (!pf->GetDataLine(&s))
@@ -24,7 +24,7 @@ GuiElement* SingleGuiFactory::Create(File* pf)
     pf->ReportError("Expected GUI element name.");
     return 0;
   }
-  return Factory<GuiElement>::Create(s);
+  return Factory<PoolGuiElement>::Create(s);
 }
 }
 

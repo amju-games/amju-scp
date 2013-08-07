@@ -50,7 +50,7 @@ protected:
   int m_chosenRoomId;
 
   // Button to return to main menu
-  PGuiElement m_pCancelButton;
+  PPoolGuiElement m_pCancelButton;
 
   // What we are currently waiting for:
   // 0 - reply

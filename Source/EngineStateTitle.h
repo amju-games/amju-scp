@@ -66,13 +66,13 @@ protected:
   // GUI
   // ===
   // GUI Button - click to start
-  PGuiElement m_pStartButton;
+  PPoolGuiElement m_pStartButton;
   // GUI Button - click to register if not registered.
-  PGuiElement m_pRegButton;
+  PPoolGuiElement m_pRegButton;
   // Buy Now button - go to store web page
-  PGuiElement m_pBuyButton;
+  PPoolGuiElement m_pBuyButton;
   // Exit button - like alt-f4/option-Q
-  PGuiElement m_pExitButton;
+  PPoolGuiElement m_pExitButton;
 
   // Text to go next to the buttons
   PSolidComponent m_pStartText;

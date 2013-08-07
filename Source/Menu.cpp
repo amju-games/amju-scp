@@ -50,13 +50,13 @@ Menu::~Menu()
 bool Menu::LoadButtons(File* pf)
 {
   // Load the next/previous buttons
-  m_pPrevButton = new GuiTextButton;
+  m_pPrevButton = new PoolGuiTextButton;
   if (!m_pPrevButton->Load(pf))
   {
     pf->ReportError("Failed to load previous button.");
     return false;
   }
-  m_pNextButton = new GuiTextButton;
+  m_pNextButton = new PoolGuiTextButton;
   if (!m_pNextButton->Load(pf))
   {
     pf->ReportError("Failed to load next button.");

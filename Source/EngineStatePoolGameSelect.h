@@ -62,16 +62,16 @@ protected:
   bool LoadCharacter(const std::string&);
 
 protected:
-  PGuiElement m_pOnePlayerButton, m_pTwoPlayerButton, 
+  PPoolGuiElement m_pOnePlayerButton, m_pTwoPlayerButton, 
     m_pOnePlayerPractiseButton, m_pTwoPlayerOnlineButton;
 
   // As this is the "Main Menu" from a user perspective, we need other
   // menu items.
-  PGuiElement m_pQuitButton;
-  PGuiElement m_pOptionsButton;
-  PGuiElement m_pRegButton;
-  PGuiElement m_pBuyButton;
-  PGuiElement m_pEditNamesButton; // edit/del/copy player names
+  PPoolGuiElement m_pQuitButton;
+  PPoolGuiElement m_pOptionsButton;
+  PPoolGuiElement m_pRegButton;
+  PPoolGuiElement m_pBuyButton;
+  PPoolGuiElement m_pEditNamesButton; // edit/del/copy player names
   
   // Characters - one for one player, two for two player.
   std::vector<RCPtr<CharacterGameObject> > m_characters;

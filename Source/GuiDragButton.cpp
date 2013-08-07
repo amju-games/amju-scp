@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiDragButton.cpp,v $
+$Log: PoolGuiDragButton.cpp,v $
 Revision 1.1.10.1  2007/03/09 21:48:55  jay
 Copy latest GUI library from trunk
 
@@ -20,12 +20,12 @@ Added to repository
 
 namespace Amju
 {
-GuiDragButton::GuiDragButton() : m_minx(0), m_maxx(10.0f), m_miny(0), m_maxy(10.0f)
+PoolGuiDragButton::PoolGuiDragButton() : m_minx(0), m_maxx(10.0f), m_miny(0), m_maxy(10.0f)
 {
   m_canDrag = true;
 }
 
-void GuiDragButton::SetDragArea(float minx, float maxx, float miny, float maxy)
+void PoolGuiDragButton::SetDragArea(float minx, float maxx, float miny, float maxy)
 {
   m_minx = minx;
   m_maxx = maxx;
@@ -33,33 +33,33 @@ void GuiDragButton::SetDragArea(float minx, float maxx, float miny, float maxy)
   m_maxy = maxy;
 }
 
-float GuiDragButton::GetXValue()
+float PoolGuiDragButton::GetXValue()
 {
   float f =  (m_relLeft - m_minx) / (m_maxx - m_minx); 
   return f;
 }
 
-float GuiDragButton::GetYValue()
+float PoolGuiDragButton::GetYValue()
 {
   float f = (m_relTop - m_miny) / (m_maxy - m_miny);
   return f;
 }
 
-void GuiDragButton::SetXValue(float f)
+void PoolGuiDragButton::SetXValue(float f)
 {
   Assert(f >= 0);
   Assert(f <= 1.0f);
   m_relLeft = m_minx + f * (m_maxx - m_minx);
 }
 
-void GuiDragButton::SetYValue(float f)
+void PoolGuiDragButton::SetYValue(float f)
 {
   Assert(f >= 0);
   Assert(f <= 1.0f);
   m_relTop = m_miny + f * (m_maxy - m_miny);
 }
  
-void GuiDragButton::MousePos(int x, int y)
+void PoolGuiDragButton::MousePos(int x, int y)
 {
   static int oldx = x;
   static int oldy = y;
@@ -80,7 +80,7 @@ void GuiDragButton::MousePos(int x, int y)
   GetRelPos(&posTop, &posLeft);
   float newPosTop = posTop;
   float newPosLeft = posLeft;
-  // TODO Convert mouse coords (pixels) to our Gui coord system.
+  // TODO Convert mouse coords (pixels) to our PoolGui coord system.
   float dx = (float)xdiff * 0.1f; // TODO TEMP TEST
   float dy = (float)ydiff * 0.1f; // TODO TEMP TEST
   newPosTop -= dy;

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2005
-$Log: GuiContactPos.cpp,v $
+$Log: PoolGuiContactPos.cpp,v $
 Revision 1.1.2.3  2006/08/30 21:12:16  Administrator
 Get Pool to build in MSVC
 
@@ -56,12 +56,12 @@ Added new GUI element for specifying the cue contact position on the cue ball.
 
 namespace Amju
 {
-float GuiContactPos::SIZE = 2.5f;
-float GuiContactPos::LEFT = 2.0f;
-float GuiContactPos::TOP = 12.5f;
-float GuiContactPos::SPOT_SIZE = 0.6f;
+float PoolGuiContactPos::SIZE = 2.5f;
+float PoolGuiContactPos::LEFT = 2.0f;
+float PoolGuiContactPos::TOP = 12.5f;
+float PoolGuiContactPos::SPOT_SIZE = 0.6f;
 
-GuiContactPos::GuiContactPos()
+PoolGuiContactPos::PoolGuiContactPos()
 {
   m_top = 0;
   m_left = 0;
@@ -69,7 +69,7 @@ GuiContactPos::GuiContactPos()
   m_isEnabled = true;
 }
 
-bool GuiContactPos::Load()
+bool PoolGuiContactPos::Load()
 {
   SIZE = Engine::Instance()->GetConfigFloat("contact_pos_size");
   LEFT = Engine::Instance()->GetConfigFloat("contact_pos_left");
@@ -90,7 +90,7 @@ bool GuiContactPos::Load()
   return true;
 }
 
-void GuiContactPos::Draw()
+void PoolGuiContactPos::Draw()
 {
   float a = 1.0f;
   if (!m_isEnabled)
@@ -106,7 +106,7 @@ void GuiContactPos::Draw()
   Engine::Instance()->PopColour();
 }
 
-void GuiContactPos::SetContactPos(float x, float y)
+void PoolGuiContactPos::SetContactPos(float x, float y)
 {
   Assert(fabs(x) <= 1.0f);
   Assert(fabs(y) <= 1.0f);
@@ -119,7 +119,7 @@ std::cout << "CONTACT GUI: Set pos: x: " << x << " y: " << y << " m_left->" << m
 #endif
 }
 
-void GuiContactPos::GetContactPos(float* x, float* y)
+void PoolGuiContactPos::GetContactPos(float* x, float* y)
 {
   // Convert m_top/m_left into the required range.
   // If m_top is midway between TOP and TOP + SIZE, it's zero. At either of these
@@ -133,16 +133,16 @@ std::cout << " Details: m_left: " << m_left << " m_top: " << m_top << " SIZE: " 
 #endif
 }
 
-void GuiContactPos::ResetContactPos()
+void PoolGuiContactPos::ResetContactPos()
 {
   m_left = SIZE * 0.5f;
   m_top = SIZE * 0.5f;
   m_buttonDown = false;
-  m_mouseInGuiArea = false;
+  m_mouseInPoolGuiArea = false;
   m_isEnabled = false;
 }
 
-void GuiContactPos::MousePos(int x, int y)
+void PoolGuiContactPos::MousePos(int x, int y)
 {
   static int oldx = x;
   static int oldy = y;
@@ -219,7 +219,7 @@ std::cout << "CONTACT GUI: new m_left: " << m_left << " new m_top: " << m_top <<
 std::cout << "CONTACT GUI: x: " << x << " y: " << y << " centrex: " << centrex << " centrey: " << centrey << " radius: " << radius << "\n";
 #endif
 
-    m_mouseInGuiArea = true;
+    m_mouseInPoolGuiArea = true;
     m_isEnabled = true;
 
     if (m_buttonDown)
@@ -240,17 +240,17 @@ std::cout << "CONTACT GUI: new m_left: " << m_left << " new m_top: " << m_top <<
   }
   else
   {
-    m_mouseInGuiArea = false;
+    m_mouseInPoolGuiArea = false;
     m_isEnabled = false;
   }
 */ 
 }
 
-void GuiContactPos::MouseButton(bool down, bool ctrl, bool shift)
+void PoolGuiContactPos::MouseButton(bool down, bool ctrl, bool shift)
 {
   if (down)
   {
-    m_buttonDown = m_mouseInGuiArea;
+    m_buttonDown = m_mouseInPoolGuiArea;
   }
   else
   {
@@ -258,12 +258,12 @@ void GuiContactPos::MouseButton(bool down, bool ctrl, bool shift)
   }
 }
 
-void GuiContactPos::SetEnabled(bool b)
+void PoolGuiContactPos::SetEnabled(bool b)
 {
   m_isEnabled = b;
 }
 
-bool GuiContactPos::IsEnabled() const
+bool PoolGuiContactPos::IsEnabled() const
 {
   return m_isEnabled;
 }

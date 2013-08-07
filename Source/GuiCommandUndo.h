@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiCommandUndo.h,v $
+$Log: PoolGuiCommandUndo.h,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -11,27 +11,27 @@ Added to repository
 #include "GuiCommandHandler.h"
 namespace Amju
 {
-class GuiUndoCommand : public GuiCommand
+class PoolGuiUndoCommand : public PoolGuiCommand
 {
 public:
   virtual bool Do()
   {
-    if (GuiCommandHandler::Instance()->CanUndo())
+    if (PoolGuiCommandHandler::Instance()->CanUndo())
     {
-      GuiCommandHandler::Instance()->Undo();
+      PoolGuiCommandHandler::Instance()->Undo();
     }
     return false;
   }
 };
 
-class GuiRedoCommand : public GuiCommand
+class PoolGuiRedoCommand : public PoolGuiCommand
 {
 public:
   virtual bool Do()
   {
-    if (GuiCommandHandler::Instance()->CanRedo())
+    if (PoolGuiCommandHandler::Instance()->CanRedo())
     {
-      GuiCommandHandler::Instance()->Redo();
+      PoolGuiCommandHandler::Instance()->Redo();
     }
     return false;
   }

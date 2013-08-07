@@ -54,14 +54,14 @@ protected:
   int m_currentPlayer;
 
   // Back button - go back to select no. of players
-  PGuiElement m_pBackButton; 
+  PPoolGuiElement m_pBackButton; 
 
   // 2D buttons rather than menu, with names and stats
   struct PlayerButton
   {
-    PGuiElement m_pButton; // select this player
-    PGuiElement m_pEditButton; // edit player name
-    PGuiElement m_pDeleteButton; // delete this player
+    PPoolGuiElement m_pButton; // select this player
+    PPoolGuiElement m_pEditButton; // edit player name
+    PPoolGuiElement m_pDeleteButton; // delete this player
     std::string m_name;
     std::string m_stats;
     float m_y; // text Y-pos

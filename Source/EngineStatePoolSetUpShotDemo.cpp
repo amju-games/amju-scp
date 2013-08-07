@@ -88,10 +88,10 @@ static const bool registeredgolfinplay = Engine::Instance()->
   RegisterEngineState(EngineStatePoolSetUpShotDemo::Name, 
   new EngineStatePoolSetUpShotDemo);
 
-PGuiElement EngineStatePoolSetUpShotDemo::s_startButton;
-PGuiElement EngineStatePoolSetUpShotDemo::s_exitButton;
-PGuiElement EngineStatePoolSetUpShotDemo::s_registerButton;
-PGuiElement EngineStatePoolSetUpShotDemo::s_buynowButton;
+PPoolGuiElement EngineStatePoolSetUpShotDemo::s_startButton;
+PPoolGuiElement EngineStatePoolSetUpShotDemo::s_exitButton;
+PPoolGuiElement EngineStatePoolSetUpShotDemo::s_registerButton;
+PPoolGuiElement EngineStatePoolSetUpShotDemo::s_buynowButton;
 
 void EngineStatePoolSetUpShotDemo::SDrawOverlays()
 {
@@ -179,7 +179,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
   m_maxTime = 100; // unreachable
 
   // Load buttons
-  s_startButton = new GuiButton;
+  s_startButton = new PoolGuiButton;
   if (!s_startButton->Load(GetEngine()->GetConfigValue("pool_startbutton")))
   {
     return false;
@@ -188,7 +188,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
   s_startButton->SetRelPos(0.0f, 0.0f);
   s_startButton->SetCommand(&OnStartClicked);
 
-  s_exitButton = new GuiButton;
+  s_exitButton = new PoolGuiButton;
   if (!s_exitButton->Load(GetEngine()->GetConfigValue("pool_exitbutton")))
   {
     return false;
@@ -197,7 +197,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
   s_exitButton->SetRelPos(0.0f, 7.25f); // bah, wrong way round!
   s_exitButton->SetCommand(&OnExitClicked);
 
-  s_registerButton = new GuiButton;
+  s_registerButton = new PoolGuiButton;
   std::string regButtonFile = GetEngine()->GetConfigValue("golf_reg_button");
   if (!s_registerButton->Load(regButtonFile))
   {
@@ -207,7 +207,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
   s_registerButton->SetRelPos(0, 8.125f);
   s_registerButton->SetCommand(&OnRegisterClicked);
 
-  s_buynowButton = new GuiButton;
+  s_buynowButton = new PoolGuiButton;
   std::string buyButtonFile = GetEngine()->GetConfigValue("golf_buy_button");
   if (!s_buynowButton->Load(buyButtonFile))
   {

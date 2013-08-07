@@ -243,7 +243,7 @@ bool EngineStateTitle::Load()
 
   // Set up GUI buttons
   // "Start" button
-  m_pStartButton = new GuiButton;
+  m_pStartButton = new PoolGuiButton;
   std::string goButtonFile = GetEngine()->GetConfigValue("pool_startbutton");
   if (!m_pStartButton->Load(goButtonFile))
   {
@@ -254,7 +254,7 @@ bool EngineStateTitle::Load()
   m_pStartButton->SetCommand(&OnStartClicked);
 
   // "Register" button
-  m_pRegButton = new GuiButton;
+  m_pRegButton = new PoolGuiButton;
   std::string regButtonFile = GetEngine()->GetConfigValue("golf_reg_button");
   if (!m_pRegButton->Load(regButtonFile))
   {
@@ -265,7 +265,7 @@ bool EngineStateTitle::Load()
   m_pRegButton->SetCommand(&OnRegisterClicked);
 
   // Buy now button
-  m_pBuyButton = new GuiButton;
+  m_pBuyButton = new PoolGuiButton;
   std::string buyButtonFile = GetEngine()->GetConfigValue("golf_buy_button");
   if (!m_pBuyButton->Load(buyButtonFile))
   {
@@ -276,7 +276,7 @@ bool EngineStateTitle::Load()
   m_pBuyButton->SetCommand(&OnBuyButton);
   
   // Exit button
-  m_pExitButton = new GuiButton;
+  m_pExitButton = new PoolGuiButton;
   std::string exitButtonFile = GetEngine()->GetConfigValue("pool_exit_button");
   if (!m_pExitButton->Load(exitButtonFile))
   {
