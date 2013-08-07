@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiFactory.h,v $
+$Log: PoolGuiFactory.h,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -17,12 +17,12 @@ namespace Amju
 {
 class File;
 
-class SingleGuiFactory : public Factory<GuiElement>
+class SinglePoolGuiFactory : public Factory<PoolGuiElement>
 {
 public:
-  GuiElement* Create(File*);
+  PoolGuiElement* Create(File*);
 };
-typedef Singleton<SingleGuiFactory> GuiFactory;
+typedef Singleton<SinglePoolGuiFactory> PoolGuiFactory;
 }
 
 #endif

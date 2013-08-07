@@ -69,7 +69,7 @@ bool EngineStatePlayerDelete::Load()
 
   static const float TOP = 5.0f; // TODO CONFIG
 
-  m_pCancelButton = new GuiButton;
+  m_pCancelButton = new PoolGuiButton;
   std::string backFile = "choose-player-cancel.txt"; 
   if (!m_pCancelButton->Load(backFile))
   {
@@ -79,7 +79,7 @@ bool EngineStatePlayerDelete::Load()
   m_pCancelButton->SetRelPos(TOP + SPACE_H, x1); 
   m_pCancelButton->SetCommand(&OnDeleteCancel);
 
-  m_pOkButton = new GuiButton;
+  m_pOkButton = new PoolGuiButton;
   std::string okFile = "pool-player-delete-button.txt"; 
   if (!m_pOkButton->Load(okFile))
   {

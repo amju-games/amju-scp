@@ -44,8 +44,8 @@ protected:
   std::string m_name;
 
   // Confirm buttons - ok/cancel
-  PGuiElement m_pOkButton;
-  PGuiElement m_pCancelButton;
+  PPoolGuiElement m_pOkButton;
+  PPoolGuiElement m_pCancelButton;
 };
 }
 

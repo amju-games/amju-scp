@@ -125,16 +125,16 @@ protected:
 
 protected:
   // Button to return to main menu
-  PGuiElement m_pCancelButton;
+  PPoolGuiElement m_pCancelButton;
 
   // Up/down buttons to scroll through players
-  PGuiElement m_pScrollUpButton;
-  PGuiElement m_pScrollDownButton;
+  PPoolGuiElement m_pScrollUpButton;
+  PPoolGuiElement m_pScrollDownButton;
 
   // Text etc for each button
   struct OnlineButton
   {
-    RCPtr<GuiButton> m_pButton;
+    RCPtr<PoolGuiButton> m_pButton;
     std::string m_name;
     std::string m_stats;
   };

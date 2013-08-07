@@ -195,7 +195,7 @@ void OnScrollDownButton()
 }
 
 // Class for Join button commands
-class OnlineJoinCommand : public GuiCommand
+class OnlineJoinCommand : public PoolGuiCommand
 {
 public:
   OnlineJoinCommand(int id) : m_id(id) {}
@@ -213,7 +213,7 @@ private:
   int m_id;
 };
 
-class OnlineWatchCommand : public GuiCommand
+class OnlineWatchCommand : public PoolGuiCommand
 {
 public:
   OnlineWatchCommand(int id) : m_id(id) {}
@@ -555,8 +555,8 @@ std::cout << "Found partner! We are player 2\n";
     }
 */
 
-    RCPtr<GuiButton> pButton = new GuiButton;
-    pButton->GuiElement::Load("pool-player-button.txt");
+    RCPtr<PoolGuiButton> pButton = new PoolGuiButton;
+    pButton->PoolGuiElement::Load("pool-player-button.txt");
     // If the game has 2 players and is in progress, we can Watch.
     // If there is only one player, the game is waiting, and we can Join.
     // But the state could change, and a waiting game could even be joined by
@@ -621,7 +621,7 @@ std::cout << "\n";
 
 bool EngineStatePoolOnlineTable::Load()
 {
-  m_pCancelButton = new GuiButton;
+  m_pCancelButton = new PoolGuiButton;
   if (!m_pCancelButton->Load("pool-online-table-cancel-button.txt"))
   {
     ReportError("Failed to load online table cancel button");
@@ -637,7 +637,7 @@ bool EngineStatePoolOnlineTable::Load()
     return false;
   }
 
-  m_pScrollUpButton = new GuiButton;
+  m_pScrollUpButton = new PoolGuiButton;
   if (!m_pScrollUpButton->Load("pool-up-button.txt"))
   {
     ReportError("Help state: failed to load scroll up button.");
@@ -647,7 +647,7 @@ bool EngineStatePoolOnlineTable::Load()
   m_pScrollUpButton->SetRelPos(1.0f, 20.0f); // TODO TEMP TEST
   m_pScrollUpButton->SetCommand(&OnScrollUpButton);
   
-  m_pScrollDownButton = new GuiButton;
+  m_pScrollDownButton = new PoolGuiButton;
   if (!m_pScrollDownButton->Load("pool-down-button.txt"))
   {
     ReportError("Help state: failed to load scroll down button.");

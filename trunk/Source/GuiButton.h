@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiButton.h,v $
+$Log: PoolGuiButton.h,v $
 Revision 1.1  2004/09/08 15:43:07  jay
 Added to repository
   
@@ -15,10 +15,10 @@ Added to repository
 
 namespace Amju
 {
-class GuiButton : public GuiElement
+class PoolGuiButton : public PoolGuiElement
 {
 public:
-  GuiButton();
+  PoolGuiButton();
   
   virtual bool Load(File* );
   virtual void DrawImpl();

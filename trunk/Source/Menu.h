@@ -117,8 +117,8 @@ protected:
   // True if mouse is being dragged.
   bool m_drag;
 
-  RCPtr<GuiElement> m_pPrevButton;
-  RCPtr<GuiElement> m_pNextButton;
+  RCPtr<PoolGuiElement> m_pPrevButton;
+  RCPtr<PoolGuiElement> m_pNextButton;
 
 };
 

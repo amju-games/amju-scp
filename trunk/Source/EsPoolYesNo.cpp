@@ -55,7 +55,7 @@ bool EsPoolYesNo::Load()
     return false;
   }
 
-  m_pYesButton = new GuiButton;
+  m_pYesButton = new PoolGuiButton;
   if (!m_pYesButton->Load(m_yesFilename))
   {
     ReportError("Failed to load yes button.");
@@ -65,7 +65,7 @@ bool EsPoolYesNo::Load()
   m_pYesButton->SetRelPos(TOP + 2.0f * HSPACE, LEFT); // top, left
   m_pYesButton->SetCommand(&Amju::OnYes);
 
-  m_pNoButton = new GuiButton;
+  m_pNoButton = new PoolGuiButton;
   if (!m_pNoButton->Load(m_noFilename))
   {
     ReportError("Failed to load no button.");

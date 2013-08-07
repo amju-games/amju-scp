@@ -275,20 +275,20 @@ protected:
 
   // GUI
   // ---
-  PGuiElement m_pPlaceBallButton; // place ball mode
-  PGuiElement m_pCameraButton; // click for camera mode
-  PGuiElement m_pMenuButton;
-  PGuiElement m_pHelpButton;
+  PPoolGuiElement m_pPlaceBallButton; // place ball mode
+  PPoolGuiElement m_pCameraButton; // click for camera mode
+  PPoolGuiElement m_pMenuButton;
+  PPoolGuiElement m_pHelpButton;
   // Undo/redo (play) shot - practice mode only
-  PGuiElement m_pUndoButton;
-  PGuiElement m_pRedoButton;
-  PGuiElement m_pTrajectoryButton;
+  PPoolGuiElement m_pUndoButton;
+  PPoolGuiElement m_pRedoButton;
+  PPoolGuiElement m_pTrajectoryButton;
 
   // Simple Shoot button
-  PGuiElement m_pShootButton;
+  PPoolGuiElement m_pShootButton;
 
   // GUI Element for controlling the contact point on the cue ball.
-  RCPtr<GuiContactPos> m_pContactGui;
+  RCPtr<PoolGuiContactPos> m_pContactPoolGui;
 
   // Labels for GUI
   PSolidComponent m_pTextPower;
@@ -311,7 +311,7 @@ protected:
   bool m_showHelpText;   // only show help if this is set
   int m_helpId;          // Index of current help message
   // Button - click to turn off help
-  PGuiElement m_pCloseHelp;
+  PPoolGuiElement m_pCloseHelp;
 
   // Vector by which each player is moved to avoid collision with
   // any other player.
@@ -338,7 +338,7 @@ protected:
   PoolBehaviourOnline m_onlineBehaviour;
 
   // Button for when place ball mode is finished
-  PGuiElement m_pPlaceBallDoneButton;
+  PPoolGuiElement m_pPlaceBallDoneButton;
 
   // Set when server status has been set up for this game.
   bool m_serverStatusSetThisGame;

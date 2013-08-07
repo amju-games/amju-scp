@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiComposite.h,v $
+$Log: PoolGuiComposite.h,v $
 Revision 1.1.10.2  2007/03/09 21:48:55  jay
 Copy latest GUI library from trunk
 
@@ -20,10 +20,10 @@ Added to repository
 
 namespace Amju
 {
-class GuiComposite : public GuiElement
+class PoolGuiComposite : public PoolGuiElement
 {
 public:
-  GuiComposite();
+  PoolGuiComposite();
 
   virtual void DrawImpl();
   virtual bool Load(File*);
@@ -40,15 +40,15 @@ public:
   virtual void SetRelPos(float top, float left);
   virtual void SetAbsPos(float top, float left);
 
-  void AddChild(GuiElement*);
+  void AddChild(PoolGuiElement*);
   int GetNumberOfChildren() const;
-  RCPtr<GuiElement> GetChild(int i);
+  RCPtr<PoolGuiElement> GetChild(int i);
 
 protected:
   virtual bool CanDrag();
 
 protected:
-  typedef std::vector<RCPtr<GuiElement> > Elements;
+  typedef std::vector<RCPtr<PoolGuiElement> > Elements;
   Elements m_children;
 
 };

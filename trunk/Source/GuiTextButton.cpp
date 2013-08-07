@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiTextButton.cpp,v $
+$Log: PoolGuiTextButton.cpp,v $
 Revision 1.1.10.2  2007/03/09 21:48:56  jay
 Copy latest GUI library from trunk
 
@@ -51,7 +51,7 @@ Added to repository
 
 namespace Amju
 {
-GuiTextButton::GuiTextButton()
+PoolGuiTextButton::PoolGuiTextButton()
 {
   m_height = 1.0f;
   m_pFont = 0;
@@ -59,9 +59,9 @@ GuiTextButton::GuiTextButton()
   m_fontSize = 1.0f;
 }
 
-bool GuiTextButton::Load(File* pf)
+bool PoolGuiTextButton::Load(File* pf)
 {
-  if (!GuiButton::Load(pf)) 
+  if (!PoolGuiButton::Load(pf)) 
   {
     return false;
   } 
@@ -98,9 +98,9 @@ bool GuiTextButton::Load(File* pf)
   return true;
 }
 
-void GuiTextButton::DrawImpl()
+void PoolGuiTextButton::DrawImpl()
 {
-  GuiButton::DrawImpl();
+  PoolGuiButton::DrawImpl();
   
   if (!IsSelected())
   {
@@ -158,7 +158,7 @@ std::cout << "Text button: " << m_text.c_str() << " text width: " << m_textWidth
   pFont->SetSize(origSize);
 }
 
-void GuiTextButton::SetText(const std::string& s)
+void PoolGuiTextButton::SetText(const std::string& s)
 {
   m_text = s;
   // Get the width of the text, and set the button width to fit.
@@ -173,19 +173,19 @@ void GuiTextButton::SetText(const std::string& s)
   // a font of size 1.0.
 }
 
-void GuiTextButton::SetFont(PoolFont* pFont)
+void PoolGuiTextButton::SetFont(PoolFont* pFont)
 {
   m_pFont = pFont;
 }
 
-void GuiTextButton::SetFontSize(float fs)
+void PoolGuiTextButton::SetFontSize(float fs)
 {
   m_fontSize = fs;
   // Text width is independent of size (assumes size 1.0) so no need
   // to recalculate.
 }
 
-void GuiTextButton::SetFontColour(const Colour& col)
+void PoolGuiTextButton::SetFontColour(const Colour& col)
 {
   m_fontColour = col;
 }

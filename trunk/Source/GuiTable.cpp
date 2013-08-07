@@ -1,11 +1,11 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2006
-$Log: GuiTable.cpp,v $
+$Log: PoolGuiTable.cpp,v $
 Revision 1.1.2.6  2007/03/09 21:48:56  jay
 Copy latest GUI library from trunk
 
 Revision 1.2  2006/01/16 13:27:55  jay
-Add new GuiElements for future use
+Add new PoolGuiElements for future use
 
 */
 
@@ -17,18 +17,18 @@ namespace Amju
 static const float MIN_ROW_HEIGHT = 2.0f;
 static const float MIN_COL_WIDTH = 5.0f; // TODO CONFIG
 
-GuiTable::GuiTable()
+PoolGuiTable::PoolGuiTable()
 {
   m_numRows = 0;
   m_numCols = 0;
 }
 
-void GuiTable::AddColumn(GuiTableColumn* pCol)
+void PoolGuiTable::AddColumn(PoolGuiTableColumn* pCol)
 {
   // Add elements to every row
 }
 
-void GuiTable::AddRow(GuiTableRow* pRow)
+void PoolGuiTable::AddRow(PoolGuiTableRow* pRow)
 {
 #ifdef _DEBUG
 std::cout << "GuiTable: Adding a row\n";
@@ -111,17 +111,17 @@ std::cout << "GuiTable: resizing column: " << i << " from " << m_colWidths[i]
   }
 }
 
-int GuiTable::GetNumColumns() const
+int PoolGuiTable::GetNumColumns() const
 {
   return m_numCols;
 }
 
-int GuiTable::GetNumRows() const
+int PoolGuiTable::GetNumRows() const
 {
   return m_numRows;
 }
 
-void GuiTable::DrawImpl()
+void PoolGuiTable::DrawImpl()
 {
 #ifdef TABLE_DRAW_DEBUG
 std::cout << "GuiTable::DrawImpl\n";
@@ -143,7 +143,7 @@ std::cout << "GuiTable: drawing element " << i << "\n";
 #endif
 
       Assert(i < (int)m_children.size());
-      RCPtr<GuiElement> pElem = m_children[i];
+      RCPtr<PoolGuiElement> pElem = m_children[i];
       // Set width and height of this element
       Assert(pElem.GetPtr());
 

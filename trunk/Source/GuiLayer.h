@@ -12,39 +12,39 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-// A layer in a GuiButton ( + other GuiElements ?)
+// A layer in a PoolGuiButton ( + other PoolGuiElements ?)
 // A layer can be a TexturedQuad, or decorated with colours, etc.
-class GuiLayer : public RefCounted
+class PoolGuiLayer : public RefCounted
 {
 public:
   virtual void Draw(float top, float left, float bottom, float right) = 0;
 };
 
-class GuiLayerTq : public GuiLayer
+class PoolGuiLayerTq : public PoolGuiLayer
 {
 public:
-  GuiLayerTq(const TexturedQuad& tq);
+  PoolGuiLayerTq(const TexturedQuad& tq);
   virtual void Draw(float top, float left, float bottom, float right);
 private:
   TexturedQuad m_tq;
 };
 
 // Base class for decorators
-class GuiLayerDecorator : public GuiLayer
+class PoolGuiLayerDecorator : public PoolGuiLayer
 {
 public:
-  GuiLayerDecorator(GuiLayer*);   
+  PoolGuiLayerDecorator(PoolGuiLayer*);   
   virtual void Draw(float top, float left, float bottom, float right);
 protected:
-  RCPtr<GuiLayer> m_pChild;
+  RCPtr<PoolGuiLayer> m_pChild;
 };
 
 typedef std::vector<Colour> ColourList;
 
-class GuiLayerColourList : public GuiLayerDecorator
+class PoolGuiLayerColourList : public PoolGuiLayerDecorator
 {
 public:
-  GuiLayerColourList(GuiLayer* pChild, const ColourList& colours, float colourTimeSecs, bool interpolate = false);
+  PoolGuiLayerColourList(PoolGuiLayer* pChild, const ColourList& colours, float colourTimeSecs, bool interpolate = false);
   virtual void Draw(float top, float left, float bottom, float right);
 
 protected:

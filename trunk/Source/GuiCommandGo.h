@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiCommandGo.h,v $
+$Log: PoolGuiCommandGo.h,v $
 Revision 1.1.2.2  2006/08/14 17:50:20  jay
 Rename "Pool"
 
@@ -19,7 +19,7 @@ Added to repository
 
 namespace Amju
 {
-class GuiCommandGo : public GuiCommand
+class PoolGuiCommandGo : public PoolGuiCommand
 {
 public:
   virtual bool Do();

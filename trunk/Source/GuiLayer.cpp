@@ -12,30 +12,30 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-GuiLayerTq::GuiLayerTq(const TexturedQuad& tq) : m_tq(tq)
+PoolGuiLayerTq::PoolGuiLayerTq(const TexturedQuad& tq) : m_tq(tq)
 {
 }
 
-void GuiLayerTq::Draw(float top, float left, float bottom, float right)
+void PoolGuiLayerTq::Draw(float top, float left, float bottom, float right)
 {
   m_tq.Draw(top, left, bottom, right);
 }
 
-GuiLayerDecorator::GuiLayerDecorator(GuiLayer* pChild) : m_pChild(pChild)
+PoolGuiLayerDecorator::PoolGuiLayerDecorator(PoolGuiLayer* pChild) : m_pChild(pChild)
 {
 }
 
-void GuiLayerDecorator::Draw(float top, float left, float bottom, float right)
+void PoolGuiLayerDecorator::Draw(float top, float left, float bottom, float right)
 {
   m_pChild->Draw(top, left, bottom, right);
 }
 
-GuiLayerColourList::GuiLayerColourList(
-  GuiLayer* pChild, 
+PoolGuiLayerColourList::PoolGuiLayerColourList(
+  PoolGuiLayer* pChild, 
   const ColourList& colours, 
   float colourTimeSecs, 
   bool interpolate) : 
-  GuiLayerDecorator(pChild),
+  PoolGuiLayerDecorator(pChild),
   m_colours(colours),
   m_colourTime(colourTimeSecs),
   m_time(0),
@@ -45,7 +45,7 @@ GuiLayerColourList::GuiLayerColourList(
   Assert(!m_colours.empty());
 }
 
-void GuiLayerColourList::Draw(float top, float left, float bottom, float right)
+void PoolGuiLayerColourList::Draw(float top, float left, float bottom, float right)
 {
   // Get current colour
   m_time += Engine::Instance()->GetDeltaTime();
@@ -60,7 +60,7 @@ void GuiLayerColourList::Draw(float top, float left, float bottom, float right)
   // TODO Interpolation
   const Colour& c = m_colours[m_index];
   Engine::Instance()->PushColour(c);
-  GuiLayerDecorator::Draw(top, left, bottom, right);
+  PoolGuiLayerDecorator::Draw(top, left, bottom, right);
   Engine::Instance()->PopColour();
 }
 }

@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiElement.h,v $
+$Log: PoolGuiElement.h,v $
 Revision 1.1.10.4  2007/03/09 21:48:55  jay
 Copy latest GUI library from trunk
 
@@ -44,14 +44,14 @@ namespace Amju
 class File;
 
 // Base class for 2D GUI components.
-class GuiElement : public RefCounted
+class PoolGuiElement : public RefCounted
 {
 public:
   // Call on startup to initialise the GUI elements.
   static bool Init();
 
-  GuiElement();
-  virtual ~GuiElement() {}
+  PoolGuiElement();
+  virtual ~PoolGuiElement() {}
   virtual void DrawImpl();
   virtual bool Load(File*) { return true; }
   virtual void MousePos(int x, int y);
@@ -95,7 +95,7 @@ public:
   void Draw();
 
   // Set a Command which will be executed when the element is clicked.
-  void SetCommand(GuiCommand*);
+  void SetCommand(PoolGuiCommand*);
   // Or, set a non-undoable function call to be executed when the
   //  element is clicked.
   typedef void (*CommandFunc)();
@@ -104,8 +104,8 @@ public:
   bool IsEnabled() const;
   void SetEnabled(bool);
 
-  void SetParent(GuiElement*);
-  GuiElement* GetParent();
+  void SetParent(PoolGuiElement*);
+  PoolGuiElement* GetParent();
 
   void SetVisible(bool visible);
   bool IsVisible() const;
@@ -162,11 +162,11 @@ protected:
   float m_width, m_height;
 
   // Command executed if this GUI element is clicked.
-  RCPtr<GuiCommand> m_pCommand;
+  RCPtr<PoolGuiCommand> m_pCommand;
   CommandFunc m_pCommandFunc;
 
-  // Gui Element which is the parent of this one.
-  GuiElement* m_pParent;
+  // PoolGui Element which is the parent of this one.
+  PoolGuiElement* m_pParent;
 
   // Visible flag, especially useful for submenu children of menus.
   bool m_isVisible;
@@ -194,7 +194,7 @@ protected:
 
   bool m_isCancel;
 };
-typedef RCPtr<GuiElement> PGuiElement;
+typedef RCPtr<PoolGuiElement> PPoolGuiElement;
 }
 
 #endif

@@ -75,7 +75,7 @@ void OnMaintBack()
 
 // Command to perform an operation on a player.
 // The command is fired when user clicks on a player name button.
-class PlayerOpCommand : public GuiCommand
+class PlayerOpCommand : public PoolGuiCommand
 {
 public:
   PlayerOpCommand(int i) : m_num(i) {}
@@ -203,7 +203,7 @@ bool EngineStatePoolPlayerMaint::Load()
     m_buttons[i].m_y = i * SPACE_H + HEIGHT_OFFSET + 0.2f;
   }
 
-  m_pEditButton = new GuiButton;
+  m_pEditButton = new PoolGuiButton;
   if (!m_pEditButton->Load(std::string("pool-player-edit-button.txt")))
   {
     ReportError("Failed to load edit button");
@@ -213,7 +213,7 @@ bool EngineStatePoolPlayerMaint::Load()
   m_pEditButton->SetRelPos(4.0f * SPACE_H + HEIGHT_OFFSET, x1);
   m_pEditButton->SetCommand(&OnMaintEdit);
 
-  m_pDeleteButton = new GuiButton;
+  m_pDeleteButton = new PoolGuiButton;
   if (!m_pDeleteButton->Load(std::string("pool-player-delete-button.txt")))
   {
     ReportError("Failed to load delete button");
@@ -223,7 +223,7 @@ bool EngineStatePoolPlayerMaint::Load()
   m_pDeleteButton->SetRelPos(5.0f * SPACE_H + HEIGHT_OFFSET, x1);
   m_pDeleteButton->SetCommand(&OnMaintDelete);
 
-  m_pCancelButton = new GuiButton;
+  m_pCancelButton = new PoolGuiButton;
   if (!m_pCancelButton->Load(std::string("choose-player-cancel.txt")))
   {
     return false;
@@ -232,7 +232,7 @@ bool EngineStatePoolPlayerMaint::Load()
   m_pCancelButton->SetRelPos(6.0f * SPACE_H + 3.0f, x1);
   m_pCancelButton->SetCommand(&OnMaintCancel);
 
-  m_pBackButton = new GuiButton;
+  m_pBackButton = new PoolGuiButton;
   if (!m_pBackButton->Load(std::string("choose-player-cancel.txt"))) // TODO
   {
     return false;

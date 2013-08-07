@@ -1,6 +1,6 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2004
-$Log: GuiButton.cpp,v $
+$Log: PoolGuiButton.cpp,v $
 Revision 1.1.10.3  2005/07/30 12:30:15  jay
 Improved enlarge-on-select
 
@@ -27,17 +27,17 @@ Added to repository
 
 namespace Amju
 {
-GuiButton::GuiButton()
+PoolGuiButton::PoolGuiButton()
 {
   m_isSelected = false;
 }
 
-void GuiButton::SetFromQuad(const TexturedQuad& tq)
+void PoolGuiButton::SetFromQuad(const TexturedQuad& tq)
 {
   m_quads.push_back(tq);
 }
 
-bool GuiButton::Load(File* pf)
+bool PoolGuiButton::Load(File* pf)
 {
   // Get number of textures; load each one.
   int numTextures = 0;
@@ -66,7 +66,7 @@ bool GuiButton::Load(File* pf)
   return true;
 }
 
-void GuiButton::DrawImpl()
+void PoolGuiButton::DrawImpl()
 {
   // Draw larger if mouse is over button (i.e. it's "selected")
   // Increase size proportionately in x and y.

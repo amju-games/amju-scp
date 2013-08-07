@@ -16,7 +16,7 @@ namespace Amju
 class Menu;
 
 // Adjust topmost visible item in a menu.
-class MenuCommand : public GuiCommand
+class MenuCommand : public PoolGuiCommand
 {
 public:
   MenuCommand(Menu*, float inc);

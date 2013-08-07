@@ -81,7 +81,7 @@ protected:
   // Points to award to the winning player, in hundreds.
   int m_bonusPointsHundreds;
 
-  PGuiElement m_pOkButton;
+  PPoolGuiElement m_pOkButton;
 */
 };
 }

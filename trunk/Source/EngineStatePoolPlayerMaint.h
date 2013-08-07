@@ -60,10 +60,10 @@ public:
   void DoOperationOnPlayer(int playerId);
 
 protected:
-  PGuiElement m_pEditButton;
-  PGuiElement m_pDeleteButton;
-  PGuiElement m_pCancelButton; // cancel last selection
-  PGuiElement m_pBackButton;  // go back to main menu
+  PPoolGuiElement m_pEditButton;
+  PPoolGuiElement m_pDeleteButton;
+  PPoolGuiElement m_pCancelButton; // cancel last selection
+  PPoolGuiElement m_pBackButton;  // go back to main menu
 
   // If true, user must select a player name or cancel.
   // NB if cancel is chosen when in this mode, the mode should revert to

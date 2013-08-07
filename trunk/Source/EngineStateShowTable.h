@@ -28,7 +28,7 @@ public:
 
 protected:
   // TODO on heap ?
-  GuiTable m_table;
+  PoolGuiTable m_table;
 };
 }
 

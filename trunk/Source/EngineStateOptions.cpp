@@ -125,49 +125,49 @@ bool EngineStateOptions::Load()
   std::string menuButtonFile = GetEngine()->GetConfigValue("golf_menu_button");
 
   // Get buttons
-  m_pButtonResume = new GuiButton;
+  m_pButtonResume = new PoolGuiButton;
   m_pButtonResume->Load("pool-options-back-button.txt");
   m_pButtonResume->SetSize(WIDTH, HEIGHT);
   m_pButtonResume->SetCommand(&OnBack);
   m_pButtonResume->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
 
-//  m_pButtonQuit = new GuiButton;
+//  m_pButtonQuit = new PoolGuiButton;
 //  m_pButtonQuit->Load("pool-quit-game.txt");
 //  m_pButtonQuit->SetSize(WIDTH, HEIGHT);
 //  m_pButtonQuit->SetCommand(&OnQuitThisCourse);
 //  m_pButtonQuit->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
 
-  m_pButtonFullScreen = new GuiButton;
+  m_pButtonFullScreen = new PoolGuiButton;
   m_pButtonFullScreen->Load("pool-fullscreen.txt");
   m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
   m_pButtonFullScreen->SetCommand(&OnFullScreen);
   m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
 
-  m_pButtonSoundVol = new GuiButton;
+  m_pButtonSoundVol = new PoolGuiButton;
   m_pButtonSoundVol->Load("pool-sound.txt");
   m_pButtonSoundVol->SetSize(WIDTH, HEIGHT);
   m_pButtonSoundVol->SetCommand(&OnSoundEffects);
   m_pButtonSoundVol->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
 
-  m_pButtonMusicVol = new GuiButton;
+  m_pButtonMusicVol = new PoolGuiButton;
   m_pButtonMusicVol->Load("pool-music.txt");
   m_pButtonMusicVol->SetSize(WIDTH, HEIGHT);
   m_pButtonMusicVol->SetCommand(&OnMusic);
   m_pButtonMusicVol->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
 
-  m_pButtonQuitGame = new GuiButton;
+  m_pButtonQuitGame = new PoolGuiButton;
 //  m_pButtonQuitGame->Load(menuButtonFile);
 //  m_pButtonQuitGame->SetSize(w, h);
 //  m_pButtonQuitGame->SetCommand(OnQuitGame);
 //  m_pButtonQuitGame->SetRelPos(y + 10.0f, x);  
 
-  m_pButtonQuitYes = new GuiButton;
+  m_pButtonQuitYes = new PoolGuiButton;
 //  m_pButtonQuitYes->Load(menuButtonFile);
 //  m_pButtonQuitYes->SetSize(WIDTH, HEIGHT);
 //  m_pButtonQuitYes->SetCommand(&OnQuitYes);
 //  m_pButtonQuitYes->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
 
-  m_pButtonQuitNo = new GuiButton;
+  m_pButtonQuitNo = new PoolGuiButton;
 //  m_pButtonQuitNo->Load(menuButtonFile);
 //  m_pButtonQuitNo->SetSize(WIDTH, HEIGHT);
 //  m_pButtonQuitNo->SetCommand(&OnQuitNo);

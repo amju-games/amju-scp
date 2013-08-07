@@ -45,20 +45,20 @@ public:
   static void SetShowConfirmButtons(bool b);
 
 protected:
-  PGuiElement m_pButtonResume;
-  PGuiElement m_pButtonNextHole;
-  PGuiElement m_pButtonPrevHole;
-  PGuiElement m_pButtonNextCourse;
-  PGuiElement m_pButtonPrevCourse;
-  PGuiElement m_pButtonRestartHole;
-  PGuiElement m_pButtonRestartGame;
-  PGuiElement m_pButtonFullScreen;
-  PGuiElement m_pButtonSoundVol;
-  PGuiElement m_pButtonMusicVol;
-  PGuiElement m_pButtonQuit; // quit the current hole
-  PGuiElement m_pButtonQuitGame; // quit the game, i.e. exit()
-  PGuiElement m_pButtonQuitYes;
-  PGuiElement m_pButtonQuitNo;
+  PPoolGuiElement m_pButtonResume;
+  PPoolGuiElement m_pButtonNextHole;
+  PPoolGuiElement m_pButtonPrevHole;
+  PPoolGuiElement m_pButtonNextCourse;
+  PPoolGuiElement m_pButtonPrevCourse;
+  PPoolGuiElement m_pButtonRestartHole;
+  PPoolGuiElement m_pButtonRestartGame;
+  PPoolGuiElement m_pButtonFullScreen;
+  PPoolGuiElement m_pButtonSoundVol;
+  PPoolGuiElement m_pButtonMusicVol;
+  PPoolGuiElement m_pButtonQuit; // quit the current hole
+  PPoolGuiElement m_pButtonQuitGame; // quit the game, i.e. exit()
+  PPoolGuiElement m_pButtonQuitYes;
+  PPoolGuiElement m_pButtonQuitNo;
 
   // Show sound/music vol
   TexturedQuad m_tqSound;

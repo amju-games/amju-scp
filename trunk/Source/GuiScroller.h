@@ -9,10 +9,10 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 
 namespace Amju
 {
-class GuiScroller : public GuiComposite
+class PoolGuiScroller : public PoolGuiComposite
 {
 public:
-  GuiScroller();
+  PoolGuiScroller();
   virtual void DrawImpl();
 
   enum ScrollDir { LEFT, RIGHT, UP, DOWN };

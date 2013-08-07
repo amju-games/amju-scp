@@ -35,9 +35,9 @@ public:
   void SetScrollVel(float);
 
 protected:
-  PGuiElement m_pOkButton;
-  PGuiElement m_pScrollUpButton;
-  PGuiElement m_pScrollDownButton;
+  PPoolGuiElement m_pOkButton;
+  PPoolGuiElement m_pScrollUpButton;
+  PPoolGuiElement m_pScrollDownButton;
   float m_y; // position of top line of text  
   // Scroll velocity
   float m_yVel;

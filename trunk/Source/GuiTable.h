@@ -1,11 +1,11 @@
 /*
 Amju Games source code (c) Copyright Jason Colman 2006
-$Log: GuiTable.h,v $
+$Log: PoolGuiTable.h,v $
 Revision 1.1.2.2  2007/03/09 21:48:56  jay
 Copy latest GUI library from trunk
 
 Revision 1.2  2006/01/16 13:27:55  jay
-Add new GuiElements for future use
+Add new PoolGuiElements for future use
 
 */
 
@@ -16,13 +16,13 @@ Add new GuiElements for future use
 
 namespace Amju
 {
-class GuiTable;
+class PoolGuiTable;
 
-class GuiTableCell : public GuiElement
+class PoolGuiTableCell : public PoolGuiElement
 {
 };
 
-class GuiTableColumn : public GuiComposite
+class PoolGuiTableColumn : public PoolGuiComposite
 {
 public:
   void SetWidth();
@@ -34,12 +34,12 @@ protected:
   int m_index;
 
   // Table in which this column lives
-  GuiTable* m_pTable;
+  PoolGuiTable* m_pTable;
 
   float m_width;
 };
 
-class GuiTableRow : public GuiComposite
+class PoolGuiTableRow : public PoolGuiComposite
 {
 public:
   void SetHeight();
@@ -51,20 +51,20 @@ protected:
   int m_index;
 
   // Table in which this column lives
-  GuiTable* m_pTable;
+  PoolGuiTable* m_pTable;
 
   float m_height;
 };
 
-class GuiTable : public GuiComposite
+class PoolGuiTable : public PoolGuiComposite
 {
 public:
-  GuiTable();
+  PoolGuiTable();
 
   // Conceptually allow client code to add a column of data.
-  void AddColumn(GuiTableColumn*);
+  void AddColumn(PoolGuiTableColumn*);
 
-  void AddRow(GuiTableRow*);
+  void AddRow(PoolGuiTableRow*);
 
   int GetNumColumns() const;
   
