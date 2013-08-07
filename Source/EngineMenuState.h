@@ -69,7 +69,7 @@ protected:
   float m_initialMenuTop;
 
   // Camera
-  SharedPtr<Camera> m_pCam;
+  RCPtr<Camera> m_pCam;
 
   // Greeting/prompt 
   TextLeaf m_greet;

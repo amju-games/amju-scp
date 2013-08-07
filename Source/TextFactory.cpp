@@ -135,7 +135,7 @@ PSolidComponent SingleTextFactory::Create(
   Matrix m;
   m.SetIdentity();
 
-  SharedPtr<SolidComposite> result = new SolidComposite;
+  RCPtr<SolidComposite> result = new SolidComposite;
   float x = 0; // x-coord of current letter
   float z = 0; // z-coord
   float yRot = 0; // letter rotation 

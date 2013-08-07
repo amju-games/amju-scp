@@ -13,7 +13,7 @@ Added to repository
 #define LEVEL_FACTORY_H_INCLUDED
 
 #include <map>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Level.h"
 #include "LevelWorker.h"
 #include "LoadResult.h"
@@ -25,12 +25,12 @@ class File;
 // Interface for Level-Creation classes.
 // We want to input a level ID, and get a whole level out of the other
 // end, without having to design it in detail.
-class LevelFactory : public Shareable
+class LevelFactory : public RefCounted
 {
 public:
   virtual ~LevelFactory() {}
   // Create a level given a level ID.
-  // This function creates the Level on the heap in a SharedPtr.
+  // This function creates the Level on the heap in a RCPtr.
   virtual PLevel Create(int levelId) = 0;
   // Load the factory data. This data tells us what things to add to 
   // the level.
@@ -41,11 +41,11 @@ public:
   virtual bool Save(File* ) = 0;
 #endif
 
-  virtual void SetWorkerForObject(SharedPtr<LevelWorker>, int id);
+  virtual void SetWorkerForObject(RCPtr<LevelWorker>, int id);
   virtual void ClearWorkerForObject(int id);
 
 protected:
-  typedef std::map<int, SharedPtr<LevelWorker> > IdToWorkerMap;
+  typedef std::map<int, RCPtr<LevelWorker> > IdToWorkerMap;
   IdToWorkerMap m_idToWorker;
 };
 }

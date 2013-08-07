@@ -14,7 +14,7 @@ Added to repository
 #include "Orientation.h"
 #include "GameObject.h"
 #include "Camera.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include <list>
 #include <map>
 #include <utility> // pair
@@ -28,7 +28,7 @@ class Locator;
 class Character;
 class HeightServer;
 
-class Level : public Shareable
+class Level : public RefCounted
 {
 public:
   ~Level();
@@ -179,7 +179,7 @@ protected:
 
 };
 
-typedef SharedPtr<Level> PLevel;
+typedef RCPtr<Level> PLevel;
 }
 #endif
 

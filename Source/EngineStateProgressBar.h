@@ -35,7 +35,7 @@ protected:
   int m_progressCount;
   int m_maxProgressCount;
 
-  SharedPtr<Guage> m_pGuage;
+  RCPtr<Guage> m_pGuage;
 };
 }
 

@@ -345,7 +345,7 @@ void EngineStatePoolGameSelect::Draw()
 bool EngineStatePoolGameSelect::LoadCharacter(const std::string& charname)
 {
 /*
-  SharedPtr<CharacterGameObject> pChar = new CharacterGameObject;
+  RCPtr<CharacterGameObject> pChar = new CharacterGameObject;
   pChar->AddMesh(CharacterManager::Instance()->GetCharacter(charname));
   m_characters.push_back(pChar);
 */

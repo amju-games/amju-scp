@@ -134,7 +134,7 @@ protected:
   // Text etc for each button
   struct OnlineButton
   {
-    SharedPtr<GuiButton> m_pButton;
+    RCPtr<GuiButton> m_pButton;
     std::string m_name;
     std::string m_stats;
   };

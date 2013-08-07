@@ -309,7 +309,7 @@ protected:
   // knocked off the table.
   bool m_resetCueBall;
 
-  SharedPtr<PoolBehaviour> m_pBehaviour;
+  RCPtr<PoolBehaviour> m_pBehaviour;
 
   // True if this shot is a break (i.e. first shot on entering room,
   // or rules say that balls have been re-racked).

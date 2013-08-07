@@ -13,7 +13,7 @@ Count requests on queue with a given name; limit number of requests of a
   given name.
 
 Revision 1.1.2.3  2006/07/26 21:19:16  jay
-Pass SharedPtr, not raw ptr - seemed like a good idea but not really necessary
+Pass RCPtr, not raw ptr - seemed like a good idea but not really necessary
 
 Revision 1.1.2.2  2006/07/25 17:45:38  jay
 Fix bad call to erase; add GetName()
@@ -82,7 +82,7 @@ std::cout << "OnlineReq: " << (*it)->GetName() << " has finished, calling Handle
 
   // Iterate over m_reqs deleting any reqs which have had HandleResult()
   // called by the above loop. This will work because although we copied the
-  // vector, the elements are SharedPtrs.
+  // vector, the elements are RCPtrs.
   for (it = m_reqs.begin(); it != m_reqs.end();   )
   {
     if ((*it)->IsFinished())
@@ -114,7 +114,7 @@ int OnlineReqManager::CountReqsWithName(const std::string& name)
   return count;
 }
 
-bool OnlineReqManager::AddReq(SharedPtr<OnlineReq> pReq, int maxWithThisName)
+bool OnlineReqManager::AddReq(RCPtr<OnlineReq> pReq, int maxWithThisName)
 {
   Assert(pReq.GetPtr());
 

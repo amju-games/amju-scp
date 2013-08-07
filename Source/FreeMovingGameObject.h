@@ -38,7 +38,7 @@ Added to repository
 #include "SolidComponent.h"
 #include "Controller.h"
 //#include "Platform.h"
-#include <SharedPtr.h>
+#include <RCPtr.h>
 
 namespace Amju
 {
@@ -340,7 +340,7 @@ protected:
   // Controller
   // ----------
   // Controller: This controls the position/vel of this object.
-  SharedPtr<Controller> m_pController;
+  RCPtr<Controller> m_pController;
 
   // Bounding Sphere which stretches in direction of velocity, so 
   // HeightServer picks up things we are travelling towards.

@@ -10,7 +10,7 @@ Added to repository
 #define ATTRIB_H_INCLUDED
 
 #include "TextureMethod.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -18,12 +18,12 @@ class File;
 class Attrib;
 class Function;
 
-typedef SharedPtr<Attrib> PAttrib;
+typedef RCPtr<Attrib> PAttrib;
 
 // A subclass of Attrib is owned by each AttribDecorator. The decorator applies
 // the Attrib before drawing the Composite it owns. This lets Attribs change the
 // appearance of Composites.
-class Attrib : public Shareable
+class Attrib : public RefCounted
 {
 public:
   virtual ~Attrib() {}
@@ -222,7 +222,7 @@ public:
 
 protected:
   // Use a function to change Scale wrt time.
-  SharedPtr<Function> m_pFunc;
+  RCPtr<Function> m_pFunc;
 };
 
 // All the goodness of a TextureMethod in a Decorator - the idea is that leaf
@@ -243,14 +243,14 @@ public:
   virtual const char* GetTypeName() const;
 
 protected:
-  SharedPtr<TextureMethod> m_pTextureMethod;
+  RCPtr<TextureMethod> m_pTextureMethod;
 
 #if defined(SCENE_EDITOR)
 public:
   virtual bool Save(File* pf);
 
-  SharedPtr<TextureMethod> Get() { return m_pTextureMethod; }
-  void Set(SharedPtr<TextureMethod> p) { m_pTextureMethod = p; }
+  RCPtr<TextureMethod> Get() { return m_pTextureMethod; }
+  void Set(RCPtr<TextureMethod> p) { m_pTextureMethod = p; }
 #endif
 
 };

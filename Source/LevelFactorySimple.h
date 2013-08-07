@@ -28,17 +28,17 @@ public:
 #ifdef SCENE_EDITOR
   virtual bool Save(File* );
 #endif
-  void AddWorker(SharedPtr<LevelWorker>);
-  void DeleteWorker(SharedPtr<LevelWorker>);
+  void AddWorker(RCPtr<LevelWorker>);
+  void DeleteWorker(RCPtr<LevelWorker>);
 
   // Override base class versions (which don't seem to be much use) 
   virtual void ClearWorkerForObject(int id);
 
   // Get the worker with the given type name.
   // There must be exactly one worker with this name.
-  SharedPtr<LevelWorker> GetWorker(const char* name);
+  RCPtr<LevelWorker> GetWorker(const char* name);
 
-  typedef std::vector<SharedPtr<LevelWorker> > Workers;
+  typedef std::vector<RCPtr<LevelWorker> > Workers;
 
 protected:
   Workers m_workers;

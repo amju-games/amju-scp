@@ -43,7 +43,7 @@ Added to repository
 
 namespace Amju
 {
-SharedPtr<SolidComponent> Trajectory::s_pBillBoard;
+RCPtr<SolidComponent> Trajectory::s_pBillBoard;
 
 Trajectory::Trajectory()
 {

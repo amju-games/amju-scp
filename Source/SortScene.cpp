@@ -164,14 +164,14 @@ void AddNonCompositeToVector(PSolidComponent pComp, CompVector& vec, NodeStack s
   // The leaf node is pComp.
   // Once we have created this list, add the root node to vec.
 
-  SharedPtr<SolidComposite> pRoot = new SolidComposite; // extra root node
-  SharedPtr<SolidComposite> pCurrent = pRoot;
+  RCPtr<SolidComposite> pRoot = new SolidComposite; // extra root node
+  RCPtr<SolidComposite> pCurrent = pRoot;
   for (NodeStack::iterator it = stack.begin(); it != stack.end(); ++it)
   {
     // It would be nice to use Clone() here, but it's not that simple :-(
     // We only want to 'clone' one path from the root to a leaf node, not
     // the whole tree.
-    SharedPtr<SolidComposite> pChild;
+    RCPtr<SolidComposite> pChild;
     // If the Composite is in fact a decorator, Clone the attribute which
     // is decorated.
     if (dynamic_cast<AttribDecorator*>(it->GetPtr()))

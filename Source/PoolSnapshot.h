@@ -62,7 +62,7 @@ protected:
   // NB Must be on heap, we will copy some subclass of Rules.
   // We will use virtual Rules::Clone() to get a copy of the subclassed
   // object.
-  SharedPtr<Rules> m_pRules;
+  RCPtr<Rules> m_pRules;
 };
 
 // Manage snapshots;

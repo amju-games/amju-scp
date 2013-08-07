@@ -56,7 +56,7 @@ bool TextMenu::Load(File* pf)
   for (int i = 0; i < numItems; i++)
   {
     // Get coords and text for each item.
-    SharedPtr<Text3dLeaf> pLeaf1 = new Text3dLeaf; // Real type of Text leaf
+    RCPtr<Text3dLeaf> pLeaf1 = new Text3dLeaf; // Real type of Text leaf
     if (!pLeaf1->Load(&textFile))
     {
       textFile.ReportError("Failed to load menu text.");

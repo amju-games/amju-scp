@@ -10,7 +10,7 @@ Added to repository
 #define MESSAGE_H_INCLUDED
 
 #include "GameObject.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ namespace Amju
 // Messages are sent from Game Objects to Game Objects. They may be sent
 // immediately, or after some time interval.
 // This idea comes from Game Programming Gems. 
-class Message : public Shareable
+class Message : public RefCounted
 {
 public:
   // Create a null message, used when we load the message data from file.
@@ -110,7 +110,7 @@ public:
 #endif
 };
 
-typedef SharedPtr<Message> PMessage;
+typedef RCPtr<Message> PMessage;
 }
 #endif
 

@@ -17,7 +17,7 @@ Added to repository
 
 namespace Amju
 {
-void LevelFactory::SetWorkerForObject(SharedPtr<LevelWorker> p, int id)
+void LevelFactory::SetWorkerForObject(RCPtr<LevelWorker> p, int id)
 {
   m_idToWorker[id] = p;
 }

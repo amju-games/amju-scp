@@ -183,7 +183,7 @@ void EngineStatePlayerStats::DrawOverlays()
   for (int i = 0; i < sz; i++)
   {
     const std::string& name = m_nameGuages[i].first;
-    SharedPtr<Guage>& pGuage = m_nameGuages[i].second;
+    RCPtr<Guage>& pGuage = m_nameGuages[i].second;
 
     float newval = pInfo->m_stats[i];
 
@@ -298,7 +298,7 @@ bool EngineStatePlayerStats::Load()
     pPg->SetColour(c); 
     pPg->SetAnchor(anchor);
     
-    SharedPtr<Guage> pGuage = pPg;
+    RCPtr<Guage> pGuage = pPg;
     // TODO TEMP TEST
     // Get filename for this guage
     std::string guagefilename; ///= "statguage1.txt";

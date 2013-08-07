@@ -131,7 +131,7 @@ protected:
   static PCamera s_pBirdsEyeCam;
  
   // Trajectory planner: calculates/shows how ball will travel.
-  static SharedPtr<Trajectory> s_pTrajectory;
+  static RCPtr<Trajectory> s_pTrajectory;
 
   static PSolidComponent s_pPlayerNameText;
   // coords for player name
@@ -162,7 +162,7 @@ protected:
   // Time for which big text has been displayed.
   static float s_bigTextTime;
   // Explosion around big text
-  static SharedPtr<ExplosionEffect> s_pBigTextExpl;
+  static RCPtr<ExplosionEffect> s_pBigTextExpl;
 
   // No of extra hearts to award per player. 
   // These are added to each player's total in DrawBonusesLeft().

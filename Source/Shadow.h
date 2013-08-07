@@ -17,7 +17,7 @@ Added to repository
 #include <vector>
 #include "HeightServer.h"
 #include "Polygon.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -30,7 +30,7 @@ class VisibleGameObject;
 // The texture is the same for all shadows.
 // Use the same Shadow object for a particular solid. This allows the Shadow
 // to cache stuff.
-class Shadow : public Shareable
+class Shadow : public RefCounted
 {
 public:
   static bool Init(); 
@@ -88,7 +88,7 @@ protected:
   float m_yOffset;
 };
 
-typedef SharedPtr<Shadow> PShadow;
+typedef RCPtr<Shadow> PShadow;
 }
 
 #endif

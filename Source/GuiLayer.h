@@ -5,7 +5,7 @@ Amju Games source code (c) Copyright Jason Colman 2000-2006
 #ifndef GUI_LAYER_H_INCLUDED
 #define GUI_LAYER_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "TexturedQuad.h"
 #include "Colour.h"
 #include <vector>
@@ -14,7 +14,7 @@ namespace Amju
 {
 // A layer in a GuiButton ( + other GuiElements ?)
 // A layer can be a TexturedQuad, or decorated with colours, etc.
-class GuiLayer : public Shareable
+class GuiLayer : public RefCounted
 {
 public:
   virtual void Draw(float top, float left, float bottom, float right) = 0;
@@ -36,7 +36,7 @@ public:
   GuiLayerDecorator(GuiLayer*);   
   virtual void Draw(float top, float left, float bottom, float right);
 protected:
-  SharedPtr<GuiLayer> m_pChild;
+  RCPtr<GuiLayer> m_pChild;
 };
 
 typedef std::vector<Colour> ColourList;

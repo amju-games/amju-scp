@@ -9,14 +9,14 @@ Added to repository
 #if !defined(CONTROL_STYLE_H_INCLUDED)
 #define CONTROL_STYLE_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
 class EngineRunning;
 
 
-class ControlStyle : public Shareable
+class ControlStyle : public RefCounted
 {
 public:
   virtual ~ControlStyle() {}

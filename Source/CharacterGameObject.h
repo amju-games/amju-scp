@@ -137,7 +137,7 @@ protected:
 
   // Point to a Character subclass. This object owns the Character pointed to.
   // One Character Game Object may consist of more than one animated mesh.
-  typedef std::vector<SharedPtr<Character> > Meshes;
+  typedef std::vector<RCPtr<Character> > Meshes;
   Meshes m_meshes;
 
   // Time how long we change colour 

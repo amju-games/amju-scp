@@ -36,7 +36,7 @@ public:
   virtual void OnRoomEntry();
 
 protected:
-  SharedPtr<ExplosionEffect> m_pExplosion;
+  RCPtr<ExplosionEffect> m_pExplosion;
   int m_bonusPoints;
 
 #if defined(SCENE_EDITOR)

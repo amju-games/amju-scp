@@ -124,7 +124,7 @@ protected:
   unsigned int m_displayList;
 
   // Method of texturing: regular, auto-generated or env-mapped etc.
-  SharedPtr<TextureMethod> m_pTextureMethod;
+  RCPtr<TextureMethod> m_pTextureMethod;
 
   // If true, we generate smooth normals; if false, perpendicular normals.
   bool m_smoothNormals;

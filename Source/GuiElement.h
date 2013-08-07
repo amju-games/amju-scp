@@ -35,7 +35,7 @@ Added to repository
 #if !defined(AMJU_GUI_ELEMENT_H_INCLUDED)
 #define AMJU_GUI_ELEMENT_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "GuiCommandHandler.h"
 #include "TexturedQuad.h"
 
@@ -44,7 +44,7 @@ namespace Amju
 class File;
 
 // Base class for 2D GUI components.
-class GuiElement : public Shareable
+class GuiElement : public RefCounted
 {
 public:
   // Call on startup to initialise the GUI elements.
@@ -162,7 +162,7 @@ protected:
   float m_width, m_height;
 
   // Command executed if this GUI element is clicked.
-  SharedPtr<GuiCommand> m_pCommand;
+  RCPtr<GuiCommand> m_pCommand;
   CommandFunc m_pCommandFunc;
 
   // Gui Element which is the parent of this one.
@@ -194,7 +194,7 @@ protected:
 
   bool m_isCancel;
 };
-typedef SharedPtr<GuiElement> PGuiElement;
+typedef RCPtr<GuiElement> PGuiElement;
 }
 
 #endif

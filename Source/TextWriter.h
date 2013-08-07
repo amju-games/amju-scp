@@ -83,7 +83,7 @@ protected:
   int m_maxLines;
 
   // The default font; this is used whenever a custom font is not specified.
-  SharedPtr<PoolFont> m_pFont;
+  RCPtr<PoolFont> m_pFont;
 
   bool m_dropShadow;
 };

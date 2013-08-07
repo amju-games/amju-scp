@@ -59,7 +59,7 @@ protected:
   PSolidComponent m_pGreetText;
 
   // Characters which appear under the title
-  std::vector<SharedPtr<CharacterGameObject> > m_characters;
+  std::vector<RCPtr<CharacterGameObject> > m_characters;
 
   TextLeaf m_hitSpaceText;
 

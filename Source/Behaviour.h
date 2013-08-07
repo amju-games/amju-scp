@@ -11,7 +11,7 @@ Added to repository
 
 #include <map>
 #include "GameObject.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -19,7 +19,7 @@ class CharacterGameObject;
 
 // Subclasses control an NPC in a particular way. E.g. a Chasing behaviour will
 // follow something (the player), a Scared behaviour will run away.
-class Behaviour : public Shareable
+class Behaviour : public RefCounted
 {
 public:
   Behaviour() : m_pCharacter(0), m_pTarget(0) {}
@@ -53,7 +53,7 @@ protected:
   // Point to some other game object that is the focus of the character's
   // behaviour. E.g. the target is the player, and we want the Character
   // we are controlling to chase the player.
-  // SharedPtr so the target can't be destroyed while we are trying to reach it.
+  // RCPtr so the target can't be destroyed while we are trying to reach it.
   PPoolGameObject m_pTarget;
 };
 

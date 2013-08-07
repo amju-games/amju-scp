@@ -9,14 +9,14 @@ Added to repository
 #if !defined(SCHMICKEN_EFFECT_H_INCLUDED)
 #define SCHMICKEN_EFFECT_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include <Vec3.h>
 #include <string>
 #include <vector>
 
 namespace Amju
 {
-class Effect : public Shareable
+class Effect : public RefCounted
 {
 public:
   virtual ~Effect() {}
@@ -36,7 +36,7 @@ protected:
   std::string m_name;
 };
 
-typedef SharedPtr<Effect> PEffect;
+typedef RCPtr<Effect> PEffect;
 
 typedef std::vector<PEffect> EffectVector;
 }

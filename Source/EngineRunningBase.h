@@ -79,7 +79,7 @@ protected:
 
 protected:
 
-  SharedPtr<Level> m_pLevel; // Point to current level - owned by LevelServer.
+  RCPtr<Level> m_pLevel; // Point to current level - owned by LevelServer.
 
   // Number of polys in static scene drawn.
   int m_scenePolys;

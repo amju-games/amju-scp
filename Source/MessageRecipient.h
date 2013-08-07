@@ -9,7 +9,7 @@ Added to repository
 #if !defined(MESSAGE_RECIP_H_INCLUDED)
 #define MESSAGE_RECIP_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "States.h"
 #include <map>
 
@@ -19,7 +19,7 @@ class Message;
 class File;
 
 // Can receive messages, and have state. 
-class MessageRecipient : public Shareable
+class MessageRecipient : public RefCounted
 {
 public:
   MessageRecipient();
@@ -52,7 +52,7 @@ private:
   State m_state;
 };
 
-typedef SharedPtr<MessageRecipient> PMessageRecipient;
+typedef RCPtr<MessageRecipient> PMessageRecipient;
 }
 #endif
 

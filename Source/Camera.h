@@ -13,7 +13,7 @@ Added to repository
 #if !defined(CAMERA_H_INCLUDED)
 #define CAMERA_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Orientation.h"
 #include "Vertex.h"
 #include "FreeMovingGameObject.h"
@@ -22,7 +22,7 @@ namespace Amju
 {
 class Level;
 
-class Camera : public FreeMovingGameObject  //Shareable
+class Camera : public FreeMovingGameObject  //RefCounted
 {
 public:
   Camera();
@@ -130,7 +130,7 @@ protected:
   mutable BoundingSphere m_bsphere;
 };
 
-typedef SharedPtr<Camera> PCamera;
+typedef RCPtr<Camera> PCamera;
 }
 #endif
 

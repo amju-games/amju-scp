@@ -27,7 +27,7 @@ Added new GUI element for specifying the cue contact position on the cue ball.
 #ifndef GUI_CONTACT_POS_H_INCLUDED
 #define GUI_CONTACT_POS_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "TexturedQuad.h"
 
 namespace Amju
@@ -38,7 +38,7 @@ namespace Amju
 // mouse cursor.
 // NB This works differently from other GUI Elements - currently it isn't
 // in the class tree.
-class GuiContactPos : public Shareable
+class GuiContactPos : public RefCounted
 {
 public:
   GuiContactPos();
