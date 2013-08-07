@@ -9,13 +9,13 @@ Added to repository
 #if !defined(SCHMICKEN_TEXT_COLOURIZER_H_INCLUDED)
 #define SCHMICKEN_TEXT_COLOURIZER_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "SolidComponent.h"
 #include "SolidComposite.h"
 
 namespace Amju
 {
-class TextColourizer : public Shareable
+class TextColourizer : public RefCounted
 {
 public:
   virtual ~TextColourizer() {}

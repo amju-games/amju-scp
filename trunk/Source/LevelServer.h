@@ -48,12 +48,12 @@ public:
   LoadResult Load(const std::string& levelsFile, bool isUser, int id);
 
   // Get the factory which creates levels.
-  SharedPtr<LevelFactorySimple> GetFactory();
+  RCPtr<LevelFactorySimple> GetFactory();
 
 protected:
   PLevel m_pLastLevelRequested;
   // The factory which creates Levels on the fly.
-  SharedPtr<LevelFactorySimple> m_pFactory;
+  RCPtr<LevelFactorySimple> m_pFactory;
 
   // Store a number of the most recently used Levels. This is to improve
   // responsiveness - but obviously requires more memory.

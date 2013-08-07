@@ -225,7 +225,7 @@ bool PoolFontManager::Init()
       return false;
     }
 
-    SharedPtr<PoolFont> pFont = new PoolFont(fontName);
+    RCPtr<PoolFont> pFont = new PoolFont(fontName);
     if (!pFont->Load(&f))
     {
       f.ReportError("Failed to load font info.");
@@ -241,7 +241,7 @@ std::cout << "FONT MANAGER: no fonts found!\n";
   }
 
   // Loaded all fonts. The first font is the default.
-  SharedPtr<PoolFont> pDefault = m_fonts.begin()->second;
+  RCPtr<PoolFont> pDefault = m_fonts.begin()->second;
   Engine::Instance()->GetTextWriter()->SetDefaultFont(pDefault.GetPtr());
 
   return true;

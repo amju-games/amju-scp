@@ -186,7 +186,7 @@ void SingleHiScoreTable::SendToUrl(const std::string& url)
 
 //std::cout << "URL for hi scores: " << u << "\n";
 
-  SharedPtr<HiScoreUrlThread> pThread = new HiScoreUrlThread;
+  RCPtr<HiScoreUrlThread> pThread = new HiScoreUrlThread;
   pThread->SetUrl(u);
   pThread->Start();
 

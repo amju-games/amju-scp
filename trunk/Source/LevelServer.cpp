@@ -43,7 +43,7 @@ void LevelServeOnFly::Clear()
   m_pLastLevelRequested = 0;
 }
 
-SharedPtr<LevelFactorySimple> LevelServeOnFly::GetFactory()
+RCPtr<LevelFactorySimple> LevelServeOnFly::GetFactory()
 {
   return m_pFactory;
 }
@@ -88,7 +88,7 @@ std::cout << "LevelServer: " << levelFile.c_str() << " is cached!\n";
   }
   prevname = levelFile;
 
-  static SharedPtr<File> pf;
+  static RCPtr<File> pf;
 
   if (!resume)
   {

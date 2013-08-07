@@ -13,7 +13,7 @@ Added to repository
 #include "Vertex.h"
 #include "SolidComponent.h"
 #include "Shadow.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include <queue>
 #include <string>
 
@@ -25,7 +25,7 @@ class WallPoly;
 
 // Abstract Base class for animated meshes.
 // "Character" is a bad name, as a mesh may look like anything.
-class Character : public Shareable
+class Character : public RefCounted
 {
 public:
   // Characters are created by CharacterManager, which owns the attributes

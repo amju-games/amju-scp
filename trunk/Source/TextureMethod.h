@@ -15,7 +15,7 @@ Added to repository
 #if !defined(TEXTURE_METHOD_H_INCLUDED)
 #define TEXTURE_METHOD_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -25,7 +25,7 @@ class LeafData;
 
 // LeafData holds a TextureMethod subclass. This handles the loading/saving of 
 // texture-related info, and the binding, etc.
-class TextureMethod : public Shareable
+class TextureMethod : public RefCounted
 {
 public:
   TextureMethod() : m_pTexture(0) {}

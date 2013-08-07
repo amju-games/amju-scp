@@ -472,7 +472,7 @@ protected:
 
 private:
   // Data members
-  SharedPtr<Player> m_pPlayer; // the player character.
+  RCPtr<Player> m_pPlayer; // the player character.
 
   int m_numFrames;
 

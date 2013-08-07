@@ -10,14 +10,14 @@ Added to repository
 #define AMJU_GUI_COMMAND_HANDLER_H_INCLUDED
 
 #include <vector>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Singleton.h"
 
 namespace Amju
 {
 class GuiElement;
 
-class GuiCommand : public Shareable
+class GuiCommand : public RefCounted
 {
 public:
   GuiCommand() : m_pGui(0) {}
@@ -38,7 +38,7 @@ protected:
   // The Gui element which owns this Command and fires it when required.
   GuiElement* m_pGui;
 };
-typedef SharedPtr<GuiCommand> PCommand;
+typedef RCPtr<GuiCommand> PCommand;
 
 // See Command pattern.
 class SingleGuiCommandHandler

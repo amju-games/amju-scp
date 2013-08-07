@@ -10,7 +10,7 @@ Added to repository
 #define LEVEL_FACTORY_WORKER_H_INCLUDED
 
 #include <string>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "BoundingBox.h"
 #include "Orientation.h"
 #include "GameObject.h"
@@ -21,7 +21,7 @@ class File;
 class Level;
 class LevelFactory;
 
-class LevelWorker : public Shareable
+class LevelWorker : public RefCounted
 {
 public:
   LevelWorker();

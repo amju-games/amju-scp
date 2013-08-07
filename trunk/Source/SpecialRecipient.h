@@ -25,7 +25,7 @@ public:
   virtual bool Load() { return true; }
 };
 
-typedef SharedPtr<SpecialRecipient> PSpecialRecipient;
+typedef RCPtr<SpecialRecipient> PSpecialRecipient;
 typedef std::map<int, PSpecialRecipient> SpecialRecipientMap;
 }
 

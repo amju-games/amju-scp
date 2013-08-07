@@ -19,7 +19,7 @@ namespace Amju
 class File;
 
 // Menu: a list of items is displayed; one is selected.
-class Menu : public Shareable
+class Menu : public RefCounted
 {
 public:
   Menu();
@@ -117,12 +117,12 @@ protected:
   // True if mouse is being dragged.
   bool m_drag;
 
-  SharedPtr<GuiElement> m_pPrevButton;
-  SharedPtr<GuiElement> m_pNextButton;
+  RCPtr<GuiElement> m_pPrevButton;
+  RCPtr<GuiElement> m_pNextButton;
 
 };
 
-typedef SharedPtr<Menu> PMenu;
+typedef RCPtr<Menu> PMenu;
 }
 #endif
 

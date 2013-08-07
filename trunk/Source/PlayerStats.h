@@ -12,11 +12,11 @@ New abstract base class for player info
 #ifndef PLAYER_STATS_H_INCLUDED
 #define PLAYER_STATS_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
-class PlayerStats : public Shareable
+class PlayerStats : public RefCounted
 {
 public:
   virtual bool Save() = 0;

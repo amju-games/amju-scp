@@ -245,7 +245,7 @@ protected:
   bool m_drag;
 
   // Shot power meter.
-  SharedPtr<PowerGuage> m_pPowerGuage;
+  RCPtr<PowerGuage> m_pPowerGuage;
 
   // If true, shot is active, i.e. user is controlling the shot.
   // If false, user is viewing the scene (possible moving the camera) but not
@@ -268,7 +268,7 @@ protected:
   float PLAYER_OFFSET_ANGLE;
 
   // Behaviour for AI-players
-  SharedPtr<PoolSetUpShotBehaviour> m_pBehaviour;
+  RCPtr<PoolSetUpShotBehaviour> m_pBehaviour;
 
   // Arrow showing shot direction
   PSolidComponent m_pArrow;
@@ -288,7 +288,7 @@ protected:
   PGuiElement m_pShootButton;
 
   // GUI Element for controlling the contact point on the cue ball.
-  SharedPtr<GuiContactPos> m_pContactGui;
+  RCPtr<GuiContactPos> m_pContactGui;
 
   // Labels for GUI
   PSolidComponent m_pTextPower;

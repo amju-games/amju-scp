@@ -555,7 +555,7 @@ std::cout << "Found partner! We are player 2\n";
     }
 */
 
-    SharedPtr<GuiButton> pButton = new GuiButton;
+    RCPtr<GuiButton> pButton = new GuiButton;
     pButton->GuiElement::Load("pool-player-button.txt");
     // If the game has 2 players and is in progress, we can Watch.
     // If there is only one player, the game is waiting, and we can Join.

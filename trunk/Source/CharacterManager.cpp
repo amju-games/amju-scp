@@ -41,7 +41,7 @@ void CharacterManager::Clear()
   m_characterNames.clear();
 }
 
-SharedPtr<Md2Model> CharacterManager::GetMd2Mesh(const std::string meshName) const
+RCPtr<Md2Model> CharacterManager::GetMd2Mesh(const std::string meshName) const
 {
   ModelMap::const_iterator it = m_md2Models.find(meshName);
   if (it != m_md2Models.end())
@@ -232,7 +232,7 @@ bool CharacterManager::LoadCharacters(const string& charList)
     }
 
     // Create new Character subtype 
-    SharedPtr<Character> pCharacter = Create(charType);
+    RCPtr<Character> pCharacter = Create(charType);
     if (!pCharacter.GetPtr())
     {
       f.ReportError("Bad character type.");
@@ -255,7 +255,7 @@ bool CharacterManager::LoadCharacters(const string& charList)
 
 Character* CharacterManager::GetCharacter(const string& characterName)
 {
-  SharedPtr<Character> pCharacter = m_characterMap[characterName];
+  RCPtr<Character> pCharacter = m_characterMap[characterName];
   if (pCharacter.GetPtr())
   {
     return pCharacter->Clone();

@@ -68,7 +68,7 @@ protected:
   PSolidComponent m_pOkText;
 
   // Guage with name/label identifying it
-  typedef std::pair<std::string, SharedPtr<Guage> > NameGuage;
+  typedef std::pair<std::string, RCPtr<Guage> > NameGuage;
   // Collection of guages.
   typedef std::vector<NameGuage> NameGuages;
   NameGuages m_nameGuages;
@@ -77,7 +77,7 @@ protected:
   std::vector<std::pair<float, float> > m_textPositions;
 
   // The characters whose stats we are displaying.
-  SharedPtr<CharacterGameObject> m_pChar;
+  RCPtr<CharacterGameObject> m_pChar;
 
   // Player whose stats we are currently displaying.
   int m_currentPlayer;

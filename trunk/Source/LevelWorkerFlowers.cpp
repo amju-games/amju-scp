@@ -75,7 +75,7 @@ bool LevelWorkerFlowers::AddFeature(Level* pLevel)
 
   for (int i = 0; i < m_numBunches; i++)
   {
-    SharedPtr<SolidComposite> pBunch = new SolidComposite;
+    RCPtr<SolidComposite> pBunch = new SolidComposite;
 
     // Get a random position for this bunch.
     Orientation o;

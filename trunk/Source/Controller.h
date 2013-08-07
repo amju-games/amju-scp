@@ -19,7 +19,7 @@ Added to repository
 #define CONTROLLER_H_INCLUDED
 
 #include <vector>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -30,7 +30,7 @@ class BoundingSphere;
 
 // Controls Free Moving objects.
 // Subclasses can control objects in different ways.
-class Controller : public Shareable
+class Controller : public RefCounted
 {
 public:
   virtual ~Controller() {}

@@ -152,7 +152,7 @@ public:
 #endif
 };
 
-typedef SharedPtr<PoolGameObject> PPoolGameObject;
+typedef RCPtr<PoolGameObject> PPoolGameObject;
 typedef int GameObjectId;
 typedef std::map<GameObjectId, PPoolGameObject> GameObjectMap;
 }

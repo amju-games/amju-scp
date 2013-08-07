@@ -53,7 +53,7 @@ public:
   void SetCurrentColourizer(int);
 
 protected:
-  std::vector<SharedPtr<TextColourizer> > m_colourizers;
+  std::vector<RCPtr<TextColourizer> > m_colourizers;
   int m_colourizerIndex;
 };
 

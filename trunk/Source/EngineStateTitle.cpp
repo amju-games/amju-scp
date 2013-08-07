@@ -154,7 +154,7 @@ void VersionThread::Work()
 
   // Result should be an XML file. Parse it and extract the version info.
   XmlMemParser xmp(r.GetString().c_str());
-  SharedPtr<XmlNodeInterface> pNode = xmp.getRootNode();
+  RCPtr<XmlNodeInterface> pNode = xmp.getRootNode();
   XmlOutput myout(std::cout);
   myout << pNode.GetPtr();
 
@@ -302,7 +302,7 @@ bool EngineStateTitle::Load()
 
 bool EngineStateTitle::LoadCharacter(const std::string& charname)
 {
-  SharedPtr<CharacterGameObject> pChar = new CharacterGameObject;
+  RCPtr<CharacterGameObject> pChar = new CharacterGameObject;
   pChar->AddMesh(CharacterManager::Instance()->GetCharacter(charname));
   m_characters.push_back(pChar);
 

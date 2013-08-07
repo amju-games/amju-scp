@@ -42,7 +42,7 @@ public:
 #endif
 
 protected:
-  SharedPtr<Character> m_pMesh;
+  RCPtr<Character> m_pMesh;
   std::string m_meshName;
 
   // A simple bounding volume. This is used for collision detection, 

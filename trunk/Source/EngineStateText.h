@@ -51,7 +51,7 @@ protected:
   TexturedQuad m_bg;
 
   // Camera
-  SharedPtr<Camera> m_pCam;
+  RCPtr<Camera> m_pCam;
 
   // Function which controls movement of the text.
   PFunction m_pFunc;

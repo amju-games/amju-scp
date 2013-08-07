@@ -24,14 +24,14 @@ Added to repository
 #include <map>
 #include <utility>
 #include <vector>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Vertex.h"
 #include "BillBoard.h"
 #include "Colour.h"
 
 namespace Amju
 {
-class Trajectory : public Shareable
+class Trajectory : public RefCounted
 {
 public:
   Trajectory();
@@ -73,7 +73,7 @@ protected:
 //  typedef std::vector<Vec3f> Verts;
 //  Verts m_vertices;
 
-  static SharedPtr<SolidComponent> s_pBillBoard;
+  static RCPtr<SolidComponent> s_pBillBoard;
 
   int m_maxPoints;
 

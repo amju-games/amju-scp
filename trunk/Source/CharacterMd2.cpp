@@ -76,7 +76,7 @@ bool CharacterMd2::Load(File* pf)
   }
 
   // Get the model mesh from the CharacterManager.
-  SharedPtr<Md2Model> pModel = CharacterManager::Instance()->GetMd2Mesh(meshName);
+  RCPtr<Md2Model> pModel = CharacterManager::Instance()->GetMd2Mesh(meshName);
   m_pModel = pModel.GetPtr();
   if (!m_pModel)
   {

@@ -143,7 +143,7 @@ std::cout << "GuiTable: drawing element " << i << "\n";
 #endif
 
       Assert(i < (int)m_children.size());
-      SharedPtr<GuiElement> pElem = m_children[i];
+      RCPtr<GuiElement> pElem = m_children[i];
       // Set width and height of this element
       Assert(pElem.GetPtr());
 

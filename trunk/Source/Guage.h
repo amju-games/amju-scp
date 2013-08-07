@@ -10,7 +10,7 @@ Added to repository
 #define GUAGE_H_INCLUDED
 
 #include "TexturedQuad.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -18,7 +18,7 @@ class File;
 
 // An on-screen indicator, showing e.g. time or power running out,
 // fuel left, speed, progress, etc. etc.
-class Guage : public Shareable
+class Guage : public RefCounted
 {
 public:
   Guage();

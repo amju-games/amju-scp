@@ -11,7 +11,7 @@ New Text system using Fonts
 
 #include <map>
 #include <string>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "TextureSequence.h"
 #include "Singleton.h"
 
@@ -19,7 +19,7 @@ namespace Amju
 {
 class File;
 
-class PoolFont : public Shareable
+class PoolFont : public RefCounted
 {
 public:
   PoolFont(const std::string& name);
@@ -67,7 +67,7 @@ public:
   PoolFont* GetFont(const std::string& fontName);
 
 protected:
-  typedef std::map<std::string, SharedPtr<PoolFont> > Fonts;
+  typedef std::map<std::string, RCPtr<PoolFont> > Fonts;
   Fonts m_fonts;
 };
 

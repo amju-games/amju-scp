@@ -10,14 +10,14 @@ Added to repository
 #define TEXTURE_SEQUENCE_H_INCLUDED
 
 #include <string>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Texture.h"
 
 namespace Amju
 {
 // Loads a texture which consists of a sequence of sub-textures.
 // Examples are fonts and explosion sequences.
-class PoolTextureSequence : public Shareable
+class PoolTextureSequence : public RefCounted
 {
 public:
   PoolTextureSequence();

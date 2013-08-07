@@ -14,7 +14,7 @@ Added to repository
 #include "SolidComponent.h"
 #include "States.h"
 #include "Lighting.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include <map>
 #include <utility> // pair
 #include <string>
@@ -29,7 +29,7 @@ class Level;
 
 // A room is a part of a level. It may really look like a room, but can also
 // be outdoors. It is connected to other Rooms by Portals.
-class Room : public Shareable
+class Room : public RefCounted
 {
 public:
   Room(int roomId);
@@ -116,7 +116,7 @@ public:
 #endif  
 };
 
-typedef SharedPtr<Room> PRoom;
+typedef RCPtr<Room> PRoom;
 }
 #endif
 

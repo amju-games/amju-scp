@@ -120,7 +120,7 @@ public:
     bool m_isOnline;
 
     // POOL: Player stats for all played games
-    SharedPtr<PlayerStats> m_pPlayerStats;
+    RCPtr<PlayerStats> m_pPlayerStats;
     PlayerStats* GetPlayerStats() { return m_pPlayerStats.GetPtr(); }
     void SetPlayerStats(PlayerStats* p) { m_pPlayerStats = p; }
   };

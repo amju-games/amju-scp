@@ -74,7 +74,7 @@ protected:
   PGuiElement m_pEditNamesButton; // edit/del/copy player names
   
   // Characters - one for one player, two for two player.
-  std::vector<SharedPtr<CharacterGameObject> > m_characters;
+  std::vector<RCPtr<CharacterGameObject> > m_characters;
 
 };
 }

@@ -150,11 +150,11 @@ float EngineStatePoolBase::s_top;
 float EngineStatePoolBase::s_z;
 float EngineStatePoolBase::s_ballSize = 5.0f;
 bool EngineStatePoolBase::s_flashBalls = true;
-SharedPtr<Trajectory> EngineStatePoolBase::s_pTrajectory;
+RCPtr<Trajectory> EngineStatePoolBase::s_pTrajectory;
 PoolCue EngineStatePoolBase::s_cue;
 PSolidComponent EngineStatePoolBase::s_pBigText;
 float EngineStatePoolBase::s_bigTextTime;
-SharedPtr<ExplosionEffect> EngineStatePoolBase::s_pBigTextExpl;
+RCPtr<ExplosionEffect> EngineStatePoolBase::s_pBigTextExpl;
 int EngineStatePoolBase::s_extraHearts[2];
 
 Trajectory* EngineStatePoolBase::GetTrajectory()

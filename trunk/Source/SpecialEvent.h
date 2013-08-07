@@ -10,11 +10,11 @@ E.g. Paste command.
 #ifndef SPECIAL_EVENT_H_INCLUDED
 #define SPECIAL_EVENT_H_INCLUDED
 
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
-class SpecialEvent : public Shareable
+class SpecialEvent : public RefCounted
 {
 };
 }

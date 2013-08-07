@@ -40,7 +40,7 @@ LevelFactorySimple::~LevelFactorySimple()
 void LevelFactorySimple::ClearWorkerForObject(int id)
 {
   // Get the Worker from the id - erase the worker, then erase the id.
-  SharedPtr<LevelWorker> pWorker = m_idToWorker[id];
+  RCPtr<LevelWorker> pWorker = m_idToWorker[id];
   Assert(pWorker.GetPtr());
   DeleteWorker(pWorker);
   m_idToWorker.erase(id);
@@ -129,7 +129,7 @@ LoadResult LevelFactorySimple::Load(File* pf)
       return false;
     }
 
-    SharedPtr<LevelWorker> pWorker = 
+    RCPtr<LevelWorker> pWorker = 
       LevelWorkerFactory::Instance()->Create(workerName);
     if (!pWorker.GetPtr())
     {
@@ -179,15 +179,15 @@ bool LevelFactorySimple::Save(File* pf)
 }
 #endif
 
-void LevelFactorySimple::AddWorker(SharedPtr<LevelWorker> pWorker)
+void LevelFactorySimple::AddWorker(RCPtr<LevelWorker> pWorker)
 {
   m_workers.push_back(pWorker);
   pWorker->SetFactory(this);
 }
 
-void LevelFactorySimple::DeleteWorker(SharedPtr<LevelWorker> pWorker)
+void LevelFactorySimple::DeleteWorker(RCPtr<LevelWorker> pWorker)
 {
-  // Can't directly use remove_if because using SharedPtr, 
+  // Can't directly use remove_if because using RCPtr, 
   // so easiest to just loop until we find the worker.
   for (Workers::iterator it = m_workers.begin(); it != m_workers.end(); ++it)
   {
@@ -200,7 +200,7 @@ void LevelFactorySimple::DeleteWorker(SharedPtr<LevelWorker> pWorker)
   Assert(0);
 }
 
-SharedPtr<LevelWorker> LevelFactorySimple::GetWorker(const char* name)
+RCPtr<LevelWorker> LevelFactorySimple::GetWorker(const char* name)
 {
   // TODO use multimap for fast lookup
   for (Workers::iterator it = m_workers.begin(); it != m_workers.end(); ++it)

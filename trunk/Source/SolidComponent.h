@@ -14,7 +14,7 @@ Added to repository
 #include "Orientation.h"
 #include "Matrix.h"
 #include "BoundingSphere.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "Mgc/MgcSegment3.h"
 
 namespace Amju
@@ -28,10 +28,10 @@ class SolidComponent;
 class BoundingBox;
 
 // Smart pointer to Solid Component
-typedef SharedPtr<SolidComponent> PSolidComponent;
-typedef std::vector<SharedPtr<SolidComponent> > CompVector;
+typedef RCPtr<SolidComponent> PSolidComponent;
+typedef std::vector<RCPtr<SolidComponent> > CompVector;
 
-class SolidComponent : public Shareable
+class SolidComponent : public RefCounted
 {
 public:
   SolidComponent();

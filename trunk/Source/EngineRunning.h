@@ -147,10 +147,10 @@ protected:
 
 
   // Display Remaining Time for Player
-  SharedPtr<PowerGuage> m_pTimeGuage;
+  RCPtr<PowerGuage> m_pTimeGuage;
 
   // Control style: this interprets user input into game actions.
-  SharedPtr<ControlStyle> m_pControlStyle;
+  RCPtr<ControlStyle> m_pControlStyle;
 };
 }
 #endif

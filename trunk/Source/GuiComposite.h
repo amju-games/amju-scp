@@ -42,13 +42,13 @@ public:
 
   void AddChild(GuiElement*);
   int GetNumberOfChildren() const;
-  SharedPtr<GuiElement> GetChild(int i);
+  RCPtr<GuiElement> GetChild(int i);
 
 protected:
   virtual bool CanDrag();
 
 protected:
-  typedef std::vector<SharedPtr<GuiElement> > Elements;
+  typedef std::vector<RCPtr<GuiElement> > Elements;
   Elements m_children;
 
 };

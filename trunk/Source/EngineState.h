@@ -21,7 +21,7 @@ Added to repository
 
 #include <string>
 #include "Camera.h"
-#include "SharedPtr.h"
+#include "RCPtr.h"
 #include "SpecialEvent.h"
 
 namespace Amju
@@ -29,7 +29,7 @@ namespace Amju
 class Message;
 class Engine;
 
-class EngineState : public Shareable
+class EngineState : public RefCounted
 {
 public:
   EngineState();
@@ -165,7 +165,7 @@ protected:
   bool m_mouseDown;
 };
 
-typedef SharedPtr<EngineState> PEngineState;
+typedef RCPtr<EngineState> PEngineState;
 }
 #endif
 

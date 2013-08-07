@@ -32,7 +32,7 @@ public:
   // the same for all Chicken instances.
   // However the Character object is allocated on the heap and you _should_
   // delete it when done with it.
-  // (Or put it in a SharedPtr so it is deleted for you.)
+  // (Or put it in a RCPtr so it is deleted for you.)
 
   // TODO This should return a vector of meshes.
   Character* GetCharacter(const std::string& characterName);
@@ -48,7 +48,7 @@ public:
   // TODO Surely this shouldn't be public ??!?!?!
   // It's only used by CharacterMd2
   // TODO sort this out!
-  SharedPtr<Md2Model> GetMd2Mesh(const std::string meshName) const;
+  RCPtr<Md2Model> GetMd2Mesh(const std::string meshName) const;
 
   // Iterate over character names.
   typedef std::vector<std::string>::iterator Iterator;
@@ -72,12 +72,12 @@ private:
   // Store each character in this map. When a character is requested,
   // clone the appropriate Character object and return the clone.
   // NB More than one Character may point to the same mesh(es).
-  typedef std::map<std::string, SharedPtr<Character> > CharacterMap;
+  typedef std::map<std::string, RCPtr<Character> > CharacterMap;
   CharacterMap m_characterMap;
 
   // Map character ID to an MD2 mesh.
   // If we support more mesh types, we will need a map for each one.
-  typedef std::map<std::string, SharedPtr<Md2Model> > ModelMap;
+  typedef std::map<std::string, RCPtr<Md2Model> > ModelMap;
   ModelMap m_md2Models;
 
   // List of the keys in m_characterMap. This allows clients to 

@@ -10,7 +10,7 @@ Added to repository
 #define PLATFORM_FUNCTION_H_INCLUDED
 
 #include <string>
-#include "SharedPtr.h"
+#include "RCPtr.h"
 
 namespace Amju
 {
@@ -18,7 +18,7 @@ class Orientation;
 class File;
 
 // Abstract base class. Functions change an Orientation w.r.t. time.
-class Function : public Shareable
+class Function : public RefCounted
 {
 public:
   Function();
@@ -58,7 +58,7 @@ protected:
 #endif
 };
 
-typedef SharedPtr<Function> PFunction;
+typedef RCPtr<Function> PFunction;
 }
 #endif
 

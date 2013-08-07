@@ -49,7 +49,7 @@ bool GuiComposite::Load(File* pf)
   }
   for (int i = 0; i < numChildren; i++)
   {
-    SharedPtr<GuiElement> pTb = GuiFactory::Instance()->Create(pf);
+    RCPtr<GuiElement> pTb = GuiFactory::Instance()->Create(pf);
     if (!pTb->Load(pf))
     {
       pf->ReportError("Failed to load GUI child.");
@@ -163,7 +163,7 @@ int GuiComposite::GetNumberOfChildren() const
   return m_children.size();
 }
 
-SharedPtr<GuiElement> GuiComposite::GetChild(int i)
+RCPtr<GuiElement> GuiComposite::GetChild(int i)
 {
   return m_children[i];
 }
