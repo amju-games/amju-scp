@@ -73,7 +73,7 @@ void EsLogo::DrawOverlays()
 void EsLogo::Draw()
 {
   AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
-  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
 
   static bool first = true;
   if (first)
@@ -81,10 +81,10 @@ void EsLogo::Draw()
     first = false;
     // Can't do this in ctor
     TexturedQuad tq;
-    tq.Load("logo4.png", "");
+    tq.Load("logo.png", "");
     m_logos.push_back(tq);
 
-    m_bg.Load("wh8.png", "");
+    //m_bg.Load("wh8.png", "");
 
     m_maxTime = LOGO_TIME * m_logos.size();
   }
@@ -93,16 +93,18 @@ void EsLogo::Draw()
   float c = sin(rem / LOGO_TIME * (float)pi);
   Engine::Instance()->PushColour(c, c, c, 1.0f);
 
-  m_bg.Draw(-1.0f, -5.0f, 20.0f, 30.0f); 
+  //m_bg.Draw(-1.0f, -5.0f, 20.0f, 30.0f); 
   static const float LOGO_WIDTH = 10.0f;
-  static const float LOGO_HEIGHT = 10.0f;
+  static const float LOGO_HEIGHT = 5.0f;
+  static const float LOGO_TOP = 5.0f;
 
   int i = (int)(m_time / LOGO_TIME);
 
   // Fix last frame error 
   if (i < (int)m_logos.size())
   {
-    m_logos[i].Draw(3.0f, 7.0f, 3.0f + LOGO_HEIGHT, 8.0f + LOGO_WIDTH); 
+    // T, L, B, R
+    m_logos[i].Draw(LOGO_TOP, 8.0f, LOGO_TOP + LOGO_HEIGHT, 8.0f + LOGO_WIDTH); 
   }
 
   Engine::Instance()->PopColour();
