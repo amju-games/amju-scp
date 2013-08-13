@@ -110,7 +110,7 @@ void TextWriter::Print(float x, float y, const char *text, PoolFont* pFont)
       PrintNoBlend(x, y, text, pFont);
     }
 #else
-    Engine::Instance()->PushColour(0, 0, 0, 1.0f);
+    PrintNoBlend(x, y, text, pFont);
 #endif
 
     AmjuGL::PopAttrib(); // Blend
