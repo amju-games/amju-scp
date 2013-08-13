@@ -13,6 +13,7 @@ New Text system using Fonts
 #pragma warning(disable: 4786)
 #endif
 
+#include <TriList.h>
 #include "Common.h"
 #include "Font.h"
 #include "Engine.h"
@@ -157,13 +158,15 @@ float PoolFont::GetTextWidth(const std::string& s)
 
 void PoolFont::PrintNoBlend(float x, float y, const char* text)
 {
-  return;
-  
+    static TriListDynamic* triList = (TriListDynamic*)
+      AmjuGL::Create(TriListDynamic::DRAWABLE_TYPE_ID); 
   
     if (!text)
     {
         return;
     }
+
+    static const char* prevText = 0;
 
     AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING);
     AmjuGL::PushAttrib(AmjuGL::AMJU_DEPTH_READ);
@@ -171,29 +174,41 @@ void PoolFont::PrintNoBlend(float x, float y, const char* text)
     AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
     AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
 
+    m_textureSequence.Bind();
+
+    if (prevText != text)
+    {
+        prevText = text;
+
+        static AmjuGL::Tris tris;
+        tris.clear();
+        float accF = 0;
+        int i = 0;
+        while (unsigned char c = text[i])
+        {
+            i++;
+
+            AmjuGL::Tri t[2];
+            m_textureSequence.MakeTris(c - (char)m_startChar, m_size, t, accF, 0);
+
+            float f = GetCharacterWidth(c) * m_size;
+            accF += f;
+
+            tris.push_back(t[0]);
+            tris.push_back(t[1]);
+
+        }
+
+        triList->Set(tris);
+    }
+
     AmjuGL::PushMatrix();
     AmjuGL::Translate(
       TextWriter::CHAR_SIZE * x - TextWriter::X_OFFSET, 
       TextWriter::Y_OFFSET - TextWriter::CHAR_SIZE * y, 
       TextWriter::Z_OFFSET);
 
-    m_textureSequence.Bind();
-    //AmjuGL::Disable(AmjuGL::AMJU_TEXTURE_MATRIX_GEN_S);
-    //AmjuGL::Disable(AmjuGL::AMJU_TEXTURE_MATRIX_GEN_T);
-
-    int i = 0;
-    while (unsigned char c = text[i])
-    {
-        i++;
-
-        AmjuGL::PushMatrix();
-        AmjuGL::Scale(m_size, m_size, 1.0f);
-        m_textureSequence.Draw(c - (char)m_startChar);
-        AmjuGL::PopMatrix();
-
-        float f = GetCharacterWidth(c) * m_size;
-        AmjuGL::Translate(f, 0.0f, 0.0f);
-    }
+    AmjuGL::Draw(triList);
 
     AmjuGL::PopMatrix();
 
