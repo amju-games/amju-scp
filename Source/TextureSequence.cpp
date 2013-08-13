@@ -46,7 +46,6 @@ int PoolTextureSequence::GetTextureHeight()
 
 bool PoolTextureSequence::Load(
   const std::string& texturename, 
-  const std::string& alphaname, 
   int numElementsX, int numElementsY,
   float sizeX, float sizeY)
 {
@@ -59,7 +58,7 @@ bool PoolTextureSequence::Load(
 
   m_numElements = numElementsX * numElementsY;
 
-  m_pTexture = TextureServer::Instance()->Get(texturename, alphaname);
+  m_pTexture = TextureServer::Instance()->Get(texturename, "");
   if (!m_pTexture)
   {
     return false;

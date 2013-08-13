@@ -39,18 +39,14 @@ bool PoolFont::Load(File* pf)
     pf->ReportError("Expected font point size.");
     return false;
   }
-  // Get the bitmap and alpha filenames
-  std::string bm, alpha;
+  // Get the bitmap (includes alpha) filename
+  std::string bm;
   if (!pf->GetDataLine(&bm))
   {
     pf->ReportError("Expected font bitmap name.");
     return false;
   }
-  if (!pf->GetDataLine(&alpha))
-  {
-    pf->ReportError("Expected font alpha name.");
-    return false;
-  }
+  
   // Get no of characters in X and Y directions.
   int xchars = 0;
   int ychars = 0;
@@ -66,7 +62,7 @@ bool PoolFont::Load(File* pf)
   }
 
   bool b = m_textureSequence.Load(
-    bm, alpha, xchars, ychars, TextWriter::CHAR_SIZE, TextWriter::CHAR_SIZE);
+    bm, xchars, ychars, TextWriter::CHAR_SIZE, TextWriter::CHAR_SIZE);
   if (!b)
   {
     pf->ReportError("Failed to load texture sequence for font");
