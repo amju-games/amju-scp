@@ -90,6 +90,7 @@ void TextWriter::Print(float x, float y, const char *text, PoolFont* pFont)
     ////////glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
     AmjuGL::Enable(AmjuGL::AMJU_BLEND);
 
+#ifdef USE_DROP_SHADOW
     if (m_dropShadow)
     {
       // To get a Drop Shadow effect, set the current colour to black. 
@@ -108,6 +109,9 @@ void TextWriter::Print(float x, float y, const char *text, PoolFont* pFont)
     {
       PrintNoBlend(x, y, text, pFont);
     }
+#else
+    Engine::Instance()->PushColour(0, 0, 0, 1.0f);
+#endif
 
     AmjuGL::PopAttrib(); // Blend
 }
