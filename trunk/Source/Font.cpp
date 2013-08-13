@@ -158,14 +158,13 @@ float PoolFont::GetTextWidth(const std::string& s)
 
 void PoolFont::PrintNoBlend(float x, float y, const char* text)
 {
-    static TriListDynamic* triList = (TriListDynamic*)
-      AmjuGL::Create(TriListDynamic::DRAWABLE_TYPE_ID); 
-  
     if (!text)
     {
         return;
     }
 
+    static RCPtr<TriListStatic> triList;
+  
     static const char* prevText = 0;
 
     AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING);
@@ -179,7 +178,8 @@ void PoolFont::PrintNoBlend(float x, float y, const char* text)
     if (prevText != text)
     {
         prevText = text;
-
+        triList = (TriListStatic*)AmjuGL::Create(TriListStatic::DRAWABLE_TYPE_ID);
+      
         static AmjuGL::Tris tris;
         tris.clear();
         float accF = 0;
