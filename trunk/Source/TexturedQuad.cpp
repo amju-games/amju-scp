@@ -3,6 +3,9 @@
 #include "TextWriter.h"
 #include "File.h"
 
+// Use normalised device coords - i.e. -1..1 in x and y
+#define USE_NDCS
+
 namespace Amju
 {
 TexturedQuad::TexturedQuad() : m_pTex(0)
@@ -89,10 +92,31 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
     return;
   }
 
+#ifdef USE_NDCS
+  AmjuGL::PushMatrix();
+  AmjuGL::SetIdentity();
+  AmjuGL::SetMatrixMode(AmjuGL::AMJU_PROJECTION_MATRIX);
+  AmjuGL::PushMatrix();
+  AmjuGL::SetIdentity();
+
+  const float MAX_X = 25.0f;
+  const float MAX_Y = 16.0f;
+
+  float xmax = right / MAX_X * 2.0f - 1.0f;
+  float xmin = left / MAX_X * 2.0f - 1.0f;
+  float ymax = -(top / MAX_Y * 2.0f - 1.0f);
+  float ymin = -(bottom / MAX_Y * 2.0f - 1.0f); 
+  float z = 0;
+
+#else
+
   float xmax = right * TextWriter::CHAR_SIZE - TextWriter::X_OFFSET;
   float xmin = left * TextWriter::CHAR_SIZE - TextWriter::X_OFFSET;
   float ymax = TextWriter::Y_OFFSET - (top - 1) * TextWriter::CHAR_SIZE;
   float ymin = TextWriter::Y_OFFSET - (bottom - 1) * TextWriter::CHAR_SIZE;
+  float z = TextWriter::Z_OFFSET;
+
+#endif
 
   AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
 
@@ -103,10 +127,10 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   AmjuGL::Vert verts[4] =
   {
     // x, y, z, u, v, nx, ny, nz
-    AmjuGL::Vert(xmin, ymin, TextWriter::Z_OFFSET,   m_areaLeft,  y1,     1, 1, 0), 
-    AmjuGL::Vert(xmax, ymin, TextWriter::Z_OFFSET,   m_areaRight, y1,     0, 1, 0),
-    AmjuGL::Vert(xmax, ymax, TextWriter::Z_OFFSET,   m_areaRight, y2,     0, 1, 1),
-    AmjuGL::Vert(xmin, ymax, TextWriter::Z_OFFSET,   m_areaLeft,  y2,     0, 1, 0)
+    AmjuGL::Vert(xmin, ymin, z,   m_areaLeft,  y1,     0, 1, 0), 
+    AmjuGL::Vert(xmax, ymin, z,   m_areaRight, y1,     0, 1, 0),
+    AmjuGL::Vert(xmax, ymax, z,   m_areaRight, y2,     0, 1, 0),
+    AmjuGL::Vert(xmin, ymax, z,   m_areaLeft,  y2,     0, 1, 0)
   };
 
   AmjuGL::Tris tris;
@@ -128,6 +152,12 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   }
   m_triList->Set(tris);
   AmjuGL::Draw(m_triList);
+
+#ifdef USE_NDCS
+  AmjuGL::PopMatrix();
+  AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
+  AmjuGL::PopMatrix();
+#endif
 }
 
 void TexturedQuad::SetDrawArea(float t, float l, float b, float r)

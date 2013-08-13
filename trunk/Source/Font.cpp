@@ -21,6 +21,9 @@ New Text system using Fonts
 #include "TextWriter.h"
 #include "SchAssert.h"
 
+// Use coords -1..1
+#define USE_NDCS 
+
 namespace Amju
 {
 PoolFont::PoolFont(const std::string& name) : m_name(name)
@@ -163,6 +166,7 @@ void PoolFont::PrintNoBlend(float x, float y, const char* text)
         return;
     }
 
+    // Sigh, this is really bad, but it will be a big change to make this efficient
     static RCPtr<TriListStatic> triList;
   
     static const char* prevText = 0;
@@ -202,15 +206,35 @@ void PoolFont::PrintNoBlend(float x, float y, const char* text)
         triList->Set(tris);
     }
 
+#ifdef USE_NDCS
+    const float MAX_X = 24.85f;
+    const float MAX_Y = 17.0f;
+    const float SC = 0.35f;
+
+    AmjuGL::PushMatrix();
+    AmjuGL::SetIdentity();
+    AmjuGL::Translate(x / MAX_X * 2.0f - 1.0f, -((y + 1.0f) / MAX_Y * 2.0f - 1.0f), 0);
+    AmjuGL::Scale(SC, SC, 1);
+    AmjuGL::SetMatrixMode(AmjuGL::AMJU_PROJECTION_MATRIX); 
+    AmjuGL::PushMatrix();
+    AmjuGL::SetIdentity();
+#else
     AmjuGL::PushMatrix();
     AmjuGL::Translate(
       TextWriter::CHAR_SIZE * x - TextWriter::X_OFFSET, 
       TextWriter::Y_OFFSET - TextWriter::CHAR_SIZE * y, 
       TextWriter::Z_OFFSET);
+#endif
 
     AmjuGL::Draw(triList);
 
+#ifdef USE_NDCS
     AmjuGL::PopMatrix();
+    AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
+    AmjuGL::PopMatrix();
+#else
+    AmjuGL::PopMatrix();
+#endif
 
     AmjuGL::PopAttrib();
     AmjuGL::PopAttrib();
