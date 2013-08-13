@@ -221,9 +221,6 @@ Engine::Engine()
   m_showStats = false;
   m_showSpheres = false;
 
-  // Start with white screen
-  SetClearColour(1.0f, 1.0f, 1.0f);
-
   //SetLetterbox(false);
   m_letterbox = 0;
 
@@ -282,6 +279,12 @@ int Engine::GetWindowY() const
 
 void Engine::Draw2d()
 {
+/*
+  AmjuGL::PushMatrix();
+  m_pCurrentState->DrawOverlays();
+  AmjuGL::PopMatrix();
+*/
+
 #ifdef GEKKO
   TheCursorManager::Instance()->Draw();
 #endif
@@ -542,6 +545,7 @@ void Engine::SetClearColour(float r, float g, float b)
   m_clearR = r;
   m_clearG = g;
   m_clearB = b;
+  AmjuGL::SetClearColour(Colour(m_clearR, m_clearG, m_clearB, 1.0f));
 }
 
 TextWriter* Engine::GetTextWriter()
@@ -787,6 +791,10 @@ bool Engine::LoadFont()
 
 bool Engine::Load()
 {
+  static float loadTime = 0;
+  float dt = TheTimer::Instance()->GetDt(); 
+  loadTime += dt;
+
   // New for v.1.2: progress bar - we have to load in the main
   // thread, so this function gets called many times.
   // Each call we increment the progress bar, and load something
@@ -797,6 +805,15 @@ bool Engine::Load()
   // If something really fails to load, we set this to -1, which means stop
   // trying to load.
   static int count = 0;
+  static int oldCount = 0;
+  if (count != oldCount)
+  {
+std::cout << "Load count just changed to " << count 
+  << ", time: " << loadTime << "\n";
+    loadTime = 0;
+    oldCount = count;
+  }
+
   if (count != -1)
   {
     IncProgress(); // increment the progress bar the user can see.
@@ -1495,7 +1512,7 @@ void Engine::Draw()
   // Undo Letterbox, for overlays.
   UndoLetterbox();
 
-
+// in Draw2d ?
   AmjuGL::PushMatrix();
   m_pCurrentState->DrawOverlays();
   AmjuGL::PopMatrix();
