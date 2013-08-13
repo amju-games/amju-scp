@@ -15,11 +15,11 @@ arial_round_1024_36pt.png
 // no of chars in x
 16
 // no of chars in Y
-16
+8
 // start char
-0
+32
 // widths
-arial_round_1024_36pt_widths.ini
+arial_round_1024_36pt_widths.txt
 
 
 // Font 2
@@ -34,9 +34,9 @@ cheri_1024.png
 // no of chars in y
 8
 // start char
-0
+32
 // widths
-cheri_1024_widths.ini
+cheri_1024_widths.txt
 
 
 // Font3 
