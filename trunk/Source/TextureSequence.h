@@ -25,7 +25,6 @@ public:
 
   bool Load(
     const std::string& texturename, 
-    const std::string& alphaname, 
     int numElementsX, int numElementsY,
     float sizeX, float sizeY);
 
