@@ -227,6 +227,7 @@ void PoolTexture::DrawNoBinding(PoolTexture::BindType bt, bool wrap)
 void PoolTexture::Bind()
 {
   AmjuGL::UseTexture(m_binding);
+  AmjuGL::SetTextureType(AmjuGL::AMJU_TEXTURE_REGULAR); 
 }
 
 int PoolTexture::Alloc(unsigned int width,
