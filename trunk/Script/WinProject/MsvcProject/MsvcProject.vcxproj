@@ -134,6 +134,12 @@
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y  ..\..\..\..\amjulib\Source\GLUT\glut32.dll  ..\..\..\Build\$(Configuration)\
+xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$(Configuration)\
+
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -184,6 +190,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y  ..\..\..\..\amjulib\Source\GLUT\glut32.dll  ..\..\..\Build\$(Configuration)\
+xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAssetTest|Win32'">
     <ClCompile>
