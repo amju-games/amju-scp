@@ -1,3 +1,6 @@
 # j.c. convert leaf file to obj
 newmtl table-corner2
 map_Kd chrome1.png
+# sphere map
+flags 2
+

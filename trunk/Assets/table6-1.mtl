@@ -1,3 +1,5 @@
 # j.c. convert leaf file to obj
 newmtl table6-1
 map_Kd chrome1.png
+flags 2
+
