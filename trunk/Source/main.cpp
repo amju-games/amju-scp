@@ -16,6 +16,9 @@
 
 //#define AMJU_USE_DX11
 
+// For debugging when faced with black screen of misery
+#define GEKKO_CONSOLE
+
 #include <main.h>
 
 #endif // not IPHONE
