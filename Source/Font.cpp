@@ -179,6 +179,7 @@ void PoolFont::PrintNoBlend(float x, float y, const char* text)
     {
         prevText = text;
         triList = (TriListStatic*)AmjuGL::Create(TriListStatic::DRAWABLE_TYPE_ID);
+        if (!triList) return;
       
         static AmjuGL::Tris tris;
         tris.clear();

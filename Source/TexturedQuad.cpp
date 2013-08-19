@@ -150,8 +150,12 @@ void TexturedQuad::Draw(float top, float left, float bottom, float right)
   {
     m_triList = (TriListDynamic*)AmjuGL::Create(TriListDynamic::DRAWABLE_TYPE_ID);
   }
-  m_triList->Set(tris);
-  AmjuGL::Draw(m_triList);
+
+  if (m_triList)
+  {
+    m_triList->Set(tris);
+    AmjuGL::Draw(m_triList);
+  }
 
 #ifdef USE_NDCS
   AmjuGL::PopMatrix();
