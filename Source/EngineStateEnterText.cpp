@@ -295,7 +295,9 @@ void EngineStateEnterText::MouseButton(bool down, bool ctrl, bool shift)
   
   if (m_mouseDown && !down)
   {
+#ifdef _DEBUG
     std::cout << "Selecting menu item.\n";
+#endif
 /*
     int c = m_pMenu->Choose();
     if (c == 0)

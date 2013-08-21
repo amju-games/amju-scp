@@ -17,7 +17,7 @@
 //#define AMJU_USE_DX11
 
 // For debugging when faced with black screen of misery
-#define AMJU_CONSOLE
+//#define AMJU_CONSOLE
 
 #include <main.h>
 

@@ -181,14 +181,14 @@ void ReportError(const string& error)
   Engine::Instance()->ReportError(error);
 }
 
-static void Destroy()
-{
-#ifdef _DEBUG
-std::cout << "Destroying singleton: Engine\n";
-#endif
-
-  delete Engine::Instance();
-}
+//static void Destroy()
+//{
+//#ifdef _DEBUG
+//std::cout << "Destroying singleton: Engine\n";
+//#endif
+//
+//  delete Engine::Instance();
+//}
 
 Engine* Engine::Instance()
 {
@@ -688,9 +688,10 @@ void Engine::ClearText()
 void Engine::ReportError(const std::string& errorMessage) const
 {
   const_cast<Engine*>(this)->GetTextWriter()->ScrollPrint(errorMessage);
-  // In case the TextWriter text is unreadable..
-  // NB Deliberately NOT in _DEBUG only build
+
+#ifdef _DEBUG
   cout << errorMessage.c_str() << endl;
+#endif
 }
 
 bool Engine::ReLoad()
@@ -808,8 +809,10 @@ bool Engine::Load()
   static int oldCount = 0;
   if (count != oldCount)
   {
+#ifdef SHOW_LOAD_TIME
 std::cout << "Load count just changed to " << count 
   << ", time: " << loadTime << "\n";
+#endif
     loadTime = 0;
     oldCount = count;
   }
@@ -968,7 +971,7 @@ std::cout << "Load count just changed to " << count
   case 7:
     {
 #ifdef _DEBUG
-std::cout << "Loading golf courses...\n";
+std::cout << "Loading levels...\n";
 #endif
       if (!PoolCourseManager::Instance()->Load())
       {
@@ -1547,8 +1550,10 @@ void Engine::Draw()
   // Splitting draw/update into separate functions will fix this.
   if (m_colourStack.size() != 1)
   {
+#ifdef _DEBUG
     // TODO TEMP TEST
     std::cout << "Colour stack error\n";
+#endif
   }
 
   m_colourStack.pop();

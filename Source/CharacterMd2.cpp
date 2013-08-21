@@ -228,7 +228,9 @@ void CharacterMd2::Recalculate()
   // If this is a Death animation, freeze on the last frame.
   if (CurrentActionFreezes())
   {
+#ifdef _DEBUG
 std::cout << "Frozen!\n";
+#endif
     // Dead, so now the frame number never changes.
     m_frame--; // = m_pModel->GetAnimationSize((Md2Model::Animation)m_animation + 1); 
     m_isFrozen = true;

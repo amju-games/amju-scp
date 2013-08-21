@@ -199,6 +199,8 @@ void SingleHiScoreTable::HiScoreUrlThread::Work()
   HttpClient h;
   HttpResult res;
   h.Get(m_url, HttpClient::GET, &res); 
+#ifdef _DEBUG
   std::cout << "Url thread has now finished.\n";
+#endif
 }
 }

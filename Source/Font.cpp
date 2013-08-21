@@ -121,9 +121,9 @@ bool PoolFont::Load(File* pf)
     m_charWidths[(char)code] = width;
   }
 
-//#ifdef FONT_DEBUG
+#ifdef _DEBUG
 std::cout << "FONT: Successfully loaded " << m_name.c_str() << "\n";
-//#endif
+#endif
 
   return true;
 }
