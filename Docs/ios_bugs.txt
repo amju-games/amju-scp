@@ -1,0 +1,101 @@
+Critical
+========
+
+iphone save data dir: currently is not saving
+
+iphone load time - is using GlueFileMem :-( 
+Depends which file type is taking the most time. E.g. maybe reducing png sizes would help
+
+iphone frame rate -- smaller ball meshes, smaller textures, no trees, etc.
+
+
+iphone: UI: Use only "left mouse button"
+ --> detect 'flick' gesture, use this to control shot strength. So if y diff is a lot more than x diff, go to TakeShot mode.
+EngineStatePoolSetUpShot.cpp:2990 - sets Take Shot mode on "L Mouse button" if y diff is high.
+TODO Test on device, what should y diff value be ? (should this be x diff as screen is rotated?)
+-- Can't aim shot but can take it!
+Then make sure this is disabled for other platforms
+
+Cue pos (english, top spin, etc) uses picking and reads from back buffer!
+//Place ball
+Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
+
+
+Efficiency
+==========
+
+
+level0.amju2 (+ presumably the others) has multiple copies of sortscene! Is this as bad as it looks!?!?
+-- No I think it's OK: each level file contains 4 "rooms"
+
+release: make sure no _DEBUG, -O2, etc. 
+
+iphone - strip dead code - set compiler flag
+
+iphone bad framerate and music stutters -- too many polys ? Try non-debug
+
+
+Pngs were upside-down. Either textures are being flipped somewhere or UVs (v coord) are being flipped ??
+Flipped img, prob doing that twice for some (all) imgs ?!?
+TODO Fix MD2 v-coord - md2 images are upside down but v-coord is flipped!?!?!?!!
+
+Convert amju2 to amju2b ??
+iphone reduced size textures
+
+iphone + wii mipmapping ??? Also DX ?!
+
+
+Audio
+=====
+Music plays on iphone but is choppy. If this can't be fixed, will have to not have music.
+
+Check sound effects on iphone: May need to change WAV format. - cashreg, foul (rubber ducky), click ok
+
+
+Cosmetic
+========
+
+hiscores.cfg message in loading screen
+
+iphone: buttons don't respond properly. The first touch/release selects, then another is needed to click..!?!
+
+iphone UI: buttons should be a lot bigger.
+
+Wii/iphone buttons which don't make sense, e.g. change player name.
+Options: full screen is not required. In fact could probably do without options menu at all.
+
+Wii and iphone: can't enter player name!!!
+-> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
+
+iPhone: Controls page showing pictures of swipes/gestures
+
+Positioning cue ball: put cue ball in closest legal position to cursor pos, rather than 'sticking' at last known good pos.
+
+
+Attract mode can get stuck on 'crazy' version with block in the way. This also causes other probs so delete this type of room.
+
+No lighting now!
+Lighting is not the same as raw OpenGL, so some bits look too dark.
+
+Some .leaf meshses had auto-gen UVs. The .objs have bogus UVs. Need to UV map them!
+
+Some meshes are supposed to be sphere-mapped.
+
+Marin height wrong (also Amju ?)
+
+Timing wrong for take shot anim
+
+Localisation
+ - Don't use hard coded text on images
+ - Use Localise for all text
+
+
+Bugs remaining from last release
+================================
+
+ - Amju skirt z fighting
+
+ - Foul message wrong if cue ball potted (player name changes when next player becomes active ?)
+
+ - 8 ball: no explanatory message if you lose by potting the 8-ball too soon
+
