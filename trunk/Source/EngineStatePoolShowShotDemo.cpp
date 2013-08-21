@@ -81,7 +81,7 @@ void EngineStatePoolShowShotDemo::SetActive(bool active)
 
   if (active)
   {
-    GetEngine()->SetClearColour(1.0f, 0, 1.0f);
+    GetEngine()->SetClearColour(0, 0, 0);
     GetEngine()->SetLetterbox(true);
   }
   else
