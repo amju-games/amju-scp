@@ -1,0 +1,13 @@
+What to do when game crashes on Wii
+
+
+** Are the data files on the SD card? Are they the right size? **
+
+Does the game display anything graphical?
+(Do we get past initialisation stage?)
+
+
+Try running in console mode:
+#define AMJU_CONSOLE in main.cpp and rebuild
+
+
