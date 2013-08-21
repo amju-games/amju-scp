@@ -185,7 +185,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
     return false;
   }
   s_startButton->SetSize(7.0f, 2.0f);
-  s_startButton->SetRelPos(0.0f, 0.0f);
+  s_startButton->SetRelPos(2, 2); // title safe for Wii
   s_startButton->SetCommand(&OnStartClicked);
 
   s_exitButton = new PoolGuiButton;
@@ -254,7 +254,7 @@ void EngineStatePoolSetUpShotDemo::SetActive(bool active)
 
   if (active)
   {
-    GetEngine()->SetClearColour(1.0f, 0, 1.0f);
+    GetEngine()->SetClearColour(0, 0, 0); // don't like purple
     GetEngine()->SetLetterbox(true);
   }
   else
