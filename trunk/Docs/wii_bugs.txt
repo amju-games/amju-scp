@@ -1,0 +1,75 @@
+Critical
+========
+
+Wii: missing snd files cause PAUSE
+Try afconvert to make snd files ??
+E.g. from iphone projects book:
+afconvert -f caff -d LEI16 {IN} {OUT}
+afconvert -f caff -d LEI16@22050 {IN} {OUT}
+
+Wii: assert: EngineStatePoolSetUpShot.cpp:1317
+Pressed B button when in place ball mode I think ?
+
+Wii release: needs meta.xml 
+and wiibrew page -- add some screenshots
+make release -- script
+download link
+request add to Home brew browser
+//and logo
+
+Cue pos (english, top spin, etc) uses picking and reads from back buffer!
+ - Use nunchuck stick
+
+Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
+
+Wii: use title-safe area 
+
+Wii: displaying mouse diff info, causing jitter
+
+Wii: no sound or music
+
+
+Efficiency
+==========
+
+Check wii imgs are not flipped twice (or more.... urg)
+
+Pngs were upside-down. Either textures are being flipped somewhere or UVs (v coord) are being flipped ??
+Flipped img, prob doing that twice for some (all) imgs ?!?
+TODO Fix MD2 v-coord - md2 images are upside down but v-coord is flipped!?!?!?!!
+
+
+Wii: no VFC!!! When it was on, bits of scene and balls disappeared - I'm guessing projection matrix.
+
+wii mipmapping ??? Also DX ?!
+(reduced texture sizes for wii, iphone)
+
+Audio
+=====
+
+Wii: check if music plays: No music!
+
+Wii: convert wav to required format and check.
+
+
+Cosmetic
+========
+
+hiscores.cfg message in loading screen
+
+Wii/iphone buttons which don't make sense, e.g. change player name.
+Options: full screen is not required. In fact could probably do without options menu at all.
+
+Wii and iphone: can't enter player name!!!
+-> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
+
+Wii: would be nice to have Controls page showing wiimote buttons
+
+Wii: std::couts are visible!! These must *all* be #ifdef'd
+Especially some x diff and y diff values printed every frame in EngineStatePoolSetUpShot..?
+
+Wii Home button should pause, not quit
+ - but probably best to have this as is for now
+
+
+
