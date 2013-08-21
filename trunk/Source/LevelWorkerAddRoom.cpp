@@ -78,8 +78,9 @@ bool LevelWorkerAddRoom::AddFeature(Level* pLevel)
 
   if (numRooms == 0)
   {
+#ifdef _DEBUG
     std::cout << "Adding a room.\n";
-
+#endif
     // In this case, just add a new empty room.
     int roomId = pLevel->GetNumberOfRooms();
     Room* pRoom = new Room(roomId);

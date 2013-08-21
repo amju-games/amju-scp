@@ -188,10 +188,13 @@ void EngineStatePlayerStats::DrawOverlays()
     float newval = pInfo->m_stats[i];
 
     Assert((int)oldStats.size() > i);
+
+#ifdef _DEBUG
 if ((int)oldStats.size() <= i)
 {
 std::cout << "Bad array size!!\n";
 }
+#endif
 
     float oldval = oldStats[i];
     float val = newval;

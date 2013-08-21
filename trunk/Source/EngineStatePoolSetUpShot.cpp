@@ -46,7 +46,7 @@
 #include <Screen.h>
 
 //#define SHOOT_BUTTON
-#define SET_UP_SHOT_DEBUG
+//#define SET_UP_SHOT_DEBUG
 
 namespace Amju
 {
@@ -2849,7 +2849,9 @@ std::cout << "LEFT MOUSE BUTTON " << (down ? "down" : "up") << "\n";
 //#ifdef IPHONE
   if (!down && s_cue.IsSwingMode()) // in take shot mode ?
   {
+#ifdef _DEBUG
 std::cout << "WHOOOAAAA! TAKING SHOT!!!!\n";
+#endif
     TakeShotFinish();
     // return ???
   }
