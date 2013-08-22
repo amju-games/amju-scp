@@ -1,30 +1,3 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2005
-$Log: EngineStateOptions.cpp,v $
-Revision 1.1.2.5  2007/06/01 17:48:41  jay
-Tidy up
-
-Revision 1.1.2.4  2006/08/30 21:12:13  Administrator
-Get Pool to build in MSVC
-
-Revision 1.1.2.3  2006/08/14 17:50:11  jay
-Rename "Pool"
-
-Revision 1.1.2.2  2006/07/26 21:25:31  jay
-Use Pool/, not Pool/
-
-Revision 1.1.2.1  2006/07/24 18:20:31  jay
-Moved Pool code from Pool/ to Pool/
-
-Revision 1.1.2.1  2005/10/21 17:42:06  jay
-Add new options menu, accessed from main menu
-
-*/
-
-#if defined(WIN32)
-#pragma warning(disable: 4786)
-#endif
-
 #include <string>
 #include "Common.h" 
 #include "EngineStateOptions.h"
@@ -216,7 +189,12 @@ void EngineStateOptions::DrawOverlays()
   {
     m_pButtonResume->Draw();
     //m_pButtonQuit->Draw();
+
+    // No full screen option for iOS or Wii
+#if defined(WIN32) || defined(MACOSX)
     m_pButtonFullScreen->Draw();
+#endif
+
     m_pButtonSoundVol->Draw();
     m_pButtonMusicVol->Draw();
     //m_pButtonQuitGame->Draw();
@@ -248,6 +226,8 @@ void EngineStateOptions::DrawOverlays()
       m_tqNoSound.Draw(top, left, bot, right);
     }
   
+    // No full screen option for iOS or Wii
+#if defined(WIN32) || defined(MACOSX)
     // If full screen setting has changed, ask user to restart game.
     bool fullscreen = (Engine::Instance()->GetGameState()->
       Get("fullscreen") == "y");
@@ -257,13 +237,19 @@ void EngineStateOptions::DrawOverlays()
       Engine::Instance()->GetTextWriter()->PrintCentre(15.0f, 
        "Please restart the game to change screen setting.");
     }
+#endif
   }
 }
 
 void EngineStateOptions::MouseButton(bool down, bool, bool)
 {
   m_pButtonResume->MouseButton(down, false, false);
+
+    // No full screen option for iOS or Wii
+#if defined(WIN32) || defined(MACOSX)
   m_pButtonFullScreen->MouseButton(down, false, false);
+#endif
+
   m_pButtonSoundVol->MouseButton(down, false, false);
   m_pButtonMusicVol->MouseButton(down, false, false);
 //  m_pButtonQuit->MouseButton(down, false, false);
