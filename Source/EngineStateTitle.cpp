@@ -252,8 +252,8 @@ bool EngineStateTitle::Load()
   {
     return false;
   }
-  m_pStartButton->SetSize(7.75f, 2.0f);
-  m_pStartButton->SetRelPos(12.0f, 7.25f);
+  m_pStartButton->SetSize(8, 2.0f);
+  m_pStartButton->SetRelPos(12.0f, 8);
   m_pStartButton->SetCommand(&OnStartClicked);
 
   // "Register" button
@@ -286,7 +286,7 @@ bool EngineStateTitle::Load()
     return false;
   }
   m_pExitButton->SetSize(2.0f, 2.0f);
-  m_pExitButton->SetRelPos(12.0f, 15.25f);  // top, left
+  m_pExitButton->SetRelPos(2, 20);  // top, left
   m_pExitButton->SetCommand(&OnExitClicked);
 
   if (!LoadExplosion())
