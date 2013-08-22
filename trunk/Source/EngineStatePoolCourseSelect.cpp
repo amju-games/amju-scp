@@ -1,105 +1,3 @@
-/*
-Amju Games source code (c) Copyright Jason Colman 2004
-$Log: EngineStatePoolCourseSelect.cpp,v $
-Revision 1.1.2.10  2007/07/15 21:58:40  Administrator
-Revert change which unlocks all Trick Shots
-
-Revision 1.1.2.9  2007/07/12 20:25:09  jay
-Enabled all trick shots --- TODO TEMP TEST
-
-Revision 1.1.2.8  2007/07/01 20:36:09  jay
-Fix room select to check for Online flag
-
-Revision 1.1.2.7  2007/06/25 20:45:50  jay
-Fix trick shot unlock: this was unlocking all the trick shots
-
-Revision 1.1.2.6  2007/06/10 08:54:39  jay
-Fix null pointer: member variable set according to a static
-
-Revision 1.1.2.5  2007/05/15 09:29:12  jay
-Debug output
-
-Revision 1.1.2.4  2007/03/27 08:43:09  jay
-Don't play gong.wav. This is a recurring problem for users
-
-Revision 1.1.2.3  2007/03/17 23:58:03  jay
-Fix non-online game
-
-Revision 1.1.2.2  2007/03/09 21:50:41  jay
-Online game - ongoing fixes
-
-Revision 1.1.2.1  2006/08/14 17:50:13  jay
-Rename "Pool"
-
-Revision 1.1.2.1  2006/07/24 18:20:26  jay
-Moved Pool code from Pool/ to Pool/
-
-Revision 1.1.8.19  2005/09/30 12:59:51  jay
-Kill off any earthquake
-
-Revision 1.1.8.18  2005/09/29 19:04:17  jay
-No Earthquake at game start
-
-Revision 1.1.8.17  2005/09/23 19:37:15  jay
-TQ for solved trick shot rooms
-
-Revision 1.1.8.16  2005/09/20 13:15:35  jay
-Show different cost types
-
-Revision 1.1.8.15  2005/09/14 19:43:05  jay
-Some rooms are now one- or two-player only; or practice mode not allowed.
-
-Revision 1.1.8.14  2005/09/05 20:05:30  jay
-Make sure we play theme song when in this state.
-
-Revision 1.1.8.13  2005/09/02 18:32:13  jay
-Check is Registered for unlockable rooms
-
-Revision 1.1.8.12  2005/09/01 19:51:10  jay
-Some rooms are unlockable in trial period
-
-Revision 1.1.8.11  2005/08/26 21:21:14  jay
-Show bonus "cost" for room, show Pool Background
-
-Revision 1.1.8.10  2005/08/02 22:10:57  jay
-Minor tweaks
-
-Revision 1.1.8.9  2005/08/02 18:33:34  jay
-Tweaks for v.1.1
-
-Revision 1.1.8.8  2005/07/30 23:34:06  jay
-Allow multiple levels
-
-Revision 1.1.8.7  2005/07/05 13:03:31  Administrator
-Always enabled for POOL 1.0
-
-Revision 1.1.8.6  2005/06/29 20:20:01  jay
-Always enable all games - at least for v.1.0
-
-Revision 1.1.8.5  2005/06/13 22:19:46  jay
-Ongoing improvements to course/game/player select screens
-
-Revision 1.1.8.4  2005/06/04 22:29:54  jay
-Minor cosmetic changes to game select screen
-
-Revision 1.1.8.3  2005/05/24 20:38:38  jay
-Remove unneeded golf code
-
-Revision 1.1.8.2  2005/04/17 22:03:03  jay
-Draw thumbnails correctly (for 4 rooms per level)
-
-Revision 1.1.8.1  2005/04/11 21:19:28  jay
-Show 4 rooms per level for pool
-
-Revision 1.1  2004/09/08 15:43:04  jay
-Added to repository
-  
-*/
-
-#if defined(WIN32)
-#pragma warning(disable: 4786)
-#endif
-
 #include "EngineStatePoolCourseSelect.h"
 #include "EngineStatePoolGameSelect.h"
 #include "EngineStateTitle.h"
@@ -117,6 +15,9 @@ Added to repository
 #include "PoolPlayerStats.h"
 #include "PoolBg.h"
 #include "PoolOnline.h"
+#include "EngineStatePoolLoadOnDemand.h"
+#include "EngineStatePoolInitGame.h"
+#include "Engine.h"
 
 namespace Amju
 {
@@ -418,6 +319,13 @@ public:
 
     EngineStatePoolCourseSelect::SetCanClick(false);
 
+    EngineStatePoolLoadOnDemand::SetLevelToLoad(c);
+    EngineStatePoolInitGame::SetRoom(m_hole);
+    EngineStatePoolLoadOnDemand::SetPrevState(EngineStatePoolInitGame::Name);
+
+    Engine::Instance()->ChangeState(EngineStatePoolLoadOnDemand::Name, Engine::IMMEDIATE);
+
+/*
     // This wav gets repeatedly played for some users.
     // Maybe the wav has a Loop flag set ? But why some users and not others ?
     // So disable it.
@@ -449,6 +357,7 @@ std::cout << "** GAME SELECT! SETTING LEVEL ID: "
     // The reason was that the EngineState was changed before the
     // new room ID was set.
     StartNewHole(); 
+*/
 
     return false; // no undo
   }

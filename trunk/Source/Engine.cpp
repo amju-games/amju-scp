@@ -984,11 +984,9 @@ std::cout << "Loading levels...\n";
     return false;
 
   case 8:
+      // Don't load now - load on demand
+#ifdef LOAD_ALL_CONTENT_UP_FRONT
     {
-      // Load first level, so there is no pause later on.
-      // For GOLF v.1.1 there are two levels. Load them both up front so
-      // there is no pause later.
-
       static int courseNum = 0;
     
       std::string levelFile = PoolCourseManager::Instance()->
@@ -1024,8 +1022,11 @@ std::cout << "Loading levels...\n";
           return false;
         }
       }
-    }
+    } // case 8
     return false;
+#else
+    ++count; // so finishing loading
+#endif
   }
 
   Mouse::SetCursor(Mouse::STANDARD);
@@ -1327,7 +1328,7 @@ bool Engine::PlaySong(const string& f)
 
   std::string file = f;
 #ifdef GEKKO
-  file = Replace(f, ".it", ".mod");
+  file = Replace(f, ".it", ".mp3");
 #endif
 
   static string lastplayed;

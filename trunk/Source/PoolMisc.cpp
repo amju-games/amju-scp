@@ -147,6 +147,8 @@ Added to repository
 #include "Rules.h"
 #include "PoolOnline.h"
 
+#define NO_RULES_DEBUG
+
 namespace Amju
 {
 bool InPlay(PPoolGameObject p)
@@ -462,7 +464,7 @@ std::cout << "* START COURSE: Loading level " << courseNum
     }
     LevelServer::Instance()->GetCurrentLevel()->SetId(courseNum);
   }
-  LevelServer::Instance()->GetCurrentLevel()->SetRoomId(0);
+// Why???????  LevelServer::Instance()->GetCurrentLevel()->SetRoomId(0);
   Engine::Instance()->StartGame(""); // NB param is unused
 
 /*
@@ -683,10 +685,9 @@ bool IsPoolBall(PoolGameObject* p)
 void StartDemoMode()
 {
   // Pick level 0-7, room 0-3
-  int courseNum = rand() % 8;
-  int roomId = rand() % 4;
-  std::string levelFile = PoolCourseManager::Instance()->GetCourseFileName(courseNum)
-;
+  int courseNum = 0; // demo always level 0
+  int roomId = 2;// rand() % 4;
+  std::string levelFile = PoolCourseManager::Instance()->GetCourseFileName(courseNum);
   bool isUser = false;
 
 #ifdef _DEBUG
@@ -711,7 +712,7 @@ std::cout << "Failed to load demo level!\n";
   // This function doesn't really start the game so should be renamed.
   // TODO choose characters at random
   StartGame(0); // no human player
-  StartCourse(roomId); // Initialise room
+  StartCourse(courseNum); 
 }
 
 bool IsDemoMode()
