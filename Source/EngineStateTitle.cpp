@@ -103,6 +103,9 @@ Added to repository
 #include "HttpClient.h"
 #include "TimePeriod.h"
 #include "PoolBg.h"
+#include "EngineStatePoolLoadOnDemand.h"
+#include "EngineStatePoolInitDemo.h"
+#include "PoolCourseManager.h"
 
 using namespace std;
 
@@ -188,7 +191,7 @@ EngineStateTitle::EngineStateTitle()
 {
   m_time = 0;
   // Set in Load, title_max_time
-  m_maxTime = 10.0f;
+  m_maxTime = 5.0f;
   m_verticalPos = 0; 
 
   explosionTimer = 3.0f;
@@ -355,8 +358,12 @@ void EngineStateTitle::Red(bool down)
 
 void EngineStateTitle::TimerExpired()
 {
-  StartDemoMode();
-  GetEngine()->ChangeState(EngineStatePoolSetUpShotDemo::Name, Engine::IMMEDIATE);
+  int levelNum = 0; // so first level loaded
+
+  EngineStatePoolLoadOnDemand::SetLevelToLoad(levelNum);
+  EngineStatePoolLoadOnDemand::SetPrevState(EngineStatePoolInitDemo::Name);
+
+  GetEngine()->ChangeState(EngineStatePoolLoadOnDemand::Name, Engine::IMMEDIATE);
 }
 
 void EngineStateTitle::Draw()

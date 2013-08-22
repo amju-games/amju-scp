@@ -349,6 +349,9 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
     <ClCompile Include="..\..\..\Source\EngineStatePoolGameSelect.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStatePoolGetPlayerName.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStatePoolHelp.cpp" />
+    <ClCompile Include="..\..\..\Source\EngineStatePoolInitDemo.cpp" />
+    <ClCompile Include="..\..\..\Source\EngineStatePoolInitGame.cpp" />
+    <ClCompile Include="..\..\..\Source\EngineStatePoolLoadOnDemand.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStatePoolOnlineTable.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStatePoolOnlineWait.cpp" />
     <ClCompile Include="..\..\..\Source\EngineStatePoolPlayerMaint.cpp" />
@@ -611,6 +614,9 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
     <ClInclude Include="..\..\..\Source\EngineStatePoolGameSelect.h" />
     <ClInclude Include="..\..\..\Source\EngineStatePoolGetPlayerName.h" />
     <ClInclude Include="..\..\..\Source\EngineStatePoolHelp.h" />
+    <ClInclude Include="..\..\..\Source\EngineStatePoolInitDemo.h" />
+    <ClInclude Include="..\..\..\Source\EngineStatePoolInitGame.h" />
+    <ClInclude Include="..\..\..\Source\EngineStatePoolLoadOnDemand.h" />
     <ClInclude Include="..\..\..\Source\EngineStatePoolLoser.h" />
     <ClInclude Include="..\..\..\Source\EngineStatePoolOnlineTable.h" />
     <ClInclude Include="..\..\..\Source\EngineStatePoolOnlineWait.h" />

@@ -1304,6 +1304,7 @@ void EngineStatePoolSetUpShot::DrawOverlays()
 
 #endif
 
+#ifdef SHOW_HELP_TEXT
   // TODO - Intl8n, different help text, timed.
   // Show help if this is the first course.
   if (IsUserControlled() && !GetPlaceBallMode())
@@ -1328,6 +1329,7 @@ void EngineStatePoolSetUpShot::DrawOverlays()
       m_pCloseHelp->Draw();
     }
   }
+#endif // SHOW_HELP_TEXT
 
   // If in place ball mode, tell user if ball can be placed anywhere
   // or behind headstring only ("kitchen" ??)

@@ -162,13 +162,13 @@ void FileCheckState::DrawOverlays()
 
     Engine* e = GetEngine();
 
-    e->GetTextWriter()->Print(0, 0, "Amju Super Cool Pool");
     // Extra large splash screen
     tq.Draw(5, 0, 10, 25);
-
+    /*
     e->GetTextWriter()->Print(0, 0, "Amju Super Cool Pool v.3-0.1");
     e->GetTextWriter()->Print(0, 1, "© Copyright 2005-2011 Amju Games");
     e->GetTextWriter()->Print(0, 2, "Please visit www.amju.com for updates and more games!");        
+    */
 
 #ifdef SHOW_FULLSCREEN_TEXT
     // Tell user that + and - keys change full screen resolution

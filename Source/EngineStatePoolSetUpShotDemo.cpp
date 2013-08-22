@@ -184,8 +184,14 @@ bool EngineStatePoolSetUpShotDemo::Load()
   {
     return false;
   }
+
+  // Same as title
+  s_startButton->SetSize(7.75f, 2.0f);
+  s_startButton->SetRelPos(12.0f, 7.25f);
+  /*
   s_startButton->SetSize(7.0f, 2.0f);
   s_startButton->SetRelPos(2, 2); // title safe for Wii
+  */
   s_startButton->SetCommand(&OnStartClicked);
 
   s_exitButton = new PoolGuiButton;
