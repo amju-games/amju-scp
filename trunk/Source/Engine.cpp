@@ -687,7 +687,7 @@ void Engine::ClearText()
 
 void Engine::ReportError(const std::string& errorMessage) const
 {
-  const_cast<Engine*>(this)->GetTextWriter()->ScrollPrint(errorMessage);
+//  const_cast<Engine*>(this)->GetTextWriter()->ScrollPrint(errorMessage);
 
 #ifdef _DEBUG
   cout << errorMessage.c_str() << endl;
@@ -1039,12 +1039,23 @@ bool Engine::OnCursorEvent(const CursorEvent& ce)
   // Convert from -1..1 to  screen space
   int x = (int)((ce.x + 1.0f) * (float)Screen::X() / 2.0f);
   int y = (int)((1.0f - ce.y) * (float)Screen::Y() / 2.0f);  // invert
+  
+  Mouse::s_mousex = x;
+  Mouse::s_mousey = y;
+  
   MousePos(x, y);
   return true;
 }
 
 bool Engine::OnMouseButtonEvent(const MouseButtonEvent& mbe)
 {
+  // Convert from -1..1 to  screen space
+  int x = (int)((mbe.x + 1.0f) * (float)Screen::X() / 2.0f);
+  int y = (int)((1.0f - mbe.y) * (float)Screen::Y() / 2.0f);  // invert
+  
+  Mouse::s_mousex = x;
+  Mouse::s_mousey = y;  
+  
   if (mbe.button == AMJU_BUTTON_MOUSE_LEFT)
   {
     MouseButton(mbe.isDown, false, false);  
@@ -1529,12 +1540,12 @@ void Engine::Draw()
   // glColor3f(1.0f, 1.0f, 1.0f);
   if (m_showStats)
   {
-    Fps();
+    //Fps();
     m_pCurrentState->ShowStats();
   }
 #else
   // Show FPS counter even in release build??
-  Fps();
+  //Fps();
 #endif
 
   // Tell TextWriter to write any scrolling text over everything.
