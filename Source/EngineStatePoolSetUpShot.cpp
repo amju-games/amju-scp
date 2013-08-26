@@ -2317,6 +2317,17 @@ void EngineStatePoolSetUpShot::Update()
 
   s_cue.Update(); // Should do this in above call ?
 
+  // TODO TEMP TEST
+  // Stop swinging cue back and forth if no power, so can move L/R again
+  if (m_drag)
+  {
+    float s = s_cue.GetSwingPower();
+    if (s <= 0)
+    {
+      s_cue.SetSwingMode(false); 
+    }
+  }
+
   if (s_cue.HitsCueBall() && IsUserControlled())
   {
     // Take shot.
