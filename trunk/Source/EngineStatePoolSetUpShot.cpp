@@ -397,6 +397,8 @@ std::cout << "TakeShotFinish: cancelling shot because swing power is "
   else 
   {
     // Take the shot
+std::cout << "Set Swing vel: " << s << "\n";
+
     s_cue.SetSwingVel(s); // NB This is just how fast the cue moves, it 
       // doesn't directly affect the cue ball vel. Set in SetShotParams().
     s_cue.SetAutoTakeShot(true);
@@ -2601,12 +2603,33 @@ void EngineStatePoolSetUpShot::MousePos(int x, int y)
   static int oldx = x;
   static int oldy = y;
 
+  int xdiff = x - oldx;
+#ifdef MOUSE_DIFF_DEBUG
+std::cout << "Mouse X diff: " << xdiff << "\n";
+#endif
+
+  int ydiff = y - oldy;
+  oldx = x;
+  oldy = y;
+
+// TODO
+//#ifdef IPHONE  
+//std::cout << "Y diff: " << ydiff << "\n";
+  if (ydiff > 0 && ydiff > fabs(xdiff) * 2  && m_drag)
+  {
+//std::cout << "Dragging down\n";
+    TakeShotStart();
+  }
+//#endif
   // Always call this so the previous mouse pos is up-to-date.
   // It only has an effect if we are in swing mode.
   s_cue.MousePos(x, y);
+
   if (m_drag)
   {
     // Swing cue if in swing mode.
+//std::cout << "Swing power: " << s_cue.GetSwingPower() << "\n";
+
     SetShotPower(s_cue.GetSwingPower());
 
     // need this here to keep power guage steady
@@ -2645,11 +2668,6 @@ void EngineStatePoolSetUpShot::MousePos(int x, int y)
   }
 */
 
-  int xdiff = x - oldx;
-#ifdef MOUSE_DIFF_DEBUG
-std::cout << "Mouse X diff: " << xdiff << "\n";
-#endif
-
 #ifdef WIN32
   // Windows feature: if you drag the mouse off the left side of the 
   // window, the diff is around 65535!
@@ -2659,19 +2677,6 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
   }
 #endif
 
-  int ydiff = y - oldy;
-  oldx = x;
-  oldy = y;
-
-// TODO
-//#ifdef IPHONE  
-//std::cout << "Y diff: " << ydiff << "\n";
-  if (ydiff > 10 && m_drag)
-  {
-//std::cout << "WHOOOAAAA!\n";
-    TakeShotStart();
-  }
-//#endif
   
   // NB Moved from above, is this ok ?
   if (!m_drag)
@@ -2689,6 +2694,8 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
  
   if (m_shotIsActive)
   {
+//std::cout << "Shot is active\n";
+
     // POOL Don't move the cue left/right/up/down if swing mode OR
     // contact pos mode
     if (!s_cue.IsSwingMode() && !m_pContactPoolGui->IsEnabled())
