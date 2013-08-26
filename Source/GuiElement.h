@@ -145,6 +145,9 @@ protected:
   // Draw() calls this function if no mouse over checking.
   void DrawNoCheckMouseOver();
 
+  // Checks mouse coords against this rectangle
+  bool CheckMouseOver();
+
 protected:
   // True if this item is enabled.
   bool m_isEnabled;
