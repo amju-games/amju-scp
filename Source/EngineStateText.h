@@ -28,6 +28,7 @@ class EngineStateText : public EngineState
 public:
   EngineStateText();
 
+  virtual void Update();
   virtual void Draw();
   virtual void DrawOverlays() {}
   virtual void SetActive(bool active);
