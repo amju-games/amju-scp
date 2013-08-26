@@ -229,15 +229,21 @@ void PoolGuiElement::MouseButton(bool down, bool ctrl, bool shift)
     return;
   }
 
+std::cout << "Gui: Mouse " << (down?"down":"up") << "\n";
+
   if (down)
   {
+    m_isSelected = CheckMouseOver();
+
     m_downSelected = (m_isSelected && IsEnabled());
+std::cout << " - downSelected: " << m_downSelected << "\n";
   }
 
   // If mouse button up, this element was selected when the mouse button was
   // pressed down, and is selected now, then do the clicked action.
   if (!down && m_downSelected && m_isSelected)
   {
+std::cout << " - clicked!\n";
     OnClicked();
   }
 
@@ -295,6 +301,29 @@ void PoolGuiElement::DrawNoCheckMouseOver()
   {
     SetRelPos(oldRelTop, oldRelLeft);
   }
+}
+
+bool PoolGuiElement::CheckMouseOver()
+{
+  static const float GRID_X_OFF = 0.5f;
+  static const float GRID_Y_OFF = 0.1f;
+  static const float MAX_GRID_X = 24.0f;
+  static const float MAX_GRID_Y = 16.0f;
+
+  float windowX = (float)Engine::Instance()->GetWindowX();
+  float windowY = (float)Engine::Instance()->GetWindowY();
+
+  // Convert rectangle position (TextWriter coords) to mouse coords (pixels).
+  int pixTop = (int)((m_absTop - GRID_Y_OFF) / MAX_GRID_Y * windowY);
+  int pixBottom = (int)((m_absTop + m_height - GRID_Y_OFF) / MAX_GRID_Y * windowY);
+  int pixLeft = (int)((m_absLeft - GRID_X_OFF) / MAX_GRID_X * windowX);
+  int pixRight = (int)((m_absLeft + m_width - GRID_X_OFF) / MAX_GRID_X * windowX);
+
+  bool checkMouse = 
+    Mouse::s_mousey > pixTop && Mouse::s_mousey < pixBottom &&
+    Mouse::s_mousex > pixLeft && Mouse::s_mousex < pixRight;
+
+  return checkMouse;
 }
 
 void PoolGuiElement::Draw()
@@ -362,20 +391,7 @@ void PoolGuiElement::Draw()
   // Work out if the mouse cursor is over this Element's rectangle.
   // If it isn't we don't have to check for possible mouse over.
   // But if the mouse was over this button, we must keep checking.
-
-  static const float GRID_X_OFF = 0.5f;
-  static const float GRID_Y_OFF = 0.1f;
-  static const float MAX_GRID_X = 24.0f;
-  static const float MAX_GRID_Y = 16.0f;
-  // Convert rectangle position (TextWriter coords) to mouse coords (pixels).
-  int pixTop = (int)((m_absTop - GRID_Y_OFF) / MAX_GRID_Y * windowY);
-  int pixBottom = (int)((m_absTop + m_height - GRID_Y_OFF) / MAX_GRID_Y * windowY);
-  int pixLeft = (int)((m_absLeft - GRID_X_OFF) / MAX_GRID_X * windowX);
-  int pixRight = (int)((m_absLeft + m_width - GRID_X_OFF) / MAX_GRID_X * windowX);
-
-  bool checkMouse = 
-    Mouse::s_mousey > pixTop && Mouse::s_mousey < pixBottom &&
-    Mouse::s_mousex > pixLeft && Mouse::s_mousex < pixRight;
+  bool checkMouse = CheckMouseOver();
 
 #ifdef CHECKMOUSE_DEBUG
 std::cout << "GuiElement top: " << m_absTop << " left: " << m_absLeft
