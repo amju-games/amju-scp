@@ -119,6 +119,15 @@ void EngineStateText::DrawBg()
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_WRITE);
 }
 
+void EngineStateText::Update()
+{
+  m_time += GetEngine()->GetDeltaTime();
+  if (m_time > m_maxTime)
+  {
+    TimerExpired();
+  }
+}
+
 void EngineStateText::Draw()
 {
   AmjuGL::PushMatrix();
@@ -143,12 +152,6 @@ void EngineStateText::Draw()
     AmjuGL::PopMatrix();
   }
   AmjuGL::PopMatrix();
-
-  m_time += GetEngine()->GetDeltaTime();
-  if (m_time > m_maxTime)
-  {
-    TimerExpired();
-  }
 }
 
 }
