@@ -1034,6 +1034,24 @@ std::cout << "Loading levels...\n";
   return true;
 }
 
+bool Engine::OnJoyAxisEvent(const JoyAxisEvent& je)
+{
+#ifdef GEKKO
+  // Wii: nunchuck joystick control adjusts cue position
+  m_pCurrentState->MouseMidButton(true, false, false);
+
+  // TODO Adjust joystick axis ranges
+  float x = je.x;
+  float y = je.y;
+  MousePos(x, y);
+
+  // Or on any other event after this one..?
+  m_pCurrentState->MouseMidButton(false, false, false);
+#endif // GEKKO
+
+  return true;
+}
+
 bool Engine::OnCursorEvent(const CursorEvent& ce)
 {
   // Convert from -1..1 to  screen space
