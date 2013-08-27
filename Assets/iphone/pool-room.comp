@@ -1,0 +1,138 @@
+// File version
+11
+
+// Number of components
+1
+
+// Component 0 follows.
+outfloor1.leaf
+// Translation x, y, z
+0
+-10
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+cube96.comp
+// Translation x, y, z
+336
+-34
+-342
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+cube96.comp
+// Translation x, y, z
+-330
+-173.77
+-332
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+cube96.comp
+// Translation x, y, z
+-330
+-23
+334
+// Rotation x, y, z
+0
+0
+0
+
+// Component 4 follows.
+cube96.comp
+// Translation x, y, z
+378.136
+-223.97
+334
+// Rotation x, y, z
+0
+0
+0
+
+// Component 5 follows.
+brid128_64_64.comp
+// Translation x, y, z
+-10
+-10
+-367
+// Rotation x, y, z
+0
+0
+0
+
+// Component 6 follows.
+brid128_64_64.comp
+// Translation x, y, z
+-365
+-10
+-14
+// Rotation x, y, z
+0
+90
+0
+
+// Component 7 follows.
+brid128_64_64.comp
+// Translation x, y, z
+133
+-10
+368
+// Rotation x, y, z
+0
+0
+0
+
+// Component 8 follows.
+brid128_64_64.comp
+// Translation x, y, z
+363
+-10
+-52
+// Rotation x, y, z
+0
+90
+0
+
+// Component 9 follows.
+shed.comp
+// Translation x, y, z
+-93.1785
+-6.99773
+-89.2815
+// Rotation x, y, z
+0
+165
+0
+
+// Component 10 follows.
+shed2.comp
+// Translation x, y, z
+104.008
+-4.92297
+98.6551
+// Rotation x, y, z
+0
+62
+0
+
+// Component 11 follows.
+tree-shadows.comp
+// Translation x, y, z
+0.153328
+-9.08003
+0
+// Rotation x, y, z
+0
+0
+0
+
