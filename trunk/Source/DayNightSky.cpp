@@ -78,17 +78,16 @@ bool DayNightSky::Init()
     return false;
   }
 
-  m_gameHoursPerSec = atof(Engine::Instance()->GetConfigValue("game_hours_per_sec").c_str());
-
-  m_dawnBegin = atof(Engine::Instance()->GetConfigValue("dawn_begin").c_str());
-  m_dawnEnd = atof(Engine::Instance()->GetConfigValue("dawn_end").c_str());
-  m_duskBegin = atof(Engine::Instance()->GetConfigValue("dusk_begin").c_str());
-  m_duskEnd = atof(Engine::Instance()->GetConfigValue("dusk_end").c_str());
-  m_sparkleBegin = atof(Engine::Instance()->GetConfigValue("sparkle_begin").c_str());
-  m_sparkleEnd = atof(Engine::Instance()->GetConfigValue("sparkle_end").c_str());
-
-  m_dayLevel = atof(Engine::Instance()->GetConfigValue("day_lightlevel").c_str());
-  m_nightLevel = atof(Engine::Instance()->GetConfigValue("night_lightlevel").c_str());
+  Engine* e = Engine::Instance();
+  m_gameHoursPerSec = e->GetConfigFloat("game_hours_per_sec");
+  m_dawnBegin = e->GetConfigFloat("dawn_begin");
+  m_dawnEnd = e->GetConfigFloat("dawn_end");
+  m_duskBegin = e->GetConfigFloat("dusk_begin");
+  m_duskEnd = e->GetConfigFloat("dusk_end");
+  m_sparkleBegin = e->GetConfigFloat("sparkle_begin");
+  m_sparkleEnd = e->GetConfigFloat("sparkle_end");
+  m_dayLevel = e->GetConfigFloat("day_lightlevel");
+  m_nightLevel = e->GetConfigFloat("night_lightlevel");
 
   return true;
 }
@@ -123,8 +122,8 @@ void DayNightSky::Update()
     Assert(m_daylight >= 0);
     Assert(m_daylight <= 1.0f);
 
-    m_s = -sin(m_timeOfDay / 24.0f * pi*2);
-    m_c = -cos(m_timeOfDay / 24.0f * pi*2);
+    m_s = -sin(m_timeOfDay / 24.0f * (float)(pi*2.0));
+    m_c = -cos(m_timeOfDay / 24.0f * (float)(pi*2.0));
 
     m_sunpos = Vec3f(m_s * 400, m_c * 400 - 100, 0);
     m_moonpos = Vec3f(0, -m_c * 400 - 100, m_s * 400);

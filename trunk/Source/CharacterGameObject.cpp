@@ -340,7 +340,7 @@ void CharacterGameObject::SetActionIdle()
 void CharacterGameObject::SetActionPain()
 {
   // Set up red flashing.
-  float painTime = atof(Engine::Instance()->GetConfigValue("character_pain_time").c_str());
+  float painTime = (float)atof(Engine::Instance()->GetConfigValue("character_pain_time").c_str());
   SetColourTimer(painTime, 1.0f, 0, 0); // time, r, g, b.
 
   ForEachMesh(&Character::SetActionPain);
@@ -459,9 +459,9 @@ const BoundingSphere* CharacterGameObject::GetBoundingSphere() const
 {
   m_bsphere.SetRadius(m_radius); 
 
-  Vec3f v(GetPosition().x + m_sphereXOffset * m_vectorX, 
+  Vec3f v(GetPosition().x + m_sphereXOffset * (float)m_vectorX, 
                GetPosition().y + m_sphereYOffset,  
-               GetPosition().z + m_sphereZOffset * m_vectorZ);
+               GetPosition().z + m_sphereZOffset * (float)m_vectorZ);
   m_bsphere.SetCentre(v);
 
   return &m_bsphere;
@@ -587,7 +587,7 @@ void CharacterGameObject::Recalculate()
   // we want that animation to finish first.
 
   // Get walk/run changeover speed.
-  static float walkLimit = atof(Engine::Instance()->GetConfigValue("walk_limit").c_str());
+  static float walkLimit = (float)atof(Engine::Instance()->GetConfigValue("walk_limit").c_str());
 
   if (m_forwardVel > SMALLEST && m_forwardVel <= walkLimit)
   {
