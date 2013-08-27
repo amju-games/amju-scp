@@ -1,14 +1,18 @@
 Critical
 ========
 
-Wii: missing snd files cause PAUSE
+Can't control shots
+
+Wii: use title-safe area: info & buttons around edge of screen are hidden.
+
+
+Wii: missing snd files cause PAUSE - this doesn't seem to happen any more
+
 Try afconvert to make snd files ??
 E.g. from iphone projects book:
 afconvert -f caff -d LEI16 {IN} {OUT}
 afconvert -f caff -d LEI16@22050 {IN} {OUT}
 
-Wii: assert: EngineStatePoolSetUpShot.cpp:1317
-Pressed B button when in place ball mode I think ?
 
 Wii release: needs meta.xml 
 and wiibrew page -- add some screenshots
@@ -17,14 +21,11 @@ download link
 request add to Home brew browser
 //and logo
 
+
 Cue pos (english, top spin, etc) uses picking and reads from back buffer!
  - Use nunchuck stick
 
 Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
-
-Wii: use title-safe area 
-
-Wii: displaying mouse diff info, causing jitter
 
 Wii: no sound or music
 
@@ -55,7 +56,6 @@ Wii: convert wav to required format and check.
 Cosmetic
 ========
 
-hiscores.cfg message in loading screen
 
 Wii/iphone buttons which don't make sense, e.g. change player name.
 Options: full screen is not required. In fact could probably do without options menu at all.
@@ -65,11 +65,11 @@ Wii and iphone: can't enter player name!!!
 
 Wii: would be nice to have Controls page showing wiimote buttons
 
-Wii: std::couts are visible!! These must *all* be #ifdef'd
-Especially some x diff and y diff values printed every frame in EngineStatePoolSetUpShot..?
-
 Wii Home button should pause, not quit
  - but probably best to have this as is for now
 
+B Button should mean cancel/go back in menus
+
+Arrow keys (+ button) for camera control behave strangely
 
 

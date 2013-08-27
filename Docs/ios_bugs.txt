@@ -1,32 +1,27 @@
 Critical
 ========
 
-iphone save data dir: currently is not saving
-
-iphone load time - is using GlueFileMem :-( 
-Depends which file type is taking the most time. E.g. maybe reducing png sizes would help
-
 iphone frame rate -- smaller ball meshes, smaller textures, no trees, etc.
 
+Hearts flicker on Big Pockets screen, Trick shots 1 screen
 
-iphone: UI: Use only "left mouse button"
- --> detect 'flick' gesture, use this to control shot strength. So if y diff is a lot more than x diff, go to TakeShot mode.
-EngineStatePoolSetUpShot.cpp:2990 - sets Take Shot mode on "L Mouse button" if y diff is high.
-TODO Test on device, what should y diff value be ? (should this be x diff as screen is rotated?)
--- Can't aim shot but can take it!
-Then make sure this is disabled for other platforms
+Hearts count and status text at tope of screen overlap. + sometimes text is hard to read. Give text a BG ?
 
 Cue pos (english, top spin, etc) uses picking and reads from back buffer!
-//Place ball
+
 Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
 
+iphone: GUI for small screen
+
+Sound - not playing sound FX
+
+Cheri font: fix hearts and stars which are in lo res version
+
+Remove edit player names option
+Music option doesn't work! - just get rid of options
 
 Efficiency
 ==========
-
-
-level0.amju2 (+ presumably the others) has multiple copies of sortscene! Is this as bad as it looks!?!?
--- No I think it's OK: each level file contains 4 "rooms"
 
 release: make sure no _DEBUG, -O2, etc. 
 
@@ -55,9 +50,8 @@ Check sound effects on iphone: May need to change WAV format. - cashreg, foul (r
 Cosmetic
 ========
 
-hiscores.cfg message in loading screen
-
-iphone: buttons don't respond properly. The first touch/release selects, then another is needed to click..!?!
+"player 1" 3D text too far in.
+Spots/strips icon too
 
 iphone UI: buttons should be a lot bigger.
 
@@ -70,9 +64,6 @@ Wii and iphone: can't enter player name!!!
 iPhone: Controls page showing pictures of swipes/gestures
 
 Positioning cue ball: put cue ball in closest legal position to cursor pos, rather than 'sticking' at last known good pos.
-
-
-Attract mode can get stuck on 'crazy' version with block in the way. This also causes other probs so delete this type of room.
 
 No lighting now!
 Lighting is not the same as raw OpenGL, so some bits look too dark.
