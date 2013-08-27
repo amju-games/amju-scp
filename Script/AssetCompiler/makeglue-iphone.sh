@@ -25,11 +25,11 @@ cp $SRC_DIR/*.ini $DEST_DIR
 cp $SRC_DIR/*.amju2 $DEST_DIR
 cp $SRC_DIR/*.comp $DEST_DIR
 cp $SRC_DIR/*.md2 $DEST_DIR
-#cp $SRC_DIR/*.obj $DEST_DIR
-#cp $SRC_DIR/*.mtl $DEST_DIR
 
-cp $SRC_DIR/*.mod $DEST_DIR
-cp $SRC_DIR/*.wav $DEST_DIR
+# Overwrite common assets with platform-specific assets
+# (lower detail to improve framerate)
+cp $SRC_DIR/iphone/* $DEST_DIR
+
 
 # TODO Convert text files to binary
 . makeobjsbin-iphone.sh
