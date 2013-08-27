@@ -108,7 +108,9 @@ void Trajectory::BallTr::Draw()
 
 void Trajectory::Draw()
 {
-//  AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
+
+  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
   AmjuGL::Disable(AmjuGL::AMJU_DEPTH_WRITE);
 
   // Draw each ball trajectory.
@@ -132,6 +134,7 @@ void Trajectory::Draw()
 
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_WRITE);
 //  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 }
 
 void Trajectory::SetDeltaTime(float dt)

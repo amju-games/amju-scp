@@ -1545,7 +1545,8 @@ void Engine::Draw()
   // Undo Letterbox, for overlays.
   UndoLetterbox();
 
-// in Draw2d ?
+// NOT in Draw2d 
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
   AmjuGL::PushMatrix();
   m_pCurrentState->DrawOverlays();
   AmjuGL::PopMatrix();
@@ -1727,7 +1728,7 @@ void Engine::InitFrame()
 
   // Do GL initialisation before we draw the frame.
 //  AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
-  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 
   // Set the modelview matrix
   AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
