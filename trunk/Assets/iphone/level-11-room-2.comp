@@ -1,0 +1,38 @@
+// File version
+11
+
+// Number of components
+2
+
+// Component 0 follows.
+table-regular-S.comp
+// Translation x, y, z
+1
+-10
+13
+// Rotation x, y, z
+0
+0
+0
+
+// Component 1 follows.
+pool-room.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+shadow-tableS.leaf
+// Translation x, y, z
+0
+-9.5
+0
+// Rotation x, y, z
+0
+0
+0
+

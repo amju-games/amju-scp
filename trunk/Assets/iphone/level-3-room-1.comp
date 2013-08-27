@@ -1,0 +1,60 @@
+// File version
+11
+
+// Number of components
+4
+
+// Component 1 follows.
+table-crazy.comp
+// Translation x, y, z
+0
+-10
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 0 follows.
+pool-room.comp
+// Translation x, y, z
+0
+0
+0
+// Rotation x, y, z
+0
+0
+0
+
+// Component 2 follows.
+oct8_2.comp
+// Translation x, y, z
+0
+1
+-13
+// Rotation x, y, z
+0
+0
+0
+
+// Component 3 follows.
+oct4_2.comp
+// Translation x, y, z
+0
+1
+0
+// Rotation x, y, z
+0
+0
+0
+
+shadow-table1.leaf
+// Translation x, y, z
+0
+-9.5
+0
+// Rotation x, y, z
+0
+0
+0
+
