@@ -69,13 +69,13 @@ float Controller::s_smallestFallingReverseDistance;
 void Controller::Init()
 {
   s_stepHeight = Engine::Instance()->GetConfigFloat("max_step_height");
-  s_smallestReverseDistance = atof(Engine::Instance()->
+  s_smallestReverseDistance = (float)atof(Engine::Instance()->
     GetConfigValue(Cfg::SMALLEST_REVERSE_DIST).c_str());
 
-  s_smallestFallingReverseDistance = atof(Engine::Instance()->
+  s_smallestFallingReverseDistance = (float)atof(Engine::Instance()->
     GetConfigValue("smallest_reverse_dist_falling").c_str());
 
-  s_smallestDotProduct = atof(Engine::Instance()->
+  s_smallestDotProduct = (float)atof(Engine::Instance()->
     GetConfigValue(Cfg::SMALLEST_DOT_PRODUCT).c_str());
 
   s_nearlyFallingTimeLimit = 2.0f; // TODO CONFIG
