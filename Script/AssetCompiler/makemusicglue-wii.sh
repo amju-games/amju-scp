@@ -12,7 +12,7 @@ export GLUE_FILE=$DEST_DIR/../music-$PLATFORM.glue
 rm -rf $DEST_DIR
 mkdir -p $DEST_DIR
 
-cp $SRC_DIR/*.mod $DEST_DIR
+cp $SRC_DIR/*.mp3 $DEST_DIR
 cp $SRC_DIR/*.snd $DEST_DIR
 
 
@@ -21,7 +21,7 @@ cd $DEST_DIR
 # Create empty glue file
 $GLUE_EXE -c $GLUE_FILE
 
-for f in *.mod *.snd 
+for f in *.mp3 *.snd 
 do
     echo "Adding file: " $f
     $GLUE_EXE -a $GLUE_FILE $f
