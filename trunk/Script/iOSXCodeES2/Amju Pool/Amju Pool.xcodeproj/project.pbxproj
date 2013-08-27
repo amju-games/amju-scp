@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690E2F7017CB84A900DED7A1 /* EngineStatePoolInitDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 690E2F6A17CB84A900DED7A1 /* EngineStatePoolInitDemo.cpp */; };
+		690E2F7117CB84A900DED7A1 /* EngineStatePoolInitGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 690E2F6C17CB84A900DED7A1 /* EngineStatePoolInitGame.cpp */; };
+		690E2F7217CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 690E2F6E17CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.cpp */; };
+		690E2F7417CBC64B00DED7A1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 690E2F7317CBC64B00DED7A1 /* Icon.png */; };
+		690E2F7617CBC64F00DED7A1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690E2F7517CBC64F00DED7A1 /* Icon@2x.png */; };
+		690E2F7817CBC7BB00DED7A1 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 690E2F7717CBC7BB00DED7A1 /* Icon-72.png */; };
+		690E2F7A17CBC80800DED7A1 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 690E2F7917CBC80800DED7A1 /* Icon-72@2x.png */; };
 		69FFE47317AD1B0D00BCBABE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FFE47217AD1B0D00BCBABE /* UIKit.framework */; };
 		69FFE47517AD1B0D00BCBABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FFE47417AD1B0D00BCBABE /* Foundation.framework */; };
 		69FFE47717AD1B0D00BCBABE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FFE47617AD1B0D00BCBABE /* CoreGraphics.framework */; };
@@ -280,6 +287,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690E2F6A17CB84A900DED7A1 /* EngineStatePoolInitDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineStatePoolInitDemo.cpp; path = ../../../../Source/EngineStatePoolInitDemo.cpp; sourceTree = "<group>"; };
+		690E2F6B17CB84A900DED7A1 /* EngineStatePoolInitDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineStatePoolInitDemo.h; path = ../../../../Source/EngineStatePoolInitDemo.h; sourceTree = "<group>"; };
+		690E2F6C17CB84A900DED7A1 /* EngineStatePoolInitGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineStatePoolInitGame.cpp; path = ../../../../Source/EngineStatePoolInitGame.cpp; sourceTree = "<group>"; };
+		690E2F6D17CB84A900DED7A1 /* EngineStatePoolInitGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineStatePoolInitGame.h; path = ../../../../Source/EngineStatePoolInitGame.h; sourceTree = "<group>"; };
+		690E2F6E17CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EngineStatePoolLoadOnDemand.cpp; path = ../../../../Source/EngineStatePoolLoadOnDemand.cpp; sourceTree = "<group>"; };
+		690E2F6F17CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineStatePoolLoadOnDemand.h; path = ../../../../Source/EngineStatePoolLoadOnDemand.h; sourceTree = "<group>"; };
+		690E2F7317CBC64B00DED7A1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		690E2F7517CBC64F00DED7A1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		690E2F7717CBC7BB00DED7A1 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		690E2F7917CBC80800DED7A1 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		69FFE46F17AD1B0D00BCBABE /* Amju Pool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amju Pool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FFE47217AD1B0D00BCBABE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69FFE47417AD1B0D00BCBABE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -859,6 +876,10 @@
 		69FFE46617AD1B0D00BCBABE = {
 			isa = PBXGroup;
 			children = (
+				690E2F7917CBC80800DED7A1 /* Icon-72@2x.png */,
+				690E2F7717CBC7BB00DED7A1 /* Icon-72.png */,
+				690E2F7517CBC64F00DED7A1 /* Icon@2x.png */,
+				690E2F7317CBC64B00DED7A1 /* Icon.png */,
 				69FFE7BD17AD39ED00BCBABE /* CFNetwork.framework */,
 				69FFE7BB17AD399400BCBABE /* SystemConfiguration.framework */,
 				69FFE7B917AD397200BCBABE /* AudioToolbox.framework */,
@@ -924,6 +945,12 @@
 		69FFE4AC17AD1CDF00BCBABE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				690E2F6A17CB84A900DED7A1 /* EngineStatePoolInitDemo.cpp */,
+				690E2F6B17CB84A900DED7A1 /* EngineStatePoolInitDemo.h */,
+				690E2F6C17CB84A900DED7A1 /* EngineStatePoolInitGame.cpp */,
+				690E2F6D17CB84A900DED7A1 /* EngineStatePoolInitGame.h */,
+				690E2F6E17CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.cpp */,
+				690E2F6F17CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.h */,
 				69FFE4AD17AD1D3400BCBABE /* AmjuExit.cpp */,
 				69FFE4AE17AD1D3400BCBABE /* AmjuExit.h */,
 				69FFE4AF17AD1D3400BCBABE /* AngleCompare.cpp */,
@@ -1514,6 +1541,10 @@
 				69FFE49A17AD1B0E00BCBABE /* ViewController_iPad.xib in Resources */,
 				69FFE4AA17AD1CCD00BCBABE /* data-iphone.glue in Resources */,
 				69FFE4AB17AD1CCD00BCBABE /* music-iphone.glue in Resources */,
+				690E2F7417CBC64B00DED7A1 /* Icon.png in Resources */,
+				690E2F7617CBC64F00DED7A1 /* Icon@2x.png in Resources */,
+				690E2F7817CBC7BB00DED7A1 /* Icon-72.png in Resources */,
+				690E2F7A17CBC80800DED7A1 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1776,6 +1807,9 @@
 				69FFE7B217AD1D3700BCBABE /* Trajectory.cpp in Sources */,
 				69FFE7B317AD1D3700BCBABE /* Vertex.cpp in Sources */,
 				69FFE7B417AD1D3700BCBABE /* VisibleGameObject.cpp in Sources */,
+				690E2F7017CB84A900DED7A1 /* EngineStatePoolInitDemo.cpp in Sources */,
+				690E2F7117CB84A900DED7A1 /* EngineStatePoolInitGame.cpp in Sources */,
+				690E2F7217CB84A900DED7A1 /* EngineStatePoolLoadOnDemand.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1935,6 +1969,7 @@
 				69FFE49F17AD1B0E00BCBABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
