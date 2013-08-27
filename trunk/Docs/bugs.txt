@@ -4,7 +4,11 @@ BUGS ACROSS ALL PLATFORMS
 Critical
 ========
 
+ASSERT! PoolBall.cpp:452 in demo mode! -- what does this do in release mode??
+
 UI with LMB only
+
+Urghh, tried very low poly balls, and collisions stopped working. WTF....
 
 Cue pos (english, top spin, etc) uses picking and reads from back buffer!
 //Place ball
