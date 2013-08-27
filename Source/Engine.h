@@ -80,6 +80,7 @@ public:
   bool OnCursorEvent(const CursorEvent&);
   bool OnMouseButtonEvent(const MouseButtonEvent&);
   bool OnButtonEvent(const ButtonEvent&);
+  bool OnJoyAxisEvent(const JoyAxisEvent&);
 
   // Initialisation
   // --------------
