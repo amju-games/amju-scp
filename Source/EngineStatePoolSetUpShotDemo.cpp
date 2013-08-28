@@ -71,6 +71,7 @@ Added to repository
 #include "GuiButton.h"
 #include "TextWriter.h"
 #include "TimePeriod.h"
+#include "LoadButton.h"
 
 extern void OnStartClicked();
 extern void OnRegisterClicked();
@@ -184,14 +185,7 @@ bool EngineStatePoolSetUpShotDemo::Load()
   {
     return false;
   }
-
-  // Same as title
-  s_startButton->SetSize(8, 2);
-  s_startButton->SetRelPos(12.0f, 8);
-  /*
-  s_startButton->SetSize(7.0f, 2.0f);
-  s_startButton->SetRelPos(2, 2); // title safe for Wii
-  */
+  SetButtonLayout(s_startButton, "start");
   s_startButton->SetCommand(&OnStartClicked);
 
   s_exitButton = new PoolGuiButton;
