@@ -29,9 +29,9 @@ help, 22, 12, 1.5, 1.5
 birdseye, 22, 14, 1.5, 1.5
 
 // prac mode
+showpath, 0, 15, 4, 1
 undo, 4, 15, 2, 1
 redo, 6, 15, 2, 1
-showpath, 0, 15, 4, 1
 
 // place ball
 placeballdone,  0, 0, 4, 2
