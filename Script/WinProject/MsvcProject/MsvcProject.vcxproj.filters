@@ -776,6 +776,9 @@
     <ClCompile Include="..\..\..\Source\EngineStatePoolInitGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Source\LoadButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\AmjuExit.h">
@@ -1682,6 +1685,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\EngineStatePoolInitGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\LoadButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

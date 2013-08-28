@@ -120,7 +120,7 @@
 /I "../../../../amjulib/Source/Utils" /I "../../../../amjulib/Source/Main" /I "../../../../amjulib/Source/Thread" /I "../../../../amjulib/Source/Network" 
  %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMJU_USE_BASS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -137,7 +137,7 @@
     <PostBuildEvent>
       <Command>copy /Y  ..\..\..\..\amjulib\Source\GLUT\glut32.dll  ..\..\..\Build\$(Configuration)\
 xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$(Configuration)\
-
+xcopy /Y /S  ..\..\..\..\amjulib\Source\SoundBass\Bass2.3\Win\*.dll  ..\..\..\Build\$(Configuration)\
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -175,7 +175,7 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
  %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>AMJU_USE_BASS;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>
@@ -192,7 +192,8 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
     </Link>
     <PostBuildEvent>
       <Command>copy /Y  ..\..\..\..\amjulib\Source\GLUT\glut32.dll  ..\..\..\Build\$(Configuration)\
-xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$(Configuration)\</Command>
+xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$(Configuration)\
+xcopy /Y /S  ..\..\..\..\amjulib\Source\SoundBass\Bass2.3\Win\*.dll  ..\..\..\Build\$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAssetTest|Win32'">
@@ -446,6 +447,7 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
     <ClCompile Include="..\..\..\Source\LevelWorkerMusic.cpp" />
     <ClCompile Include="..\..\..\Source\LevelWorkerName.cpp" />
     <ClCompile Include="..\..\..\Source\Lighting.cpp" />
+    <ClCompile Include="..\..\..\Source\LoadButton.cpp" />
     <ClCompile Include="..\..\..\Source\LogFile.cpp" />
     <ClCompile Include="..\..\..\Source\main.cpp" />
     <ClCompile Include="..\..\..\Source\Menu.cpp" />
@@ -726,6 +728,7 @@ xcopy /Y /S  ..\..\..\..\amjulib\Source\Network\curl\lib\*.dll  ..\..\..\Build\$
     <ClInclude Include="..\..\..\Source\LevelWorkerName.h" />
     <ClInclude Include="..\..\..\Source\LevelWorkerTerrain.h" />
     <ClInclude Include="..\..\..\Source\Lighting.h" />
+    <ClInclude Include="..\..\..\Source\LoadButton.h" />
     <ClInclude Include="..\..\..\Source\LoadResult.h" />
     <ClInclude Include="..\..\..\Source\LogFile.h" />
     <ClInclude Include="..\..\..\Source\Matrix.h" />

@@ -457,7 +457,7 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load main menu edit names button");
     return false;
   }
-  SetButtonLayout(m_pOptionsButton, "editnames");
+  SetButtonLayout(m_pEditNamesButton, "editnames");
 //  m_pEditNamesButton->SetSize(SIZE_W, SIZE_H);
 //  m_pEditNamesButton->SetRelPos(y + SPACE_H * 4.0f, x1);
   m_pEditNamesButton->SetCommand(&OnEditNames);

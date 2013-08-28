@@ -62,7 +62,7 @@ void SetButtonLayout(PoolGuiElement* b, const std::string& buttonName)
   const PosSize& ps = it->second;
   const Vec2f& pos = ps.first;
   const Vec2f& size = ps.second;
-  b->SetAbsPos(pos.y, pos.x); // top, left
+  b->SetRelPos(pos.y, pos.x); // top, left
   b->SetSize(size.x, size.y); // w, h
 }
 
