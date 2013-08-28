@@ -64,7 +64,7 @@ void EngineStatePoolLoadOnDemand::Update()
       Assert(0);
     }
   }
-#ifdef _DEBUG
+#ifdef LOAD_LEVEL_DEBUG
   std::cout << "Loading level " << s_levelNum << "\n";
 #endif
 }
