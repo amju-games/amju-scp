@@ -43,5 +43,15 @@ placeballdone,  0, 0, 6, 3
 // Hidden for now
 contact, 500, 7, 8, 8
 
+// Pause menu
+pause-resume, 8, 1, 10, 2
+pause-quit, 8, 3.5, 10, 2
+pause-fullscreen, 500, 6, 10, 2
+pause-sound, 8, 8.5, 10, 2
+pause-music, 8, 11, 10, 2
+// confirm
+pause-quit-yes, 8, 3.5, 10, 2
+pause-quit-no, 8, 6, 10, 2
+
 
 

@@ -93,7 +93,8 @@ Added to repository
 #include "PoolBg.h"
 #include "PoolMisc.h"
 #include "EngineStatePoolOnlineTable.h"
-#include "SchAssert.h"
+#include "AmjuAssert.h"
+#include "LoadButton.h"
 
 using namespace std;
 
@@ -250,33 +251,38 @@ bool EnginePaused::Load()
   // Get buttons
   m_pButtonResume = new PoolGuiButton;
   m_pButtonResume->Load("pool-resume-button.txt");
-  m_pButtonResume->SetSize(WIDTH, HEIGHT);
   m_pButtonResume->SetCommand(&OnResume);
-  m_pButtonResume->SetRelPos(TOP, LEFT);
+  SetButtonLayout(m_pButtonResume, "pause-resume");
+//  m_pButtonResume->SetSize(WIDTH, HEIGHT);
+//  m_pButtonResume->SetRelPos(TOP, LEFT);
 
   m_pButtonQuit = new PoolGuiButton;
   m_pButtonQuit->Load("pool-quit-game.txt");
-  m_pButtonQuit->SetSize(WIDTH, HEIGHT);
   m_pButtonQuit->SetCommand(&OnQuitThisCourse);
-  m_pButtonQuit->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonQuit, "pause-quit");
+//  m_pButtonQuit->SetSize(WIDTH, HEIGHT);
+//  m_pButtonQuit->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
 
   m_pButtonFullScreen = new PoolGuiButton;
   m_pButtonFullScreen->Load("pool-fullscreen.txt");
-  m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
   m_pButtonFullScreen->SetCommand(&OnFullScreen);
-  m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonFullScreen, "pause-fullscreen");
+//  m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
+//  m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
 
   m_pButtonSoundVol = new PoolGuiButton;
   m_pButtonSoundVol->Load("pool-sound.txt");
-  m_pButtonSoundVol->SetSize(WIDTH, HEIGHT);
   m_pButtonSoundVol->SetCommand(&OnSoundEffects);
-  m_pButtonSoundVol->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonSoundVol, "pause-sound");
+//  m_pButtonSoundVol->SetSize(WIDTH, HEIGHT);
+//  m_pButtonSoundVol->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
 
   m_pButtonMusicVol = new PoolGuiButton;
   m_pButtonMusicVol->Load("pool-music.txt");
-  m_pButtonMusicVol->SetSize(WIDTH, HEIGHT);
   m_pButtonMusicVol->SetCommand(&OnMusic);
-  m_pButtonMusicVol->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonMusicVol, "pause-music");
+//  m_pButtonMusicVol->SetSize(WIDTH, HEIGHT);
+//  m_pButtonMusicVol->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
 
   m_pButtonQuitGame = new PoolGuiButton;
 //  m_pButtonQuitGame->Load(menuButtonFile);
@@ -286,15 +292,17 @@ bool EnginePaused::Load()
 
   m_pButtonQuitYes = new PoolGuiButton;
   m_pButtonQuitYes->Load("quit-yes-button.txt");
-  m_pButtonQuitYes->SetSize(WIDTH, HEIGHT);
   m_pButtonQuitYes->SetCommand(&OnQuitYes);
-  m_pButtonQuitYes->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonQuitYes, "pause-quit-yes");
+//  m_pButtonQuitYes->SetSize(WIDTH, HEIGHT);
+//  m_pButtonQuitYes->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
 
   m_pButtonQuitNo = new PoolGuiButton;
   m_pButtonQuitNo->Load("quit-no-button.txt");
-  m_pButtonQuitNo->SetSize(WIDTH, HEIGHT);
   m_pButtonQuitNo->SetCommand(&OnQuitNo);
-  m_pButtonQuitNo->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonQuitNo, "pause-quit-no");
+//  m_pButtonQuitNo->SetSize(WIDTH, HEIGHT);
+//  m_pButtonQuitNo->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
 
   if (!m_tqSound.Load("sound.png", "pool-exit-a.png"))
   {
@@ -356,22 +364,27 @@ void EnginePaused::DrawOverlays()
     // Music
     bool music = (Engine::Instance()->GetSoundPlayer()->GetSongMaxVolume() > 0);
     bool sound = (Engine::Instance()->GetSoundPlayer()->GetWavMaxVolume() > 0);
+    float x, y, w, h;
+    m_pButtonMusicVol->GetAbsPos(&y, &x);
+    m_pButtonMusicVol->GetSize(&w, &h);
     if (music)
     {
-      m_tqSound.Draw(top + HSPACE, left, bot + HSPACE, right); // t, l, b, r
+      m_tqSound.Draw(y, x + w, y + h, x + w + h); // t, l, b, r
     }
     else
     {
-      m_tqNoSound.Draw(top + HSPACE, left, bot + HSPACE, right);
+      m_tqNoSound.Draw(y, x + w, y + h, x + w + h);
     }
+
     // Sound FX
+    m_pButtonSoundVol->GetAbsPos(&y, &x);
     if (sound)
     {
-      m_tqSound.Draw(top, left, bot, right);
+      m_tqSound.Draw(y, x + w, y + h, x + w + h);
     }
     else
     {
-      m_tqNoSound.Draw(top, left, bot, right);
+      m_tqNoSound.Draw(y, x + w, y + h, x + w + h);
     }
   
     // If full screen setting has changed, ask user to restart game.
