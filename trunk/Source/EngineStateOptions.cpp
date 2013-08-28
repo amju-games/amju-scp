@@ -101,9 +101,9 @@ bool EngineStateOptions::Load()
   // Get buttons
   m_pButtonResume = new PoolGuiButton;
   m_pButtonResume->Load("pool-options-back-button.txt");
-  //SetButtonLayout(m_pButtonResume, "resume");
-  m_pButtonResume->SetSize(WIDTH, HEIGHT);
-  m_pButtonResume->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonResume, "options-resume");
+//  m_pButtonResume->SetSize(WIDTH, HEIGHT);
+//  m_pButtonResume->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
   m_pButtonResume->SetCommand(&OnBack);
 
 //  m_pButtonQuit = new PoolGuiButton;
@@ -117,19 +117,21 @@ bool EngineStateOptions::Load()
   m_pButtonFullScreen->SetCommand(&OnFullScreen);
 //  m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
 //  m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
-  SetButtonLayout(m_pButtonFullScreen, "fullscreen");
+  SetButtonLayout(m_pButtonFullScreen, "options-fullscreen");
 
   m_pButtonSoundVol = new PoolGuiButton;
   m_pButtonSoundVol->Load("pool-sound.txt");
-  m_pButtonSoundVol->SetSize(WIDTH, HEIGHT);
   m_pButtonSoundVol->SetCommand(&OnSoundEffects);
-  m_pButtonSoundVol->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonSoundVol, "options-sound");
+//  m_pButtonSoundVol->SetSize(WIDTH, HEIGHT);
+//  m_pButtonSoundVol->SetRelPos(TOP + 2.0f * HSPACE, LEFT);
 
   m_pButtonMusicVol = new PoolGuiButton;
   m_pButtonMusicVol->Load("pool-music.txt");
-  m_pButtonMusicVol->SetSize(WIDTH, HEIGHT);
   m_pButtonMusicVol->SetCommand(&OnMusic);
-  m_pButtonMusicVol->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonMusicVol, "options-music");
+//  m_pButtonMusicVol->SetSize(WIDTH, HEIGHT);
+//  m_pButtonMusicVol->SetRelPos(TOP + 3.0f * HSPACE, LEFT);
 
   m_pButtonQuitGame = new PoolGuiButton;
 //  m_pButtonQuitGame->Load(menuButtonFile);
@@ -211,22 +213,29 @@ void EngineStateOptions::DrawOverlays()
     // Music
     bool music = (Engine::Instance()->GetSoundPlayer()->GetSongMaxVolume() > 0);
     bool sound = (Engine::Instance()->GetSoundPlayer()->GetWavMaxVolume() > 0);
+
+    float x, y, w, h;
+    m_pButtonMusicVol->GetAbsPos(&y, &x);
+    m_pButtonMusicVol->GetSize(&w, &h);
+
     if (music)
     {
-      m_tqSound.Draw(top + HSPACE, left, bot + HSPACE, right); // t, l, b, r
+      m_tqSound.Draw(y, x + w, y + h, x + w + h); // t, l, b, r
     }
     else
     {
-      m_tqNoSound.Draw(top + HSPACE, left, bot + HSPACE, right);
+      m_tqNoSound.Draw(y, x + w, y + h, x + w + h);
     }
+
     // Sound FX
+    m_pButtonSoundVol->GetAbsPos(&y, &x);
     if (sound)
     {
-      m_tqSound.Draw(top, left, bot, right);
+      m_tqSound.Draw(y, x + w, y + h, x + w + h);
     }
     else
     {
-      m_tqNoSound.Draw(top, left, bot, right);
+      m_tqNoSound.Draw(y, x + w, y + h, x + w + h);
     }
   
     // No full screen option for iOS or Wii

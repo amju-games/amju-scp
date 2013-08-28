@@ -19,8 +19,11 @@ editnames, 8, 11, 10, 2
 quit, 8, 13.5, 10, 2
 
 // options
-//resume, 8, 3, 10, 2
-fullscreen, 8, 11.3, 8, 2
+options-resume, 8, 3, 8, 2
+options-sound,  8, 5.5, 8, 2
+options-music,  8, 8, 8, 2
+options-fullscreen, 8, 10.5, 8, 2
+
 
 // Main game (EngineStatePoolSetUpShot)
 placeball, 22, 8, 1.5, 1.5

@@ -21,8 +21,12 @@ editnames, 500, 11, 10, 2
 quit, 500, 13.5, 10, 2
 
 // options
-// hidden on iphone
-fullscreen, 500, 11.3, 8, 2
+options-resume, 5, 3, 12, 3
+options-sound,  5, 6.5, 12, 3
+options-music,  5, 10, 12, 3
+// hidden
+options-fullscreen, 500, 10.5, 8, 2
+
 
 // Main game (EngineStatePoolSetUpShot)
 placeball, 22, 10, 3, 3
