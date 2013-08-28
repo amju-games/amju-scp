@@ -39,5 +39,13 @@ placeballdone,  0, 0, 4, 2
 // contact gui
 contact, 0, 10, 5, 5
 
-
+// Pause menu
+pause-resume, 8, 1, 10, 2
+pause-quit, 8, 3.5, 10, 2
+pause-fullscreen, 8, 6, 10, 2
+pause-sound, 8, 8.5, 10, 2
+pause-music, 8, 11, 10, 2
+// confirm
+pause-quit-yes, 8, 3.5, 10, 2
+pause-quit-no, 8, 6, 10, 2
 
