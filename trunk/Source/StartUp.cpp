@@ -10,9 +10,15 @@
 #include <ReportError.h>
 #include <Screen.h>
 #include <Directory.h>
+
 #ifdef GEKKO
 #include <CursorManager.h>
 #endif
+
+#ifdef AMJU_IOS
+#include <iOSUtils.h>
+#endif
+
 #include "PoolGameState.h"
 #include "Engine.h"
 #include "EsLogo.h"
@@ -180,14 +186,14 @@ void StartUpAfterCreateWindow()
   // But the idea is that we get the device resolution so we can work on iphone, ipad, etc. etc.
 
 #ifndef AMJU_IOS
+  // NOT on iphone etc
   Screen::SetSize(WIDTH, HEIGHT);
   engine->SetViewport(Screen::X(), Screen::Y());
 #endif
 
-#ifdef IPHONE
+#ifdef AMJU_IOS
   const char* layoutfilename = "layout_iphone.txt";
-  // TODO Find a better way to work out the physical screen size
-  if (Screen::Y() > 640)
+  if (GetDeviceType() == AMJU_IPAD)
   {
     layoutfilename = "layout_ipad.txt";
   }
