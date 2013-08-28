@@ -41,7 +41,7 @@ undo, 8, 14, 4, 2
 redo, 12, 14, 4, 2
 
 // place ball
-placeballdone,  0, 0, 6, 3
+placeballdone,  0, 13, 6, 3
 
 // contact gui
 // Hidden for now
