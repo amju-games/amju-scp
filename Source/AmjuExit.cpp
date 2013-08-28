@@ -90,6 +90,7 @@ void ReallyExit()
   Engine::Instance()->GetSoundPlayer()->SetSongMaxVolume(0);
 
 #ifdef WIN32
+  exit(0);
   PostQuitMessage(0); 
 #endif
 
