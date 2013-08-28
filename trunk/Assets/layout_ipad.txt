@@ -1,0 +1,54 @@
+// Default button layout
+// v
+1
+// button name, pos x, pos y, size w, size h
+// Scale is 0..16 in y, 0..24 in x
+//
+
+// Title
+start, 8, 12, 8, 2
+exit, 20, 2, 2, 2
+
+// game select
+1playerprac, 8, 1, 10, 2
+1player, 8, 3.5, 10, 2
+2player, 8, 6, 10, 2
+2playeronline, 50, 7, 10, 2
+options, 8, 8.5, 10, 2
+editnames, 8, 11, 10, 2
+quit, 8, 13.5, 10, 2
+
+// options
+options-resume, 8, 3, 8, 2
+options-sound,  8, 5.5, 8, 2
+options-music,  8, 8, 8, 2
+options-fullscreen, 8, 10.5, 8, 2
+
+
+// Main game (EngineStatePoolSetUpShot)
+placeball, 22, 8, 1.5, 1.5
+pause, 22, 10, 1.5, 1.5
+help, 22, 12, 1.5, 1.5
+birdseye, 22, 14, 1.5, 1.5
+
+// prac mode
+showpath, 0, 15, 4, 1
+undo, 4, 15, 2, 1
+redo, 6, 15, 2, 1
+
+// place ball
+placeballdone,  0, 14, 4, 2
+
+// contact gui
+contact, 0, 10, 5, 5
+
+// Pause menu
+pause-resume, 8, 1, 10, 2
+pause-quit, 8, 3.5, 10, 2
+pause-fullscreen, 8, 6, 10, 2
+pause-sound, 8, 8.5, 10, 2
+pause-music, 8, 11, 10, 2
+// confirm
+pause-quit-yes, 8, 3.5, 10, 2
+pause-quit-no, 8, 6, 10, 2
+
