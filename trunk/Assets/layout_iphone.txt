@@ -1,4 +1,4 @@
-// Default button layout
+// IPHONE button layout
 // v
 1
 // button name, pos x, pos y, size w, size h
@@ -6,19 +6,21 @@
 //
 
 // Title
-start, 4, 10, 16, 4 
+start, 4, 11, 16, 4 
 exit, 20, 2, 2, 2
 
 // game select
-1playerprac, 8, 1, 10, 2
-1player, 8, 3.5, 10, 2
-2player, 8, 6, 10, 2
-2playeronline, 50, 7, 10, 2
-options, 8, 8.5, 10, 2
-editnames, 8, 11, 10, 2
-quit, 8, 13.5, 10, 2
+1playerprac, 8, 1, 15, 3
+1player, 8, 4.5, 15, 3
+2player, 8, 8, 15, 3
+options, 8, 11.5, 15, 3
+
+// Hidden on iphone
+2playeronline, 500, 7, 10, 2
+editnames, 500, 11, 10, 2
+quit, 500, 13.5, 10, 2
 
 // options
-//resume, 8, 3, 10, 2
-fullscreen, 8, 11.3, 8, 2
+// hidden on iphone
+fullscreen, 500, 11.3, 8, 2
 

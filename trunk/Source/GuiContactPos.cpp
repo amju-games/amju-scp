@@ -51,6 +51,8 @@ Added new GUI element for specifying the cue contact position on the cue ball.
 #include "Engine.h"
 #include "Mouse.h"
 #include "TextWriter.h"
+#include "LoadButton.h"
+#include "GuiElement.h"
 
 //#define  CONTACT_GUI_DEBUG
 
@@ -71,10 +73,19 @@ PoolGuiContactPos::PoolGuiContactPos()
 
 bool PoolGuiContactPos::Load()
 {
-  SIZE = Engine::Instance()->GetConfigFloat("contact_pos_size");
-  LEFT = Engine::Instance()->GetConfigFloat("contact_pos_left");
-  TOP = Engine::Instance()->GetConfigFloat("contact_pos_top");
-  SPOT_SIZE = Engine::Instance()->GetConfigFloat("contact_pos_spot_size"); 
+//  SIZE = Engine::Instance()->GetConfigFloat("contact_pos_size");
+//  LEFT = Engine::Instance()->GetConfigFloat("contact_pos_left");
+//  TOP = Engine::Instance()->GetConfigFloat("contact_pos_top");
+//  SPOT_SIZE = Engine::Instance()->GetConfigFloat("contact_pos_spot_size"); 
+
+  // Load size and pos from butotn layout file
+  PoolGuiElement elem;
+  SetButtonLayout(&elem, "contact");
+  float w, h;
+  elem.GetSize(&w, &h);
+  SIZE = w;
+  elem.GetAbsPos(&TOP, &LEFT);
+  SPOT_SIZE = SIZE * 0.3f;
 
   std::string ball = Engine::Instance()->GetConfigValue("golf_ball_tq");
   std::string ballAlpha = Engine::Instance()->GetConfigValue("golf_ball_tq_a");

@@ -44,6 +44,7 @@
 #include <Unproject.h>
 #include <Line3.h>
 #include <Screen.h>
+#include "LoadButton.h"
 
 //#define SHOOT_BUTTON
 //#define SET_UP_SHOT_DEBUG
@@ -664,7 +665,7 @@ void EngineStatePoolSetUpShot::OnNewRoom()
   int roomId = m_pLevel->GetRoomId();
 
   // Go to the next song - wrap if there are no more songs.
-  m_currentSong = (roomId + 1) % m_songs.size();
+  m_currentSong = rand() % m_songs.size();
   Assert(m_currentSong >= 0);
   Assert(m_currentSong < (int)m_songs.size());
   Engine::Instance()->PlaySong(m_songs[m_currentSong]);
@@ -1696,8 +1697,9 @@ bool EngineStatePoolSetUpShot::Load()
   static const float BUTTON_LEFT = 22.0f;
   static const float BUTTON_TOP = 9.0f;
 
-  m_pPlaceBallButton->SetSize(BUTTON_SIZE, BUTTON_SIZE);
-  m_pPlaceBallButton->SetRelPos(BUTTON_TOP + 2.0f * BUTTON_SPACE, BUTTON_LEFT);
+  SetButtonLayout(m_pPlaceBallButton, "placeball");
+//  m_pPlaceBallButton->SetSize(BUTTON_SIZE, BUTTON_SIZE);
+//  m_pPlaceBallButton->SetRelPos(BUTTON_TOP + 2.0f * BUTTON_SPACE, BUTTON_LEFT);
   m_pPlaceBallButton->SetCommand(&OnPlaceBall);
 
   // Menu button
@@ -1707,8 +1709,9 @@ bool EngineStatePoolSetUpShot::Load()
   {
     return false;
   }
-  m_pMenuButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // w, h
-  m_pMenuButton->SetRelPos(BUTTON_TOP + 1.0f * BUTTON_SPACE, BUTTON_LEFT);
+  SetButtonLayout(m_pMenuButton, "pause");
+//  m_pMenuButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // w, h
+//  m_pMenuButton->SetRelPos(BUTTON_TOP + 1.0f * BUTTON_SPACE, BUTTON_LEFT);
   m_pMenuButton->SetCommand(&OnMenuButton);
 
   // Help button
@@ -1718,8 +1721,9 @@ bool EngineStatePoolSetUpShot::Load()
   {
     return false;
   }
-  m_pHelpButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // w, h
-  m_pHelpButton->SetRelPos(BUTTON_TOP + 0.0f * BUTTON_SPACE, BUTTON_LEFT);
+  SetButtonLayout(m_pHelpButton, "help");
+//  m_pHelpButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // w, h
+//  m_pHelpButton->SetRelPos(BUTTON_TOP + 0.0f * BUTTON_SPACE, BUTTON_LEFT);
   m_pHelpButton->SetCommand(&OnHelpButton);
 
   m_pCameraButton = new PoolGuiButton; 
@@ -1729,8 +1733,9 @@ bool EngineStatePoolSetUpShot::Load()
     ReportError("Failed to load camera button.");
     return false;
   }
-  m_pCameraButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // same as Binocs
-  m_pCameraButton->SetRelPos(BUTTON_TOP + 3.0f * BUTTON_SPACE, BUTTON_LEFT);
+  SetButtonLayout(m_pCameraButton, "birdseye");
+//  m_pCameraButton->SetSize(BUTTON_SIZE, BUTTON_SIZE); // same as Binocs
+//  m_pCameraButton->SetRelPos(BUTTON_TOP + 3.0f * BUTTON_SPACE, BUTTON_LEFT);
   m_pCameraButton->SetCommand(&OnCamera); 
 
   // Practice buttons
@@ -1749,8 +1754,9 @@ bool EngineStatePoolSetUpShot::Load()
     ReportError("Failed to load undo button.");
     return false;
   }
-  m_pUndoButton->SetSize(2.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
-  m_pUndoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 4.0f * PRAC_BTN_SPACE); 
+  SetButtonLayout(m_pUndoButton, "undo");
+//  m_pUndoButton->SetSize(2.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
+//  m_pUndoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 4.0f * PRAC_BTN_SPACE); 
   m_pUndoButton->SetCommand(&OnUndo);
  
   m_pRedoButton = new PoolGuiButton;
@@ -1760,8 +1766,9 @@ bool EngineStatePoolSetUpShot::Load()
     ReportError("Failed to load redo button.");
     return false;
   }
-  m_pRedoButton->SetSize(2.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
-  m_pRedoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 6.0f * PRAC_BTN_SPACE); 
+  SetButtonLayout(m_pRedoButton, "redo");
+//  m_pRedoButton->SetSize(2.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
+//  m_pRedoButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 6.0f * PRAC_BTN_SPACE); 
   m_pRedoButton->SetCommand(&OnRedo);
 
   m_pTrajectoryButton = new PoolGuiButton;
@@ -1771,8 +1778,9 @@ bool EngineStatePoolSetUpShot::Load()
     ReportError("Failed to load trajectory toggle button.");
     return false;
   }
-  m_pTrajectoryButton->SetSize(4.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
-  m_pTrajectoryButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 0.0f * PRAC_BTN_SPACE);
+  SetButtonLayout(m_pTrajectoryButton, "showpath");
+//  m_pTrajectoryButton->SetSize(4.0f * PRAC_BTN_SIZE, PRAC_BTN_SIZE);
+//  m_pTrajectoryButton->SetRelPos(PRAC_BTN_Y, PRAC_BTN_X + 0.0f * PRAC_BTN_SPACE);
   m_pTrajectoryButton->SetCommand(&OnTrajectory);
   
   m_pShootButton = new PoolGuiButton;
@@ -1902,9 +1910,10 @@ bool EngineStatePoolSetUpShot::Load()
     ReportError("Failed to load place ball done button");
     return false;
   }
-  m_pPlaceBallDoneButton->SetSize(3.0f, 1.5f);
-  m_pPlaceBallDoneButton->SetRelPos(
-    BUTTON_TOP + 2.0f * BUTTON_SPACE + 1.0f, BUTTON_LEFT - 1.0f); // TODO CONFIG
+  SetButtonLayout(m_pPlaceBallDoneButton, "placeballdone");
+//  m_pPlaceBallDoneButton->SetSize(3.0f, 1.5f);
+//  m_pPlaceBallDoneButton->SetRelPos(
+//    BUTTON_TOP + 2.0f * BUTTON_SPACE + 1.0f, BUTTON_LEFT - 1.0f); // TODO CONFIG
   m_pPlaceBallDoneButton->SetCommand(&OnPlaceBall); 
 
   return true;
@@ -2626,7 +2635,7 @@ std::cout << "Mouse X diff: " << xdiff << "\n";
 // TODO
 //#ifdef IPHONE  
 //std::cout << "Y diff: " << ydiff << "\n";
-  if (ydiff > 0 && ydiff > fabs(xdiff) * 2  && m_drag)
+  if (ydiff > 0 && ydiff > abs(xdiff) * 2  && m_drag)
   {
 //std::cout << "Dragging down\n";
     TakeShotStart();
