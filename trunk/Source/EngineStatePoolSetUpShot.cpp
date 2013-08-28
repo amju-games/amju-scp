@@ -665,7 +665,7 @@ void EngineStatePoolSetUpShot::OnNewRoom()
   int roomId = m_pLevel->GetRoomId();
 
   // Go to the next song - wrap if there are no more songs.
-  m_currentSong = rand() % m_songs.size();
+  m_currentSong = (roomId + 1) % m_songs.size();
   Assert(m_currentSong >= 0);
   Assert(m_currentSong < (int)m_songs.size());
   Engine::Instance()->PlaySong(m_songs[m_currentSong]);
