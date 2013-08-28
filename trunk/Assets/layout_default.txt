@@ -11,12 +11,14 @@ exit, 20, 2, 2, 2
 
 // game select
 1playerprac, 8, 1, 10, 2
-1player, 8, 4, 10, 2
-2player, 8, 7, 10, 2
-2playeronline, 11, 7, 10, 2
-options, 8, 10, 10, 2
-editnames, 8, 13, 10, 2
-quit, 8, 16, 10, 2
+1player, 8, 3.5, 10, 2
+2player, 8, 6, 10, 2
+2playeronline, 50, 7, 10, 2
+options, 8, 8.5, 10, 2
+editnames, 8, 11, 10, 2
+quit, 8, 13.5, 10, 2
 
-
+// options
+//resume, 8, 3, 10, 2
+fullscreen, 8, 11.3, 8, 2
 
