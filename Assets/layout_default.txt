@@ -22,3 +22,22 @@ quit, 8, 13.5, 10, 2
 //resume, 8, 3, 10, 2
 fullscreen, 8, 11.3, 8, 2
 
+// Main game (EngineStatePoolSetUpShot)
+placeball, 22, 8, 1.5, 1.5
+pause, 22, 10, 1.5, 1.5
+help, 22, 12, 1.5, 1.5
+birdseye, 22, 14, 1.5, 1.5
+
+// prac mode
+undo, 4, 15, 2, 1
+redo, 6, 15, 2, 1
+showpath, 0, 15, 4, 1
+
+// place ball
+placeballdone,  0, 0, 4, 2
+
+// contact gui
+contact, 0, 10, 5, 5
+
+
+
