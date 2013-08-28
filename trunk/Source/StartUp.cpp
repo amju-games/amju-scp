@@ -1,8 +1,6 @@
 #include <AmjuFirst.h>
 #include <Game.h>
 #include <ResourceManager.h>
-#include "Engine.h"
-#include "EsLogo.h"
 #include <File.h>
 #include <Font.h>
 #include <SoundManager.h>
@@ -16,6 +14,9 @@
 #include <CursorManager.h>
 #endif
 #include "PoolGameState.h"
+#include "Engine.h"
+#include "EsLogo.h"
+#include "LoadButton.h"
 
 #ifdef AMJU_USE_BASS
 #include <BassSoundPlayer.h>
@@ -28,16 +29,19 @@
 #ifdef MACOSX
 #define GLUE_FILE "data-Mac.glue"
 #define MUSIC_GLUE_FILE "music-Mac.glue"
+const char* layoutfilename = "layout_default.txt";
 #endif
 
 #ifdef WIN32
 #define GLUE_FILE "data-win.glue"
 #define MUSIC_GLUE_FILE "music-win.glue"
+const char* layoutfilename = "layout_default.txt";
 #endif
 
 #ifdef GEKKO
 #define GLUE_FILE "data-wii.glue"
 #define MUSIC_GLUE_FILE "music-wii.glue"
+const char* layoutfilename = "layout_wii.txt";
 #endif
 
 #ifdef AMJU_IOS
@@ -180,11 +184,23 @@ void StartUpAfterCreateWindow()
   engine->SetViewport(Screen::X(), Screen::Y());
 #endif
 
-  if (!engine->LoadFont())
+#ifdef IPHONE
+  const char* layoutfilename = "layout_iphone.txt";
+  // TODO Find a better way to work out the physical screen size
+  if (Screen::Y() > 640)
   {
-    std::cout << "Couldn't load font.\n";
+    layoutfilename = "layout_ipad.txt";
+  }
+#endif
+  if (!LoadButtonLayout(layoutfilename))
+  {
+    ReportError(std::string("Failed to load button layout file ") + layoutfilename);
   }
 
+  if (!engine->LoadFont())
+  {
+    ReportError("Failed to load fonts");
+  }
 }
 }
 
