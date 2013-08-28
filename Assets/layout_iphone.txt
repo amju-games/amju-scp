@@ -10,10 +10,10 @@ start, 4, 11, 16, 4
 exit, 20, 2, 2, 2
 
 // game select
-1playerprac, 8, 1, 15, 3
-1player, 8, 4.5, 15, 3
-2player, 8, 8, 15, 3
-options, 8, 11.5, 15, 3
+1playerprac, 4, 1, 15, 3
+1player, 4, 4.5, 15, 3
+2player, 4, 8, 15, 3
+options, 4, 11.5, 15, 3
 
 // Hidden on iphone
 2playeronline, 500, 7, 10, 2
@@ -25,10 +25,11 @@ quit, 500, 13.5, 10, 2
 fullscreen, 500, 11.3, 8, 2
 
 // Main game (EngineStatePoolSetUpShot)
-placeball, 22, 6.5, 2, 2
-pause, 22, 9, 2, 2
-help, 22, 11.5, 2, 2
-birdseye, 22, 14, 2, 2
+placeball, 22, 10, 3, 3
+pause, 22, 13, 3, 3
+// hidden
+help, 500, 11.5, 2, 2
+birdseye, 500, 14, 2, 2
 
 // prac mode
 showpath, 0, 14, 8, 2
@@ -39,7 +40,8 @@ redo, 12, 14, 4, 2
 placeballdone,  0, 0, 6, 3
 
 // contact gui
-contact, 0, 7, 8, 8
+// Hidden for now
+contact, 500, 7, 8, 8
 
 
 
