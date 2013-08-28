@@ -39,6 +39,8 @@ bool LoadButtonLayout(const std::string& layoutfilename)
     Vec2f pos(ToFloat(strs[1]), ToFloat(strs[2]));
     Vec2f size(ToFloat(strs[3]), ToFloat(strs[4]));
 
+std::cout << "Layout: " << strs[0] << " loaded.\n";
+
     // TODO Transform coord system here if required
 
     s_layout[strs[0]] = PosSize(pos, size);
@@ -47,7 +49,7 @@ bool LoadButtonLayout(const std::string& layoutfilename)
   return true;
 }
 
-void SetButtonLayout(PoolGuiButton* b, const std::string& buttonName)
+void SetButtonLayout(PoolGuiElement* b, const std::string& buttonName)
 {
   Layout::iterator it = s_layout.find(buttonName);
   if (it == s_layout.end())
