@@ -7,7 +7,8 @@
 #include "EngineStatePoolGameSelect.h"
 #include "PoolGameState.h"
 #include "PoolBg.h"
-#include "SchAssert.h"
+#include "AmjuAssert.h"
+#include "LoadButton.h"
 
 using namespace std;
 
@@ -100,9 +101,10 @@ bool EngineStateOptions::Load()
   // Get buttons
   m_pButtonResume = new PoolGuiButton;
   m_pButtonResume->Load("pool-options-back-button.txt");
+  //SetButtonLayout(m_pButtonResume, "resume");
   m_pButtonResume->SetSize(WIDTH, HEIGHT);
-  m_pButtonResume->SetCommand(&OnBack);
   m_pButtonResume->SetRelPos(TOP + 1.0f * HSPACE, LEFT);
+  m_pButtonResume->SetCommand(&OnBack);
 
 //  m_pButtonQuit = new PoolGuiButton;
 //  m_pButtonQuit->Load("pool-quit-game.txt");
@@ -112,9 +114,10 @@ bool EngineStateOptions::Load()
 
   m_pButtonFullScreen = new PoolGuiButton;
   m_pButtonFullScreen->Load("pool-fullscreen.txt");
-  m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
   m_pButtonFullScreen->SetCommand(&OnFullScreen);
-  m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
+//  m_pButtonFullScreen->SetSize(WIDTH, HEIGHT);
+//  m_pButtonFullScreen->SetRelPos(TOP + 4.0f * HSPACE, LEFT);
+  SetButtonLayout(m_pButtonFullScreen, "fullscreen");
 
   m_pButtonSoundVol = new PoolGuiButton;
   m_pButtonSoundVol->Load("pool-sound.txt");
