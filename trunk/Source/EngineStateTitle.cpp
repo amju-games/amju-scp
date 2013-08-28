@@ -106,6 +106,7 @@ Added to repository
 #include "EngineStatePoolLoadOnDemand.h"
 #include "EngineStatePoolInitDemo.h"
 #include "PoolCourseManager.h"
+#include "LoadButton.h"
 
 using namespace std;
 
@@ -252,8 +253,9 @@ bool EngineStateTitle::Load()
   {
     return false;
   }
-  m_pStartButton->SetSize(8, 2.0f);
-  m_pStartButton->SetRelPos(12.0f, 8);
+  SetButtonLayout(m_pStartButton, "start");
+//  m_pStartButton->SetSize(8, 2.0f);
+//  m_pStartButton->SetRelPos(12.0f, 8);
   m_pStartButton->SetCommand(&OnStartClicked);
 
   // "Register" button
@@ -285,8 +287,9 @@ bool EngineStateTitle::Load()
   {
     return false;
   }
-  m_pExitButton->SetSize(2.0f, 2.0f);
-  m_pExitButton->SetRelPos(2, 20);  // top, left
+  SetButtonLayout(m_pExitButton, "exit");
+//  m_pExitButton->SetSize(2.0f, 2.0f);
+//  m_pExitButton->SetRelPos(2, 20);  // top, left
   m_pExitButton->SetCommand(&OnExitClicked);
 
   if (!LoadExplosion())
