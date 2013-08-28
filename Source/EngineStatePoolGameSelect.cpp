@@ -87,6 +87,7 @@ Added to repository
 #include "EngineStateOptions.h"
 #include "EngineStatePoolPlayerMaint.h"
 #include "PoolOnline.h"
+#include "LoadButton.h"
 
 extern void OnExitClicked();
 extern void OnRegisterClicked();
@@ -202,7 +203,7 @@ void EngineStatePoolGameSelect::SetActive(bool active)
 
     m_time = 0;
     m_maxTime = 30.0f; // back to title after this delay
-
+/*
     // Set positions of buttons
     float y = Engine::Instance()->GetConfigFloat("golf_gs_b_y");
     
@@ -268,7 +269,7 @@ void EngineStatePoolGameSelect::SetActive(bool active)
       y += SPACE_H;
     }
     m_pQuitButton->SetRelPos(y, x1);
-
+*/
   }
 }
 
@@ -384,10 +385,10 @@ bool EngineStatePoolGameSelect::Load()
     "pool_main_button_h_space"); 
   
   static const float x1 = 12.5f - 0.5f * SIZE_W;
-    //Engine::Instance()->GetConfigFloat("golf_gs_b_x1");
+  SetButtonLayout(m_pOnePlayerButton, "1player");
 
-  m_pOnePlayerButton->SetSize(SIZE_W, SIZE_H);
-  m_pOnePlayerButton->SetRelPos(y + SPACE_H, x1); 
+//  m_pOnePlayerButton->SetSize(SIZE_W, SIZE_H);
+//  m_pOnePlayerButton->SetRelPos(y + SPACE_H, x1); 
   m_pOnePlayerButton->SetCommand(&OnOnePlayer); 
 
   m_pTwoPlayerButton = new PoolGuiButton;
@@ -397,8 +398,9 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load two player button.");
     return false;
   }
-  m_pTwoPlayerButton->SetSize(SIZE_W, SIZE_H);
-  m_pTwoPlayerButton->SetRelPos(y + SPACE_H * 2.0f, x1); 
+  SetButtonLayout(m_pTwoPlayerButton, "2player");
+//  m_pTwoPlayerButton->SetSize(SIZE_W, SIZE_H);
+//  m_pTwoPlayerButton->SetRelPos(y + SPACE_H * 2.0f, x1); 
   m_pTwoPlayerButton->SetCommand(&OnTwoPlayer); 
 
   m_pOnePlayerPractiseButton = new PoolGuiButton;
@@ -408,10 +410,11 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load one player practise button.");
     return false;
   }
-  m_pOnePlayerPractiseButton->SetSize(SIZE_W, SIZE_H);
-  m_pOnePlayerPractiseButton->SetRelPos(y, x1); 
+  SetButtonLayout(m_pOnePlayerPractiseButton, "1playerprac");
+//  m_pOnePlayerPractiseButton->SetSize(SIZE_W, SIZE_H);
+//  m_pOnePlayerPractiseButton->SetRelPos(y, x1); 
   m_pOnePlayerPractiseButton->SetCommand(&OnOnePlayerPractise); 
- 
+
   m_pTwoPlayerOnlineButton = new PoolGuiButton;
   std::string twoPlayerOnlineFile = 
     GetEngine()->GetConfigValue("pool_2p_online_button");
@@ -420,8 +423,9 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load two player online button.");
     return false;
   }
-  m_pTwoPlayerOnlineButton->SetSize(SIZE_W, SIZE_H);
-  m_pTwoPlayerOnlineButton->SetRelPos(y + SPACE_H * 3.0f, x1); 
+  SetButtonLayout(m_pTwoPlayerOnlineButton, "2playeronline");
+//  m_pTwoPlayerOnlineButton->SetSize(SIZE_W, SIZE_H);
+//  m_pTwoPlayerOnlineButton->SetRelPos(y + SPACE_H * 3.0f, x1); 
   m_pTwoPlayerOnlineButton->SetCommand(&OnTwoPlayerOnline); 
 
   m_pQuitButton = new PoolGuiButton;
@@ -431,8 +435,9 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load menu quit button.");
     return false;
   }
-  m_pQuitButton->SetSize(SIZE_W, SIZE_H);
-  m_pQuitButton->SetRelPos(y + SPACE_H * 5.0f, x1); 
+  SetButtonLayout(m_pQuitButton, "quit");
+//  m_pQuitButton->SetSize(SIZE_W, SIZE_H);
+//  m_pQuitButton->SetRelPos(y + SPACE_H * 5.0f, x1); 
   m_pQuitButton->SetCommand(&OnExitClicked); // TODO + confirm ?
 
   m_pOptionsButton = new PoolGuiButton;
@@ -441,8 +446,9 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load main menu options button");
     return false;
   }
-  m_pOptionsButton->SetSize(SIZE_W, SIZE_H);
-  m_pOptionsButton->SetRelPos(y + SPACE_H * 3.0f, x1);
+  SetButtonLayout(m_pOptionsButton, "options");
+//  m_pOptionsButton->SetSize(SIZE_W, SIZE_H);
+//  m_pOptionsButton->SetRelPos(y + SPACE_H * 3.0f, x1);
   m_pOptionsButton->SetCommand(&OnOptions);
 
   m_pEditNamesButton = new PoolGuiButton;
@@ -451,8 +457,9 @@ bool EngineStatePoolGameSelect::Load()
     ReportError("Failed to load main menu edit names button");
     return false;
   }
-  m_pEditNamesButton->SetSize(SIZE_W, SIZE_H);
-  m_pEditNamesButton->SetRelPos(y + SPACE_H * 4.0f, x1);
+  SetButtonLayout(m_pOptionsButton, "editnames");
+//  m_pEditNamesButton->SetSize(SIZE_W, SIZE_H);
+//  m_pEditNamesButton->SetRelPos(y + SPACE_H * 4.0f, x1);
   m_pEditNamesButton->SetCommand(&OnEditNames);
 
   // "Register" button
