@@ -1,0 +1,21 @@
+// Default button layout
+// v
+1
+// button name, pos x, pos y, size w, size h
+// Scale is 0..16 in y, 0..24 in x
+//
+
+// Title
+start, 8, 12, 8, 2
+exit, 20, 2, 2, 2
+
+// game select
+1playerprac, 8, 1, 10, 2
+1player, 8, 4, 10, 2
+2player, 8, 7, 10, 2
+options, 8, 10, 10, 2
+editnames, 8, 13, 10, 2
+quit, 8, 16, 10, 2
+
+
+
