@@ -24,3 +24,22 @@ quit, 500, 13.5, 10, 2
 // hidden on iphone
 fullscreen, 500, 11.3, 8, 2
 
+// Main game (EngineStatePoolSetUpShot)
+placeball, 22, 6.5, 2, 2
+pause, 22, 9, 2, 2
+help, 22, 11.5, 2, 2
+birdseye, 22, 14, 2, 2
+
+// prac mode
+showpath, 0, 14, 8, 2
+undo, 8, 14, 4, 2
+redo, 12, 14, 4, 2
+
+// place ball
+placeballdone,  0, 0, 6, 3
+
+// contact gui
+contact, 0, 7, 8, 8
+
+
+
