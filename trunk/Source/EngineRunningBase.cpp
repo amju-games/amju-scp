@@ -75,7 +75,7 @@ void EngineRunningBase::Update()
 
   Assert(m_pLevel.GetPtr());
 
-  GetEngine()->GetDayNightSky()->Update();
+///  GetEngine()->GetDayNightSky()->Update();
 
   // Update static scene
   m_pLevel->GetScene()->Update();
@@ -138,14 +138,14 @@ void EngineRunningBase::DrawLensflare()
 
 void EngineRunningBase::DrawSkybox()
 {
-  if (!m_pLevel->IsCurrentRoomIndoors())
-  {
-    // Draw the sky. This changes with the game time-of-day.
-    GetEngine()->GetDayNightSky()->DrawSkybox();
+  //if (!m_pLevel->IsCurrentRoomIndoors())
+  //{
+  //  // Draw the sky. This changes with the game time-of-day.
+  //  GetEngine()->GetDayNightSky()->DrawSkybox();
 
-    // In case the renderer sorts by Textures, draw the list so far.
-    //LeafData::GetRenderer()->DrawList();
-  }
+  //  // In case the renderer sorts by Textures, draw the list so far.
+  //  //LeafData::GetRenderer()->DrawList();
+  //}
 }
 
 void EngineRunningBase::DoCameraWork()
@@ -255,7 +255,9 @@ void EngineRunningBase::DrawForeground()
 
   DrawGameObjectShadows();
 
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
   DrawGameObjects(true); // true => translucent, or with transparent areas.
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 
   // Execute GameObject display lists.
   //LeafData::GetRenderer()->DrawList();

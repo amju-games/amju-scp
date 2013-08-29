@@ -1076,8 +1076,12 @@ std::cout << "Place ball: height no good ? \n";
   // Scene display lists may be stored in a sorted list. 
 //  LeafData::GetRenderer()->DrawList();
 
-  DrawGameObjectShadows();
   DrawBigText();
+
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
+  DrawGameObjectShadows();
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
+
   DrawGameObjects(false); // false => non-translucent
 
   // Execute GameObject display lists.
@@ -1089,7 +1093,10 @@ std::cout << "Place ball: height no good ? \n";
     s_cue.Draw();
   }
 
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
   DrawGameObjects(true); // true => translucent, or with transparent areas.
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
+
   if (GetShowTrajectory() &&
       !m_placeBallMode  // don't draw when placing ball
      ) // && m_shotIsActive ?

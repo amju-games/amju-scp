@@ -596,12 +596,13 @@ void EngineStatePoolBase::Draw()
   // moving Platforms, bonuses, etc.
   DrawGameObjects(false); // false => non-translucent
 
-  DrawGameObjectShadows();
-
   // POOL: Draw 'cool' 'foul' etc 3D letters
   DrawBigText();
 
+  AmjuGL::Enable(AmjuGL::AMJU_BLEND);
+  DrawGameObjectShadows();
   DrawGameObjects(true); // true => translucent, or with transparent areas.
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 
   // Execute GameObject display lists.
 //  LeafData::GetRenderer()->DrawList();

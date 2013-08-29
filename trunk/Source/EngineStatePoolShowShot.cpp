@@ -142,7 +142,7 @@ void EngineStatePoolShowShot::Update()
     if (m_time < m_maxTime)
     {
       Assert(m_pLevel.GetPtr());
-      GetEngine()->GetDayNightSky()->Update();
+////      GetEngine()->GetDayNightSky()->Update();
       m_pLevel->GetScene()->Update();
       UpdateGameObjects();
     }
