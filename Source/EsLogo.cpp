@@ -94,7 +94,7 @@ void EsLogo::Draw()
   Engine::Instance()->PushColour(c, c, c, 1.0f);
 
   //m_bg.Draw(-1.0f, -5.0f, 20.0f, 30.0f); 
-  static const float LOGO_WIDTH = 10.0f;
+  static const float LOGO_WIDTH = 9.0f;
   static const float LOGO_HEIGHT = 5.0f;
   static const float LOGO_TOP = 5.0f;
 
