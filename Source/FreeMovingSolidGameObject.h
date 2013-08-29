@@ -24,6 +24,8 @@ class FreeMovingSolidGameObject :
   public FreeMovingGameObject
 {
 public:
+  FreeMovingSolidGameObject();
+
   virtual const char* GetTypeName() const;
 
   virtual void Draw();
@@ -47,6 +49,8 @@ public:
 
 protected:
   PSolidComponent m_pSolid;
+
+  bool m_atRest;
 
 public:
 #if defined(SCENE_EDITOR)

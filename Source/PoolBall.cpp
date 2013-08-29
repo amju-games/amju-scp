@@ -1217,6 +1217,20 @@ void PoolBall::ApplyDrawRoll(float dx, float dz, float vel)
 
 void PoolBall::Update()
 {
+  if (GetForwardVel() > 0 || IsFalling())
+  {
+    m_atRest = false;
+  }
+  else
+  {
+    m_atRest = true;
+  }
+
+  if (m_atRest)
+  {
+    return;
+  }
+
   // TODO : we could handle ball-ball-extract differently, by adding
   // the extract vector to the current ball dir. Then we let the
   // HandleWallCollision function take care of wall collisions, and
