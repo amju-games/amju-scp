@@ -442,7 +442,11 @@ void PoolHole::DrawBonuses()
     return;
   }
 
-  Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, m_alpha);
+//  Engine::Instance()->PushColour(1.0f, 1.0f, 1.0f, m_alpha);
+
+  // No blending, to improve drawing speed
+  AmjuGL::PushAttrib(AmjuGL::AMJU_BLEND);
+  AmjuGL::Disable(AmjuGL::AMJU_BLEND);
 
   AmjuGL::PushMatrix();
   AmjuGL::Translate(0, 5.0f, 0); // TODO CONFIG
@@ -463,7 +467,8 @@ void PoolHole::DrawBonuses()
     AmjuGL::PopMatrix();
   }
   AmjuGL::PopMatrix();
-  Engine::Instance()->PopColour();
+//  Engine::Instance()->PopColour();
+  AmjuGL::PopAttrib();
 }
 
 #if defined(SCENE_EDITOR)
