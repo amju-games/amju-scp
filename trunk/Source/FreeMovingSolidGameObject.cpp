@@ -36,6 +36,11 @@ Added to repository
 
 namespace Amju
 {
+FreeMovingSolidGameObject::FreeMovingSolidGameObject()
+{
+  m_atRest = false;
+}
+
 const char* FreeMovingSolidGameObject::GetTypeName() const
 {
   return "freesolid";
@@ -130,6 +135,11 @@ void FreeMovingSolidGameObject::SetSolid(PSolidComponent pSolid)
 
 void FreeMovingSolidGameObject::Update()
 {
+  if (m_atRest)
+  {
+    return;
+  }
+
   FreeMovingGameObject::Update();
 
   m_pSolid->Update();
