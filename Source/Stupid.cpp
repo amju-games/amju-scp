@@ -489,6 +489,8 @@ void Stupid::RefreshHeightServer()
   // First refresh 'static' heightserver
   m_pHeightPoly = 0; 
   VisibleGameObject::RefreshHeightServer();
+
+/*
   // If the HS changes, reset pointer to last known floor.
   m_heightServerWithPlatforms = m_heightServer;
 
@@ -518,6 +520,7 @@ void Stupid::RefreshHeightServer()
       }
     }
   }
+*/
 }
 
 }
