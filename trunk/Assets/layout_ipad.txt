@@ -40,7 +40,8 @@ redo, 6, 15, 2, 1
 placeballdone,  0, 14, 4, 2
 
 // contact gui
-contact, 0, 10, 5, 5
+// hidden on ipad
+contact, 500, 10, 5, 5
 
 // Pause menu
 pause-resume, 8, 1, 10, 2

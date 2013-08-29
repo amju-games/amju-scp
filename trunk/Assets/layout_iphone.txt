@@ -10,10 +10,10 @@ start, 4, 11, 16, 4
 exit, 20, 2, 2, 2
 
 // game select
-1playerprac, 4, 1, 15, 3
-1player, 4, 4.5, 15, 3
-2player, 4, 8, 15, 3
-options, 4, 11.5, 15, 3
+1playerprac, 5, 1, 15, 3
+1player, 5, 4.5, 15, 3
+2player, 5, 8, 15, 3
+options, 5, 11.5, 15, 3
 
 // Hidden on iphone
 2playeronline, 500, 7, 10, 2
@@ -48,14 +48,15 @@ placeballdone,  0, 13, 6, 3
 contact, 500, 7, 8, 8
 
 // Pause menu
-pause-resume, 8, 1, 10, 2
-pause-quit, 8, 3.5, 10, 2
-pause-fullscreen, 500, 6, 10, 2
-pause-sound, 8, 8.5, 10, 2
-pause-music, 8, 11, 10, 2
+pause-resume, 5, 1, 15, 3
+pause-quit, 5, 4.5, 15, 3
+pause-sound, 5, 8, 15, 3
+pause-music, 5, 11.5, 15, 3
 // confirm
-pause-quit-yes, 8, 3.5, 10, 2
-pause-quit-no, 8, 6, 10, 2
+pause-quit-yes, 5, 6, 15, 3
+pause-quit-no, 5, 9.5, 15, 3
+// hidden
+pause-fullscreen, 500, 6, 10, 2
 
 
 
