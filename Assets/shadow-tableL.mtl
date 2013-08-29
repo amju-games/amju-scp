@@ -1,3 +1,5 @@
 # j.c. convert leaf file to obj
 newmtl shadow-tableL
 map_Kd shadow.png
+flags 12
+
