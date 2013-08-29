@@ -1550,6 +1550,8 @@ bool PoolBall::Load(File* pf)
 
 void PoolBall::OnRoomEntry()
 {
+  m_atRest = false;
+
   SetState(UNKNOWN);
   SetFalling(false);
   SetVerticalVel(0);
@@ -1597,8 +1599,9 @@ void PoolBall::RefreshHeightServer()
   m_pHeightPoly = 0;
   VisibleGameObject::RefreshHeightServer();
   // If the HS changes, reset pointer to last known floor.
-  m_heightServerWithPlatforms = m_heightServer;
+  //m_heightServerWithPlatforms = m_heightServer;
 
+/*
   int levelId = m_pLevel->GetId();
   int roomId = m_pLevel->GetRoomId();
   // Get the game objects which are in the same room as this character.
@@ -1633,6 +1636,7 @@ void PoolBall::RefreshHeightServer()
       }
     }
   }
+*/
 }
 
 #if defined(SCENE_EDITOR)

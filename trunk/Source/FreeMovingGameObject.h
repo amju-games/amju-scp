@@ -315,7 +315,7 @@ protected:
   // Having a second HS means we don't have to recalculate everything when the
   // only thing that has changed is the position of (a) Platform(s); we just
   // recalculate the union of the static HS and the Platform HSs again.
-  mutable HeightServer m_heightServerWithPlatforms;
+//  mutable HeightServer m_heightServerWithPlatforms;
 
   // The collision height server is made from this solid.
   // Characters need this because we want a really rough collision solid;

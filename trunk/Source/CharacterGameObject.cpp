@@ -483,7 +483,7 @@ void CharacterGameObject::DrawShadow() const
   const float y = GetPosition().y;
   const float z = GetPosition().z;
 
-  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServerWithPlatforms);
+  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServer);
 }
 
 const HeightServer* CharacterGameObject::GetCollisionVol() const

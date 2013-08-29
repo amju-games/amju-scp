@@ -110,7 +110,7 @@ void PoolCharacter::DrawShadow() const
   const float y = -9.9f; // ground height is -10
   const float z = GetPosition().z;
 
-  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServerWithPlatforms);
+  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServer);
 }
 
 void PoolCharacter::SetAlpha(float a)

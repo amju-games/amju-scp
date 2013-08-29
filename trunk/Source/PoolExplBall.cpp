@@ -293,7 +293,7 @@ void PoolExplBall::DrawShadow() const
   const float y = bs->y();
   const float z = bs->z();
 
-  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServerWithPlatforms);
+  m_pShadow->Draw(x, y, z, GetShadowSize(), m_heightServer);
 }
 }
 
