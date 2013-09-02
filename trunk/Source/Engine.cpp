@@ -1535,6 +1535,9 @@ void Engine::Draw()
   DoLetterbox();
 
   // Draw the scene.
+
+  AmjuGL::Enable(AmjuGL::AMJU_LIGHTING);
+
   AmjuGL::PushMatrix();
   m_earthquake.Draw(); // jitters camera if active.
   m_pCurrentState->Draw();
@@ -1544,6 +1547,8 @@ void Engine::Draw()
 
   // Undo Letterbox, for overlays.
   UndoLetterbox();
+  
+  AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
 
 // NOT in Draw2d 
   AmjuGL::Enable(AmjuGL::AMJU_BLEND);
