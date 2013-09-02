@@ -145,13 +145,11 @@ void Lighting::Init()
 
 void Lighting::DrawLight()
 {
-  // Set the global ambient.
-  //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, m_globalAmbient);
-  //glLightfv(GL_LIGHT0, GL_POSITION, m_position);
+  float amb = 0.7f;
 
   AmjuGL::DrawLighting(
     AmjuGL::LightColour(0, 0, 0),
-    AmjuGL::LightColour(0.2f, 0.2f, 0.2f), // Ambient light colour
+    AmjuGL::LightColour(amb, amb, amb), // Ambient light colour
     AmjuGL::LightColour(1, 1, 1), // Diffuse light colour
     AmjuGL::LightColour(1, 1, 1),
     AmjuGL::Vec3(1, 1, 1)); // Light direction
