@@ -157,84 +157,77 @@ float PoolFont::GetTextWidth(const std::string& s)
 
 void PoolFont::PrintNoBlend(float x, float y, const char* text)
 {
-    if (!text)
-    {
-        return;
-    }
+  if (!text)
+  {
+      return;
+  }
 
-    // Sigh, this is really bad, but it will be a big change to make this efficient
-    static RCPtr<TriListStatic> triList;
+  // Sigh, this is really bad, but it will be a big change to make this efficient
+  static RCPtr<TriListStatic> triList;
   
-    static const char* prevText = 0;
+  AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING);
+  AmjuGL::PushAttrib(AmjuGL::AMJU_DEPTH_READ);
 
-    AmjuGL::PushAttrib(AmjuGL::AMJU_LIGHTING);
-    AmjuGL::PushAttrib(AmjuGL::AMJU_DEPTH_READ);
+  AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
+  AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
 
-    AmjuGL::Disable(AmjuGL::AMJU_LIGHTING);
-    AmjuGL::Disable(AmjuGL::AMJU_DEPTH_READ);
+  m_textureSequence.Bind();
 
-    m_textureSequence.Bind();
-
-    if (prevText != text)
-    {
-        prevText = text;
-        triList = (TriListStatic*)AmjuGL::Create(TriListStatic::DRAWABLE_TYPE_ID);
-        if (!triList) return;
+  triList = (TriListStatic*)AmjuGL::Create(TriListStatic::DRAWABLE_TYPE_ID);
+  if (!triList) return;
       
-        static AmjuGL::Tris tris;
-        tris.clear();
-        float accF = 0;
-        int i = 0;
-        while (unsigned char c = text[i])
-        {
-            i++;
+  static AmjuGL::Tris tris;
+  tris.clear();
+  float accF = 0;
+  int i = 0;
+  while (unsigned char c = text[i])
+  {
+    i++;
 
-            AmjuGL::Tri t[2];
-            m_textureSequence.MakeTris(c - (char)m_startChar, m_size, t, accF, 0);
+    AmjuGL::Tri t[2];
+    m_textureSequence.MakeTris(c - (char)m_startChar, m_size, t, accF, 0);
 
-            float f = GetCharacterWidth(c) * m_size;
-            accF += f;
+    float f = GetCharacterWidth(c) * m_size;
+    accF += f;
 
-            tris.push_back(t[0]);
-            tris.push_back(t[1]);
+    tris.push_back(t[0]);
+    tris.push_back(t[1]);
+  }
 
-        }
-
-        triList->Set(tris);
-    }
+  triList->Set(tris);
 
 #ifdef USE_NDCS
-    const float MAX_X = 24.85f;
-    const float MAX_Y = 17.0f;
-    const float SC = 0.35f;
+  const float MAX_X = 24.85f;
+  const float MAX_Y = 17.0f;
+  const float SC = 0.35f;
 
-    AmjuGL::PushMatrix();
-    AmjuGL::SetIdentity();
-    AmjuGL::Translate(x / MAX_X * 2.0f - 1.0f, -((y + 1.0f) / MAX_Y * 2.0f - 1.0f), 0);
-    AmjuGL::Scale(SC, SC, 1);
-    AmjuGL::SetMatrixMode(AmjuGL::AMJU_PROJECTION_MATRIX); 
-    AmjuGL::PushMatrix();
-    AmjuGL::SetIdentity();
+  AmjuGL::PushMatrix();
+  AmjuGL::SetIdentity();
+  AmjuGL::Translate(x / MAX_X * 2.0f - 1.0f, -((y + 1.0f) / MAX_Y * 2.0f - 1.0f), 0);
+  AmjuGL::Scale(SC, SC, 1);
+  AmjuGL::SetMatrixMode(AmjuGL::AMJU_PROJECTION_MATRIX); 
+  AmjuGL::PushMatrix();
+  AmjuGL::SetIdentity();
 #else
-    AmjuGL::PushMatrix();
-    AmjuGL::Translate(
-      TextWriter::CHAR_SIZE * x - TextWriter::X_OFFSET, 
-      TextWriter::Y_OFFSET - TextWriter::CHAR_SIZE * y, 
-      TextWriter::Z_OFFSET);
+  AmjuGL::PushMatrix();
+  AmjuGL::Translate(
+    TextWriter::CHAR_SIZE * x - TextWriter::X_OFFSET, 
+    TextWriter::Y_OFFSET - TextWriter::CHAR_SIZE * y, 
+    TextWriter::Z_OFFSET);
 #endif
 
-    AmjuGL::Draw(triList);
+  AmjuGL::Draw(triList);
 
 #ifdef USE_NDCS
-    AmjuGL::PopMatrix();
-    AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
-    AmjuGL::PopMatrix();
+  AmjuGL::PopMatrix();
+  AmjuGL::SetMatrixMode(AmjuGL::AMJU_MODELVIEW_MATRIX);
+  AmjuGL::PopMatrix();
 #else
-    AmjuGL::PopMatrix();
+  AmjuGL::PopMatrix();
 #endif
 
-    AmjuGL::PopAttrib();
-    AmjuGL::PopAttrib();
+  AmjuGL::PopAttrib();
+  AmjuGL::PopAttrib();
 }
 
 bool PoolFontManager::Init()
