@@ -199,110 +199,108 @@ void EngineStatePoolCourseSelect::DrawOverlays()
 
   // Draw thumnails -- POOL: 4 per level 
   int hole = 0;
-  for (int i = 0; i < 1; i++)
+
+  for (int j = 0; j < 4; j++)
   {
-    for (int j = 0; j < 4; j++)
-    {
-      static const float h = 4.5f;
-      static const float w = 4.5f;
+    static const float h = 4.5f;
+    static const float w = 4.5f;
       
-      float t = 5.5f + i * 4.6f;
-      float b = t + h;
-      float l = 3.0f + j * 4.6f;
+    float t = 5.5f;
+    float b = t + h;
+    float l = 3.0f + j * 4.6f;
 
-      m_thumbnails[hole]->SetSize(w, h);     
-      m_thumbnails[hole]->SetRelPos(t, l);
-      m_thumbnails[hole]->Draw();
+    m_thumbnails[hole]->SetSize(w, h);     
+    m_thumbnails[hole]->SetRelPos(t, l);
+    m_thumbnails[hole]->Draw();
 
-      // If this room has been solved, superimpose something over the
-      // thumb.
-      bool solved = false;
-      for (int k = 0; k < 2; k++)
+    // If this room has been solved, superimpose something over the
+    // thumb.
+    bool solved = false;
+    for (int k = 0; k < 2; k++)
+    {
+      PlayerStats* p = Engine::Instance()->GetGameState()->
+        GetPlayerInfo(k)->GetPlayerStats();
+
+      PoolPlayerStats* pp = dynamic_cast<PoolPlayerStats*>(p);
+      if (pp)
       {
-        PlayerStats* p = Engine::Instance()->GetGameState()->
-          GetPlayerInfo(k)->GetPlayerStats();
-
-        PoolPlayerStats* pp = dynamic_cast<PoolPlayerStats*>(p);
-        if (pp)
+        int levelId = s_currentCourse;
+        int roomId = j;
+        if (pp->GetRoomSolved(levelId, roomId))
         {
-          int levelId = s_currentCourse;
-          int roomId = j;
-          if (pp->GetRoomSolved(levelId, roomId))
-          {
-            solved = true;
-          }
+          solved = true;
         }
       }
-      if (solved)
-      {
-        // TODO TEMP TEST
-        TexturedQuad& tq = m_costTqs[1];
-        tq.Draw(t + h * 0.5f, l + w * 0.5f, t + h, l + w);
-//        Engine::Instance()->GetTextWriter()->Print(l, t, "SOLVED!");
-      }
-
-      // If this room has a cost, show the cost for it.
-      int type = 0, cost = 0;
-      PoolCourseManager::Instance()->GetRoomCost(
-        s_currentCourse, hole, &type, &cost);
-
-      // Show the cost even if we can "afford" it
-      if (cost > 0)
-      {
-        Assert(type > 0);
-        Assert(type <= (int)m_costTqs.size());
-
-        TexturedQuad& tq = m_costTqs[type - 1];
-
-        tq.Draw(t - 1.5f, l + 1.5f, t, l + w - 1.5f);
-        static PoolFont* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
-        std::string coststr = ToString(cost);
-        pFont->PrintNoBlend(l + w * 0.5f - 0.25f * coststr.length(), 
-          t - 1.0f, coststr.c_str());
-      }
-
-      static PoolFont* pFont = 
-        Engine::Instance()->GetTextWriter()->GetDefaultFont();
-      float s = pFont->GetSize();
-      pFont->SetSize(0.6f);
-      if (!PoolCourseManager::Instance()->
-          IsRoomUnlockableDuringTrialPeriod(s_currentCourse, hole) &&
-          !IsRegistered())
-      {
-        pFont->PrintNoBlend(l + 0.5f, b, "Full version only!");
-      }
-      else if (PoolCourseManager::Instance()->
-               IsRoomOnePlayerOnly(s_currentCourse, hole) &&
-               PoolCourseManager::Instance()->
-               IsRoomTwoPlayerOnly(s_currentCourse, hole))
-      {
-        pFont->PrintNoBlend(l + 0.5f, b, "No practice game!");
-      }
-      // TODO check current game type
-      else if (PoolCourseManager::Instance()->
-               IsRoomOnePlayerOnly(s_currentCourse, hole) &&
-               (Engine::Instance()->GetGameState()->IsFriendly() ||
-               NumHumanPlayers() > 1))
-      {
-        pFont->PrintNoBlend(l + 0.5f, b, "One player only");
-      }
-      else if (PoolCourseManager::Instance()->
-               IsRoomTwoPlayerOnly(s_currentCourse, hole) &&
-               (Engine::Instance()->GetGameState()->IsFriendly() ||
-               NumHumanPlayers() < 2))
-      {
-        pFont->PrintNoBlend(l + 0.5f, b, "Two player only");
-      }
-      else if (!PoolCourseManager::Instance()->
-               IsRoomOkForOnline(s_currentCourse, i) &&
-               IsOnlineGame())
-      {
-        pFont->PrintNoBlend(l + 0.5f, b, "No Online game!");
-      }
-
-      pFont->SetSize(s);
-      ++hole;
     }
+    if (solved)
+    {
+      // TODO TEMP TEST
+      TexturedQuad& tq = m_costTqs[1];
+      tq.Draw(t + h * 0.5f, l + w * 0.5f, t + h, l + w);
+//        Engine::Instance()->GetTextWriter()->Print(l, t, "SOLVED!");
+    }
+
+    // If this room has a cost, show the cost for it.
+    int type = 0, cost = 0;
+    PoolCourseManager::Instance()->GetRoomCost(
+      s_currentCourse, hole, &type, &cost);
+
+    // Show the cost even if we can "afford" it
+    if (cost > 0)
+    {
+      Assert(type > 0);
+      Assert(type <= (int)m_costTqs.size());
+
+      TexturedQuad& tq = m_costTqs[type - 1];
+
+      tq.Draw(t - 1.5f, l + 1.5f, t, l + w - 1.5f);
+      static PoolFont* pFont = TheFontManager::Instance()->GetFont("cheri-1.0");
+      std::string coststr = ToString(cost);
+      pFont->PrintNoBlend(l + w * 0.5f - 0.25f * coststr.length(), 
+        t - 1.0f, coststr.c_str());
+    }
+
+    static PoolFont* pFont = 
+      Engine::Instance()->GetTextWriter()->GetDefaultFont();
+    float s = pFont->GetSize();
+    pFont->SetSize(0.6f);
+    if (!PoolCourseManager::Instance()->
+        IsRoomUnlockableDuringTrialPeriod(s_currentCourse, hole) &&
+        !IsRegistered())
+    {
+      pFont->PrintNoBlend(l + 0.5f, b, "Full version only!");
+    }
+    else if (PoolCourseManager::Instance()->
+              IsRoomOnePlayerOnly(s_currentCourse, hole) &&
+              PoolCourseManager::Instance()->
+              IsRoomTwoPlayerOnly(s_currentCourse, hole))
+    {
+      pFont->PrintNoBlend(l + 0.5f, b, "No practice game!");
+    }
+    // TODO check current game type
+    else if (PoolCourseManager::Instance()->
+              IsRoomOnePlayerOnly(s_currentCourse, hole) &&
+              (Engine::Instance()->GetGameState()->IsFriendly() ||
+              NumHumanPlayers() > 1))
+    {
+      pFont->PrintNoBlend(l + 0.5f, b, "One player only");
+    }
+    else if (PoolCourseManager::Instance()->
+              IsRoomTwoPlayerOnly(s_currentCourse, hole) &&
+              (Engine::Instance()->GetGameState()->IsFriendly() ||
+              NumHumanPlayers() < 2))
+    {
+      pFont->PrintNoBlend(l + 0.5f, b, "Two player only");
+    }
+    else if (!PoolCourseManager::Instance()->
+              IsRoomOkForOnline(s_currentCourse, 0) &&
+              IsOnlineGame())
+    {
+      pFont->PrintNoBlend(l + 0.5f, b, "No Online game!");
+    }
+
+    pFont->SetSize(s);
+    ++hole;
   }
   AmjuGL::Enable(AmjuGL::AMJU_DEPTH_READ);
 }
