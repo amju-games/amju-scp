@@ -1,0 +1,3 @@
+Config values to change
+
+max_progress -- progress bar in initial load state (FileCheckState)

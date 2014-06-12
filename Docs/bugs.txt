@@ -16,8 +16,12 @@ Birds eye view - get rid of this except to place ball ? Or, you can't take a sho
 
 Load time: load levels on demand
 
+Locked rooms not working properly now levels are loaded on demand
+
 Efficiency
 ==========
+
+Level::SetRoomId gets called about 500 times at the start of a game.
 
 release: make sure no _DEBUG, use -O2, etc. 
 
@@ -36,6 +40,8 @@ Audio
 
 Cosmetic
 ========
+
+Demo mode: always room 0, WTF
 
 Don't show heart score in top down/bird eye view
 
