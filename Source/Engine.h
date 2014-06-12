@@ -68,7 +68,7 @@ class Player;
 //};
 
 
-class Engine : public ProgressCaller, public GameState, public EventListener
+class Engine : public ProgressCaller, public GameState
 {
 public:
   static Engine* Instance(); // Singleton
