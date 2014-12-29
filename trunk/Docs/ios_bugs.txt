@@ -1,33 +1,58 @@
+Ella list
+=========
+SOmetimes the ball moves automatically
+When the stick goes up the ball moves
+Tell the people if you're player 1 or 2
+Whose name is Marin?
+Sometimes Marin or someone else has two goes without getting a ball in
+
+Profiling
+=========
+
+BasicShadow: Update/Draw is slow
+
+
 Critical
 ========
 
+Movement Too sensitive
+
+Don't take a shot if power is too low
+
+Reinstate sky - but draw last in level ? 
+and scenery
+
+No show path - it KILLS framerate! -- try making dots much smaller before scrapping
+ - it may be the calculation - is it done every frame?
+
+Do release build. What to do for app store release?
+
 iphone frame rate -- smaller ball meshes, smaller textures, no trees, etc.
+ - PROFILE!
+ - If necessary, do LOD on pool balls
 
 Hearts flicker on Big Pockets screen, Trick shots 1 screen
+ - iOS only??
 
-Hearts count and status text at tope of screen overlap. + sometimes text is hard to read. Give text a BG ?
+Hearts count and status text at top of screen overlap. + sometimes text is hard to read. Give text a BG ?
 
-Cue pos (english, top spin, etc) uses picking and reads from back buffer!
+Sound - not playing sound FX - because of limit on same sounds??
 
-Birds eye view - get rid of this except to place ball ? Or, you can't take a shot in b/eye mode
+Cheri font: fix hearts and stars which are in lo res version - TEST
 
-iphone: GUI for small screen
+If you turn off music vol, you can't turn it on again, until the next song.
 
-Sound - not playing sound FX
-
-Cheri font: fix hearts and stars which are in lo res version
-
-Remove edit player names option
-Music option doesn't work! - just get rid of options
 
 Efficiency
 ==========
+
+Make bounding boxes around SolidLeaves, use for BVH. so we ignore more solids.
 
 release: make sure no _DEBUG, -O2, etc. 
 
 iphone - strip dead code - set compiler flag
 
-iphone bad framerate and music stutters -- too many polys ? Try non-debug
+iphone bad framerate -- too many polys ? Try non-debug
 
 
 Pngs were upside-down. Either textures are being flipped somewhere or UVs (v coord) are being flipped ??
@@ -35,14 +60,12 @@ Flipped img, prob doing that twice for some (all) imgs ?!?
 TODO Fix MD2 v-coord - md2 images are upside down but v-coord is flipped!?!?!?!!
 
 Convert amju2 to amju2b ??
-iphone reduced size textures
 
-iphone + wii mipmapping ??? Also DX ?!
+iphone reduced size textures? But using mipmapping
 
 
 Audio
 =====
-Music plays on iphone but is choppy. If this can't be fixed, will have to not have music.
 
 Check sound effects on iphone: May need to change WAV format. - cashreg, foul (rubber ducky), click ok
 
@@ -50,13 +73,14 @@ Check sound effects on iphone: May need to change WAV format. - cashreg, foul (r
 Cosmetic
 ========
 
-"player 1" 3D text too far in.
+Fix scenery UVs
+
+Round shadows for trees. Make shadows less dark
+
+Show where finger is with a circle etc
+
+"player 1" 3D text too far in.????
 Spots/strips icon too
-
-iphone UI: buttons should be a lot bigger.
-
-Wii/iphone buttons which don't make sense, e.g. change player name.
-Options: full screen is not required. In fact could probably do without options menu at all.
 
 Wii and iphone: can't enter player name!!!
 -> Could have GUI keyboard but maybe just have player 1, player 2 and no stats....?
@@ -67,10 +91,9 @@ Positioning cue ball: put cue ball in closest legal position to cursor pos, rath
 
 No lighting now!
 Lighting is not the same as raw OpenGL, so some bits look too dark.
+Phong shading + specular for balls
 
-Some .leaf meshses had auto-gen UVs. The .objs have bogus UVs. Need to UV map them!
-
-Some meshes are supposed to be sphere-mapped.
+Some .leaf meshes had auto-gen UVs. The .objs have bogus UVs. Need to UV map them!
 
 Marin height wrong (also Amju ?)
 
@@ -80,6 +103,7 @@ Localisation
  - Don't use hard coded text on images
  - Use Localise for all text
 
+Marin standing taking shot - bad last frame(s)
 
 Bugs remaining from last release
 ================================
